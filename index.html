@@ -5,93 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>T SURENDRA & ASSOCIATES | Chartered Accountants</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
 
   <!-- Navigation Bar -->
-  <header class="bg-blue-800 text-white py-4 shadow">
-    <div class="container mx-auto flex justify-between items-center px-4">
-      <h1 class="text-xl font-bold">T SURENDRA & ASSOCIATES</h1>
-      <nav class="space-x-4">
-        <a href="#home" class="hover:underline">Home</a>
-        <a href="#about" class="hover:underline">About</a>
-        <a href="#team" class="hover:underline">Team</a>
-        <a href="#services" class="hover:underline">Services</a>
-        <a href="#contact" class="hover:underline">Contact Us</a>
+  <header class="bg-blue-900 text-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold tracking-wide">T SURENDRA & ASSOCIATES</h1>
+      <nav class="hidden md:flex space-x-6 font-medium">
+        <a href="#home" class="hover:text-gray-300 transition">Home</a>
+        <a href="#about" class="hover:text-gray-300 transition">About</a>
+        <a href="#team" class="hover:text-gray-300 transition">Team</a>
+        <a href="#services" class="hover:text-gray-300 transition">Services</a>
+        <a href="#contact" class="hover:text-gray-300 transition">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Home Section -->
-  <section id="home" class="py-10 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1554224155-70c3b0daa0f0');">
-    <div class="container mx-auto px-4 text-white bg-black bg-opacity-50 py-10 rounded">
-      <h2 class="text-3xl font-bold mb-4">Welcome to T SURENDRA & ASSOCIATES</h2>
-      <p class="text-lg">A professional body of Chartered Accountants, Company Secretaries, Cost Accountants, Advocates, and MBAs collaborating to provide audit, consulting, and financial advisory services.</p>
+  <!-- Hero Section -->
+  <section id="home" class="relative h-screen bg-cover bg-center flex items-center" style="background-image: url('https://images.unsplash.com/photo-1554224155-70c3b0daa0f0');">
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <div class="container mx-auto z-10 text-white px-4 text-center md:text-left">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">Welcome to T SURENDRA & ASSOCIATES</h2>
+      <p class="text-lg md:text-xl max-w-3xl animate-fade-in delay-150">A multidisciplinary team of Chartered Accountants, Company Secretaries, Cost Accountants, Advocates, and MBAs collaborating to deliver expert audit, consulting, and financial advisory solutions.</p>
     </div>
   </section>
 
-  <!-- About Us Section -->
-  <section id="about" class="bg-white py-10 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1581093588401-5f3c7a51f7dd');">
-    <div class="container mx-auto px-4 bg-white bg-opacity-80 p-6 rounded">
-      <h2 class="text-2xl font-bold mb-4">About Us</h2>
-      <p class="mb-4">At T SURENDRA & ASSOCIATES, we combine analytical precision with practical, hands-on methodologies tailored to each client’s needs. We prioritize trust, clarity, and long-term partnerships.</p>
-      <h3 class="font-semibold mt-4">Our Vision</h3>
-      <p>To be a future-ready, trusted financial firm delivering innovative and professional solutions.</p>
-      <h3 class="font-semibold mt-4">Our Mission</h3>
-      <p>Empowering clients through robust financial systems, compliance, and strategic business insights.</p>
-      <h3 class="font-semibold mt-4">Core Values</h3>
-      <ul class="list-disc list-inside">
-        <li>Integrity – Honesty, transparency, and strong morals</li>
-        <li>Excellence – High standards consistently</li>
-        <li>Commitment – Dedicated service & client relations</li>
-        <li>Confidentiality – Respecting privacy & data</li>
-        <li>Learning – Adapting to laws and technologies</li>
-      </ul>
+  <!-- About Us -->
+  <section id="about" class="bg-white py-16">
+    <div class="container mx-auto px-4 md:max-w-4xl">
+      <h2 class="text-3xl font-semibold text-center mb-6 text-blue-800">About Us</h2>
+      <p class="text-gray-700 mb-4">At <strong>T SURENDRA & ASSOCIATES</strong>, we blend analytical expertise with practical insight to deliver uniquely tailored solutions. We pledge transparency, trust, and lasting partnerships with our clients.</p>
+      <div class="mb-6">
+        <h3 class="font-semibold text-xl text-blue-700 mb-1">Vision</h3>
+        <p class="text-gray-700">To become a future-ready, trusted financial partner, offering forward-thinking and reliable solutions.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="font-semibold text-xl text-blue-700 mb-1">Mission</h3>
+        <p class="text-gray-700">Empowering businesses and individuals with robust financial, compliance, and advisory systems.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-xl text-blue-700 mb-2">Core Values</h3>
+        <ul class="list-disc list-inside space-y-1 text-gray-700">
+          <li>Integrity – Honesty, transparency, and strong ethics</li>
+          <li>Excellence – Uncompromising commitment to high standards</li>
+          <li>Commitment – Client-focused and dependable service</li>
+          <li>Confidentiality – Respect for data privacy</li>
+          <li>Continuous Learning – Adapting to evolving laws and technologies</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- Team Section -->
-  <section id="team" class="py-10 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600880292089-90a7e086ee8f');">
-    <div class="container mx-auto px-4 bg-white bg-opacity-80 p-6 rounded">
-      <h2 class="text-2xl font-bold mb-4">Our Team</h2>
-      <div class="bg-white shadow rounded p-4">
-        <h3 class="text-xl font-semibold">Surendra Tirumareddi | ACA | B.Com.</h3>
-        <p>Surendra, an Associate Chartered Accountant and Ex-Big 4 professional, specializes in Transfer Pricing, Direct Taxes, and FEMA. He ensures arm’s length compliance in cross-border transactions and advises on corporate tax strategies and regulatory compliance.</p>
+  <section id="team" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4 md:max-w-4xl">
+      <h2 class="text-3xl font-semibold text-center text-blue-800 mb-8">Meet Our Team</h2>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-bold mb-2 text-blue-700">Surendra Tirumareddi | ACA, B.Com.</h3>
+        <p class="text-gray-700">An Associate Chartered Accountant and Ex-Big 4 consultant, Surendra offers deep expertise in Transfer Pricing, Direct Taxation, FEMA, and regulatory compliance. His strategic insights help clients navigate complex international transactions and optimize tax frameworks.</p>
       </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-10 bg-gray-100 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1565373681050-cf13e49f67ec');">
-    <div class="container mx-auto px-4 bg-white bg-opacity-80 p-6 rounded">
-      <h2 class="text-2xl font-bold mb-4">Our Services</h2>
-      <ul class="list-disc list-inside">
-        <li>Start-up Advisory and Consulting Services</li>
-        <li>Virtual CFO Services</li>
-        <li>Direct and International Tax Services</li>
-        <li>Indirect Tax Services</li>
-        <li>Audit and Assurance Services</li>
-        <li>Labour Law Compliance Services</li>
-        <li>Secretarial, FEMA & RBI Compliance Services</li>
-      </ul>
+  <section id="services" class="py-16 bg-blue-50">
+    <div class="container mx-auto px-4 md:max-w-4xl">
+      <h2 class="text-3xl font-semibold text-center text-blue-800 mb-8">Our Services</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <ul class="space-y-3 text-gray-700">
+          <li>✅ Start-up Advisory and Consulting</li>
+          <li>✅ Virtual CFO Services</li>
+          <li>✅ Direct and International Tax Advisory</li>
+          <li>✅ Indirect Tax Planning & Compliance</li>
+        </ul>
+        <ul class="space-y-3 text-gray-700">
+          <li>✅ Statutory & Internal Audit Services</li>
+          <li>✅ Labour Law Compliance</li>
+          <li>✅ Secretarial, FEMA & RBI Compliance</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-10 bg-blue-50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
-      <p><strong>Phone:</strong> 79953 56942</p>
-      <p><strong>Email:</strong> <a href="mailto:Surendra@tsurendraca.in" class="text-blue-600">Surendra@tsurendraca.in</a></p>
-      <p><strong>Website:</strong> <a href="https://tsurendraca.in" class="text-blue-600">tsurendraca.in</a></p>
-      <p><strong>Location:</strong> Hyderabad, Visakhapatnam</p>
+  <section id="contact" class="py-16 bg-white">
+    <div class="container mx-auto px-4 md:max-w-3xl text-center">
+      <h2 class="text-3xl font-semibold text-blue-800 mb-6">Contact Us</h2>
+      <div class="space-y-3 text-gray-700 text-lg">
+        <p><strong>📞 Phone:</strong> <a href="tel:7995356942" class="text-blue-600 hover:underline">79953 56942</a></p>
+        <p><strong>📧 Email:</strong> <a href="mailto:Surendra@tsurendraca.in" class="text-blue-600 hover:underline">Surendra@tsurendraca.in</a></p>
+        <p><strong>🌐 Website:</strong> <a href="https://tsurendraca.in" class="text-blue-600 hover:underline" target="_blank">tsurendraca.in</a></p>
+        <p><strong>📍 Location:</strong> Hyderabad & Visakhapatnam, India</p>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-800 text-white py-4 text-center">
-    <p>&copy; 2025 T SURENDRA & ASSOCIATES. All rights reserved.</p>
+  <footer class="bg-blue-900 text-white py-4 text-center">
+    <p class="text-sm">&copy; 2025 T SURENDRA & ASSOCIATES. All rights reserved.</p>
   </footer>
+
+  <!-- Simple Fade Animation -->
+  <script>
+    document.querySelectorAll('.animate-fade-in').forEach((el, i) => {
+      el.style.opacity = 0;
+      setTimeout(() => {
+        el.style.transition = 'opacity 1s ease';
+        el.style.opacity = 1;
+      }, 300 + i * 150);
+    });
+  </script>
 
 </body>
 </html>
