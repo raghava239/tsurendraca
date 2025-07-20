@@ -8,48 +8,65 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-  <!-- Header -->
-  <header class="bg-blue-800 text-white py-6">
-    <div class="container mx-auto px-4">
-      <h1 class="text-3xl font-bold">T SURENDRA & ASSOCIATES</h1>
-      <p class="text-sm">Chartered Accountants</p>
+  <!-- Navigation Bar -->
+  <header class="bg-blue-800 text-white py-4 shadow">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <h1 class="text-xl font-bold">T SURENDRA & ASSOCIATES</h1>
+      <nav class="space-x-4">
+        <a href="#home" class="hover:underline">Home</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#team" class="hover:underline">Team</a>
+        <a href="#services" class="hover:underline">Services</a>
+        <a href="#contact" class="hover:underline">Contact Us</a>
+      </nav>
     </div>
   </header>
 
   <!-- Home Section -->
-  <section class="py-10">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-4">Welcome</h2>
-      <p>“T SURENDRA & ASSOCIATES" is a professional body where dedicated professionals including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates and MBAs collaborate to provide audit, consulting, financial advisory...</p>
+  <section id="home" class="py-10 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1554224155-70c3b0daa0f0');">
+    <div class="container mx-auto px-4 text-white bg-black bg-opacity-50 py-10 rounded">
+      <h2 class="text-3xl font-bold mb-4">Welcome to T SURENDRA & ASSOCIATES</h2>
+      <p class="text-lg">A professional body of Chartered Accountants, Company Secretaries, Cost Accountants, Advocates, and MBAs collaborating to provide audit, consulting, and financial advisory services.</p>
     </div>
   </section>
 
   <!-- About Us Section -->
-  <section class="bg-white py-10">
-    <div class="container mx-auto px-4">
+  <section id="about" class="bg-white py-10 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1581093588401-5f3c7a51f7dd');">
+    <div class="container mx-auto px-4 bg-white bg-opacity-80 p-6 rounded">
       <h2 class="text-2xl font-bold mb-4">About Us</h2>
-      <p class="mb-4">At T SURENDRA & ASSOCIATES, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on a foundation of trust, clarity, and sustained partnership...</p>
+      <p class="mb-4">At T SURENDRA & ASSOCIATES, we combine analytical precision with practical, hands-on methodologies tailored to each client’s needs. We prioritize trust, clarity, and long-term partnerships.</p>
       <h3 class="font-semibold mt-4">Our Vision</h3>
-      <p>We strive to be a trusted and future-ready financial firm...</p>
+      <p>To be a future-ready, trusted financial firm delivering innovative and professional solutions.</p>
       <h3 class="font-semibold mt-4">Our Mission</h3>
-      <p>Our goal is to empower our clients through robust financial systems...</p>
+      <p>Empowering clients through robust financial systems, compliance, and strategic business insights.</p>
       <h3 class="font-semibold mt-4">Core Values</h3>
       <ul class="list-disc list-inside">
-        <li>Integrity – Honesty, transparency, and strong moral principles</li>
-        <li>Excellence – Delivering high standards consistently</li>
-        <li>Commitment – Dedicated service and long-term client relationships</li>
-        <li>Confidentiality – Respecting client privacy and data</li>
-        <li>Learning – Adapting to ever-changing laws and technologies</li>
+        <li>Integrity – Honesty, transparency, and strong morals</li>
+        <li>Excellence – High standards consistently</li>
+        <li>Commitment – Dedicated service & client relations</li>
+        <li>Confidentiality – Respecting privacy & data</li>
+        <li>Learning – Adapting to laws and technologies</li>
       </ul>
     </div>
   </section>
 
+  <!-- Team Section -->
+  <section id="team" class="py-10 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600880292089-90a7e086ee8f');">
+    <div class="container mx-auto px-4 bg-white bg-opacity-80 p-6 rounded">
+      <h2 class="text-2xl font-bold mb-4">Our Team</h2>
+      <div class="bg-white shadow rounded p-4">
+        <h3 class="text-xl font-semibold">Surendra Tirumareddi | ACA | B.Com.</h3>
+        <p>Surendra, an Associate Chartered Accountant and Ex-Big 4 professional, specializes in Transfer Pricing, Direct Taxes, and FEMA. He ensures arm’s length compliance in cross-border transactions and advises on corporate tax strategies and regulatory compliance.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Services Section -->
-  <section class="py-10 bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-4">Services</h2>
+  <section id="services" class="py-10 bg-gray-100 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1565373681050-cf13e49f67ec');">
+    <div class="container mx-auto px-4 bg-white bg-opacity-80 p-6 rounded">
+      <h2 class="text-2xl font-bold mb-4">Our Services</h2>
       <ul class="list-disc list-inside">
-        <li>Start up Advisory and Consulting Services</li>
+        <li>Start-up Advisory and Consulting Services</li>
         <li>Virtual CFO Services</li>
         <li>Direct and International Tax Services</li>
         <li>Indirect Tax Services</li>
@@ -60,19 +77,8 @@
     </div>
   </section>
 
-  <!-- Team Section -->
-  <section class="py-10">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-4">Our Team</h2>
-      <div class="bg-white shadow rounded p-4">
-        <h3 class="text-xl font-semibold">Surendra Tirumareddi | ACA | B.Com.</h3>
-        <p>Surendra is an Associate Chartered Accountant with specialized expertise in Transfer Pricing, Direct Taxes, and FEMA...</p>
-      </div>
-    </div>
-  </section>
-
   <!-- Contact Section -->
-  <section class="py-10 bg-blue-50">
+  <section id="contact" class="py-10 bg-blue-50">
     <div class="container mx-auto px-4">
       <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
       <p><strong>Phone:</strong> 79953 56942</p>
