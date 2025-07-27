@@ -1575,3 +1575,6 @@ responsive
     margin-left: 0px;
   }
 }
+.background-header {
+   background-color: #082567 !important;
+}
