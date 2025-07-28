@@ -17,11 +17,18 @@
       --white: #FFFFFF;
     }
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: 'Poppins', sans-serif; color: var(--blue); line-height: 1.6; background: var(--white); }
+    body { 
+      margin: 0; 
+      font-family: 'Poppins', sans-serif; 
+      color: var(--blue); 
+      line-height: 1.6; 
+      background: var(--white); 
+    }
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; color: inherit; cursor: pointer; }
     ul, li { padding: 0; margin: 0; list-style: none; }
 
+    /* Header */
     header {
       background: var(--blue);
       position: fixed;
@@ -139,48 +146,7 @@
       background: rgba(255,255,255,0.4); cursor: pointer; transition: background-color 0.3s;
     }
     .carousel-indicators button.active { background: var(--green); }
-    /* Service/Advisory inline modal */
-    #startup-advisory-content {
-      display: none;
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 24px;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.11);
-      color: #082567;
-      position: relative;
-    }
-    #startup-advisory-content h2 { margin-top: 0;}
-    #start-advisory-close {
-      background: var(--green);
-      color: var(--blue);
-      border: none;
-      padding: 8px 20px;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 14px;
-      transition: background 0.16s;
-      margin-bottom: 2px;
-      position: absolute;
-      right: 22px;
-      top: 14px;
-      font-size: 1.15rem;
-    }
-    #start-advisory-close:hover, #start-advisory-close:focus {
-      background: var(--blue);
-      color: var(--white);
-      outline: none;
-    }
-    #startup-advisory-content img {
-      max-width: 350px;
-      width: 100%;
-      margin: 18px auto 10px;
-      display: block;
-      border-radius: 12px;
-      box-shadow: 0 2px 18px rgba(8,37,103,0.10);
-    }
+
     /* Services */
     #services {
       background: var(--light-gray);
@@ -212,6 +178,7 @@
       background: var(--white); color: var(--blue);
     }
     #services ul li:last-child { border-bottom: none; }
+
     /* Team */
     #team-section {
       background: var(--pale-green); max-width: 1100px; margin: 0 auto 60px auto; padding: 50px 15px;
@@ -235,6 +202,7 @@
     }
     .team-card h3 { font-size: 1.12rem; margin: 0 0 6px; color: var(--blue); font-weight: 600; letter-spacing: 0.01em; }
     .team-card p { margin: 0; font-size: 0.98rem; color: #444; letter-spacing: 0.005em; font-weight: 500; }
+
     /* Contact */
     #contact {
       background: var(--light-blue); padding: 60px 15px;
@@ -268,6 +236,8 @@
       background: var(--blue); color: var(--white);
       text-align: center; padding: 20px 10px; font-size: 0.9rem;
     }
+
+    /* Responsive */
     @media (max-width: 991px) {
       .carousel-slide { flex-direction: column; padding-left: 30px; padding-right: 30px; text-align: center; }
       .carousel-image { margin-top: 20px; }
@@ -307,13 +277,13 @@
           <li class="dropdown">
             <a href="#services" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services</a>
             <ul class="dropdown-menu" role="menu" aria-label="Services Submenu">
-              <li><a href="#" id="startup-advisory-link" data-service="startup-advisory">Start-up Advisory and Consulting Services</a></li>
-              <li><a href="#" data-service="virtual-cfo">Virtual CFO Services</a></li>
-              <li><a href="#" data-service="direct-international-tax">Direct and International Tax Services</a></li>
-              <li><a href="#" data-service="indirect-tax">Indirect Tax Services</a></li>
-              <li><a href="#" data-service="audit-assurance">Audit and Assurance Services</a></li>
-              <li><a href="#" data-service="labour-law-compliance">Labour Law Compliance Services</a></li>
-              <li><a href="#" data-service="secretarial-fema-rbi">Secretarial, FEMA & RBI Compliance Services</a></li>
+              <li><a href="startup-advisory.html" data-service="startup-advisory">Start-up Advisory and Consulting Services</a></li>
+              <li><a href="virtual-cfo.html" data-service="virtual-cfo">Virtual CFO Services</a></li>
+              <li><a href="direct-international-tax.html" data-service="direct-international-tax">Direct and International Tax Services</a></li>
+              <li><a href="indirect-tax.html" data-service="indirect-tax">Indirect Tax Services</a></li>
+              <li><a href="audit-assurance.html" data-service="audit-assurance">Audit and Assurance Services</a></li>
+              <li><a href="labour-law-compliance.html" data-service="labour-law-compliance">Labour Law Compliance Services</a></li>
+              <li><a href="secretarial-fema-rbi.html" data-service="secretarial-fema-rbi">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
             </ul>
           </li>
           <li><a href="#team-section">Team</a></li>
@@ -321,9 +291,7 @@
           <li><a href="#contact" class="btn-primary">Message Us</a></li>
         </ul>
         <div class="menu-toggle" aria-label="Toggle menu" tabindex="0" role="button">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </div>
       </nav>
     </div>
@@ -407,29 +375,6 @@
     </div>
   </section>
 
-  <!-- Start-up Advisory Content Modal (Toggled with JS) -->
-  <section id="startup-advisory-content" aria-live="polite" aria-atomic="true">
-    <button id="start-advisory-close" aria-label="Close advisory section">Close ×</button>
-    <h2>Start-up Advisory and Consulting Services</h2>
-    <img src="https://images.unsplash.com/photo-1515168833906-d2a3b82b70f3?auto=format&fit=crop&w=800&q=80" alt="Startup team planning" />
-    <h3>Strategic Business Planning:</h3>
-    <ul>
-      <li>Designing in-depth business plans</li>
-      <li>Innovative market entry strategies</li>
-      <li>Strategic frameworks aligned with your vision &amp; goals</li>
-    </ul>
-    <h3>Financial Advisory &amp; Capital Raising:</h3>
-    <ul>
-      <li>Delivering strategic financial guidance across modelling, budgeting and valuation</li>
-      <li>Developing persuasive investor materials and enabling meaningful investor engagement</li>
-    </ul>
-    <h3>Compliances and Business Structuring:</h3>
-    <ul>
-      <li>Providing strategic counsel on business incorporation, optimal legal frameworks</li>
-      <li>Ensuring full compliance with tax legislation, corporate governance standards and industry specific regulations</li>
-    </ul>
-  </section>
-
   <!-- Services Section -->
   <section id="services" aria-label="Our Services">
     <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
@@ -439,13 +384,13 @@
       </div>
       <div class="text-block">
         <ul>
-          <li>Start-up Advisory and Consulting Services</li>
-          <li>Virtual CFO Services</li>
-          <li>Direct and International Tax Services</li>
-          <li>Indirect Tax Services</li>
-          <li>Audit and Assurance Services</li>
-          <li>Labour Law Compliance Services</li>
-          <li>Secretarial, FEMA &amp; RBI Compliance Services</li>
+          <li><a href="startup-advisory.html">Start-up Advisory and Consulting Services</a></li>
+          <li><a href="virtual-cfo.html">Virtual CFO Services</a></li>
+          <li><a href="direct-international-tax.html">Direct and International Tax Services</a></li>
+          <li><a href="indirect-tax.html">Indirect Tax Services</a></li>
+          <li><a href="audit-assurance.html">Audit and Assurance Services</a></li>
+          <li><a href="labour-law-compliance.html">Labour Law Compliance Services</a></li>
+          <li><a href="secretarial-fema-rbi.html">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
         </ul>
       </div>
     </div>
@@ -537,23 +482,6 @@
           parentLi.classList.toggle('active');
         }
       });
-    });
-
-    // START-UP ADVISORY inline content toggle
-    const startupAdvisoryLink = document.getElementById('startup-advisory-link');
-    const advisoryContent = document.getElementById('startup-advisory-content');
-    const advisoryCloseBtn = document.getElementById('start-advisory-close');
-    const servicesSection = document.getElementById('services');
-    startupAdvisoryLink?.addEventListener('click', function(e) {
-      e.preventDefault();
-      // Hide other sections (optional; remove next line if you don’t want this)
-      // servicesSection.style.display = 'none';
-      advisoryContent.style.display = 'block';
-      advisoryContent.scrollIntoView({ behavior: 'smooth' });
-    });
-    advisoryCloseBtn?.addEventListener('click', function() {
-      advisoryContent.style.display = 'none';
-      // servicesSection.style.display = 'block';
     });
 
     // Carousel Setup
