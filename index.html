@@ -26,46 +26,87 @@
   <!--                    Custom Styles                      -->
   <!-- ===================================================== -->
   <style>
+    /* ================= Root variables ================= */
     :root {
       --blue: #082567;
       --green: #9ACD32;
       --white: #FFFFFF;
     }
+
     body {
       font-family: 'Poppins', sans-serif;
       background-color: var(--white);
       color: var(--blue);
     }
 
-    /* ---------------- Header/Nav Styles ----------------- */
+    /* ---------------- Header and Nav ------------------ */
     .header-area, .main-nav {
       background-color: var(--blue);
     }
+
+    /* Logo with image and text aligned */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo img {
+      max-height: 40px;
+      width: auto;
+      display: block;
+    }
+    .logo h4 {
+      margin: 0;
+      color: var(--white);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      user-select: none;
+    }
+    .logo h4 span {
+      color: var(--green);
+      user-select: none;
+    }
+
+    /* Navigation links */
     .main-nav .nav li a {
       color: var(--white) !important;
+      font-weight: 500;
+      transition: color 0.3s ease;
     }
-    .main-nav .nav li a:hover, .main-nav .nav li a.active {
+    .main-nav .nav li a:hover,
+    .main-nav .nav li a.active {
       color: var(--green) !important;
     }
-    .main-red-button a, .main-button {
+
+    /* Buttons */
+    .main-red-button a,
+    .main-button {
       background-color: var(--green);
       color: var(--blue);
       border: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding: 10px 20px;
+      border-radius: 4px;
+      display: inline-block;
+      text-decoration: none;
     }
-    .main-red-button a:hover, .main-button:hover {
+    .main-red-button a:hover,
+    .main-button:hover {
       background-color: var(--blue);
       color: var(--white);
-    }
-    .section-heading h2 em, .section-heading h2 span {
-      color: var(--green);
-    }
-    .background-header {
-      background-color: #082567 !important;
+      text-decoration: none;
     }
 
-    /* ---------------- Hamburger Menu Custom Style ----------------- */
+    .section-heading h2 em,
+    .section-heading h2 span {
+      color: var(--green);
+    }
+
+    /* ---------------- Hamburger Menu ------------------ */
     .menu-trigger {
-      display: none; /* desktop hidden, mobile flex */
+      display: none; /* hidden on desktop by default */
       cursor: pointer;
       width: 36px;
       height: 36px;
@@ -74,6 +115,7 @@
       align-items: center;
       margin-left: 16px;
       z-index: 1100;
+      user-select: none;
     }
     .menu-trigger span,
     .menu-trigger span::before,
@@ -81,34 +123,32 @@
       display: block;
       position: absolute;
       width: 32px;
-      height: 5px;
+      height: 5px; /* bold bars */
       background: #fff;
       border-radius: 2px;
-      transition: all .3s;
-      font-weight: bold;
+      transition: all 0.3s ease;
       left: 2px;
       content: '';
+      font-weight: bold;
     }
     .menu-trigger span {
       top: 15px;
     }
     .menu-trigger span::before {
-      content: '';
       top: -11px;
-      left: 0;
-      position: absolute;
     }
     .menu-trigger span::after {
-      content: '';
       top: 11px;
-      left: 0;
-      position: absolute;
     }
-    /* Show hamburger and make nav vertical on mobile */
+
+    /* ---------------- Responsive Styles ---------------- */
+
     @media (max-width: 991.98px) {
+      /* Show hamburger on mobile */
       .menu-trigger {
         display: flex;
       }
+      /* Nav menu vertical and hidden initially */
       .main-nav .nav {
         flex-direction: column !important;
         gap: 10px;
@@ -116,17 +156,22 @@
         padding: 10px 0;
         display: none;
       }
+      /* Show nav when active */
       .main-nav.active .nav {
         display: flex;
       }
+      /* Adjust logo image size slightly on mobile */
+      .logo img {
+        max-height: 32px;
+      }
     }
 
-    /* ------------------ Banner Styles ----------------------- */
+    /* ---------------- Banner Section Styles ---------------- */
     .main-banner h2, .main-banner h3 {
       font-weight: 700;
     }
 
-    /* ------------------ About Us Section -------------------- */
+    /* ---------------- About Section ------------------ */
     #about {
       background: linear-gradient(to right, var(--blue), var(--green));
       color: var(--white);
@@ -135,27 +180,28 @@
       color: var(--green);
     }
 
-    /* ------------------ Services Section -------------------- */
+    /* ---------------- Services Section ---------------- */
     #services .list-group-item {
       background-color: var(--white);
       color: var(--blue);
       border: 1px solid var(--green);
     }
 
-    /* ------------------ Portfolio/Team ---------------------- */
+    /* ---------------- Portfolio / Team ---------------- */
     .our-portfolio .section-heading h2 span {
       color: var(--green);
     }
 
-    /* ------------------ Contact Section --------------------- */
+    /* ---------------- Contact Section ---------------- */
     .contact-us .section-heading h2 {
       color: var(--blue);
     }
-    .phone-info h4 span a, .phone-info h4 span {
+    .phone-info h4 span a,
+    .phone-info h4 span {
       color: var(--green);
     }
 
-    /* ------------------ Footer ------------------------------ */
+    /* ---------------- Footer ------------------------- */
     footer {
       background-color: var(--blue);
       color: var(--white);
@@ -163,18 +209,20 @@
       padding: 20px 0;
     }
 
-    /* ------------------ Inputs ------------------------------ */
+    /* ------------- Form Inputs ----------------------- */
     input, textarea {
       border: 1px solid var(--green);
       width: 100%;
       padding: 8px 12px;
       border-radius: 5px;
       margin-bottom: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      color: var(--blue);
     }
 
-    /* ------------------ Responsive Fixes -------------------- */
+    /* ---------- Responsive layout for sections ---------- */
     @media (max-width: 991.98px) {
-      /* Stack columns, images center, add padding */
       .main-banner .row,
       .about-us .row,
       .our-services .row,
@@ -229,6 +277,7 @@
         font-size: 0.95rem;
       }
     }
+
   </style>
 </head>
 <body>
@@ -254,11 +303,12 @@
       <div class="row">
         <div class="col-12">
           <nav class="main-nav">
-            <!-- Logo -->
-            <a href="index.html" class="logo">
+            <!-- Logo with image and text -->
+            <a href="index.html" class="logo" aria-label="T Surendra & Associates Home">
+              <img src="https://caportal.saginfotech.com/wp-content/uploads/2023/11/new-ca-logo-by-icai-1024x538.jpg" alt="ICAI Chartered Accountant Logo" />
               <h4>T SURENDRA<span>CA</span></h4>
             </a>
-            <!-- Nav Menu -->
+            <!-- Navigation Links -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="#about">About Us</a></li>
@@ -269,8 +319,8 @@
                 <div class="main-red-button"><a href="#contact">Message Us</a></div>
               </li>
             </ul>
-            <!-- Mobile Hamburger Trigger -->
-            <a class="menu-trigger" aria-label="Open navigation">
+            <!-- Hamburger icon for mobile -->
+            <a class="menu-trigger" aria-label="Open navigation menu" role="button" tabindex="0">
               <span></span>
             </a>
           </nav>
@@ -504,7 +554,7 @@
 
   <!-- =========== Toggle mobile menu (JS) =========== -->
   <script>
-    // Simple JS to toggle mobile nav
+    // Toggle mobile nav visibility when hamburger is clicked
     document.querySelector('.menu-trigger').addEventListener('click', function() {
       document.querySelector('.main-nav').classList.toggle('active');
     });
