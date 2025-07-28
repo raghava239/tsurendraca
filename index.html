@@ -13,9 +13,7 @@
       --green: #9ACD32;
       --white: #FFFFFF;
     }
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -23,16 +21,9 @@
       color: var(--blue);
       line-height: 1.6;
     }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    /* ========== Header & Navbar ========== */
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; pointer-events: auto; }
+
     header {
       background: var(--blue);
       position: fixed;
@@ -58,21 +49,11 @@
       align-items: center;
       width: 100%;
     }
-    nav .logo {
-      display: flex;
-      align-items: center;
-    }
-    nav .logo img {
-      height: 55px;
-      border-radius: 12px;
-    }
+    nav .logo { display: flex; align-items: center; }
+    nav .logo img { height: 55px; border-radius: 12px; }
     nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1.5rem;
-      margin-left: auto;
-      padding: 0;
-      align-items: center;
+      display: flex; list-style: none; gap: 1.5rem;
+      margin-left: auto; padding: 0; align-items: center;
     }
     nav ul li a {
       font-weight: 600;
@@ -81,8 +62,7 @@
       border-radius: 4px;
       transition: color 0.3s, background-color 0.3s;
     }
-    nav ul li a.active,
-    nav ul li a:hover {
+    nav ul li a.active, nav ul li a:hover {
       color: var(--green);
       background: var(--white);
     }
@@ -91,231 +71,182 @@
       color: var(--blue);
       font-weight: 600;
       padding: 10px 22px;
-      border-radius: 5px;
-      border: none;
+      border-radius: 5px; border: none;
       cursor: pointer;
       transition: background-color 0.3s, color 0.3s;
-      text-align: center;
-      display: inline-block;
+      text-align: center; display: inline-block;
     }
     .btn-primary:hover {
       background-color: var(--blue);
       color: var(--white);
     }
     .menu-toggle {
-      display: none;
-      cursor: pointer;
-      width: 36px;
-      height: 36px;
-      flex-direction: column;
-      justify-content: center;
-      gap: 6px;
+      display: none; cursor: pointer; width: 36px; height: 36px;
+      flex-direction: column; justify-content: center; gap: 6px;
     }
     .menu-toggle span {
-      display: block;
-      height: 4px;
-      width: 100%;
-      border-radius: 3px;
-      background: white;
-      transition: all 0.3s;
+      display: block; height: 4px; width: 100%;
+      border-radius: 3px; background: white; transition: all 0.3s;
     }
-    /* ========== FULL HEIGHT & FULL WIDTH Banner Carousel ========== */
     #top {
-      position: relative;
-      width: 100vw;
-      height: 100vh; /* Full viewport height */
-      padding-top: 65px; /* space for fixed header */
-      background: linear-gradient(to right, var(--blue), var(--green));
-      overflow: hidden;
-      box-sizing: border-box;
-      color: var(--white);
+      position: relative; width: 100vw; height: 100vh;
+      padding-top: 65px; background: linear-gradient(to right, var(--blue), var(--green));
+      overflow: hidden; box-sizing: border-box; color: var(--white);
     }
     #top .carousel-outer {
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      height: calc(100vh - 65px);
-      position: relative;
-      display: flex;
-      overflow: hidden;
+      width: 100vw; margin-left: calc(-50vw + 50%);
+      height: calc(100vh - 65px); position: relative; display: flex; overflow: hidden;
     }
     .carousel-container {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      transition: transform 0.7s ease;
+      width: 100%; height: 100%; display: flex; transition: transform 0.7s ease;
     }
     .carousel-slide {
-      flex: 0 0 100%;
-      display: flex;
-      align-items: center;
-      padding-left: 96px;  /* ~1 inch left padding */
-      padding-right: 96px; /* ~1 inch right padding */
-      box-sizing: border-box;
-      gap: 40px;
-      min-height: 100%;
-      color: var(--white);
+      flex: 0 0 100%; display: flex; align-items: center;
+      padding-left: 96px; padding-right: 96px; box-sizing: border-box;
+      gap: 40px; min-height: 100%; color: var(--white);
     }
     .carousel-content {
-      flex: 1 1 500px;
-      max-width: 600px;
-      font-family: 'Poppins', sans-serif;
+      flex: 1 1 500px; max-width: 600px; font-family: 'Poppins', sans-serif;
     }
     .carousel-content h6 {
-      font-weight: 300;
-      font-size: 1.1rem;
-      color: var(--green);
-      margin: 0 0 8px 0;
+      font-weight: 300; font-size: 1.1rem; color: var(--green); margin: 0 0 8px 0;
     }
     .carousel-content h2 {
-      font-weight: 700;
-      font-size: 3.5rem;
-      margin: 0 0 8px 0;
+      font-weight: 700; font-size: 3.5rem; margin: 0 0 8px 0;
       line-height: 1.1;
     }
-    .carousel-content h2 span {
-      color: var(--green);
-    }
+    .carousel-content h2 span { color: var(--green); }
     .carousel-content h3 {
-      font-weight: 600;
-      font-size: 2rem;
-      margin: 0 0 20px 0;
-      color: var(--green);
-      line-height: 1.3;
+      font-weight: 600; font-size: 2rem; margin: 0 0 20px 0;
+      color: var(--green); line-height: 1.3;
     }
     .carousel-content p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-      line-height: 1.4;
+      font-size: 1.2rem; margin-bottom: 20px; line-height: 1.4;
     }
     .carousel-content ul {
-      margin: 0 0 12px 1.2em;
-      font-size: 1.15rem;
-      list-style-type: disc;
-      padding-left: 1.2em;
-      line-height: 1.4;
+      margin: 0 0 12px 1.2em; font-size: 1.15rem;
+      list-style-type: disc; padding-left: 1.2em; line-height: 1.4;
     }
-    .carousel-content ul li {
-      margin-bottom: 0.6rem;
-    }
+    .carousel-content ul li { margin-bottom: 0.6rem; }
     .carousel-image {
-      flex: 1 1 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      max-width: 400px;
+      flex: 1 1 400px; display: flex; align-items: center;
+      justify-content: center; max-width: 400px;
     }
     .carousel-image img {
-      max-width: 100%;
-      max-height: 280px;
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-      background: #fff;
-      object-fit: cover;
+      max-width: 100%; max-height: 280px;
+      border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      background: #fff; object-fit: cover;
     }
-    /* Carousel Navigation Buttons */
     .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      border: none;
-      background: rgba(255,255,255,0.1);
-      color: var(--white);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 2rem;
-      transition: background-color 0.3s;
-      z-index: 1010;
-      user-select: none;
+      position: absolute; top: 50%; transform: translateY(-50%);
+      border: none; background: rgba(255,255,255,0.1); color: var(--white);
+      width: 50px; height: 50px; border-radius: 50%;
+      cursor: pointer; font-size: 2rem; transition: background-color 0.3s;
+      z-index: 1010; user-select: none;
     }
-    .carousel-btn:hover {
-      background: var(--green);
-      color: var(--blue);
-    }
-    .carousel-btn.prev {
-      left: 16px;
-    }
-    .carousel-btn.next {
-      right: 16px;
-    }
-    /* Dot indicators */
+    .carousel-btn:hover { background: var(--green); color: var(--blue); }
+    .carousel-btn.prev { left: 16px; }
+    .carousel-btn.next { right: 16px; }
     .carousel-indicators {
-      position: absolute;
-      bottom: 25px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 12px;
+      position: absolute; bottom: 25px; left: 50%;
+      transform: translateX(-50%); display: flex; gap: 12px;
       z-index: 1010;
     }
     .carousel-indicators button {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255,255,255,0.4);
-      cursor: pointer;
-      transition: background-color 0.3s;
+      width: 14px; height: 14px; border-radius: 50%;
+      border: none; background: rgba(255,255,255,0.4);
+      cursor: pointer; transition: background-color 0.3s;
     }
-    .carousel-indicators button.active {
-      background: var(--green);
-    }
-    /* ========== Sections Below ========== */
+    .carousel-indicators button.active { background: var(--green); }
     #services {
-      padding: 60px 15px;
-      max-width: 1100px;
-      margin: 0 auto;
-      color: var(--blue);
+      padding: 60px 15px; max-width: 1100px;
+      margin: 0 auto; color: var(--blue);
     }
     #services h2 {
-      font-weight: 700;
-      font-size: 2.2rem;
-      margin-bottom: 25px;
-      text-align: center;
+      font-weight: 700; font-size: 2.2rem;
+      margin-bottom: 25px; text-align: center;
     }
-    #services h2 em,
-    #services h2 span {
-      color: var(--green);
-    }
+    #services h2 em, #services h2 span { color: var(--green); }
     #services .services-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: center;
-      justify-content: center;
+      display: flex; flex-wrap: wrap; gap: 40px;
+      align-items: center; justify-content: center;
     }
     #services .image-block {
-      flex: 1 1 350px;
-      max-width: 350px;
-      text-align: center;
+      flex: 1 1 350px; max-width: 350px; text-align: center;
     }
-    #services .image-block img {
-      border-radius: 12px;
-    }
-    #services .text-block {
-      flex: 1 1 500px;
-      max-width: 600px;
-    }
+    #services .image-block img { border-radius: 12px; }
+    #services .text-block { flex: 1 1 500px; max-width: 600px; }
     #services ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      border: 1px solid var(--green);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: inset 0 0 0 1px var(--green);
+      list-style: none; padding: 0; margin: 0;
+      border: 1px solid var(--green); border-radius: 8px;
+      overflow: hidden; box-shadow: inset 0 0 0 1px var(--green);
     }
     #services ul li {
-      border-bottom: 1px solid var(--green);
-      padding: 15px 20px;
-      background: var(--white);
+      border-bottom: 1px solid var(--green); padding: 15px 20px;
+      background: var(--white); color: var(--blue);
+    }
+    #services ul li:last-child { border-bottom: none; }
+
+    /* Meet our team section */
+    #team-section {
+      max-width: 1100px;
+      margin: 0 auto 60px auto;
+      padding: 50px 15px;
+      text-align: center;
+    }
+    #team-section h2 {
+      font-size: 2.1rem;
       color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 40px;
+      letter-spacing: 0.01em;
     }
-    #services ul li:last-child {
-      border-bottom: none;
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
     }
-    /* ========== Contact Section ========== */
+    .team-card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(8,37,103,0.09);
+      padding: 26px 18px 20px 18px;
+      max-width: 270px;
+      flex: 1 1 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform .2s;
+    }
+    .team-card:hover {
+      transform: translateY(-9px) scale(1.03);
+      box-shadow: 0 6px 36px rgba(8,37,103,0.13);
+    }
+    .team-card img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 25px;
+      border: 3px solid var(--green);
+      background: #eee;
+    }
+    .team-card h3 {
+      font-size: 1.12rem;
+      margin: 0 0 6px;
+      color: var(--blue);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .team-card p {
+      margin: 0;
+      font-size: 0.98rem;
+      color: #444;
+      letter-spacing: 0.005em;
+      font-weight: 500;
+    }
+
     #contact {
       padding: 60px 15px;
       max-width: 1100px;
@@ -323,233 +254,62 @@
       color: var(--blue);
     }
     #contact .contact-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: flex-start;
-      justify-content: center;
+      display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; justify-content: center;
     }
-    #contact .info {
-      flex: 1 1 400px;
-      max-width: 450px;
+    #contact .info { flex: 1 1 400px; max-width: 450px; }
+    #contact .info h2 { font-weight: 700; font-size: 2.2rem; margin-bottom: 16px; }
+    #contact .info p { font-size: 1.1rem; margin-bottom: 24px; }
+    #contact .phone-info h4 { margin: 1rem 0 0.6rem 0; font-weight: 600; }
+    #contact .phone-info h4 span a, #contact .phone-info h4 span { color: var(--green); }
+    #contact .form-container { flex: 1 1 480px; max-width: 480px; }
+    #contact form { width: 100%; }
+    #contact form .row { display: flex; gap: 16px; flex-wrap: wrap; }
+    #contact form .col-half { flex: 1 1 48%; min-width: 140px; }
+    #contact form .col-full { flex: 1 1 100%; }
+    #contact input, #contact textarea {
+      width: 100%; padding: 10px 14px; border: 1px solid var(--green);
+      border-radius: 5px; font-size: 1rem;
+      resize: vertical; color: var(--blue); font-family: 'Poppins', sans-serif;
     }
-    #contact .info h2 {
-      font-weight: 700;
-      font-size: 2.2rem;
-      margin-bottom: 16px;
-    }
-    #contact .info p {
-      font-size: 1.1rem;
-      margin-bottom: 24px;
-    }
-    #contact .phone-info h4 {
-      margin: 1rem 0 0.6rem 0;
-      font-weight: 600;
-    }
-    #contact .phone-info h4 span a,
-    #contact .phone-info h4 span {
-      color: var(--green);
-    }
-    #contact .form-container {
-      flex: 1 1 480px;
-      max-width: 480px;
-    }
-    #contact form {
-      width: 100%;
-    }
-    #contact form .row {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    #contact form .col-half {
-      flex: 1 1 48%;
-      min-width: 140px;
-    }
-    #contact form .col-full {
-      flex: 1 1 100%;
-    }
-    #contact input,
-    #contact textarea {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--green);
-      border-radius: 5px;
-      font-size: 1rem;
-      resize: vertical;
-      color: var(--blue);
-      font-family: 'Poppins', sans-serif;
-    }
-    #contact textarea {
-      min-height: 100px;
-    }
+    #contact textarea { min-height: 100px; }
     #contact .btn-submit {
-      margin-top: 10px;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      background-color: var(--green);
-      color: var(--blue);
-      font-weight: 600;
-      padding: 14px 0;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      transition: background-color 0.3s ease;
+      margin-top: 10px; border: none; cursor: pointer;
+      width: 100%; background-color: var(--green); color: var(--blue);
+      font-weight: 600; padding: 14px 0; border-radius: 8px;
+      font-size: 1.1rem; transition: background-color 0.3s ease;
     }
-    #contact .btn-submit:hover {
-      background-color: var(--blue);
-      color: var(--white);
-    }
-    /* ========== Footer ========== */
+    #contact .btn-submit:hover { background-color: var(--blue); color: var(--white); }
     footer {
-      background: var(--blue);
-      color: var(--white);
-      text-align: center;
-      padding: 20px 10px;
-      font-size: 0.9rem;
+      background: var(--blue); color: var(--white);
+      text-align: center; padding: 20px 10px; font-size: 0.9rem;
     }
-    /* ========== Responsive Styles ========== */
     @media (max-width: 991px) {
-      .container {
-        width: 95%;
-      }
+      .container { width: 95%; }
       nav ul {
-        display: none;
-        position: fixed;
-        top: 65px;
-        right: 0;
-        background: var(--blue);
-        width: 200px;
-        flex-direction: column;
-        padding: 10px 15px;
-        border-radius: 0 0 0 8px;
-        z-index: 2100;
+        display: none; position: fixed; top: 65px; right: 0; background: var(--blue);
+        width: 200px; flex-direction: column; padding: 10px 15px;
+        border-radius: 0 0 0 8px; z-index: 2100;
       }
-      nav ul.active {
-        display: flex;
-      }
-      .menu-toggle {
-        display: flex;
-        margin-left: 10px;
-      }
-      #top .carousel-slide {
-        flex-direction: column;
-        padding-left: 30px;
-        padding-right: 30px;
-        text-align: center;
-      }
-      #top .carousel-image {
-        margin-top: 20px;
-      }
-      #services .services-container,
-      #contact .contact-wrapper {
-        flex-direction: column;
-        align-items: center;
-      }
-      #services .text-block,
-      #services .image-block,
-      #contact .info,
-      #contact .form-container {
-        max-width: 100%;
-      }
-      #contact form .col-half {
-        flex: 1 1 100%;
-      }
+      nav ul.active { display: flex; }
+      .menu-toggle { display: flex; margin-left: 10px; }
+      #top .carousel-slide { flex-direction: column; padding-left: 30px; padding-right: 30px; text-align: center; }
+      #top .carousel-image { margin-top: 20px; }
+      #services .services-container, #contact .contact-wrapper, .team-members { flex-direction: column; align-items: center; }
+      #services .text-block, #services .image-block, #contact .info, #contact .form-container, .team-card { max-width: 100%; }
+      #contact form .col-half { flex: 1 1 100%; }
+      #team-section { padding: 40px 7vw; }
     }
     @media (max-width: 575px) {
-      #top .carousel-content h2 {
-        font-size: 2.2rem;
-      }
-      #top .carousel-content h3 {
-        font-size: 1.5rem;
-      }
-      #top .carousel-content p,
-      #top .carousel-content ul {
-        font-size: 1rem;
-      }
-      #contact .info h2, #services h2 {
-        font-size: 1.8rem;
-      }
-    }
-
-    /* ======== Updated Styles for Vision, Mission & Core Values Slide ======= */
-    /* Override carousel-slide flex for slide 3 to get side-by-side balanced layout */
-    #top .carousel-slide:last-child {
-      padding-left: 96px;
-      padding-right: 96px;
-      gap: 2rem;
-      justify-content: space-between;
-    }
-    #top .carousel-slide:last-child .carousel-content {
-      flex: 1 1 55%;
-      max-width: none;
-      padding-right: 1rem;
-      text-align: left;
-      color: var(--white);
-    }
-    #top .carousel-slide:last-child .carousel-content h2 {
-      font-size: 2.25rem;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-    }
-    #top .carousel-slide:last-child .carousel-content h2 span {
-      color: var(--green);
-    }
-    #top .carousel-slide:last-child .carousel-content h3 {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-top: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-    #top .carousel-slide:last-child .carousel-content p {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-    #top .carousel-slide:last-child .carousel-content ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
-      margin: 0.5rem 0;
-      font-size: 1.1rem;
-      line-height: 1.5;
-    }
-    #top .carousel-slide:last-child .carousel-content ul li {
-      margin-bottom: 0.6rem;
-    }
-    #top .carousel-slide:last-child .carousel-image {
-      flex: 1 1 40%;
-      max-width: 300px;
-      text-align: center;
-      align-self: center;
-    }
-    #top .carousel-slide:last-child .carousel-image img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-      object-fit: cover;
-      background: var(--white);
-      max-height: 280px;
-    }
-    /* Responsive for slide 3 */
-    @media (max-width: 768px) {
-      #top .carousel-slide:last-child {
-        flex-direction: column;
-        text-align: center;
-      }
-      #top .carousel-slide:last-child .carousel-content {
-        padding-right: 0;
-      }
-      #top .carousel-slide:last-child .carousel-image {
-        max-width: 80%;
-        margin-top: 1.5rem;
-      }
+      #top .carousel-content h2 { font-size: 2.2rem; }
+      #top .carousel-content h3 { font-size: 1.5rem; }
+      #top .carousel-content p, #top .carousel-content ul { font-size: 1rem; }
+      #contact .info h2, #services h2, #team-section h2 { font-size: 1.6rem; }
+      .team-card { padding: 20px 7vw 16px 7vw; }
     }
   </style>
 </head>
 <body>
-
-  <!-- ========== Header/Navbar ========== -->
+  <!-- Header/Navbar -->
   <header>
     <div class="container">
       <nav>
@@ -560,6 +320,7 @@
           <li><a href="#top" class="active">Home</a></li>
           <li><a href="#top">About</a></li>
           <li><a href="#services">Services</a></li>
+          <li><a href="#team-section">Team</a></li>
           <li><a href="#contact">Contact Us</a></li>
           <li><a href="#contact" class="btn-primary">Message Us</a></li>
         </ul>
@@ -572,12 +333,48 @@
     </div>
   </header>
 
-  <!-- ========== Banner Carousel Section (Full width, full height with 3 slides) ========== -->
+  <!-- Carousel Section -->
   <section id="top" aria-label="Welcome Banner">
     <div class="carousel-outer">
       <div class="carousel-container" id="bannerCarousel" aria-live="polite" aria-atomic="true">
-        <!-- Slide 1: Welcome -->
-        <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3 - Welcome to T Surendra & Associates">
+        <!-- Slide 1: Vision -->
+        <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 1 of 5 - Vision">
+          <div class="carousel-content">
+            <h2>Our <span>Vision</span></h2>
+            <p>To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions, and unwavering commitment.</p>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/portfolio-image.png" alt="Vision" loading="lazy" onerror="this.style.display='none'"/>
+          </div>
+        </article>
+        <!-- Slide 2: Mission -->
+        <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 5 - Mission">
+          <div class="carousel-content">
+            <h2>Our <span>Mission</span></h2>
+            <p>Empower clients through robust financial systems, compliance, and strategic insights that foster growth and sustainability.</p>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/banner-right-image.png" alt="Mission" loading="lazy" onerror="this.style.display='none'"/>
+          </div>
+        </article>
+        <!-- Slide 3: Core Values -->
+        <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 3 of 5 - Core Values">
+          <div class="carousel-content">
+            <h2>Our <span>Core Values</span></h2>
+            <ul>
+              <li>Integrity – Honesty, transparency, and strong moral principles</li>
+              <li>Excellence – Delivering high standards consistently</li>
+              <li>Commitment – Dedicated service and long-term relationships</li>
+              <li>Confidentiality – Respecting client privacy and data</li>
+              <li>Learning – Adapting to changing laws and technologies</li>
+            </ul>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/about-left-image.png" alt="Core Values" loading="lazy" onerror="this.style.display='none'"/>
+          </div>
+        </article>
+        <!-- Slide 4: Welcome -->
+        <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 4 of 5 - Welcome to T Surendra & Associates">
           <div class="carousel-content">
             <h6>Welcome to</h6>
             <h2>T SURENDRA & ASSOCIATES</h2>
@@ -591,9 +388,8 @@
             <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/banner-right-image.png" alt="Professional team meeting" loading="lazy" onerror="this.style.display='none'"/>
           </div>
         </article>
-
-        <!-- Slide 2: Approach & Principles -->
-        <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3 - Our Approach and Principles">
+        <!-- Slide 5: Approach & Principles -->
+        <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 5 of 5 - Our Approach and Principles">
           <div class="carousel-content">
             <h2>Our <span>Approach</span> <span>And Principles</span></h2>
             <p>At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.</p>
@@ -609,28 +405,6 @@
           </div>
         </article>
 
-        <!-- Slide 3: Vision, Mission, Core Values with improved layout -->
-        <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3 - Our Vision, Mission and Core Values">
-          <div class="carousel-content">
-            <h2>Our Vision, Mission<br> &amp; <span>Core Values</span></h2>
-            <h3>💡 Our Vision</h3>
-            <p>To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions, and unwavering commitment.</p>
-            <h3>🚀 Our Mission</h3>
-            <p>Empower clients through robust financial systems, compliance, and strategic insights that foster growth and sustainability.</p>
-            <h3>🎯 Core Values</h3>
-            <ul>
-              <li>Integrity – Honesty, transparency, and strong moral principles</li>
-              <li>Excellence – Delivering high standards consistently</li>
-              <li>Commitment – Dedicated service and long-term relationships</li>
-              <li>Confidentiality – Respecting client privacy and data</li>
-              <li>Learning – Adapting to changing laws and technologies</li>
-            </ul>
-          </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/portfolio-image.png" alt="Vision, Mission, Core Values" loading="lazy" onerror="this.style.display='none'"/>
-          </div>
-        </article>
-
         <!-- Carousel Navigation Buttons -->
         <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
         <button type="button" class="carousel-btn next" aria-label="Next Slide">&#9654;</button>
@@ -641,7 +415,8 @@
     </div>
   </section>
 
-  <!-- ========== Services Section ========== -->
+
+  <!-- Services Section -->
   <section id="services" aria-label="Our Services">
     <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
     <div class="services-container">
@@ -662,7 +437,29 @@
     </div>
   </section>
 
-  <!-- ========== Contact Section (with Location & Enquiry Form) ========== -->
+  <!-- Meet Our Team Section -->
+  <section id="team-section">
+    <h2>Meet Our Team</h2>
+    <div class="team-members">
+      <div class="team-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5Ta78WVA8O7vL6c16qHxkejQG2dX_iQYPFXexO2maS-G5vuuvWooch-dTuj5-sdCqTX8&usqp=CAU" alt="Surendra Tirumareddi" />
+        <h3>Surendra Tirumareddi</h3>
+        <p>ACA | B.Com.</p>
+      </div>
+      <div class="team-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5Ta78WVA8O7vL6c16qHxkejQG2dX_iQYPFXexO2maS-G5vuuvWooch-dTuj5-sdCqTX8&usqp=CAU" alt="Ravi Teja M" />
+        <h3>Ravi Teja M</h3>
+        <p>ACA | B.Com.</p>
+      </div>
+      <div class="team-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5Ta78WVA8O7vL6c16qHxkejQG2dX_iQYPFXexO2maS-G5vuuvWooch-dTuj5-sdCqTX8&usqp=CAU" alt="Third person" />
+        <h3>Third person</h3>
+        <p>ACA | B.Com.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
   <section id="contact" aria-label="Contact Us">
     <div class="contact-wrapper">
       <div class="info">
@@ -703,12 +500,12 @@
     </div>
   </section>
 
-  <!-- ========== Footer ========== -->
+  <!-- Footer -->
   <footer>
     <p>T SURENDRA & ASSOCIATES. All Rights Reserved.</p>
   </footer>
 
-  <!-- ========== JavaScript ========== -->
+  <!-- JavaScript for menu and carousel -->
   <script>
     // Hamburger Mobile Menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -731,7 +528,6 @@
       let slideCount = slides.length;
       let autoSlideInterval = null;
 
-      // Initialize indicators
       for(let i=0; i<slideCount; i++) {
         const btn = document.createElement('button');
         btn.setAttribute('aria-label', `Go to slide ${i+1}`);
@@ -746,14 +542,12 @@
       }
       const indicators = Array.from(indicatorsContainer.children);
 
-      // Move to a specific slide index
       function goToSlide(index) {
         currentIndex = index;
         container.style.transform = `translateX(-${index * 100}%)`;
         updateIndicators();
       }
 
-      // Update dot indicators active state and tabindex for accessibility
       function updateIndicators() {
         indicators.forEach((btn, i) => {
           btn.classList.toggle('active', i === currentIndex);
@@ -761,13 +555,11 @@
         });
       }
 
-      // Go to next slide
       function nextSlide() {
         currentIndex = (currentIndex + 1) % slideCount;
         goToSlide(currentIndex);
       }
 
-      // Go to previous slide
       function prevSlide() {
         currentIndex = (currentIndex - 1 + slideCount) % slideCount;
         goToSlide(currentIndex);
@@ -782,7 +574,6 @@
         prevSlide();
       });
 
-      // Auto slide every 6.2 seconds
       function startTimer() {
         autoSlideInterval = setInterval(nextSlide, 6200);
       }
