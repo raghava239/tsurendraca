@@ -158,6 +158,7 @@
     .carousel-content {
       flex: 1 1 500px;
       max-width: 600px;
+      font-family: 'Poppins', sans-serif;
     }
     .carousel-content h6 {
       font-weight: 300;
@@ -171,11 +172,15 @@
       margin: 0 0 8px 0;
       line-height: 1.1;
     }
+    .carousel-content h2 span {
+      color: var(--green);
+    }
     .carousel-content h3 {
       font-weight: 600;
       font-size: 2rem;
       margin: 0 0 20px 0;
       color: var(--green);
+      line-height: 1.3;
     }
     .carousel-content p {
       font-size: 1.2rem;
@@ -189,14 +194,15 @@
       padding-left: 1.2em;
       line-height: 1.4;
     }
-    .carousel-content h3 span {
-      color: var(--green);
+    .carousel-content ul li {
+      margin-bottom: 0.6rem;
     }
     .carousel-image {
       flex: 1 1 400px;
       display: flex;
       align-items: center;
       justify-content: center;
+      max-width: 400px;
     }
     .carousel-image img {
       max-width: 100%;
@@ -204,8 +210,9 @@
       border-radius: 20px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
       background: #fff;
+      object-fit: cover;
     }
-    /* Navigation buttons for slides */
+    /* Carousel Navigation Buttons */
     .carousel-btn {
       position: absolute;
       top: 50%;
@@ -464,6 +471,80 @@
         font-size: 1.8rem;
       }
     }
+
+    /* ======== Updated Styles for Vision, Mission & Core Values Slide ======= */
+    /* Override carousel-slide flex for slide 3 to get side-by-side balanced layout */
+    #top .carousel-slide:last-child {
+      padding-left: 96px;
+      padding-right: 96px;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    #top .carousel-slide:last-child .carousel-content {
+      flex: 1 1 55%;
+      max-width: none;
+      padding-right: 1rem;
+      text-align: left;
+      color: var(--white);
+    }
+    #top .carousel-slide:last-child .carousel-content h2 {
+      font-size: 2.25rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    #top .carousel-slide:last-child .carousel-content h2 span {
+      color: var(--green);
+    }
+    #top .carousel-slide:last-child .carousel-content h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    #top .carousel-slide:last-child .carousel-content p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    #top .carousel-slide:last-child .carousel-content ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+    #top .carousel-slide:last-child .carousel-content ul li {
+      margin-bottom: 0.6rem;
+    }
+    #top .carousel-slide:last-child .carousel-image {
+      flex: 1 1 40%;
+      max-width: 300px;
+      text-align: center;
+      align-self: center;
+    }
+    #top .carousel-slide:last-child .carousel-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+      object-fit: cover;
+      background: var(--white);
+      max-height: 280px;
+    }
+    /* Responsive for slide 3 */
+    @media (max-width: 768px) {
+      #top .carousel-slide:last-child {
+        flex-direction: column;
+        text-align: center;
+      }
+      #top .carousel-slide:last-child .carousel-content {
+        padding-right: 0;
+      }
+      #top .carousel-slide:last-child .carousel-image {
+        max-width: 80%;
+        margin-top: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -477,6 +558,7 @@
         </a>
         <ul id="nav-menu">
           <li><a href="#top" class="active">Home</a></li>
+          <li><a href="#top">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact Us</a></li>
           <li><a href="#contact" class="btn-primary">Message Us</a></li>
@@ -527,7 +609,7 @@
           </div>
         </article>
 
-        <!-- Slide 3: Vision, Mission, Core Values -->
+        <!-- Slide 3: Vision, Mission, Core Values with improved layout -->
         <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3 - Our Vision, Mission and Core Values">
           <div class="carousel-content">
             <h2>Our Vision, Mission<br> &amp; <span>Core Values</span></h2>
