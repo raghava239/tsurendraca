@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- ===================================================== -->
-  <!--                Meta, Fonts, and Styles                -->
+  <!--                Meta, Fonts, and Vendor CSS            -->
   <!-- ===================================================== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,182 +15,57 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-  <!-- Combined CSS Start -->
+  <!-- Vendor CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/fontawesome.css" />
+  <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css" />
+  <link rel="stylesheet" href="assets/css/animated.css" />
+  <link rel="stylesheet" href="assets/css/owl.css" />
+
+  <!-- ===================================================== -->
+  <!--                    Custom Styles                      -->
+  <!-- ===================================================== -->
   <style>
-    /* Bootstrap Grid & Essential Utilities (simplified) */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    body, h1, h2, h3, h4, h5, h6, p, ul, h4 {
-      margin: 0;
-      padding: 0;
-    }
-    ul {
-      list-style: none;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* Bootstrap Container */
-    .container {
-      width: 100%;
-      padding-right: 15px;
-      padding-left: 15px;
-      margin-right: auto;
-      margin-left: auto;
-      max-width: 1140px;
-    }
-
-    /* Bootstrap Row */
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      margin-right: -15px;
-      margin-left: -15px;
-    }
-
-    /* Bootstrap Columns (simplified for lg and md and xs) */
-    .col-12 {
-      flex: 0 0 100%;
-      max-width: 100%;
-      padding-right: 15px;
-      padding-left: 15px;
-    }
-    @media (min-width: 768px) {
-      .col-md-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-      }
-    }
-    @media (min-width: 992px) {
-      .col-lg-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-      }
-      .col-lg-12 {
-        flex: 0 0 100%;
-        max-width: 100%;
-      }
-      .col-lg-5 {
-        flex: 0 0 41.66667%;
-        max-width: 41.66667%;
-      }
-      .col-lg-7 {
-        flex: 0 0 58.33333%;
-        max-width: 58.33333%;
-      }
-      .col-lg-6.offset-lg-3 {
-        margin-left: 25%;
-      }
-    }
-
-    /* Buttons and Interactive Elements */
-    .main-red-button a,
-    .main-button {
-      background-color: #9ACD32;
-      color: #082567;
-      border: none;
-      font-weight: 600;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      padding: 10px 20px;
-      border-radius: 4px;
-      display: inline-block;
-      cursor: pointer;
-    }
-    .main-red-button a:hover,
-    .main-button:hover {
-      background-color: #082567;
-      color: #fff;
-    }
-
-    /* ================= Root Varibles ================= */
     :root {
       --blue: #082567;
       --green: #9ACD32;
       --white: #FFFFFF;
     }
-
     body {
       font-family: 'Poppins', sans-serif;
       background-color: var(--white);
       color: var(--blue);
-      line-height: 1.5;
     }
 
-    /* ---------------- Header and Nav ------------------ */
+    /* ---------------- Header/Nav Styles ----------------- */
     .header-area, .main-nav {
       background-color: var(--blue);
     }
-
-    /* Logo with image and text aligned */
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo img {
-      max-height: 40px;
-      width: auto;
-      display: block;
-    }
-    .logo h4 {
-      margin: 0;
-      color: var(--white);
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      user-select: none;
-    }
-    .logo h4 span {
-      color: var(--green);
-      user-select: none;
-    }
-
-    /* Navigation */
-    .main-nav .nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .main-nav .nav li {
-      list-style: none;
-    }
     .main-nav .nav li a {
       color: var(--white) !important;
-      font-weight: 500;
-      padding: 8px 12px;
-      transition: color 0.3s ease;
-      display: block;
     }
-    .main-nav .nav li a:hover,
-    .main-nav .nav li a.active {
+    .main-nav .nav li a:hover, .main-nav .nav li a.active {
       color: var(--green) !important;
     }
-
-    /* For the red button links */
-    .main-red-button a {
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 25px;
-      font-weight: 600;
-      transition: background-color 0.3s ease, color 0.3s ease;
+    .main-red-button a, .main-button {
+      background-color: var(--green);
+      color: var(--blue);
+      border: none;
     }
-    .main-red-button a:hover {
+    .main-red-button a:hover, .main-button:hover {
       background-color: var(--blue);
       color: var(--white);
-      text-decoration: none;
+    }
+    .section-heading h2 em, .section-heading h2 span {
+      color: var(--green);
+    }
+    .background-header {
+      background-color: #082567 !important;
     }
 
-    /* ---------------- Hamburger Menu ------------------ */
+    /* ---------------- Hamburger Menu Custom Style ----------------- */
     .menu-trigger {
-      display: none; /* hidden on desktop */
+      display: none; /* desktop hidden, mobile flex */
       cursor: pointer;
       width: 36px;
       height: 36px;
@@ -199,7 +74,6 @@
       align-items: center;
       margin-left: 16px;
       z-index: 1100;
-      user-select: none;
     }
     .menu-trigger span,
     .menu-trigger span::before,
@@ -207,31 +81,52 @@
       display: block;
       position: absolute;
       width: 32px;
-      height: 5px; /* bold bars */
+      height: 5px;
       background: #fff;
       border-radius: 2px;
-      transition: all 0.3s ease;
+      transition: all .3s;
+      font-weight: bold;
       left: 2px;
       content: '';
-      font-weight: bold;
     }
     .menu-trigger span {
       top: 15px;
     }
     .menu-trigger span::before {
+      content: '';
       top: -11px;
+      left: 0;
+      position: absolute;
     }
     .menu-trigger span::after {
+      content: '';
       top: 11px;
+      left: 0;
+      position: absolute;
+    }
+    /* Show hamburger and make nav vertical on mobile */
+    @media (max-width: 991.98px) {
+      .menu-trigger {
+        display: flex;
+      }
+      .main-nav .nav {
+        flex-direction: column !important;
+        gap: 10px;
+        background: var(--blue);
+        padding: 10px 0;
+        display: none;
+      }
+      .main-nav.active .nav {
+        display: flex;
+      }
     }
 
-    /* ---------------- Sections Styling ---------------- */
-    /* Banner */
+    /* ------------------ Banner Styles ----------------------- */
     .main-banner h2, .main-banner h3 {
       font-weight: 700;
     }
 
-    /* About Section */
+    /* ------------------ About Us Section -------------------- */
     #about {
       background: linear-gradient(to right, var(--blue), var(--green));
       color: var(--white);
@@ -240,32 +135,27 @@
       color: var(--green);
     }
 
-    /* Services */
+    /* ------------------ Services Section -------------------- */
     #services .list-group-item {
       background-color: var(--white);
       color: var(--blue);
       border: 1px solid var(--green);
-      padding: .75rem 1.25rem;
-      margin-bottom: 0.75rem;
-      border-radius: 0.25rem;
-      font-size: 1rem;
     }
 
-    /* Portfolio */
+    /* ------------------ Portfolio/Team ---------------------- */
     .our-portfolio .section-heading h2 span {
       color: var(--green);
     }
 
-    /* Contact */
+    /* ------------------ Contact Section --------------------- */
     .contact-us .section-heading h2 {
       color: var(--blue);
     }
-    .phone-info h4 span a,
-    .phone-info h4 span {
+    .phone-info h4 span a, .phone-info h4 span {
       color: var(--green);
     }
 
-    /* Footer */
+    /* ------------------ Footer ------------------------------ */
     footer {
       background-color: var(--blue);
       color: var(--white);
@@ -273,44 +163,18 @@
       padding: 20px 0;
     }
 
-    /* Form Inputs */
+    /* ------------------ Inputs ------------------------------ */
     input, textarea {
       border: 1px solid var(--green);
       width: 100%;
       padding: 8px 12px;
       border-radius: 5px;
       margin-bottom: 10px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      color: var(--blue);
-    }
-    textarea {
-      resize: vertical;
     }
 
-    /* ================= Responsive ================== */
+    /* ------------------ Responsive Fixes -------------------- */
     @media (max-width: 991.98px) {
-      /* Show hamburger on mobile */
-      .menu-trigger {
-        display: flex;
-      }
-      /* Nav menu vertical and hidden initially */
-      .main-nav .nav {
-        flex-direction: column !important;
-        gap: 10px;
-        background: var(--blue);
-        padding: 10px 0;
-        display: none;
-      }
-      /* Show nav when active */
-      .main-nav.active .nav {
-        display: flex;
-      }
-      /* Adjust logo height on mobile */
-      .logo img {
-        max-height: 32px;
-      }
-      /* Stack main sections vertically */
+      /* Stack columns, images center, add padding */
       .main-banner .row,
       .about-us .row,
       .our-services .row,
@@ -319,7 +183,6 @@
         flex-direction: column !important;
         text-align: center;
       }
-      /* Images centered and sized */
       .main-banner .right-image img,
       .about-us img,
       .our-services img {
@@ -367,7 +230,6 @@
       }
     }
   </style>
-  <!-- Combined CSS End -->
 </head>
 <body>
   <!-- ===================================================== -->
@@ -392,12 +254,11 @@
       <div class="row">
         <div class="col-12">
           <nav class="main-nav">
-            <!-- Logo with image -->
-            <a href="index.html" class="logo" aria-label="T Surendra & Associates Home">
-              <img src="https://caportal.saginfotech.com/wp-content/uploads/2023/11/new-ca-logo-by-icai-1024x538.jpg" alt="ICAI Chartered Accountant Logo" />
+            <!-- Logo -->
+            <a href="index.html" class="logo">
               <h4>T SURENDRA<span>CA</span></h4>
             </a>
-            <!-- Navigation Links -->
+            <!-- Nav Menu -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="#about">About Us</a></li>
@@ -408,8 +269,8 @@
                 <div class="main-red-button"><a href="#contact">Message Us</a></div>
               </li>
             </ul>
-            <!-- Hamburger icon for mobile -->
-            <a class="menu-trigger" aria-label="Open navigation menu" role="button" tabindex="0">
+            <!-- Mobile Hamburger Trigger -->
+            <a class="menu-trigger" aria-label="Open navigation">
               <span></span>
             </a>
           </nav>
@@ -643,7 +504,7 @@
 
   <!-- =========== Toggle mobile menu (JS) =========== -->
   <script>
-    // Toggle mobile nav visibility when hamburger is clicked
+    // Simple JS to toggle mobile nav
     document.querySelector('.menu-trigger').addEventListener('click', function() {
       document.querySelector('.main-nav').classList.toggle('active');
     });
