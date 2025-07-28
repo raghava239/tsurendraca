@@ -30,6 +30,8 @@
       --blue: #082567;
       --green: #9ACD32;
       --white: #FFFFFF;
+      --blue-light: #CCE2FF;
+      --green-light: #E6F2B2;
     }
     body {
       font-family: 'Poppins', sans-serif;
@@ -37,7 +39,6 @@
       color: var(--blue);
     }
 
-    /* ---------------- Header/Nav Styles ----------------- */
     .header-area, .main-nav {
       background-color: var(--blue);
     }
@@ -62,6 +63,14 @@
     .background-header {
       background-color: #082567 !important;
     }
+    /* Replace old logo text header styles where necessary */
+    .logo img {
+      max-height: 48px;
+      width: auto;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .logo h4 { display: none; }
 
     /* ---------------- Hamburger Menu Custom Style ----------------- */
     .menu-trigger {
@@ -104,11 +113,8 @@
       left: 0;
       position: absolute;
     }
-    /* Show hamburger and make nav vertical on mobile */
     @media (max-width: 991.98px) {
-      .menu-trigger {
-        display: flex;
-      }
+      .menu-trigger { display: flex; }
       .main-nav .nav {
         flex-direction: column !important;
         gap: 10px;
@@ -116,44 +122,41 @@
         padding: 10px 0;
         display: none;
       }
-      .main-nav.active .nav {
-        display: flex;
-      }
+      .main-nav.active .nav { display: flex; }
     }
 
     /* ------------------ Banner Styles ----------------------- */
-    .main-banner h2, .main-banner h3 {
-      font-weight: 700;
-    }
-
+    .main-banner h2, .main-banner h3 { font-weight: 700; }
+    /* Remove h4 text inside .logo for the new logo image */
     /* ------------------ About Us Section -------------------- */
     #about {
       background: linear-gradient(to right, var(--blue), var(--green));
       color: var(--white);
     }
-    #about h2 span {
-      color: var(--green);
-    }
+    #about h2 span { color: var(--green); }
 
     /* ------------------ Services Section -------------------- */
     #services .list-group-item {
-      background-color: var(--white);
       color: var(--blue);
       border: 1px solid var(--green);
+      background-color: var(--blue-light);
+      transition: background-color 0.3s ease;
+    }
+    #services .list-group-item:nth-child(even) {
+      background-color: var(--green-light);
+    }
+    #services .list-group-item:hover {
+      background-color: var(--green);
+      color: var(--white);
+      cursor: pointer;
     }
 
     /* ------------------ Portfolio/Team ---------------------- */
-    .our-portfolio .section-heading h2 span {
-      color: var(--green);
-    }
+    .our-portfolio .section-heading h2 span { color: var(--green); }
 
     /* ------------------ Contact Section --------------------- */
-    .contact-us .section-heading h2 {
-      color: var(--blue);
-    }
-    .phone-info h4 span a, .phone-info h4 span {
-      color: var(--green);
-    }
+    .contact-us .section-heading h2 { color: var(--blue); }
+    .phone-info h4 span a, .phone-info h4 span { color: var(--green); }
 
     /* ------------------ Footer ------------------------------ */
     footer {
@@ -172,9 +175,7 @@
       margin-bottom: 10px;
     }
 
-    /* ------------------ Responsive Fixes -------------------- */
     @media (max-width: 991.98px) {
-      /* Stack columns, images center, add padding */
       .main-banner .row,
       .about-us .row,
       .our-services .row,
@@ -195,39 +196,19 @@
       }
     }
     @media (max-width: 767.98px) {
-      .section-heading h2 {
-        font-size: 1.3rem !important;
-      }
-      .main-banner h2, .main-banner h3 {
-        font-size: 1.1rem;
-      }
+      .section-heading h2 { font-size: 1.3rem !important; }
+      .main-banner h2, .main-banner h3 { font-size: 1.1rem; }
       .main-red-button, .main-button {
-        width: 100%;
-        display: block;
-        text-align: center;
+        width: 100%; display: block; text-align: center;
       }
-      #about ul, .about-us ul {
-        padding-left: 0.7rem !important;
-      }
-      .phone-info h4 {
-        font-size: 1rem;
-      }
-      .contact-us form .row > div {
-        margin-bottom: .7rem;
-      }
-      .row.g-3 {
-        --bs-gutter-x: 0.7rem;
-        --bs-gutter-y: 0.7rem;
-      }
+      #about ul, .about-us ul { padding-left: 0.7rem !important; }
+      .phone-info h4 { font-size: 1rem; }
+      .contact-us form .row > div { margin-bottom: .7rem; }
+      .row.g-3 { --bs-gutter-x: 0.7rem; --bs-gutter-y: 0.7rem; }
     }
     @media (max-width: 575.98px) {
-      .container {
-        padding-left: 8px !important;
-        padding-right: 8px !important;
-      }
-      input, textarea {
-        font-size: 0.95rem;
-      }
+      .container { padding-left: 8px !important; padding-right: 8px !important; }
+      input, textarea { font-size: 0.95rem; }
     }
   </style>
 </head>
@@ -256,7 +237,7 @@
           <nav class="main-nav">
             <!-- Logo -->
             <a href="index.html" class="logo">
-              <h4>T SURENDRA<span>CA</span></h4>
+              <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/refs/heads/main/logo.jpg" alt="T SURENDRA & ASSOCIATES logo" />
             </a>
             <!-- Nav Menu -->
             <ul class="nav">
@@ -306,6 +287,70 @@
       </div>
     </div>
   </div>
+
+  <!--
+  <!-- ===================================================== -->
+  <!--                About Us Section                       -->
+  <!-- ===================================================== -->
+  <section id="about" class="about-us section" style="background: linear-gradient(to right, #ff416c, #ff4b2b); color: #fff; padding: 60px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- About Left Image -->
+        <div class="col-lg-5 col-12 text-center mb-4 mb-lg-0">
+          <img src="assets/images/about-left-image.png" alt="person graphic" class="img-fluid" style="max-height: 400px;">
+        </div>
+        <!-- About Text Content -->
+        <div class="col-lg-7 col-12">
+          <div class="mb-4">
+            <h2 style="font-weight: 700;">
+              Our <span style="color: #000;">Approach</span> <span style="color: #00c6ff;">And Principles</span>
+            </h2>
+            <p style="color: #f1f1f1;">
+              At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.
+            </p>
+            <ul style="color: #eee; padding-left: 1rem;">
+              <li>- Listening to the client before advising</li>
+              <li>- Providing timely and actionable solutions</li>
+              <li>- Maintaining confidentiality and professional ethics</li>
+              <li>- Continuously upgrading our skills and technologies</li>
+            </ul>
+          </div>
+          <!-- Vision, Mission, Values -->
+          <div class="row g-3">
+            <div class="col-md-6 col-12">
+              <div class="p-4 bg-white text-dark rounded shadow-sm h-100">
+                <h4 class="mb-2">💡 Our Vision</h4>
+                <p class="mb-0">
+                  To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions, and unwavering commitment.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="p-4 bg-white text-dark rounded shadow-sm h-100">
+                <h4 class="mb-2">🚀 Our Mission</h4>
+                <p class="mb-0">
+                  Empower clients through robust financial systems, compliance, and strategic insights that foster growth and sustainability.
+                </p>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="p-4 bg-white text-dark rounded shadow-sm">
+                <h4 class="mb-2">🎯 Core Values</h4>
+                <ul class="mb-0">
+                  <li>- Integrity – Honesty, transparency, and strong moral principles</li>
+                  <li>- Excellence – Delivering high standards consistently</li>
+                  <li>- Commitment – Dedicated service and long-term relationships</li>
+                  <li>- Confidentiality – Respecting client privacy and data</li>
+                  <li>- Learning – Adapting to changing laws and technologies</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /row -->
+        </div>
+      </div>
+    </div>
+  </section> -->
 
   <!-- ===================================================== -->
   <!--                Services Section                       -->
