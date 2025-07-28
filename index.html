@@ -10,7 +10,7 @@
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Page Title -->
   <title>T SURENDRA & ASSOCIATES - Chartered Accountants</title>
@@ -58,9 +58,9 @@
 
     .navbar-toggler-icon {
       background-image: none;
-      position: relative;
       width: 30px;
       height: 22px;
+      position: relative;
     }
 
     .navbar-toggler-icon::before,
@@ -183,9 +183,44 @@
 </head>
 
 <body>
-  <!-- Remaining HTML Structure (no changes in markup needed) -->
-  <!-- Header, Banner, About, Services, Portfolio, Contact, Footer -->
-  <!-- Scripts -->
+  <!-- NAVIGATION BAR -->
+  <header class="header-area header-sticky">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- Logo Start -->
+            <a href="#" class="logo">T SURENDRA & ASSOCIATES</a>
+
+            <!-- Menu Start -->
+            <ul class="nav">
+              <li><a href="#about" class="active">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <!-- Mobile Hamburger -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+              <span class="navbar-toggler-icon">
+                <div></div>
+              </span>
+            </button>
+            <!-- Menu End -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Add your sections like #about, #services, etc. here -->
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 T SURENDRA & ASSOCIATES. All rights reserved.</p>
+  </footer>
+
+  <!-- JS Scripts -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
