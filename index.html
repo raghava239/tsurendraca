@@ -175,6 +175,79 @@
       margin-bottom: 10px;
     }
 
+    /* ================== Scrolling Sections Styles ================== */
+    .scrolling-sections-container {
+      overflow: hidden;
+      background-color: var(--blue-light);
+      border-top: 2px solid var(--green);
+      border-bottom: 2px solid var(--green);
+      padding: 1rem 0;
+      margin-top: 2rem;
+      color: var(--blue);
+      font-size: 0.9rem;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      height: 8rem; /* fixed height for consistent scrolling */
+    }
+
+    /* Animate the scrolling div */
+    .scrolling-sections {
+      display: flex;
+      gap: 3rem;
+      white-space: nowrap;
+      will-change: transform;
+      animation: scroll-left 40s linear infinite;
+    }
+
+    /* Each section style */
+    .scroll-section {
+      flex: 0 0 auto;
+      max-width: 350px;
+      min-width: 300px;
+      margin-right: 3rem;
+      background-color: var(--white);
+      color: var(--blue);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgb(154 205 50 / 0.2);
+      line-height: 1.4;
+    }
+
+    .scroll-section h4 {
+      color: var(--green);
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    /* Keyframes for continuous left scroll */
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Pause scrolling on hover */
+    .scrolling-sections-container:hover .scrolling-sections {
+      animation-play-state: paused;
+    }
+
+    /* Responsive: Adjust height and font-size on mobile */
+    @media (max-width: 767.98px) {
+      .scrolling-sections-container {
+        height: auto;
+        font-size: 0.85rem;
+      }
+      .scroll-section {
+        max-width: 280px;
+        padding: 0.8rem 1.2rem;
+      }
+    }
+
     @media (max-width: 991.98px) {
       .main-banner .row,
       .about-us .row,
@@ -263,49 +336,74 @@
   <!-- ===================================================== -->
   <!--                  Banner Section                       -->
   <!-- ===================================================== -->
-<!-- Scrolling Info Sections -->
-<div class="scrolling-sections-container">
-  <div class="scrolling-sections">
-    <section class="scroll-section">
-      <h4>Welcome to T SURENDRA & ASSOCIATES (TSA)</h4>
-      <p>
-        TSA, your trusted partner for comprehensive financial and advisory services.<br />
-        At TSA, we offer holistic, end-to-end solutions tailored to align with your business goals and financial objectives. Whether you're a startup, a growing enterprise, or an established organization, we provide strategic support across every stage of your journey. From compliance and taxation to business advisory, virtual CFO services, and operational planning.<br />
-        TSA is your one-stop destination for comprehensive financial and business services.
-      </p>
-    </section>
-    
-    <section class="scroll-section">
-      <h4>Our Foundation: Vision, Mission, Values</h4>
-      <p>
-        We strive to be a trusted and future-ready financial firm, recognized for expertise, innovation, and commitment to client success.<br />
-        Our goal is to empower clients through robust financial systems, ensure compliance, and provide strategic insights for growth.<br />
-        Core Values:<br />
-        1) Integrity – Honesty, transparency, and strong moral principles.<br />
-        2) Excellence – Delivering high standards consistently.<br />
-        3) Commitment – Dedicated service and long-term client relationships.<br />
-        4) Confidentiality – Respecting client privacy and data.<br />
-        5) Learning – Adapting to changes in laws and technologies.
-      </p>
-    </section>
-    
-    <section class="scroll-section">
-      <h4>Our Client-Centric Approach</h4>
-      <p>
-        TSA combines analytical precision with practical, customized methodology.<br />
-        Guided by trust, clarity, and partnership beyond technical expertise.<br />
-        Core Principles:<br />
-        • Active Listening – Listening intently before advising.<br />
-        • Timely Solutions – Prompt and actionable advice.<br />
-        • Ethical Conduct – Confidentiality and professional ethics.<br />
-        • Continuous Improvement – Upgrading skills and technology.
-      </p>
-    </section>
+  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Left Content -->
+        <div class="col-lg-6 col-12 align-self-center">
+          <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+            <h6>Welcome to</h6>
+            <h2>T SURENDRA & ASSOCIATES</h2>
+            <h3>Chartered Accountants</h3>
+            <p>
+              “T SURENDRA & ASSOCIATES" is a professional body where dedicated professionals including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates and MBAs collaborate to provide audit, consulting, financial advisory, and tax services.
+            </p>
+            <div class="main-red-button"><a href="#contact">Contact Us</a></div>
+          </div>
+        </div>
+        <!-- Right Banner Image -->
+        <div class="col-lg-6 col-12 text-center">
+          <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+            <img src="assets/images/banner-right-image.png" class="img-fluid" alt="professional team meeting" />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
+  <!-- ===================================================== -->
+  <!--              Scrolling Info Sections (New)            -->
+  <!-- ===================================================== -->
+  <div class="scrolling-sections-container" aria-label="Important information scrolling from right to left">
+    <div class="scrolling-sections" role="list">
+      <section class="scroll-section" role="listitem" tabindex="0" aria-label="Welcome to TSA">
+        <h4>Welcome to T SURENDRA & ASSOCIATES (TSA)</h4>
+        <p>
+          TSA, your trusted partner for comprehensive financial and advisory services.<br />
+          At TSA, we offer holistic, end-to-end solutions tailored to align with your business goals and financial objectives. Whether you're a startup, a growing enterprise, or an established organization, we provide strategic support across every stage of your journey. From compliance and taxation to business advisory, virtual CFO services, and operational planning.<br />
+          TSA is your one-stop destination for comprehensive financial and business services.
+        </p>
+      </section>
 
- 
+      <section class="scroll-section" role="listitem" tabindex="0" aria-label="Our Foundation Vision Mission Values">
+        <h4>Our Foundation: Vision, Mission, Values</h4>
+        <p>
+          We strive to be a trusted and future-ready financial firm, recognized for expertise, innovation, and commitment to client success.<br />
+          Our goal is to empower clients through robust financial systems, ensure compliance, and provide strategic insights for growth.<br />
+          Core Values:<br />
+          1) Integrity – Honesty, transparency, and strong moral principles.<br />
+          2) Excellence – Delivering high standards consistently.<br />
+          3) Commitment – Dedicated service and long-term client relationships.<br />
+          4) Confidentiality – Respecting client privacy and data.<br />
+          5) Learning – Adapting to changes in laws and technologies.
+        </p>
+      </section>
+
+      <section class="scroll-section" role="listitem" tabindex="0" aria-label="Our Client-Centric Approach">
+        <h4>Our Client-Centric Approach</h4>
+        <p>
+          TSA combines analytical precision with practical, customized methodology.<br />
+          Guided by trust, clarity, and partnership beyond technical expertise.<br />
+          Core Principles:<br />
+          -  Active Listening – Listening intently before advising.<br />
+          -  Timely Solutions – Prompt and actionable advice.<br />
+          -  Ethical Conduct – Confidentiality and professional ethics.<br />
+          -  Continuous Improvement – Upgrading skills and technology.
+        </p>
+      </section>
+    </div>
+  </div>
+
   <!-- ===================================================== -->
   <!--                Services Section                       -->
   <!-- ===================================================== -->
