@@ -6,6 +6,76 @@ Licensed under the MIT license - http://opensource.org/licenses/MIT
 Copyright (c) 2014 Daniel Eden
 */
 
+/* Custom styles by raghu*/
+.scrolling-sections-container {
+  overflow: hidden;
+  background-color: var(--blue-light);
+  border-top: 2px solid var(--green);
+  border-bottom: 2px solid var(--green);
+  padding: 1rem 0;
+  margin-top: 2rem;
+  color: var(--blue);
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  height: 8rem; /* fixed height for consistent scrolling */
+}
+
+/* Animate the scrolling div */
+.scrolling-sections {
+  display: flex;
+  gap: 3rem;
+  white-space: nowrap;
+  will-change: transform;
+  animation: scroll-left 40s linear infinite;
+}
+
+/* Each section style */
+.scroll-section {
+  flex: 0 0 auto;
+  max-width: 350px;
+  min-width: 300px;
+  margin-right: 3rem;
+  background-color: var(--white);
+  color: var(--blue);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgb(154 205 50 / 0.2);
+  line-height: 1.4;
+}
+
+.scroll-section h4 {
+  color: var(--green);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Keyframes for continuous left scroll */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive: Adjust height and font-size on mobile */
+@media (max-width: 767.98px) {
+  .scrolling-sections-container {
+    height: auto;
+    font-size: 0.85rem;
+  }
+  .scroll-section {
+    max-width: 280px;
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+/* Custom styles by raghu*/
+
 .animated {
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
