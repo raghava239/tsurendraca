@@ -13,7 +13,9 @@
       --green: #9ACD32;
       --white: #FFFFFF;
     }
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -21,43 +23,55 @@
       color: var(--blue);
       line-height: 1.6;
     }
-    img { max-width: 100%; height: auto; }
-    a { text-decoration: none; color: inherit; }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     /* ========== Header & Navbar ========== */
     header {
       background: var(--blue);
-      position: sticky;
+      position: fixed; /* fixed on top */
       top: 0;
-      z-index: 100;
+      left: 0;
+      width: 100%;
+      height: 65px;
+      z-index: 2000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
     }
     .container {
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      height: 65px;
+      width: 100%;
     }
     nav .logo {
-      margin-right: auto;
       display: flex;
       align-items: center;
     }
     nav .logo img {
       height: 55px;
-      display: block;
       border-radius: 12px;
     }
     nav ul {
       display: flex;
       list-style: none;
       gap: 1.5rem;
-      margin: 0;
+      margin-left: auto;
       padding: 0;
       align-items: center;
     }
@@ -68,7 +82,8 @@
       border-radius: 4px;
       transition: color 0.3s, background-color 0.3s;
     }
-    nav ul li a.active, nav ul li a:hover {
+    nav ul li a.active,
+    nav ul li a:hover {
       color: var(--green);
       background: var(--white);
     }
@@ -106,326 +121,345 @@
       transition: all 0.3s;
     }
 
-    /* ========== FULL WIDTH Banner Carousel ========== */
-    #top .carousel-outer {
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
+    /* ========== FULL HEIGHT & FULL WIDTH Banner Section ========== */
+    #top {
       position: relative;
-      background: transparent;
-    }
-    .carousel-container {
       width: 100vw;
-      min-width: 100vw;
-      margin: 0;
-      padding: 0;
-      border-radius: 0;
+      height: 100vh; /* Full viewport height */
+      padding-top: 65px; /* space for fixed header */
       background: linear-gradient(to right, var(--blue), var(--green));
-      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
       overflow: hidden;
-      position: relative;
-      height: 420px;
-      min-height: 320px;
-    }
-    .carousel-slide {
-      position: absolute;
-      top: 0;
-      left: 100vw;
-      width: 100vw;
-      max-width: 100vw;
-      height: 100%;
-      opacity: 0;
-      padding: 50px 30px;
-      transition: all 0.8s cubic-bezier(.77,0,.18,1);
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      color: var(--white);
-      z-index: 0;
-      box-sizing: border-box;
-    }
-    .carousel-slide.active {
-      left: 0;
-      opacity: 1;
-      z-index: 2;
-    }
-    .carousel-content {
-      flex: 1 1 420px;
-      min-width: 260px;
-      max-width: 900px;
-    }
-    .carousel-image {
-      flex: 1 1 320px;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-    }
-    .carousel-image img {
-      max-width: 350px;
-      max-height: 260px;
-      width: 100%;
-      border-radius: 18px;
-      background: #fff;
-      box-shadow: 0 2px 16px rgba(0,0,0,.04);
-    }
-    .carousel-content h2,
-    .carousel-content h3 {
-      font-weight: 700;
-      margin: 0 0 12px 0;
-    }
-    .carousel-content h2 span,
-    .carousel-content h3 span {
-      color: var(--green);
-    }
-    .carousel-content p, .carousel-content ul {
-      margin: 0 0 12px 0;
-      font-size: 1.12rem;
-      color: #e9ffe9;
-    }
-    .carousel-content ul {
-      padding-left: 1.2em;
-    }
-    .carousel-btn {
-      border: none;
-      background: rgba(255,255,255,0.07);
+      box-sizing: border-box;
       color: var(--white);
-      font-size: 2.2rem;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      top: 50%;
-      transition: background 0.3s;
-      cursor: pointer;
-      z-index: 10;
-      transform: translateY(-50%);
-      outline: none;
-    }
-    .carousel-btn:hover { background: rgba(0,0,0,0.23);}
-    .carousel-btn.prev { left: 20px;}
-    .carousel-btn.next { right: 20px;}
-    .carousel-indicators {
-      position: absolute;
-      bottom: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 10;
-    }
-    .carousel-indicators button {
-      width: 13px;
-      height: 13px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255,255,255,0.37);
-      transition: background 0.3s;
-      cursor: pointer;
-    }
-    .carousel-indicators button.active {
-      background: var(--green);
     }
 
-    /* ========== Sections Below ========== */
-    #services, #portfolio, #contact { padding: 60px 0; }
-    #services .services-container,
-    #contact .contact-wrapper {
+    #top .banner-content-wrapper {
+      /* Limit content so that background spans fully but content is padded 1 inch approx */
+      width: 100%;
+      max-width: 1100px; /* This keeps content readable and centered */
+      padding-left: 96px; /* ~1 inch padding */
+      padding-right: 96px;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    #top .banner-text {
+      flex: 1 1 500px;
+      max-width: 600px;
+    }
+    #top h6 {
+      font-weight: 300;
+      font-size: 1.1rem;
+      color: var(--green);
+      margin: 0 0 8px 0;
+    }
+    #top h2 {
+      font-weight: 700;
+      font-size: 3.5rem;
+      margin: 0 0 8px 0;
+      line-height: 1.1;
+    }
+    #top h3 {
+      font-weight: 600;
+      font-size: 2rem;
+      margin: 0 0 20px 0;
+      color: var(--green);
+    }
+    #top p {
+      font-size: 1.2rem;
+      margin-bottom: 32px;
+      line-height: 1.4;
+      max-width: 600px;
+    }
+    #top .banner-text .btn-primary {
+      font-size: 1.1rem;
+      padding: 14px 30px;
+      max-width: 220px;
+    }
+
+    #top .banner-image {
+      flex: 1 1 400px;
+      text-align: center;
+    }
+    #top .banner-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ========== Services Section ========== */
+    #services {
+      padding: 60px 15px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    #services h2 {
+      font-weight: 700;
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      text-align: center;
+      color: var(--blue);
+    }
+    #services h2 em, #services h2 span {
+      color: var(--green);
+    }
+    #services .services-container {
       display: flex;
       flex-wrap: wrap;
       gap: 40px;
       align-items: center;
+      justify-content: center;
     }
-    #services .image-block, #services .text-block { flex: 1 1 350px; }
-    #services h2 em, #services h2 span { color: var(--green); }
+    #services .image-block {
+      flex: 1 1 350px;
+      max-width: 350px;
+      text-align: center;
+    }
+    #services .image-block img {
+      border-radius: 12px;
+    }
+    #services .text-block {
+      flex: 1 1 500px;
+      max-width: 600px;
+      color: var(--blue);
+    }
     #services ul {
       list-style: none;
-      padding: 0; margin: 0;
+      padding: 0;
+      margin: 0;
       border: 1px solid var(--green);
       border-radius: 8px;
       overflow: hidden;
       color: var(--blue);
+      box-shadow: inset 0 0 0 1px var(--green);
     }
     #services ul li {
       border-bottom: 1px solid var(--green);
       padding: 15px 20px;
       background: var(--white);
     }
-    #services ul li:last-child { border-bottom: none; }
-    #portfolio {
-      background: #f9f9f9;
+    #services ul li:last-child {
+      border-bottom: none;
+    }
+
+    /* ========== Contact Section ========== */
+    #contact {
+      padding: 60px 15px;
+      max-width: 1100px;
+      margin: 0 auto 40px auto;
+    }
+    #contact .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    #contact .info {
+      flex: 1 1 400px;
+      max-width: 450px;
       color: var(--blue);
     }
-    #portfolio h2 { font-size: 2.2rem; text-align: center; margin-bottom: 40px; }
-    #portfolio h2 span { color: var(--green); }
-    #portfolio .founder-card {
-      max-width: 400px; margin: auto;
-      background: var(--white); border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-      overflow: hidden; cursor: pointer; transition: transform 0.3s;
+    #contact .info h2 {
+      font-weight: 700;
+      font-size: 2.2rem;
+      margin-bottom: 16px;
     }
-    #portfolio .founder-card:hover { transform: translateY(-8px); }
-    #portfolio .founder-card img { display: block; width: 100%; }
-    #portfolio .founder-info { padding: 20px; text-align: center; }
-    #portfolio .founder-info h4 { margin-bottom: 10px; font-weight: 700; }
-    #portfolio .founder-info p { font-size: 0.95rem; color: #444; }
-    #contact .info { flex: 1 1 400px; color: var(--blue); }
-    #contact .info h2 { font-size: 2.2rem; margin-bottom: 16px; }
-    #contact .form-container { flex: 1 1 480px; }
-    #contact form { width: 100%; }
-    #contact form .row { display: flex; gap: 16px; flex-wrap: wrap; }
-    #contact form .col-half { flex: 1 1 48%; }
-    #contact form .col-full { flex: 1 1 100%; }
-    #contact input, #contact textarea {
-      width: 100%; padding: 10px 14px;
-      border: 1px solid var(--green); border-radius: 5px;
-      font-size: 1rem; color: var(--blue); resize: vertical;
+    #contact .info p {
+      font-size: 1.1rem;
+      margin-bottom: 24px;
     }
-    #contact textarea { min-height: 100px; }
-    #contact .btn-submit { margin-top: 10px; border: none; cursor: pointer; width: 100%; }
+    #contact .phone-info h4 {
+      margin: 1rem 0 0.6rem 0;
+      font-weight: 600;
+    }
+    #contact .phone-info h4 span a,
+    #contact .phone-info h4 span {
+      color: var(--green);
+    }
+    #contact .form-container {
+      flex: 1 1 480px;
+      max-width: 480px;
+    }
+    #contact form {
+      width: 100%;
+    }
+    #contact form .row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    #contact form .col-half {
+      flex: 1 1 48%;
+      min-width: 140px;
+    }
+    #contact form .col-full {
+      flex: 1 1 100%;
+    }
+    #contact input,
+    #contact textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--green);
+      border-radius: 5px;
+      font-size: 1rem;
+      resize: vertical;
+      color: var(--blue);
+      font-family: 'Poppins', sans-serif;
+    }
+    #contact textarea {
+      min-height: 100px;
+    }
+    #contact .btn-submit {
+      margin-top: 10px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      background-color: var(--green);
+      color: var(--blue);
+      font-weight: 600;
+      padding: 14px 0;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+    #contact .btn-submit:hover {
+      background-color: var(--blue);
+      color: var(--white);
+    }
+
+    /* ========== Footer ========== */
     footer {
-      background: var(--blue); color: var(--white);
-      text-align: center; padding: 20px 10px; font-size: 0.9rem;
-    }
-    .sr-only {
-      border: 0 !important; clip: rect(1px,1px,1px,1px) !important; height: 1px !important;
-      margin: -1px !important; overflow: hidden !important; padding: 0 !important;
-      position: absolute !important; width: 1px !important; white-space: nowrap !important;
+      background: var(--blue);
+      color: var(--white);
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
     }
 
     /* ========== Responsive Styles ========== */
     @media (max-width: 991px) {
+      .container {
+        width: 95%;
+      }
       nav ul {
-        flex-direction: column;
-        gap: 12px;
-        background: var(--blue);
-        position: absolute;
+        display: none;
+        position: fixed;
         top: 65px;
         right: 0;
+        background: var(--blue);
         width: 200px;
-        padding: 10px;
-        display: none;
+        flex-direction: column;
+        padding: 10px 15px;
         border-radius: 0 0 0 8px;
-        z-index: 2000;
+        z-index: 2100;
       }
-      nav ul.active { display: flex; }
-      .menu-toggle { display: flex; }
-      .carousel-container, .carousel-slide {
-        min-height: 340px !important;
+      nav ul.active {
+        display: flex;
       }
-      .carousel-slide { flex-direction: column; padding: 28px 6px; }
-      .carousel-content, .carousel-image { width: 100%; min-width: 0; }
-      .carousel-image img { max-width: 210px; }
-      #services .services-container, #contact .contact-wrapper { flex-direction: column; }
-      #contact form .col-half { flex: 1 1 100%; }
+      .menu-toggle {
+        display: flex;
+        margin-left: 10px;
+      }
+      #top .banner-content-wrapper {
+        flex-direction: column;
+        padding-left: 30px;
+        padding-right: 30px;
+        text-align: center;
+      }
+      #top .banner-image {
+        margin-top: 20px;
+      }
+      #services .services-container,
+      #contact .contact-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+      #services .text-block,
+      #services .image-block,
+      #contact .info,
+      #contact .form-container {
+        max-width: 100%;
+      }
+      #contact form .col-half {
+        flex: 1 1 100%;
+      }
     }
     @media (max-width: 575px) {
-      .carousel-slide { padding: 16px 3vw; }
-      .carousel-image img { max-width: 130px; }
-      .carousel-content h2 { font-size: 1.3rem; }
-      .carousel-content p { font-size: 1rem; }
-      #portfolio h2, #services h2, #contact .info h2 { font-size: 1.5rem; }
+      #top h2 {
+        font-size: 2.2rem;
+      }
+      #top h3 {
+        font-size: 1.5rem;
+      }
+      #top p {
+        font-size: 1rem;
+      }
+      #contact .info h2 {
+        font-size: 1.8rem;
+      }
+      #services h2 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- ========== Header/Navbar ========== -->
-<header>
-  <div class="container">
-    <nav>
-      <a href="#top" class="logo" aria-label="T Surendra & Associates Logo">
-        <img src="https://github.com/raghava239/tsurendraca/blob/main/logo.jpg?raw=true" alt="T Surendra & Associates Logo" />
-      </a>
-      <ul id="nav-menu">
-        <li><a href="#top" class="active">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Team</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-        <li><a href="#contact" class="btn-primary">Message Us</a></li>
-      </ul>
-      <div class="menu-toggle" aria-label="Toggle menu" tabindex="0" role="button">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<!-- ========== Banner Carousel (Full-Width) ========== -->
-<section id="top">
-  <div class="carousel-outer">
-    <div class="carousel-container" id="bannerCarousel" aria-live="polite" aria-atomic="true">
-      <!-- Slide 1: Welcome Banner -->
-      <div class="carousel-slide active" aria-label="Welcome Banner Slide 1 of 3">
-        <div class="carousel-content" role="banner">
-          <h6 style="color:var(--green);font-weight:300;">Welcome to</h6>
-          <h2>T SURENDRA & ASSOCIATES</h2>
-          <h3><span>Chartered Accountants</span></h3>
-          <p>
-            “T SURENDRA & ASSOCIATES" is a professional body where dedicated professionals including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates and MBAs collaborate to provide audit, consulting, financial advisory, and tax services.
-          </p>
-          <a href="#contact" class="btn-primary" style="margin-top:16px;max-width:220px;display:inline-block;">Contact Us</a>
+  <!-- ========== Header/Navbar ========== -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#top" class="logo" aria-label="T Surendra & Associates Logo">
+          <img src="https://github.com/raghava239/tsurendraca/blob/main/logo.jpg?raw=true" alt="T Surendra & Associates Logo" />
+        </a>
+        <ul id="nav-menu">
+          <li><a href="#top" class="active">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#contact" class="btn-primary">Message Us</a></li>
+        </ul>
+        <div class="menu-toggle" aria-label="Toggle menu" tabindex="0" role="button">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div class="carousel-image" aria-hidden="true">
-          <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/banner-right-image.png" alt="Professional team meeting" onerror="this.style.display='none'"/>
-        </div>
-      </div>
-      <!-- Slide 2: Approach & Principles -->
-      <div class="carousel-slide" aria-label="Our Approach and Principles Slide 2 of 3">
-        <div class="carousel-content">
-          <h2>Our <span>Approach</span> <span>And Principles</span></h2>
-          <p>At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.</p>
-          <ul>
-            <li>Listening to the client before advising</li>
-            <li>Providing timely and actionable solutions</li>
-            <li>Maintaining confidentiality and professional ethics</li>
-            <li>Continuously upgrading our skills and technologies</li>
-          </ul>
-        </div>
-        <div class="carousel-image" aria-hidden="true">
-          <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/about-left-image.png" alt="Approach and Principles" onerror="this.style.display='none'"/>
-        </div>
-      </div>
-      <!-- Slide 3: Vision, Mission, Core Values -->
-      <div class="carousel-slide" aria-label="Our Vision, Mission and Core Values Slide 3 of 3">
-        <div class="carousel-content">
-          <h2>Our Vision, Mission<br> &amp; <span>Core Values</span></h2>
-          <h3>💡 Our Vision</h3>
-          <p>To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions, and unwavering commitment.</p>
-          <h3>🚀 Our Mission</h3>
-          <p>Empower clients through robust financial systems, compliance, and strategic insights that foster growth and sustainability.</p>
-          <h3>🎯 Core Values</h3>
-          <ul>
-            <li>Integrity – Honesty, transparency, and strong moral principles</li>
-            <li>Excellence – Delivering high standards consistently</li>
-            <li>Commitment – Dedicated service and long-term relationships</li>
-            <li>Confidentiality – Respecting client privacy and data</li>
-            <li>Learning – Adapting to changing laws and technologies</li>
-          </ul>
-        </div>
-        <div class="carousel-image" aria-hidden="true">
-          <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/portfolio-image.png" alt="Vision, Mission, Core Values" onerror="this.style.display='none'"/>
-        </div>
-      </div>
-      <!-- Nav buttons -->
-      <button class="carousel-btn prev" aria-label="Previous slide" type="button">&#9664;</button>
-      <button class="carousel-btn next" aria-label="Next slide" type="button">&#9654;</button>
-      <div class="carousel-indicators" role="tablist"></div>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- ========== Services Section ========== -->
-<section id="services" aria-label="Our Services">
-  <div class="container">
+  <!-- ========== Banner Section (Full width, full height with padding inside) ========== -->
+  <section id="top">
+    <div class="banner-content-wrapper" role="banner" aria-label="Homepage banner content">
+      <div class="banner-text">
+        <h6>Welcome to</h6>
+        <h2>T SURENDRA & ASSOCIATES</h2>
+        <h3>Chartered Accountants</h3>
+        <p>
+          “T SURENDRA & ASSOCIATES" is a professional body where dedicated professionals including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates and MBAs collaborate to provide audit, consulting, financial advisory, and tax services.
+        </p>
+        <a href="#contact" class="btn-primary" role="button">Contact Us</a>
+      </div>
+      <div class="banner-image" aria-hidden="true">
+        <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/banner-right-image.png" alt="Professional team meeting" onerror="this.style.display='none'"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Services Section ========== -->
+  <section id="services" aria-label="Our Services">
+    <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
     <div class="services-container">
       <div class="image-block" aria-hidden="true">
         <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/services-left-image.png" alt="Financial services" onerror="this.style.display='none'"/>
       </div>
       <div class="text-block">
-        <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
         <ul>
           <li>Start-up Advisory and Consulting Services</li>
           <li>Virtual CFO Services</li>
@@ -437,26 +471,10 @@
         </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ========== Team/Founder Section ========== -->
-<section id="portfolio" aria-label="Meet Our Founder">
-  <div class="container">
-    <h2>Meet Our <span>Founder</span></h2>
-    <div class="founder-card" tabindex="0" aria-describedby="founder-desc">
-      <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/portfolio-image.png" alt="Surendra Tirumareddi" onerror="this.style.display='none'"/>
-      <div class="founder-info">
-        <h4>Surendra Tirumareddi | ACA | B.Com.</h4>
-        <p id="founder-desc">Surendra is an Associate Chartered Accountant with specialized expertise in Transfer Pricing, Direct Taxes, and FEMA...</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== Contact Section ========== -->
-<section id="contact" aria-label="Contact Us">
-  <div class="container">
+  <!-- ========== Contact Section with Location & Enquiry Form ========== -->
+  <section id="contact" aria-label="Contact Us">
     <div class="contact-wrapper">
       <div class="info">
         <h2>Let's Connect and Discuss Your Financial Needs</h2>
@@ -488,93 +506,39 @@
               <textarea id="message" name="message" placeholder="Message" required></textarea>
             </div>
             <div class="col-full">
-              <button type="submit" class="btn-primary btn-submit" aria-label="Send Message">Send Message</button>
+              <button type="submit" class="btn-submit" aria-label="Send Message">Send Message</button>
             </div>
           </div>
         </form>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ========== Footer ========== -->
-<footer>
-  <p>T SURENDRA & ASSOCIATES. All Rights Reserved.</p>
-</footer>
+  <!-- ========== Footer ========== -->
+  <footer>
+    <p>T SURENDRA & ASSOCIATES. All Rights Reserved.</p>
+  </footer>
 
-<!-- ========== JavaScript ========== -->
-<script>
-  // Hamburger Mobile Menu
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
-  navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => navMenu.classList.remove('active'));
-  });
+  <!-- ========== JavaScript ========== -->
+  <script>
+    // Hamburger Mobile Menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navMenu.classList.remove('active'));
+    });
 
-  // Banner Carousel
-  (function() {
-    const slides = document.querySelectorAll('.carousel-slide');
-    const total = slides.length;
-    let current = 0;
-    let interval = null;
-    const indicators = document.querySelector('.carousel-indicators');
-    // Create indicators dots
-    indicators.innerHTML = '';
-    for(let i=0;i<total;i++){
-      const btn = document.createElement('button');
-      btn.setAttribute('aria-label', 'Go to slide ' + (i+1));
-      btn.setAttribute('role', 'tab');
-      btn.setAttribute('tabindex', i === 0 ? '0' : '-1');
-      if(i === 0) btn.classList.add('active');
-      btn.addEventListener('click', () => {
-        resetTimer();
-        showSlide(i);
-        updateFocus(i);
-      });
-      indicators.appendChild(btn);
-    }
-    function showSlide(idx) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === idx);
-        slide.setAttribute('aria-hidden', i === idx ? 'false' : 'true');
-      });
-      updateIndicators(idx);
-      current = idx;
-    }
-    function updateIndicators(idx) {
-      const dots = indicators.querySelectorAll('button');
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === idx);
-        dot.setAttribute('tabindex', i === idx ? '0' : '-1');
-      });
-    }
-    function updateFocus(idx) {
-      const dots = indicators.querySelectorAll('button');
-      if(dots[idx]) dots[idx].focus();
-    }
-    function nextSlide() { showSlide((current + 1) % total); }
-    function prevSlide() { showSlide((current - 1 + total) % total); }
-    document.querySelector('.carousel-btn.next').addEventListener('click', () => { resetTimer(); nextSlide(); });
-    document.querySelector('.carousel-btn.prev').addEventListener('click', () => { resetTimer(); prevSlide(); });
-    function resetTimer() {
-      clearInterval(interval);
-      interval = setInterval(nextSlide, 6200);
-    }
-    showSlide(0);
-    interval = setInterval(nextSlide, 6200);
-  })();
-
-  // Contact form validation
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', e => {
-    if (!form.checkValidity()) {
-      e.preventDefault();
-      alert('Please fill in all required fields with valid info.');
-    }
-  });
-</script>
+    // Contact form validation
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', e => {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        alert('Please fill in all required fields with valid info.');
+      }
+    });
+  </script>
 </body>
 </html>
