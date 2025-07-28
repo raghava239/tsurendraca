@@ -32,11 +32,10 @@
       text-decoration: none;
       color: inherit;
     }
-
     /* ========== Header & Navbar ========== */
     header {
       background: var(--blue);
-      position: fixed; /* fixed on top */
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -120,8 +119,7 @@
       background: white;
       transition: all 0.3s;
     }
-
-    /* ========== FULL HEIGHT & FULL WIDTH Banner Section ========== */
+    /* ========== FULL HEIGHT & FULL WIDTH Banner Carousel ========== */
     #top {
       position: relative;
       width: 100vw;
@@ -129,84 +127,148 @@
       padding-top: 65px; /* space for fixed header */
       background: linear-gradient(to right, var(--blue), var(--green));
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       box-sizing: border-box;
       color: var(--white);
     }
-
-    #top .banner-content-wrapper {
-      /* Limit content so that background spans fully but content is padded 1 inch approx */
-      width: 100%;
-      max-width: 1100px; /* This keeps content readable and centered */
-      padding-left: 96px; /* ~1 inch padding */
-      padding-right: 96px;
+    #top .carousel-outer {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      height: calc(100vh - 65px);
+      position: relative;
       display: flex;
-      gap: 40px;
-      align-items: center;
-      box-sizing: border-box;
+      overflow: hidden;
     }
-
-    #top .banner-text {
+    .carousel-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      transition: transform 0.7s ease;
+    }
+    .carousel-slide {
+      flex: 0 0 100%;
+      display: flex;
+      align-items: center;
+      padding-left: 96px;  /* ~1 inch left padding */
+      padding-right: 96px; /* ~1 inch right padding */
+      box-sizing: border-box;
+      gap: 40px;
+      min-height: 100%;
+      color: var(--white);
+    }
+    .carousel-content {
       flex: 1 1 500px;
       max-width: 600px;
     }
-    #top h6 {
+    .carousel-content h6 {
       font-weight: 300;
       font-size: 1.1rem;
       color: var(--green);
       margin: 0 0 8px 0;
     }
-    #top h2 {
+    .carousel-content h2 {
       font-weight: 700;
       font-size: 3.5rem;
       margin: 0 0 8px 0;
       line-height: 1.1;
     }
-    #top h3 {
+    .carousel-content h3 {
       font-weight: 600;
       font-size: 2rem;
       margin: 0 0 20px 0;
       color: var(--green);
     }
-    #top p {
+    .carousel-content p {
       font-size: 1.2rem;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
       line-height: 1.4;
-      max-width: 600px;
     }
-    #top .banner-text .btn-primary {
-      font-size: 1.1rem;
-      padding: 14px 30px;
-      max-width: 220px;
+    .carousel-content ul {
+      margin: 0 0 12px 1.2em;
+      font-size: 1.15rem;
+      list-style-type: disc;
+      padding-left: 1.2em;
+      line-height: 1.4;
     }
-
-    #top .banner-image {
+    .carousel-content h3 span {
+      color: var(--green);
+    }
+    .carousel-image {
       flex: 1 1 400px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    #top .banner-image img {
+    .carousel-image img {
       max-width: 100%;
-      height: auto;
+      max-height: 280px;
       border-radius: 20px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      background: #fff;
     }
-
-    /* ========== Services Section ========== */
+    /* Navigation buttons for slides */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 2rem;
+      transition: background-color 0.3s;
+      z-index: 1010;
+      user-select: none;
+    }
+    .carousel-btn:hover {
+      background: var(--green);
+      color: var(--blue);
+    }
+    .carousel-btn.prev {
+      left: 16px;
+    }
+    .carousel-btn.next {
+      right: 16px;
+    }
+    /* Dot indicators */
+    .carousel-indicators {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 1010;
+    }
+    .carousel-indicators button {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .carousel-indicators button.active {
+      background: var(--green);
+    }
+    /* ========== Sections Below ========== */
     #services {
       padding: 60px 15px;
       max-width: 1100px;
       margin: 0 auto;
+      color: var(--blue);
     }
     #services h2 {
       font-weight: 700;
       font-size: 2.2rem;
       margin-bottom: 25px;
       text-align: center;
-      color: var(--blue);
     }
-    #services h2 em, #services h2 span {
+    #services h2 em,
+    #services h2 span {
       color: var(--green);
     }
     #services .services-container {
@@ -227,7 +289,6 @@
     #services .text-block {
       flex: 1 1 500px;
       max-width: 600px;
-      color: var(--blue);
     }
     #services ul {
       list-style: none;
@@ -236,23 +297,23 @@
       border: 1px solid var(--green);
       border-radius: 8px;
       overflow: hidden;
-      color: var(--blue);
       box-shadow: inset 0 0 0 1px var(--green);
     }
     #services ul li {
       border-bottom: 1px solid var(--green);
       padding: 15px 20px;
       background: var(--white);
+      color: var(--blue);
     }
     #services ul li:last-child {
       border-bottom: none;
     }
-
     /* ========== Contact Section ========== */
     #contact {
       padding: 60px 15px;
       max-width: 1100px;
       margin: 0 auto 40px auto;
+      color: var(--blue);
     }
     #contact .contact-wrapper {
       display: flex;
@@ -264,7 +325,6 @@
     #contact .info {
       flex: 1 1 400px;
       max-width: 450px;
-      color: var(--blue);
     }
     #contact .info h2 {
       font-weight: 700;
@@ -333,7 +393,6 @@
       background-color: var(--blue);
       color: var(--white);
     }
-
     /* ========== Footer ========== */
     footer {
       background: var(--blue);
@@ -342,7 +401,6 @@
       padding: 20px 10px;
       font-size: 0.9rem;
     }
-
     /* ========== Responsive Styles ========== */
     @media (max-width: 991px) {
       .container {
@@ -367,13 +425,13 @@
         display: flex;
         margin-left: 10px;
       }
-      #top .banner-content-wrapper {
+      #top .carousel-slide {
         flex-direction: column;
         padding-left: 30px;
         padding-right: 30px;
         text-align: center;
       }
-      #top .banner-image {
+      #top .carousel-image {
         margin-top: 20px;
       }
       #services .services-container,
@@ -392,19 +450,17 @@
       }
     }
     @media (max-width: 575px) {
-      #top h2 {
+      #top .carousel-content h2 {
         font-size: 2.2rem;
       }
-      #top h3 {
+      #top .carousel-content h3 {
         font-size: 1.5rem;
       }
-      #top p {
+      #top .carousel-content p,
+      #top .carousel-content ul {
         font-size: 1rem;
       }
-      #contact .info h2 {
-        font-size: 1.8rem;
-      }
-      #services h2 {
+      #contact .info h2, #services h2 {
         font-size: 1.8rem;
       }
     }
@@ -434,20 +490,71 @@
     </div>
   </header>
 
-  <!-- ========== Banner Section (Full width, full height with padding inside) ========== -->
-  <section id="top">
-    <div class="banner-content-wrapper" role="banner" aria-label="Homepage banner content">
-      <div class="banner-text">
-        <h6>Welcome to</h6>
-        <h2>T SURENDRA & ASSOCIATES</h2>
-        <h3>Chartered Accountants</h3>
-        <p>
-          “T SURENDRA & ASSOCIATES" is a professional body where dedicated professionals including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates and MBAs collaborate to provide audit, consulting, financial advisory, and tax services.
-        </p>
-        <a href="#contact" class="btn-primary" role="button">Contact Us</a>
-      </div>
-      <div class="banner-image" aria-hidden="true">
-        <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/banner-right-image.png" alt="Professional team meeting" onerror="this.style.display='none'"/>
+  <!-- ========== Banner Carousel Section (Full width, full height with 3 slides) ========== -->
+  <section id="top" aria-label="Welcome Banner">
+    <div class="carousel-outer">
+      <div class="carousel-container" id="bannerCarousel" aria-live="polite" aria-atomic="true">
+        <!-- Slide 1: Welcome -->
+        <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3 - Welcome to T Surendra & Associates">
+          <div class="carousel-content">
+            <h6>Welcome to</h6>
+            <h2>T SURENDRA & ASSOCIATES</h2>
+            <h3>Chartered Accountants</h3>
+            <p>
+              “T SURENDRA & ASSOCIATES" is a professional body where dedicated professionals including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates and MBAs collaborate to provide audit, consulting, financial advisory, and tax services.
+            </p>
+            <a href="#contact" class="btn-primary" role="button" target="_self">Contact Us</a>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/banner-right-image.png" alt="Professional team meeting" loading="lazy" onerror="this.style.display='none'"/>
+          </div>
+        </article>
+
+        <!-- Slide 2: Approach & Principles -->
+        <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3 - Our Approach and Principles">
+          <div class="carousel-content">
+            <h2>Our <span>Approach</span> <span>And Principles</span></h2>
+            <p>At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.</p>
+            <ul>
+              <li>Listening to the client before advising</li>
+              <li>Providing timely and actionable solutions</li>
+              <li>Maintaining confidentiality and professional ethics</li>
+              <li>Continuously upgrading our skills and technologies</li>
+            </ul>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/about-left-image.png" alt="Approach and Principles" loading="lazy" onerror="this.style.display='none'"/>
+          </div>
+        </article>
+
+        <!-- Slide 3: Vision, Mission, Core Values -->
+        <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3 - Our Vision, Mission and Core Values">
+          <div class="carousel-content">
+            <h2>Our Vision, Mission<br> &amp; <span>Core Values</span></h2>
+            <h3>💡 Our Vision</h3>
+            <p>To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions, and unwavering commitment.</p>
+            <h3>🚀 Our Mission</h3>
+            <p>Empower clients through robust financial systems, compliance, and strategic insights that foster growth and sustainability.</p>
+            <h3>🎯 Core Values</h3>
+            <ul>
+              <li>Integrity – Honesty, transparency, and strong moral principles</li>
+              <li>Excellence – Delivering high standards consistently</li>
+              <li>Commitment – Dedicated service and long-term relationships</li>
+              <li>Confidentiality – Respecting client privacy and data</li>
+              <li>Learning – Adapting to changing laws and technologies</li>
+            </ul>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/portfolio-image.png" alt="Vision, Mission, Core Values" loading="lazy" onerror="this.style.display='none'"/>
+          </div>
+        </article>
+
+        <!-- Carousel Navigation Buttons -->
+        <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
+        <button type="button" class="carousel-btn next" aria-label="Next Slide">&#9654;</button>
+
+        <!-- Dot Indicators -->
+        <div class="carousel-indicators" role="tablist" aria-label="Carousel Navigation"></div>
       </div>
     </div>
   </section>
@@ -457,7 +564,7 @@
     <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
     <div class="services-container">
       <div class="image-block" aria-hidden="true">
-        <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/services-left-image.png" alt="Financial services" onerror="this.style.display='none'"/>
+        <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/services-left-image.png" alt="Financial services" loading="lazy" onerror="this.style.display='none'"/>
       </div>
       <div class="text-block">
         <ul>
@@ -473,7 +580,7 @@
     </div>
   </section>
 
-  <!-- ========== Contact Section with Location & Enquiry Form ========== -->
+  <!-- ========== Contact Section (with Location & Enquiry Form) ========== -->
   <section id="contact" aria-label="Contact Us">
     <div class="contact-wrapper">
       <div class="info">
@@ -531,12 +638,87 @@
       link.addEventListener('click', () => navMenu.classList.remove('active'));
     });
 
+    // Carousel Setup
+    (() => {
+      const container = document.querySelector('.carousel-container');
+      const slides = Array.from(container.querySelectorAll('.carousel-slide'));
+      const btnNext = document.querySelector('.carousel-btn.next');
+      const btnPrev = document.querySelector('.carousel-btn.prev');
+      const indicatorsContainer = document.querySelector('.carousel-indicators');
+      let currentIndex = 0;
+      let slideCount = slides.length;
+      let autoSlideInterval = null;
+
+      // Initialize indicators
+      for(let i=0; i<slideCount; i++) {
+        const btn = document.createElement('button');
+        btn.setAttribute('aria-label', `Go to slide ${i+1}`);
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('tabindex', i === 0 ? '0' : '-1');
+        if(i === 0) btn.classList.add('active');
+        btn.addEventListener('click', () => {
+          resetTimer();
+          goToSlide(i);
+        });
+        indicatorsContainer.appendChild(btn);
+      }
+      const indicators = Array.from(indicatorsContainer.children);
+
+      // Move to a specific slide index
+      function goToSlide(index) {
+        currentIndex = index;
+        container.style.transform = `translateX(-${index * 100}%)`;
+        updateIndicators();
+      }
+
+      // Update dot indicators active state and tabindex for accessibility
+      function updateIndicators() {
+        indicators.forEach((btn, i) => {
+          btn.classList.toggle('active', i === currentIndex);
+          btn.setAttribute('tabindex', i === currentIndex ? '0' : '-1');
+        });
+      }
+
+      // Go to next slide
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slideCount;
+        goToSlide(currentIndex);
+      }
+
+      // Go to previous slide
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        goToSlide(currentIndex);
+      }
+
+      btnNext.addEventListener('click', () => {
+        resetTimer();
+        nextSlide();
+      });
+      btnPrev.addEventListener('click', () => {
+        resetTimer();
+        prevSlide();
+      });
+
+      // Auto slide every 6.2 seconds
+      function startTimer() {
+        autoSlideInterval = setInterval(nextSlide, 6200);
+      }
+      function resetTimer() {
+        clearInterval(autoSlideInterval);
+        startTimer();
+      }
+
+      goToSlide(0);
+      startTimer();
+    })();
+
     // Contact form validation
     const form = document.getElementById('contact-form');
     form.addEventListener('submit', e => {
       if (!form.checkValidity()) {
         e.preventDefault();
-        alert('Please fill in all required fields with valid info.');
+        alert('Please fill in all required fields with valid information.');
       }
     });
   </script>
