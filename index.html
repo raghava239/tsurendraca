@@ -11,18 +11,22 @@
     :root {
       --blue: #082567;
       --green: #9ACD32;
+      --pale-green: #f0faea;
+      --light-gray: #f5f6fa;
+      --light-blue: #e7f0fa;
       --white: #FFFFFF;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: var(--white);
       color: var(--blue);
       line-height: 1.6;
+      background: var(--white);
     }
     img { max-width: 100%; height: auto; display: block; }
-    a { text-decoration: none; color: inherit; pointer-events: auto; }
+    a { text-decoration: none; color: inherit; cursor: pointer; }
+    ul, li { padding: 0; margin: 0; list-style: none; }
 
     header {
       background: var(--blue);
@@ -50,13 +54,13 @@
       width: 100%;
     }
     nav .logo { display: flex; align-items: center; }
-    nav .logo img {
-      height: 42px; /* decreased for more compact logo */
-      border-radius: 10px;
-    }
+    nav .logo img { height: 42px; border-radius: 10px; }
     nav ul {
-      display: flex; list-style: none; gap: 1.5rem;
-      margin-left: auto; padding: 0; align-items: center;
+      display: flex;
+      gap: 1.5rem;
+      margin-left: auto;
+      padding: 0;
+      align-items: center;
     }
     nav ul li a {
       font-weight: 600;
@@ -64,41 +68,136 @@
       padding: 8px 12px;
       border-radius: 4px;
       transition: color 0.3s, background-color 0.3s;
+      display: inline-block;
     }
     nav ul li a.active, nav ul li a:hover {
       color: var(--green);
       background: var(--white);
     }
-    .btn-primary {
+
+    /* Dropdown styling */
+    nav ul li.dropdown {
+      position: relative;
+    }
+    nav ul li.dropdown > a {
+      cursor: pointer;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    nav ul li.dropdown > a::after {
+      content: "▾";
+      font-size: 0.6em;
+      color: var(--green);
+      margin-left: 4px;
+    }
+    nav ul li.dropdown ul.dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--blue);
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      display: none;
+      min-width: 260px;
+      z-index: 3000;
+      padding: 10px 0;
+    }
+    nav ul li.dropdown:hover ul.dropdown-menu,
+    nav ul li.dropdown:focus-within ul.dropdown-menu {
+      display: block;
+    }
+    nav ul li.dropdown ul.dropdown-menu li {
+      list-style: none;
+      margin: 0;
+    }
+    nav ul li.dropdown ul.dropdown-menu li a {
+      display: block;
+      padding: 8px 20px;
+      color: var(--white);
+      font-weight: 500;
+      transition: background-color 0.3s;
+      white-space: nowrap;
+    }
+    nav ul li.dropdown ul.dropdown-menu li a:hover,
+    nav ul li.dropdown ul.dropdown-menu li a:focus {
       background-color: var(--green);
       color: var(--blue);
-      font-weight: 600;
-      padding: 10px 22px;
-      border-radius: 5px; border: none;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
-      text-align: center; display: inline-block;
+      outline: none;
     }
-    .btn-primary:hover {
-      background-color: var(--blue);
-      color: var(--white);
+
+    /* Mobile: Dropdown submenu toggle */
+    @media (max-width: 991px) {
+      nav ul {
+        display: none;
+        position: fixed;
+        top: 65px;
+        right: 0;
+        background: var(--blue);
+        width: 200px;
+        flex-direction: column;
+        padding: 10px 15px;
+        border-radius: 0 0 0 8px;
+        z-index: 2100;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+        margin-left: 10px;
+      }
+      nav ul li.dropdown ul.dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        display: none !important;
+      }
+      nav ul li.dropdown.active ul.dropdown-menu {
+        display: block !important;
+      }
+      nav ul li.dropdown > a::after {
+        content: "▸";
+        transform: rotate(0deg);
+        transition: transform 0.3s;
+      }
+      nav ul li.dropdown.active > a::after {
+        transform: rotate(90deg);
+      }
     }
+
+    /* Hamburger menu */
     .menu-toggle {
-      display: none; cursor: pointer; width: 36px; height: 36px;
-      flex-direction: column; justify-content: center; gap: 6px;
+      display: none;
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
     }
     .menu-toggle span {
-      display: block; height: 4px; width: 100%;
-      border-radius: 3px; background: white; transition: all 0.3s;
+      display: block;
+      height: 4px;
+      width: 100%;
+      border-radius: 3px;
+      background: white;
+      transition: all 0.3s;
     }
+
+    /* --- Carousel Section --- */
     #top {
       position: relative; width: 100vw; height: 100vh;
-      padding-top: 65px; background: linear-gradient(to right, var(--blue), var(--green));
+      padding-top: 65px;
+      background: linear-gradient(100deg, #082567 0%, #0f5a9c 60%, #9ACD32 100%);
       overflow: hidden; box-sizing: border-box; color: var(--white);
     }
     #top .carousel-outer {
       width: 100vw; margin-left: calc(-50vw + 50%);
-      height: calc(100vh - 65px); position: relative; display: flex; overflow: hidden;
+      height: calc(100vh - 65px);
+      position: relative; display: flex; overflow: hidden;
     }
     .carousel-container {
       width: 100%; height: 100%; display: flex; transition: transform 0.7s ease;
@@ -162,13 +261,21 @@
     }
     .carousel-indicators button.active { background: var(--green); }
 
+    /* SERVICES SECTION */
     #services {
-      padding: 60px 15px; max-width: 1100px;
-      margin: 0 auto; color: var(--blue);
+      background: var(--light-gray);
+      padding: 60px 15px;
+      max-width: 1100px;
+      margin: 0 auto;
+      color: var(--blue);
+      border-radius: 0 0 44px 44px;
+      box-shadow: 0 4px 14px 0 rgba(8,37,103,0.03);
     }
     #services h2 {
-      font-weight: 700; font-size: 2.2rem;
-      margin-bottom: 25px; text-align: center;
+      font-weight: 700;
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      text-align: center;
     }
     #services h2 em, #services h2 span { color: var(--green); }
     #services .services-container {
@@ -176,7 +283,7 @@
       align-items: center; justify-content: center;
     }
     #services .image-block {
-      flex: 1 1 480px;      /* increased for larger image */
+      flex: 1 1 480px;
       max-width: 480px;
       min-width: 280px;
       text-align: center;
@@ -190,7 +297,7 @@
       box-shadow: 0 4px 18px rgba(8,37,103,0.13);
       width: 100%;
       height: auto;
-      max-height: 400px; /* increase as needed */
+      max-height: 400px;
       object-fit: cover;
     }
     #services .text-block { flex: 1 1 500px; max-width: 600px; }
@@ -205,11 +312,41 @@
     }
     #services ul li:last-child { border-bottom: none; }
 
+    /* Service detail container (loaded content) */
+    #service-detail {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      display: none;
+    }
+    #close-service {
+      background: var(--green);
+      color: var(--blue);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    #close-service:hover, #close-service:focus {
+      background: var(--blue);
+      color: var(--white);
+      outline: none;
+    }
+
+    /* TEAM SECTION */
     #team-section {
+      background: var(--pale-green);
       max-width: 1100px;
       margin: 0 auto 60px auto;
       padding: 50px 15px;
       text-align: center;
+      border-radius: 44px;
+      box-shadow: 0 4px 20px 0 rgba(113,158,42,.06);
     }
     #team-section h2 {
       font-size: 2.1rem;
@@ -218,12 +355,7 @@
       margin-bottom: 40px;
       letter-spacing: 0.01em;
     }
-    .team-members {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 32px;
-      justify-content: center;
-    }
+    .team-members { display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; }
     .team-card {
       background: var(--white);
       border-radius: 16px;
@@ -264,15 +396,17 @@
       font-weight: 500;
     }
 
+    /* CONTACT SECTION */
     #contact {
+      background: var(--light-blue);
       padding: 60px 15px;
       max-width: 1100px;
       margin: 0 auto 40px auto;
       color: var(--blue);
+      border-radius: 44px 44px 0 0;
+      box-shadow: 0 -4px 14px 0 rgba(8,37,103,0.04);
     }
-    #contact .contact-wrapper {
-      display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; justify-content: center;
-    }
+    #contact .contact-wrapper { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; justify-content: center; }
     #contact .info { flex: 1 1 400px; max-width: 450px; }
     #contact .info h2 { font-weight: 700; font-size: 2.2rem; margin-bottom: 16px; }
     #contact .info p { font-size: 1.1rem; margin-bottom: 24px; }
@@ -296,17 +430,18 @@
       font-size: 1.1rem; transition: background-color 0.3s ease;
     }
     #contact .btn-submit:hover { background-color: var(--blue); color: var(--white); }
+
     footer {
-      background: var(--blue); color: var(--white);
-      text-align: center; padding: 20px 10px; font-size: 0.9rem;
+      background: var(--blue);
+      color: var(--white);
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
     }
+
     @media (max-width: 991px) {
       .container { width: 95%; }
-      nav ul {
-        display: none; position: fixed; top: 65px; right: 0; background: var(--blue);
-        width: 200px; flex-direction: column; padding: 10px 15px;
-        border-radius: 0 0 0 8px; z-index: 2100;
-      }
+      nav ul { display: none; position: fixed; top: 65px; right: 0; background: var(--blue); width: 200px; flex-direction: column; padding: 10px 15px; border-radius: 0 0 0 8px; z-index: 2100; }
       nav ul.active { display: flex; }
       .menu-toggle { display: flex; margin-left: 10px; }
       #top .carousel-slide { flex-direction: column; padding-left: 30px; padding-right: 30px; text-align: center; }
@@ -314,7 +449,12 @@
       #services .services-container, #contact .contact-wrapper, .team-members { flex-direction: column; align-items: center; }
       #services .text-block, #services .image-block, #contact .info, #contact .form-container, .team-card { max-width: 100%; }
       #contact form .col-half { flex: 1 1 100%; }
-      #team-section { padding: 40px 7vw; }
+      #team-section { padding: 40px 7vw; border-radius: 22px; }
+      #services, #contact { border-radius: 24px; }
+      nav ul li.dropdown ul.dropdown-menu { display: none !important; }
+      nav ul li.dropdown.active ul.dropdown-menu { display: block !important; }
+      nav ul li.dropdown > a::after { content: "▸"; transform: rotate(0deg); transition: transform 0.3s; }
+      nav ul li.dropdown.active > a::after { transform: rotate(90deg); }
     }
     @media (max-width: 575px) {
       #top .carousel-content h2 { font-size: 2.2rem; }
@@ -337,7 +477,18 @@
         <ul id="nav-menu">
           <li><a href="#top" class="active">Home</a></li>
           <li><a href="#top">About</a></li>
-          <li><a href="#services">Services</a></li>
+          <li class="dropdown">
+            <a href="#services" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services</a>
+            <ul class="dropdown-menu" role="menu" aria-label="Services Submenu">
+              <li><a href="startup-advisory.html" data-service="startup-advisory">Start-up Advisory and Consulting Services</a></li>
+              <li><a href="virtual-cfo.html" data-service="virtual-cfo">Virtual CFO Services</a></li>
+              <li><a href="direct-international-tax.html" data-service="direct-international-tax">Direct and International Tax Services</a></li>
+              <li><a href="indirect-tax.html" data-service="indirect-tax">Indirect Tax Services</a></li>
+              <li><a href="audit-assurance.html" data-service="audit-assurance">Audit and Assurance Services</a></li>
+              <li><a href="labour-law-compliance.html" data-service="labour-law-compliance">Labour Law Compliance Services</a></li>
+              <li><a href="secretarial-fema-rbi.html" data-service="secretarial-fema-rbi">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
+            </ul>
+          </li>
           <li><a href="#team-section">Team</a></li>
           <li><a href="#contact">Contact Us</a></li>
           <li><a href="#contact" class="btn-primary">Message Us</a></li>
@@ -350,11 +501,11 @@
       </nav>
     </div>
   </header>
+
   <!-- Carousel Section -->
   <section id="top" aria-label="Welcome Banner">
     <div class="carousel-outer">
       <div class="carousel-container" id="bannerCarousel" aria-live="polite" aria-atomic="true">
-        <!-- Slide 1: Vision -->
         <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 1 of 5 - Vision">
           <div class="carousel-content">
             <h2>Our <span>Vision</span></h2>
@@ -364,7 +515,6 @@
             <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/portfolio-image.png" alt="Vision" loading="lazy" onerror="this.style.display='none'"/>
           </div>
         </article>
-        <!-- Slide 2: Mission -->
         <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 5 - Mission">
           <div class="carousel-content">
             <h2>Our <span>Mission</span></h2>
@@ -374,7 +524,6 @@
             <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/banner-right-image.png" alt="Mission" loading="lazy" onerror="this.style.display='none'"/>
           </div>
         </article>
-        <!-- Slide 3: Core Values -->
         <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 3 of 5 - Core Values">
           <div class="carousel-content">
             <h2>Our <span>Core Values</span></h2>
@@ -390,8 +539,7 @@
             <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/about-left-image.png" alt="Core Values" loading="lazy" onerror="this.style.display='none'"/>
           </div>
         </article>
-        <!-- Slide 4: Welcome -->
-        <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 4 of 5 - Welcome to T Surendra & Associates">
+        <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 4 of 5 - Welcome">
           <div class="carousel-content">
             <h6>Welcome to</h6>
             <h2>T SURENDRA & ASSOCIATES</h2>
@@ -405,7 +553,6 @@
             <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/banner-right-image.png" alt="Professional team meeting" loading="lazy" onerror="this.style.display='none'"/>
           </div>
         </article>
-        <!-- Slide 5: Approach & Principles -->
         <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 5 of 5 - Our Approach and Principles">
           <div class="carousel-content">
             <h2>Our <span>Approach</span> <span>And Principles</span></h2>
@@ -421,14 +568,13 @@
             <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/about-left-image.png" alt="Approach and Principles" loading="lazy" onerror="this.style.display='none'"/>
           </div>
         </article>
-        <!-- Carousel Navigation Buttons -->
         <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
         <button type="button" class="carousel-btn next" aria-label="Next Slide">&#9654;</button>
-        <!-- Dot Indicators -->
         <div class="carousel-indicators" role="tablist" aria-label="Carousel Navigation"></div>
       </div>
     </div>
   </section>
+
   <!-- Services Section -->
   <section id="services" aria-label="Our Services">
     <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
@@ -452,6 +598,13 @@
       </div>
     </div>
   </section>
+
+  <!-- Service detail container for AJAX loaded content -->
+  <section id="service-detail" aria-live="polite" aria-atomic="true">
+    <button id="close-service" aria-label="Close service detail">← Back to Services</button>
+    <div id="service-content"></div>
+  </section>
+
   <!-- Meet Our Team Section -->
   <section id="team-section">
     <h2>Meet Our Team</h2>
@@ -473,6 +626,7 @@
       </div>
     </div>
   </section>
+
   <!-- Contact Section -->
   <section id="contact" aria-label="Contact Us">
     <div class="contact-wrapper">
@@ -513,11 +667,13 @@
       </div>
     </div>
   </section>
+
   <!-- Footer -->
   <footer>
     <p>T SURENDRA & ASSOCIATES. All Rights Reserved.</p>
   </footer>
-  <!-- JavaScript for menu and carousel -->
+
+  <!-- Scripts -->
   <script>
     // Hamburger Mobile Menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -527,6 +683,53 @@
     });
     navMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => navMenu.classList.remove('active'));
+    });
+
+    // Mobile dropdown submenu toggle
+    const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', e => {
+        if (window.innerWidth <= 991) {
+          e.preventDefault();
+          const parentLi = e.target.closest('li.dropdown');
+          parentLi.classList.toggle('active');
+        }
+      });
+    });
+
+    // Service content loader
+    const serviceLinks = document.querySelectorAll('nav ul li.dropdown ul.dropdown-menu a');
+    const serviceDetail = document.getElementById('service-detail');
+    const serviceContent = document.getElementById('service-content');
+    const closeBtn = document.getElementById('close-service');
+
+    async function loadServiceContent(url) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Failed to load ${url}`);
+        const html = await response.text();
+        return html;
+      } catch (err) {
+        return `<p style="color:red;">Error loading content: ${err.message}</p>`;
+      }
+    }
+
+    serviceLinks.forEach(link => {
+      link.addEventListener('click', async e => {
+        e.preventDefault();
+        const url = link.getAttribute('href');
+        serviceContent.innerHTML = '<p>Loading content...</p>';
+        serviceDetail.style.display = 'block';
+        serviceDetail.scrollIntoView({behavior: 'smooth'});
+        const content = await loadServiceContent(url);
+        serviceContent.innerHTML = content;
+      });
+    });
+
+    closeBtn.addEventListener('click', e => {
+      e.preventDefault();
+      serviceDetail.style.display = 'none';
+      document.getElementById('services').scrollIntoView({behavior: 'smooth'});
     });
 
     // Carousel Setup
