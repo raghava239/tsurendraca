@@ -1,157 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>T SURENDRA & ASSOCIATES | Chartered Accountants</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- ===================================================== -->
+  <!--                Meta, Fonts, and Vendor CSS            -->
+  <!-- ===================================================== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="T SURENDRA & ASSOCIATES, Chartered Accountants - A professional firm offering audit, consulting, financial advisory, and tax services." />
+  <meta name="author" content="T SURENDRA & ASSOCIATES" />
+
+  <title>T SURENDRA & ASSOCIATES - Chartered Accountants</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/fontawesome.css" />
+  <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css" />
+  <link rel="stylesheet" href="assets/css/animated.css" />
+  <link rel="stylesheet" href="assets/css/owl.css" />
+
+  <!-- ===================================================== -->
+  <!--                    Custom Styles                      -->
+  <!-- ===================================================== -->
   <style>
-    html { scroll-behavior: smooth; }
-    .rainbow-text {
-      background: linear-gradient(90deg, #10b981, #3b82f6, #f59e42, #f43f5e, #a78bfa, #34d399);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
+    :root {
+      --blue: #082567;
+      --green: #9ACD32;
+      --white: #FFFFFF;
     }
-    .section-gradient {
-      background: linear-gradient(135deg, #e0ffe6 60%, #fdf6e3 100%);
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--white);
+      color: var(--blue);
     }
-    .nav-link:hover {
-      color: #fde68a;
-      transform: scale(1.05);
+
+    /* ---------------- Header/Nav Styles ----------------- */
+    .header-area, .main-nav {
+      background-color: var(--blue);
+    }
+    .main-nav .nav li a {
+      color: var(--white) !important;
+    }
+    .main-nav .nav li a:hover, .main-nav .nav li a.active {
+      color: var(--green) !important;
+    }
+    .main-red-button a, .main-button {
+      background-color: var(--green);
+      color: var(--blue);
+      border: none;
+    }
+    .main-red-button a:hover, .main-button:hover {
+      background-color: var(--blue);
+      color: var(--white);
+    }
+    .section-heading h2 em, .section-heading h2 span {
+      color: var(--green);
+    }
+    .background-header {
+      background-color: #082567 !important;
+    }
+
+    /* ---------------- Hamburger Menu Custom Style ----------------- */
+    .menu-trigger {
+      display: none; /* desktop hidden, mobile flex */
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      margin-left: 16px;
+      z-index: 1100;
+    }
+    .menu-trigger span,
+    .menu-trigger span::before,
+    .menu-trigger span::after {
+      display: block;
+      position: absolute;
+      width: 32px;
+      height: 5px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all .3s;
+      font-weight: bold;
+      left: 2px;
+      content: '';
+    }
+    .menu-trigger span {
+      top: 15px;
+    }
+    .menu-trigger span::before {
+      content: '';
+      top: -11px;
+      left: 0;
+      position: absolute;
+    }
+    .menu-trigger span::after {
+      content: '';
+      top: 11px;
+      left: 0;
+      position: absolute;
+    }
+    /* Show hamburger and make nav vertical on mobile */
+    @media (max-width: 991.98px) {
+      .menu-trigger {
+        display: flex;
+      }
+      .main-nav .nav {
+        flex-direction: column !important;
+        gap: 10px;
+        background: var(--blue);
+        padding: 10px 0;
+        display: none;
+      }
+      .main-nav.active .nav {
+        display: flex;
+      }
+    }
+
+    /* ------------------ Banner Styles ----------------------- */
+    .main-banner h2, .main-banner h3 {
+      font-weight: 700;
+    }
+
+    /* ------------------ About Us Section -------------------- */
+    #about {
+      background: linear-gradient(to right, var(--blue), var(--green));
+      color: var(--white);
+    }
+    #about h2 span {
+      color: var(--green);
+    }
+
+    /* ------------------ Services Section -------------------- */
+    #services .list-group-item {
+      background-color: var(--white);
+      color: var(--blue);
+      border: 1px solid var(--green);
+    }
+
+    /* ------------------ Portfolio/Team ---------------------- */
+    .our-portfolio .section-heading h2 span {
+      color: var(--green);
+    }
+
+    /* ------------------ Contact Section --------------------- */
+    .contact-us .section-heading h2 {
+      color: var(--blue);
+    }
+    .phone-info h4 span a, .phone-info h4 span {
+      color: var(--green);
+    }
+
+    /* ------------------ Footer ------------------------------ */
+    footer {
+      background-color: var(--blue);
+      color: var(--white);
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    /* ------------------ Inputs ------------------------------ */
+    input, textarea {
+      border: 1px solid var(--green);
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    /* ------------------ Responsive Fixes -------------------- */
+    @media (max-width: 991.98px) {
+      /* Stack columns, images center, add padding */
+      .main-banner .row,
+      .about-us .row,
+      .our-services .row,
+      .our-portfolio .row,
+      .contact-us .row {
+        flex-direction: column !important;
+        text-align: center;
+      }
+      .main-banner .right-image img,
+      .about-us img,
+      .our-services img {
+        margin-top: 20px;
+        max-width: 80vw;
+        height: auto;
+      }
+      .main-banner .left-content {
+        text-align: center;
+      }
+    }
+    @media (max-width: 767.98px) {
+      .section-heading h2 {
+        font-size: 1.3rem !important;
+      }
+      .main-banner h2, .main-banner h3 {
+        font-size: 1.1rem;
+      }
+      .main-red-button, .main-button {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+      #about ul, .about-us ul {
+        padding-left: 0.7rem !important;
+      }
+      .phone-info h4 {
+        font-size: 1rem;
+      }
+      .contact-us form .row > div {
+        margin-bottom: .7rem;
+      }
+      .row.g-3 {
+        --bs-gutter-x: 0.7rem;
+        --bs-gutter-y: 0.7rem;
+      }
+    }
+    @media (max-width: 575.98px) {
+      .container {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+      }
+      input, textarea {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
-<body class="bg-gradient-to-b from-white via-emerald-50 to-indigo-50 text-gray-800 font-sans leading-relaxed">
-
-  <!-- Navigation Bar -->
-  <header class="bg-gradient-to-r from-emerald-600 via-teal-500 to-indigo-500 text-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto flex justify-between items-center p-4">
-      <div class="flex items-center space-x-3">
-        <img src="https://www.mintformations.co.uk/blog/wp-content/uploads/2020/05/shutterstock_583717939-1.jpg" alt="T Surendra & Associates Logo" class="w-10 h-10 rounded-full shadow-md border-2 border-white">
-        <h1 class="text-2xl font-bold tracking-wide rainbow-text">T SURENDRA & ASSOCIATES</h1>
+<body>
+  <!-- ===================================================== -->
+  <!--                  Preloader Section                    -->
+  <!-- ===================================================== -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <nav class="hidden md:flex space-x-6 font-medium">
-        <a href="#home" class="transition nav-link">Home</a>
-        <a href="#about" class="transition nav-link">About</a>
-        <a href="#team" class="transition nav-link">Team</a>
-        <a href="#services" class="transition nav-link">Services</a>
-        <a href="#contact" class="transition nav-link">Contact</a>
-      </nav>
+    </div>
+  </div>
+
+  <!-- ===================================================== -->
+  <!--                    Header & Nav                       -->
+  <!-- ===================================================== -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+              <h4>T SURENDRA<span>CA</span></h4>
+            </a>
+            <!-- Nav Menu -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="#about">About Us</a></li>
+              <li class="scroll-to-section"><a href="#services">Services</a></li>
+              <li class="scroll-to-section"><a href="#portfolio">Team</a></li>
+              <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
+              <li class="scroll-to-section">
+                <div class="main-red-button"><a href="#contact">Message Us</a></div>
+              </li>
+            </ul>
+            <!-- Mobile Hamburger Trigger -->
+            <a class="menu-trigger" aria-label="Open navigation">
+              <span></span>
+            </a>
+          </nav>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Hero/Home Section -->
-<section id="home" class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images.unsplash.com/photo-1554224155-70c3b0daa0f0');">
-  <!-- Background overlay -->
-  <div class="absolute inset-0 bg-gradient-to-br from-teal-900 via-black/80 to-emerald-900 opacity-90"></div>
-
-  <!-- Full-width card -->
-  <div class="relative z-10 w-full max-w-5xl px-6">
-    <div class="bg-black bg-opacity-70 rounded-2xl p-10 text-white shadow-2xl text-center animate-fade-in">
-      
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-6">
-        Welcome to 
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-purple-500 to-blue-500">
-          T SURENDRA & ASSOCIATES
-        </span>
-      </h2>
-
-      <p class="text-lg md:text-xl font-medium leading-relaxed">
-        A multidisciplinary team of Chartered Accountants, Company Secretaries, Cost Accountants, Advocates, and MBAs collaborating to deliver expert audit, consulting, and financial advisory solutions.
-      </p>
-
+  <!-- ===================================================== -->
+  <!--                  Banner Section                       -->
+  <!-- ===================================================== -->
+  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Left Content -->
+        <div class="col-lg-6 col-12 align-self-center">
+          <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+            <h6>Welcome to</h6>
+            <h2>T SURENDRA & ASSOCIATES</h2>
+            <h3>Chartered Accountants</h3>
+            <p>
+              “T SURENDRA & ASSOCIATES" is a professional body where dedicated professionals including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates and MBAs collaborate to provide audit, consulting, financial advisory, and tax services.
+            </p>
+            <div class="main-red-button"><a href="#contact">Contact Us</a></div>
+          </div>
+        </div>
+        <!-- Right Banner Image -->
+        <div class="col-lg-6 col-12 text-center">
+          <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+            <img src="assets/images/banner-right-image.png" class="img-fluid" alt="professional team meeting" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</section>
 
-
-
-
-  <!-- About Us -->
-  <section id="about" class="py-16 section-gradient">
-    <div class="container mx-auto px-4 md:max-w-4xl">
-      <h2 class="text-3xl font-semibold text-center mb-6 rainbow-text">About Us</h2>
-      <p class="text-gray-700 mb-4 text-lg">At <span class="font-bold rainbow-text">T SURENDRA & ASSOCIATES</span>, we blend analytical expertise with practical insight to deliver uniquely tailored solutions. We pledge transparency, trust, and lasting partnerships with our clients.</p>
-      <div class="mb-6">
-        <h3 class="font-semibold text-xl text-emerald-700 mb-1">Vision</h3>
-        <p class="text-gray-700">To become a future-ready, trusted financial partner, offering forward-thinking and reliable solutions.</p>
-      </div>
-      <div class="mb-6">
-        <h3 class="font-semibold text-xl text-teal-600 mb-1">Mission</h3>
-        <p class="text-gray-700">Empowering businesses and individuals with robust financial, compliance, and advisory systems.</p>
-      </div>
-      <div>
-        <h3 class="font-semibold text-xl text-indigo-500 mb-2">Core Values</h3>
-        <ul class="list-disc list-inside space-y-1 text-gray-700">
-          <li><span class="text-emerald-700 font-medium">Integrity</span> – Honesty, transparency, and strong ethics</li>
-          <li><span class="text-yellow-600 font-medium">Excellence</span> – Uncompromising commitment to high standards</li>
-          <li><span class="text-pink-600 font-medium">Commitment</span> – Client-focused and dependable service</li>
-          <li><span class="text-teal-600 font-medium">Confidentiality</span> – Respect for data privacy</li>
-          <li><span class="text-indigo-600 font-medium">Continuous Learning</span> – Adapting to evolving laws and technologies</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Team Section -->
-  <section id="team" class="py-16 bg-gradient-to-r from-emerald-50 via-purple-50 to-pink-50">
-    <div class="container mx-auto px-4 md:max-w-4xl">
-      <h2 class="text-3xl font-semibold text-center mb-8 rainbow-text">Meet Our Team</h2>
-      <div class="bg-gradient-to-r from-white via-emerald-100 to-yellow-50 p-6 rounded-2xl shadow-xl border border-emerald-200">
-        <h3 class="text-xl font-bold mb-2 text-emerald-700">Surendra Tirumareddi | ACA, B.Com.</h3>
-        <p class="text-gray-700">An Associate Chartered Accountant and Ex-Big 4 consultant, Surendra offers deep expertise in Transfer Pricing, Direct Taxation, FEMA, and regulatory compliance. His strategic insights help clients navigate complex international transactions and optimize tax frameworks.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-16 bg-gradient-to-r from-fuchsia-50 via-emerald-50 to-indigo-50">
-    <div class="container mx-auto px-4 md:max-w-4xl">
-      <h2 class="text-3xl font-semibold text-center rainbow-text mb-8">Our Services</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <ul class="space-y-3 text-gray-800">
-          <li><span class="inline-block px-2 py-1 bg-emerald-200 rounded text-emerald-800 font-semibold">Start-up Advisory and Consulting</span></li>
-          <li><span class="inline-block px-2 py-1 bg-teal-100 rounded text-teal-900 font-semibold">Virtual CFO Services</span></li>
-          <li><span class="inline-block px-2 py-1 bg-yellow-100 rounded text-yellow-800 font-semibold">Direct and International Tax Advisory</span></li>
-          <li><span class="inline-block px-2 py-1 bg-indigo-100 rounded text-indigo-800 font-semibold">Indirect Tax Planning & Compliance</span></li>
-        </ul>
-        <ul class="space-y-3 text-gray-800">
-          <li><span class="inline-block px-2 py-1 bg-fuchsia-100 rounded text-fuchsia-800 font-semibold">Statutory & Internal Audit Services</span></li>
-          <li><span class="inline-block px-2 py-1 bg-green-100 rounded text-green-800 font-semibold">Labour Law Compliance</span></li>
-          <li><span class="inline-block px-2 py-1 bg-blue-100 rounded text-blue-800 font-semibold">Secretarial, FEMA & RBI Compliance</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-gradient-to-br from-emerald-50 via-yellow-50 to-pink-50">
-    <div class="container mx-auto px-4 md:max-w-3xl text-center">
-      <h2 class="text-3xl font-semibold mb-6 rainbow-text">Contact Us</h2>
-      <div class="space-y-3 text-lg">
-        <p><strong class="text-emerald-800">📞 Phone:</strong> <a href="tel:7995356942" class="text-teal-600 hover:underline">79953 56942</a></p>
-        <p><strong class="text-emerald-800">📧 Email:</strong> <a href="mailto:Surendra@tsurendraca.in" class="text-indigo-600 hover:underline">Surendra@tsurendraca.in</a></p>
-        <p><strong class="text-emerald-800">🌐 Website:</strong> <a href="https://tsurendraca.in" class="text-fuchsia-600 hover:underline" target="_blank">tsurendraca.in</a></p>
-        <p><strong class="text-emerald-800">📍 Location:</strong> <span class="bg-yellow-100 px-2 rounded">Hyderabad & Visakhapatnam, India</span></p>
+  <!-- ===================================================== -->
+  <!--                About Us Section                       -->
+  <!-- ===================================================== -->
+  <section id="about" class="about-us section" style="background: linear-gradient(to right, #ff416c, #ff4b2b); color: #fff; padding: 60px 0;">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- About Left Image -->
+        <div class="col-lg-5 col-12 text-center mb-4 mb-lg-0">
+          <img src="assets/images/about-left-image.png" alt="person graphic" class="img-fluid" style="max-height: 400px;">
+        </div>
+        <!-- About Text Content -->
+        <div class="col-lg-7 col-12">
+          <div class="mb-4">
+            <h2 style="font-weight: 700;">
+              Our <span style="color: #000;">Approach</span> <span style="color: #00c6ff;">And Principles</span>
+            </h2>
+            <p style="color: #f1f1f1;">
+              At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.
+            </p>
+            <ul style="color: #eee; padding-left: 1rem;">
+              <li>- Listening to the client before advising</li>
+              <li>- Providing timely and actionable solutions</li>
+              <li>- Maintaining confidentiality and professional ethics</li>
+              <li>- Continuously upgrading our skills and technologies</li>
+            </ul>
+          </div>
+          <!-- Vision, Mission, Values -->
+          <div class="row g-3">
+            <div class="col-md-6 col-12">
+              <div class="p-4 bg-white text-dark rounded shadow-sm h-100">
+                <h4 class="mb-2">💡 Our Vision</h4>
+                <p class="mb-0">
+                  To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions, and unwavering commitment.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="p-4 bg-white text-dark rounded shadow-sm h-100">
+                <h4 class="mb-2">🚀 Our Mission</h4>
+                <p class="mb-0">
+                  Empower clients through robust financial systems, compliance, and strategic insights that foster growth and sustainability.
+                </p>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="p-4 bg-white text-dark rounded shadow-sm">
+                <h4 class="mb-2">🎯 Core Values</h4>
+                <ul class="mb-0">
+                  <li>- Integrity – Honesty, transparency, and strong moral principles</li>
+                  <li>- Excellence – Delivering high standards consistently</li>
+                  <li>- Commitment – Dedicated service and long-term relationships</li>
+                  <li>- Confidentiality – Respecting client privacy and data</li>
+                  <li>- Learning – Adapting to changing laws and technologies</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /row -->
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gradient-to-r from-teal-600 via-emerald-700 to-indigo-800 text-white py-4 text-center shadow-xl">
-    <p class="text-sm">© 2025 <span class="rainbow-text font-semibold">T SURENDRA & ASSOCIATES</span>. All rights reserved.</p>
+  <!-- ===================================================== -->
+  <!--                Services Section                       -->
+  <!-- ===================================================== -->
+  <div id="services" class="our-services section">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Service Image -->
+        <div class="col-lg-6 col-12 align-self-center wow fadeInLeft text-center mb-4 mb-lg-0" data-wow-duration="1s" data-wow-delay="0.2s">
+          <div class="left-image">
+            <img src="assets/images/services-left-image.png" class="img-fluid" alt="financial services" />
+          </div>
+        </div>
+        <!-- Service List Content -->
+        <div class="col-lg-6 col-12 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
+          <div class="section-heading">
+            <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
+          </div>
+          <ul class="list-group mb-4">
+            <li class="list-group-item">Start-up Advisory and Consulting Services</li>
+            <li class="list-group-item">Virtual CFO Services</li>
+            <li class="list-group-item">Direct and International Tax Services</li>
+            <li class="list-group-item">Indirect Tax Services</li>
+            <li class="list-group-item">Audit and Assurance Services</li>
+            <li class="list-group-item">Labour Law Compliance Services</li>
+            <li class="list-group-item">Secretarial, FEMA & RBI Compliance Services</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================== -->
+  <!--                Team / Portfolio Section               -->
+  <!-- ===================================================== -->
+  <div id="portfolio" class="our-portfolio section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3 col-12">
+          <div class="section-heading wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
+            <h2>Meet Our <span>Founder</span></h2>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-10 col-12">
+          <a href="#">
+            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+              <div class="showed-content text-center">
+                <img src="assets/images/portfolio-image.png" alt="Surendra Tirumareddi" class="img-fluid" />
+              </div>
+              <div class="hidden-content text-center">
+                <h4>Surendra Tirumareddi | ACA | B.Com.</h4>
+                <p>Surendra is an Associate Chartered Accountant with specialized expertise in Transfer Pricing, Direct Taxes, and FEMA...</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================== -->
+  <!--                Contact Section                        -->
+  <!-- ===================================================== -->
+  <div id="contact" class="contact-us section">
+    <div class="container">
+      <div class="row">
+        <!-- Contact Info -->
+        <div class="col-lg-6 col-12 align-self-center wow fadeInLeft mb-4 mb-lg-0" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <div class="section-heading">
+            <h2>Let's Connect and Discuss Your Financial Needs</h2>
+            <p>Our team is dedicated to helping you achieve your financial goals...</p>
+            <div class="phone-info">
+              <h4>Contact Us: <span><i class="fa fa-phone"></i> <a href="tel:7995356942">79953 56942</a></span></h4>
+              <h4>Email: <span><i class="fa fa-envelope"></i> <a href="mailto:Surendra@tsurendraca.in">Surendra@tsurendraca.in</a></span></h4>
+              <h4>Website: <span><i class="fa fa-globe"></i> <a href="https://tsurendraca.in" target="_blank">tsurendraca.in</a></span></h4>
+              <h4>Location: <span><i class="fa fa-map-marker"></i> Hyderabad, Visakhapatnam</span></h4>
+            </div>
+          </div>
+        </div>
+        <!-- Contact Form -->
+        <div class="col-lg-6 col-12 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <form id="contact" method="post" autocomplete="off">
+            <div class="row">
+              <div class="col-12 col-md-6 mb-3">
+                <input type="text" name="name" placeholder="Name" required />
+              </div>
+              <div class="col-12 col-md-6 mb-3">
+                <input type="text" name="surname" placeholder="Surname" required />
+              </div>
+              <div class="col-12 mb-3">
+                <input type="text" name="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required />
+              </div>
+              <div class="col-12 mb-3">
+                <textarea name="message" class="form-control" placeholder="Message" required></textarea>
+              </div>
+              <div class="col-12 mb-3">
+                <button type="submit" id="form-submit" class="main-button">Send Message</button>
+              </div>
+            </div>
+            <div class="contact-dec text-center mt-3">
+              <img src="assets/images/contact-decoration.png" alt="" class="img-fluid" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================== -->
+  <!--                    Footer Section                     -->
+  <!-- ===================================================== -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
+          <p>T SURENDRA & ASSOCIATES. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <!-- Simple Fade Animation -->
+  <!-- ===================================================== -->
+  <!--                    JS Scripts                         -->
+  <!-- ===================================================== -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/animation.js"></script>
+  <script src="assets/js/imagesloaded.js"></script>
+  <script src="assets/js/templatemo-custom.js"></script>
+
+  <!-- =========== Toggle mobile menu (JS) =========== -->
   <script>
-    document.querySelectorAll('.animate-fade-in').forEach((el, i) => {
-      el.style.opacity = 0;
-      setTimeout(() => {
-        el.style.transition = 'opacity 1s ease';
-        el.style.opacity = 1;
-      }, 300 + i * 150);
+    // Simple JS to toggle mobile nav
+    document.querySelector('.menu-trigger').addEventListener('click', function() {
+      document.querySelector('.main-nav').classList.toggle('active');
     });
   </script>
 </body>
