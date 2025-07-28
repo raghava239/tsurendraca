@@ -1,117 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Startup Advisory Services: Strategic business planning, capital raising, compliance and structuring—tailored for visionary startups." />
-  <title>Startup Advisory – T SURENDRA & ASSOCIATES</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Startup Advisory | T SURENDRA & ASSOCIATES</title>
+  <meta name="description" content="Startup Advisory - Strategic business planning, financial advisory & capital raising, and compliance services for startups.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --blue: #082567;
       --green: #9ACD32;
-      --white: #FFFFFF;
+      --white: #fff;
+      --gray-bg: #f5f8fc;
+      --section-radius: 24px;
     }
-    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
+      color: var(--blue);
+      background: var(--gray-bg);
+    }
+    .header {
+      background: linear-gradient(to right, var(--blue), var(--green));
+      color: var(--white);
+      text-align: center;
+      padding: 56px 24px 0 24px;
+      min-height: 280px;
+    }
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .header p {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      opacity: 0.92;
+    }
+    .section {
+      background: var(--white);
+      border-radius: var(--section-radius);
+      margin: 40px auto;
+      box-shadow: 0 2px 20px rgba(8,37,103,0.06);
+      max-width: 1100px;
+      padding: 40px 32px;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      transition: box-shadow 0.2s;
+    }
+    .section:hover {
+      box-shadow: 0 4px 32px 0 rgba(9,38,103,0.11);
+    }
+    .sec-content {
+      flex: 1 1 340px;
+    }
+    .sec-content h2 {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      color: var(--green);
+      font-weight: 700;
+    }
+    .sec-content ul {
+      margin: 0 0 0 1.1em;
+      padding: 0;
+      font-size: 1.12rem;
+      line-height: 1.4;
+    }
+    .sec-content li {
+      margin-bottom: 8px;
+    }
+    .sec-img {
+      flex: 1 1 300px;
+      max-width: 420px;
+    }
+    .sec-img img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 2px 18px rgba(8,37,103,0.07);
+      min-height: 160px;
+      object-fit: cover;
+    }
+    @media (max-width: 900px) {
+      .section { flex-direction: column; gap: 18px; padding: 32px 16px; }
+      .sec-img, .sec-content { max-width: 100%; }
+      .header { padding: 38px 10px 0 10px; }
+    }
+    @media (max-width: 575px) {
+      .header h1 { font-size: 1.35rem; }
+      .section { padding: 16px 2vw; margin: 22px 0;}
+      .sec-content h2 { font-size: 1.25rem; }
+    }
+    .cta {
+      max-width: 900px;
+      margin: 60px auto 20px auto;
+      padding: 32px 12px;
+      background: linear-gradient(80deg, var(--green) 30%, var(--blue) 100%);
+      color: var(--white);
+      border-radius: var(--section-radius);
+      text-align: center;
+      box-shadow: 0 1px 12px rgba(8,37,103,0.08);
+    }
+    .cta h3 {margin:0 0 8px 0;font-size: 1.5rem;}
+    .cta a {
+      display: inline-block;
+      padding: 12px 36px;
       background: var(--white);
       color: var(--blue);
+      font-weight: 600;
+      border-radius: 8px;
+      margin-top: 18px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
     }
-    header {
+    .cta a:hover {background: var(--blue); color: var(--white);}
+    footer {
+      text-align: center;
+      padding: 24px 10px 20px 10px;
       background: var(--blue);
       color: var(--white);
-      padding: 24px 0;
-      text-align: center;
-      letter-spacing: .03em;
-    }
-    .container {
-      width: 90%;
-      max-width: 900px;
-      margin: 36px auto 0 auto;
-    }
-    h1 {
-      margin-top: 0;
-      font-size: 2.5rem;
-      letter-spacing: .01em;
-      color: var(--blue);
-    }
-    h2 {
-      color: var(--green);
-      font-size: 1.45rem;
-      margin-top: 2rem;
-      margin-bottom: .4rem;
-      font-weight: 600;
-    }
-    ul, ol {
-      margin: 0 0 1.2em 1.1em;
-      padding: 0;
-    }
-    li {
-      margin-bottom: .6em;
-      font-size: 1.11rem;
-    }
-    section {
-      padding: 28px 0;
-      border-bottom: 1px solid #dedede;
-    }
-    @media (max-width: 600px) {
-      h1 { font-size: 1.7rem; }
-      h2 { font-size: 1.1rem; }
-      .container { width: 97%; margin-top: 16px; }
-      section { padding: 16px 0; }
+      font-size: 0.96rem;
+      border-radius: 16px 16px 0 0;
+      margin: 70px auto 0 auto;
+      max-width: 1060px;
     }
   </style>
 </head>
 <body>
 
   <!-- Header -->
-  <header>
+  <div class="header">
     <h1>Startup Advisory Services</h1>
-    <div style="font-size:1.06rem; color: var(--green); font-weight: 600;">
-      Empowering Visionary Entrepreneurs
-    </div>
-  </header>
+    <p>Partnering with visionaries to launch, grow, and lead thriving businesses.</p>
+    <p style="font-size:1.08rem; opacity:0.86;">Comprehensive planning, financial expertise, regulatory guidance, and more for ambitious founders.</p>
+  </div>
 
-  <main class="container">
-
-    <!-- Strategic Business Planning -->
-    <section>
+  <!-- Section 1: Strategic Business Planning -->
+  <section class="section">
+    <div class="sec-content">
       <h2>Strategic Business Planning</h2>
       <ul>
         <li>Designing in-depth business plans</li>
         <li>Innovative market entry strategies</li>
         <li>Strategic frameworks aligned with your vision &amp; goals</li>
       </ul>
-    </section>
+    </div>
+    <div class="sec-img">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" 
+      alt="Business Planning Meeting">
+    </div>
+  </section>
 
-    <!-- Financial Advisory & Capital Raising -->
-    <section>
+  <!-- Section 2: Financial Advisory & Capital Raising -->
+  <section class="section" style="flex-direction: row-reverse;">
+    <div class="sec-content">
       <h2>Financial Advisory &amp; Capital Raising</h2>
       <ul>
-        <li>Delivering strategic financial guidance across modelling, budgeting and valuation</li>
-        <li>Developing persuasive investor materials and enabling meaningful investor engagement</li>
+        <li>Strategic financial guidance: modelling, budgeting, and valuation</li>
+        <li>Developing persuasive investor materials</li>
+        <li>Enabling meaningful investor engagement</li>
       </ul>
-    </section>
+    </div>
+    <div class="sec-img">
+      <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=800&q=80"
+      alt="Financial Analysis with Team">
+    </div>
+  </section>
 
-    <!-- Compliances and Business Structuring -->
-    <section>
-      <h2>Compliances and Business Structuring</h2>
+  <!-- Section 3: Compliances and Business Structuring -->
+  <section class="section">
+    <div class="sec-content">
+      <h2>Compliances &amp; Business Structuring</h2>
       <ul>
-        <li>Providing strategic counsel on business incorporation and optimal legal frameworks</li>
-        <li>Ensuring full compliance with tax legislation, corporate governance standards and industry-specific regulations</li>
+        <li>Strategic counsel on business incorporation and optimal legal frameworks</li>
+        <li>Ensuring full compliance with tax legislation</li>
+        <li>Corporate governance and industry-specific regulations</li>
       </ul>
-    </section>
+    </div>
+    <div class="sec-img">
+      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
+      alt="Compliance and Legal Structure">
+    </div>
+  </section>
 
-    <!-- Call to Action / Contact Link (optional) -->
-    <section style="text-align:center;border:none;">
-      <a href="#contact" style="background:var(--green);color:var(--blue);font-weight:600;padding:13px 30px;border-radius:6px;text-decoration:none;font-size:1.09rem;display:inline-block;">
-        Contact Us for Startup Advisory
-      </a>
-    </section>
+  <!-- Call to Action -->
+  <div class="cta">
+    <h3>Ready to build your future-proof startup?</h3>
+    <p>Contact us today for tailored advisory, actionable insights, and hands-on support.</p>
+    <a href="#contact" onclick="window.location.hash='#contact'">Get in Touch</a>
+  </div>
 
-  </main>
-
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 T SURENDRA & ASSOCIATES. All Rights Reserved.
+  </footer>
 </body>
 </html>
