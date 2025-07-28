@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- =============== Meta & Title =============== -->
+  <!-- ===================================================== -->
+  <!--                Meta, Fonts, and Vendor CSS            -->
+  <!-- ===================================================== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="T SURENDRA & ASSOCIATES, Chartered Accountants - A professional firm offering audit, consulting, financial advisory, and tax services." />
   <meta name="author" content="T SURENDRA & ASSOCIATES" />
+
   <title>T SURENDRA & ASSOCIATES - Chartered Accountants</title>
 
-  <!-- =============== Fonts & Vendor CSS =============== -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/fontawesome.css" />
   <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css" />
   <link rel="stylesheet" href="assets/css/animated.css" />
   <link rel="stylesheet" href="assets/css/owl.css" />
 
-  <!-- =============== Custom CSS =============== -->
+  <!-- ===================================================== -->
+  <!--                    Custom Styles                      -->
+  <!-- ===================================================== -->
   <style>
     :root {
       --blue: #082567;
       --green: #9ACD32;
       --white: #FFFFFF;
     }
-
     body {
       font-family: 'Poppins', sans-serif;
       background-color: var(--white);
       color: var(--blue);
     }
 
+    /* ---------------- Header/Nav Styles ----------------- */
     .header-area, .main-nav {
       background-color: var(--blue);
     }
-
     .main-nav .nav li a {
       color: var(--white) !important;
     }
-
-    .main-nav .nav li a:hover,
-    .main-nav .nav li a.active {
+    .main-nav .nav li a:hover, .main-nav .nav li a.active {
       color: var(--green) !important;
     }
-
     .main-red-button a, .main-button {
       background-color: var(--green);
       color: var(--blue);
@@ -56,121 +59,181 @@
     .section-heading h2 em, .section-heading h2 span {
       color: var(--green);
     }
+    .background-header {
+      background-color: #082567 !important;
+    }
 
+    /* ---------------- Hamburger Menu Custom Style ----------------- */
+    .menu-trigger {
+      display: none; /* desktop hidden, mobile flex */
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      margin-left: 16px;
+      z-index: 1100;
+    }
+    .menu-trigger span,
+    .menu-trigger span::before,
+    .menu-trigger span::after {
+      display: block;
+      position: absolute;
+      width: 32px;
+      height: 5px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all .3s;
+      font-weight: bold;
+      left: 2px;
+      content: '';
+    }
+    .menu-trigger span {
+      top: 15px;
+    }
+    .menu-trigger span::before {
+      content: '';
+      top: -11px;
+      left: 0;
+      position: absolute;
+    }
+    .menu-trigger span::after {
+      content: '';
+      top: 11px;
+      left: 0;
+      position: absolute;
+    }
+    /* Show hamburger and make nav vertical on mobile */
+    @media (max-width: 991.98px) {
+      .menu-trigger {
+        display: flex;
+      }
+      .main-nav .nav {
+        flex-direction: column !important;
+        gap: 10px;
+        background: var(--blue);
+        padding: 10px 0;
+        display: none;
+      }
+      .main-nav.active .nav {
+        display: flex;
+      }
+    }
+
+    /* ------------------ Banner Styles ----------------------- */
+    .main-banner h2, .main-banner h3 {
+      font-weight: 700;
+    }
+
+    /* ------------------ About Us Section -------------------- */
     #about {
       background: linear-gradient(to right, var(--blue), var(--green));
       color: var(--white);
     }
-
     #about h2 span {
       color: var(--green);
     }
+
+    /* ------------------ Services Section -------------------- */
     #services .list-group-item {
       background-color: var(--white);
       color: var(--blue);
       border: 1px solid var(--green);
     }
+
+    /* ------------------ Portfolio/Team ---------------------- */
     .our-portfolio .section-heading h2 span {
       color: var(--green);
     }
 
+    /* ------------------ Contact Section --------------------- */
     .contact-us .section-heading h2 {
       color: var(--blue);
     }
-    .phone-info h4 span a,
-    .phone-info h4 span {
+    .phone-info h4 span a, .phone-info h4 span {
       color: var(--green);
     }
+
+    /* ------------------ Footer ------------------------------ */
     footer {
       background-color: var(--blue);
       color: var(--white);
       text-align: center;
       padding: 20px 0;
     }
+
+    /* ------------------ Inputs ------------------------------ */
     input, textarea {
       border: 1px solid var(--green);
-    }
-    /* Sticky header background override */
-    .background-header {
-      background-color: #082567 !important;
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 5px;
+      margin-bottom: 10px;
     }
 
-    /* =============== Responsive Fixes =============== */
+    /* ------------------ Responsive Fixes -------------------- */
     @media (max-width: 991.98px) {
-      /* For nav in mobile view */
-      .main-nav .nav {
-        flex-direction: column;
-        background: var(--blue);
+      /* Stack columns, images center, add padding */
+      .main-banner .row,
+      .about-us .row,
+      .our-services .row,
+      .our-portfolio .row,
+      .contact-us .row {
+        flex-direction: column !important;
+        text-align: center;
       }
-      .main-nav .logo {
-        margin-bottom: 15px;
+      .main-banner .right-image img,
+      .about-us img,
+      .our-services img {
+        margin-top: 20px;
+        max-width: 80vw;
+        height: auto;
       }
-      .main-nav .main-red-button {
-        margin-top: 10px;
-      }
-      .main-nav .menu-trigger {
-        display: block;
-        color: var(--green);
-      }
-    }
-    @media (max-width: 767.98px) {
-      .main-banner .right-image,
       .main-banner .left-content {
         text-align: center;
       }
-      .main-banner .right-image img {
-        width: 90%;
-        max-width: 260px;
-        margin: 0 auto;
-      }
-      .about-us .row > div {
-        margin-bottom: 1rem;
-      }
-      #about img {
-        max-width: 70vw;
-        height: auto;
-      }
-      .our-services .row > div {
-        margin-bottom: 1.5rem;
-      }
-      .phone-info h4 {
-        font-size: 1rem;
-      }
-      .contact-us form .row > div {
-        margin-bottom: .75rem;
-      }
-      .list-group-item {
-        padding: 0.75rem 1rem;
-        font-size: 1rem;
-      }
+    }
+    @media (max-width: 767.98px) {
       .section-heading h2 {
-        font-size: 1.4rem !important;
+        font-size: 1.3rem !important;
       }
       .main-banner h2, .main-banner h3 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
       .main-red-button, .main-button {
         width: 100%;
         display: block;
         text-align: center;
       }
-    }
-    /* Extra small device tweaks */
-    @media (max-width: 575.98px) {
-      .about-us .container, .our-services .container, .our-portfolio .container, .contact-us .container {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
+      #about ul, .about-us ul {
+        padding-left: 0.7rem !important;
       }
-      #about ul li, .about-us ul li {
-        font-size: 0.97em;
+      .phone-info h4 {
+        font-size: 1rem;
+      }
+      .contact-us form .row > div {
+        margin-bottom: .7rem;
+      }
+      .row.g-3 {
+        --bs-gutter-x: 0.7rem;
+        --bs-gutter-y: 0.7rem;
+      }
+    }
+    @media (max-width: 575.98px) {
+      .container {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+      }
+      input, textarea {
+        font-size: 0.95rem;
       }
     }
   </style>
 </head>
-
 <body>
   <!-- ===================================================== -->
-  <!--                    Preloader Section                 -->
+  <!--                  Preloader Section                    -->
   <!-- ===================================================== -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
@@ -191,17 +254,25 @@
       <div class="row">
         <div class="col-12">
           <nav class="main-nav">
-            <a href="index.html" class="logo"><h4>T SURENDRA<span>CA</span></h4></a>
-            <!-- ========== Navigation Menu ========== -->
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+              <h4>T SURENDRA<span>CA</span></h4>
+            </a>
+            <!-- Nav Menu -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="#about">About Us</a></li>
               <li class="scroll-to-section"><a href="#services">Services</a></li>
               <li class="scroll-to-section"><a href="#portfolio">Team</a></li>
               <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
-              <li class="scroll-to-section"><div class="main-red-button"><a href="#contact">Message Us</a></div></li>
+              <li class="scroll-to-section">
+                <div class="main-red-button"><a href="#contact">Message Us</a></div>
+              </li>
             </ul>
-            <a class="menu-trigger"><span>Menu</span></a>
+            <!-- Mobile Hamburger Trigger -->
+            <a class="menu-trigger" aria-label="Open navigation">
+              <span></span>
+            </a>
           </nav>
         </div>
       </div>
@@ -209,25 +280,27 @@
   </header>
 
   <!-- ===================================================== -->
-  <!--                    Banner Section                     -->
+  <!--                  Banner Section                       -->
   <!-- ===================================================== -->
   <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">
-      <div class="row align-items-center flex-column-reverse flex-lg-row">
-        <!-- ===== Left Content for Banner ===== -->
+      <div class="row align-items-center">
+        <!-- Left Content -->
         <div class="col-lg-6 col-12 align-self-center">
           <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
             <h6>Welcome to</h6>
             <h2>T SURENDRA & ASSOCIATES</h2>
             <h3>Chartered Accountants</h3>
-            <p>“T SURENDRA & ASSOCIATES" is a professional body where dedicated professionals including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates and MBAs collaborate to provide audit, consulting, financial advisory, and tax services.</p>
+            <p>
+              “T SURENDRA & ASSOCIATES" is a professional body where dedicated professionals including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates and MBAs collaborate to provide audit, consulting, financial advisory, and tax services.
+            </p>
             <div class="main-red-button"><a href="#contact">Contact Us</a></div>
           </div>
         </div>
-        <!-- ===== Right Image for Banner ===== -->
+        <!-- Right Banner Image -->
         <div class="col-lg-6 col-12 text-center">
           <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-            <img src="assets/images/banner-right-image.png" alt="professional team meeting" class="img-fluid"/>
+            <img src="assets/images/banner-right-image.png" class="img-fluid" alt="professional team meeting" />
           </div>
         </div>
       </div>
@@ -240,17 +313,19 @@
   <section id="about" class="about-us section" style="background: linear-gradient(to right, #ff416c, #ff4b2b); color: #fff; padding: 60px 0;">
     <div class="container">
       <div class="row align-items-center">
-        <!-- Left Image (Centered for mobile)-->
+        <!-- About Left Image -->
         <div class="col-lg-5 col-12 text-center mb-4 mb-lg-0">
           <img src="assets/images/about-left-image.png" alt="person graphic" class="img-fluid" style="max-height: 400px;">
         </div>
-        <!-- Text / Features (Stacked for mobile) -->
+        <!-- About Text Content -->
         <div class="col-lg-7 col-12">
           <div class="mb-4">
             <h2 style="font-weight: 700;">
               Our <span style="color: #000;">Approach</span> <span style="color: #00c6ff;">And Principles</span>
             </h2>
-            <p style="color: #f1f1f1;">At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.</p>
+            <p style="color: #f1f1f1;">
+              At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.
+            </p>
             <ul style="color: #eee; padding-left: 1rem;">
               <li>- Listening to the client before advising</li>
               <li>- Providing timely and actionable solutions</li>
@@ -258,18 +333,22 @@
               <li>- Continuously upgrading our skills and technologies</li>
             </ul>
           </div>
-          <!-- Vision, Mission, Values: stacked responsively -->
+          <!-- Vision, Mission, Values -->
           <div class="row g-3">
             <div class="col-md-6 col-12">
               <div class="p-4 bg-white text-dark rounded shadow-sm h-100">
                 <h4 class="mb-2">💡 Our Vision</h4>
-                <p class="mb-0">To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions, and unwavering commitment.</p>
+                <p class="mb-0">
+                  To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions, and unwavering commitment.
+                </p>
               </div>
             </div>
             <div class="col-md-6 col-12">
               <div class="p-4 bg-white text-dark rounded shadow-sm h-100">
                 <h4 class="mb-2">🚀 Our Mission</h4>
-                <p class="mb-0">Empower clients through robust financial systems, compliance, and strategic insights that foster growth and sustainability.</p>
+                <p class="mb-0">
+                  Empower clients through robust financial systems, compliance, and strategic insights that foster growth and sustainability.
+                </p>
               </div>
             </div>
             <div class="col-12">
@@ -284,7 +363,8 @@
                 </ul>
               </div>
             </div>
-          </div> <!-- /.row -->
+          </div>
+          <!-- /row -->
         </div>
       </div>
     </div>
@@ -293,15 +373,20 @@
   <!-- ===================================================== -->
   <!--                Services Section                       -->
   <!-- ===================================================== -->
-  <div id="services" class="our-services section py-4">
+  <div id="services" class="our-services section">
     <div class="container">
-      <div class="row flex-column-reverse flex-lg-row">
-        <!-- Text part -->
+      <div class="row align-items-center">
+        <!-- Service Image -->
+        <div class="col-lg-6 col-12 align-self-center wow fadeInLeft text-center mb-4 mb-lg-0" data-wow-duration="1s" data-wow-delay="0.2s">
+          <div class="left-image">
+            <img src="assets/images/services-left-image.png" class="img-fluid" alt="financial services" />
+          </div>
+        </div>
+        <!-- Service List Content -->
         <div class="col-lg-6 col-12 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
           <div class="section-heading">
             <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
           </div>
-          <!-- List Group: Stacks well on mobile -->
           <ul class="list-group mb-4">
             <li class="list-group-item">Start-up Advisory and Consulting Services</li>
             <li class="list-group-item">Virtual CFO Services</li>
@@ -312,12 +397,6 @@
             <li class="list-group-item">Secretarial, FEMA & RBI Compliance Services</li>
           </ul>
         </div>
-        <!-- Image part -->
-        <div class="col-lg-6 col-12 align-self-center wow fadeInLeft text-center mb-4 mb-lg-0" data-wow-duration="1s" data-wow-delay="0.2s">
-          <div class="left-image">
-            <img src="assets/images/services-left-image.png" alt="financial services" class="img-fluid"/>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -325,7 +404,7 @@
   <!-- ===================================================== -->
   <!--                Team / Portfolio Section               -->
   <!-- ===================================================== -->
-  <div id="portfolio" class="our-portfolio section py-4">
+  <div id="portfolio" class="our-portfolio section">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 offset-lg-3 col-12">
@@ -355,7 +434,7 @@
   <!-- ===================================================== -->
   <!--                Contact Section                        -->
   <!-- ===================================================== -->
-  <div id="contact" class="contact-us section py-4">
+  <div id="contact" class="contact-us section">
     <div class="container">
       <div class="row">
         <!-- Contact Info -->
@@ -373,26 +452,26 @@
         </div>
         <!-- Contact Form -->
         <div class="col-lg-6 col-12 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contact-form" method="post" autocomplete="off">
+          <form id="contact" method="post" autocomplete="off">
             <div class="row">
               <div class="col-12 col-md-6 mb-3">
-                <input type="text" name="name" placeholder="Name" required class="form-control"/>
+                <input type="text" name="name" placeholder="Name" required />
               </div>
               <div class="col-12 col-md-6 mb-3">
-                <input type="text" name="surname" placeholder="Surname" required class="form-control"/>
+                <input type="text" name="surname" placeholder="Surname" required />
               </div>
               <div class="col-12 mb-3">
-                <input type="email" name="email" placeholder="Your Email" required class="form-control"/>
+                <input type="text" name="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required />
               </div>
               <div class="col-12 mb-3">
-                <textarea name="message" class="form-control" placeholder="Message" rows="3" required></textarea>
+                <textarea name="message" class="form-control" placeholder="Message" required></textarea>
               </div>
               <div class="col-12 mb-3">
                 <button type="submit" id="form-submit" class="main-button">Send Message</button>
               </div>
             </div>
             <div class="contact-dec text-center mt-3">
-              <img src="assets/images/contact-decoration.png" alt="" class="img-fluid"/>
+              <img src="assets/images/contact-decoration.png" alt="" class="img-fluid" />
             </div>
           </form>
         </div>
@@ -401,7 +480,7 @@
   </div>
 
   <!-- ===================================================== -->
-  <!--                Footer Section                         -->
+  <!--                    Footer Section                     -->
   <!-- ===================================================== -->
   <footer>
     <div class="container">
@@ -414,7 +493,7 @@
   </footer>
 
   <!-- ===================================================== -->
-  <!--                    Vendor JS Scripts                  -->
+  <!--                    JS Scripts                         -->
   <!-- ===================================================== -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -422,5 +501,13 @@
   <script src="assets/js/animation.js"></script>
   <script src="assets/js/imagesloaded.js"></script>
   <script src="assets/js/templatemo-custom.js"></script>
+
+  <!-- =========== Toggle mobile menu (JS) =========== -->
+  <script>
+    // Simple JS to toggle mobile nav
+    document.querySelector('.menu-trigger').addEventListener('click', function() {
+      document.querySelector('.main-nav').classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
