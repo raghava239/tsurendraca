@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="T SURENDRA & ASSOCIATES, Chartered Accountants - Audit, consulting, financial advisory, tax services." />
+<meta name="author" content="T SURENDRA & ASSOCIATES" />
+<title>T SURENDRA & ASSOCIATES - Chartered Accountants</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --blue: #082567;
+    --green: #9ACD32;
+    --white: #FFFFFF;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--white);
+    color: var(--blue);
+    line-height: 1.6;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  header {
+    background: var(--blue);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+  }
+  nav .logo img {
+    height: 55px;
+  }
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  nav ul li a {
+    font-weight: 600;
+    color: var(--white);
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  nav ul li a.active,
+  nav ul li a:hover {
+    color: var(--green);
+    background: var(--white);
+  }
+  .btn-primary {
+    background-color: var(--green);
+    color: var(--blue);
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    background-color: var(--blue);
+    color: var(--white);
+  }
+  /* Banner Section */
+  #top .banner {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px 0;
+    align-items: center;
+    gap: 40px;
+  }
+  #top .banner .text-content {
+    flex: 1 1 400px;
+  }
+  #top .banner h6 {
+    font-weight: 300;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--green);
+  }
+  #top .banner h2 {
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 8px;
+  }
+  #top .banner h3 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--green);
+  }
+  #top .banner p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  #top .banner .banner-image {
+    flex: 1 1 320px;
+    text-align: center;
+  }
+  /* About Section */
+  #about {
+    background: linear-gradient(to right, var(--blue), var(--green));
+    color: var(--white);
+    padding: 60px 0;
+  }
+  #about .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+  }
+  #about .image {
+    flex: 1 1 350px;
+    text-align: center;
+  }
+  #about .image img {
+    max-height: 400px;
+    border-radius: 12px;
+  }
+  #about .text {
+    flex: 1 1 500px;
+  }
+  #about h2 {
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+  }
+  #about h2 span {
+    color: #00c6ff;
+  }
+  #about p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    max-width: 600px;
+    color: #f1f1f1;
+  }
+  #about ul {
+    padding-left: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #eee;
+  }
+  #about ul li {
+    margin-bottom: 10px;
+  }
+  #about .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 20px;
+  }
+  #about .card {
+    background: var(--white);
+    color: var(--blue);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  #about .card h4 {
+    margin-bottom: 12px;
+  }
+  #about .card ul {
+    list-style: inside;
+    padding-left: 0;
+  }
+
+  /* Services Section */
+  #services {
+    padding: 60px 0;
+  }
+  #services .services-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+  }
+  #services .image-block {
+    flex: 1 1 350px;
+    text-align: center;
+  }
+  #services .image-block img {
+    border-radius: 12px;
+  }
+  #services .text-block {
+    flex: 1 1 500px;
+  }
+  #services h2 {
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+  }
+  #services h2 em,
+  #services h2 span {
+    color: var(--green);
+  }
+  #services ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid var(--green);
+    border-radius: 8px;
+    overflow: hidden;
+    color: var(--blue);
+  }
+  #services ul li {
+    border-bottom: 1px solid var(--green);
+    padding: 15px 20px;
+    background: var(--white);
+  }
+  #services ul li:last-child {
+    border-bottom: none;
+  }
+
+  /* Portfolio Section */
+  #portfolio {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    color: var(--blue);
+  }
+  #portfolio h2 {
+    font-weight: 700;
+    font-size: 2.2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+  }
+  #portfolio h2 span {
+    color: var(--green);
+  }
+  #portfolio .founder-card {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  #portfolio .founder-card:hover {
+    transform: translateY(-8px);
+  }
+  #portfolio .founder-card img {
+    display: block;
+    width: 100%;
+  }
+  #portfolio .founder-info {
+    padding: 20px;
+    text-align: center;
+  }
+  #portfolio .founder-info h4 {
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  #portfolio .founder-info p {
+    font-size: 0.95rem;
+    color: #444;
+  }
+
+  /* Contact Section */
+  #contact {
+    padding: 60px 0;
+  }
+  #contact .container {
+    max-width: 1100px;
+  }
+  #contact .contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  #contact .info {
+    flex: 1 1 400px;
+    color: var(--blue);
+  }
+  #contact .info h2 {
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+  }
+  #contact .info p {
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+    max-width: 480px;
+  }
+  #contact .phone-info h4 {
+    margin: 1rem 0 0.6rem 0;
+    font-weight: 600;
+  }
+  #contact .phone-info h4 span a,
+  #contact .phone-info h4 span {
+    color: var(--green);
+  }
+  #contact .form-container {
+    flex: 1 1 480px;
+  }
+  #contact form {
+    width: 100%;
+  }
+  #contact form .row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  #contact form .col-half {
+    flex: 1 1 48%;
+  }
+  #contact form .col-full {
+    flex: 1 1 100%;
+  }
+  #contact input,
+  #contact textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--green);
+    border-radius: 5px;
+    font-size: 1rem;
+    resize: vertical;
+    color: var(--blue);
+  }
+  #contact textarea {
+    min-height: 100px;
+  }
+  #contact .btn-submit {
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--blue);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 991px) {
+    nav ul {
+      flex-direction: column;
+      gap: 12px;
+      background: var(--blue);
+      position: absolute;
+      top: 65px;
+      right: 0;
+      width: 200px;
+      padding: 10px;
+      display: none;
+      border-radius: 0 0 0 8px;
+    }
+    nav ul.active {
+      display: flex;
+    }
+    nav .menu-toggle {
+      display: flex;
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+    nav .menu-toggle span {
+      height: 4px;
+      border-radius: 3px;
+      background: white;
+      display: block;
+      transition: all 0.3s ease;
+    }
+    #top .banner {
+      flex-direction: column;
+    }
+    #about .content {
+      flex-direction: column;
+    }
+    #services .services-container {
+      flex-direction: column;
+    }
+    #contact .contact-wrapper {
+      flex-direction: column;
+    }
+    #contact form .col-half {
+      flex: 1 1 100%;
+    }
+  }
+  @media (max-width: 575px) {
+    #top .banner h2 {
+      font-size: 2rem;
+    }
+    #top .banner h3 {
+      font-size: 1.3rem;
+    }
+    #about h2, #services h2, #portfolio h2, #contact .info h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#top" class="logo" aria-label="T Surendra & Associates Logo">
+        <img src="https://github.com/raghava239/tsurendraca/blob/main/logo.jpg?raw=true" alt="T Surendra & Associates Logo" />
+      </a>
+      <ul id="nav-menu">
+        <li><a href="#top" class="active">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Team</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#contact" class="btn-primary">Message Us</a></li>
+      </ul>
+      <div class="menu-toggle" aria-label="Toggle menu" tabindex="0" role="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section id="top">
+  <div class="container">
+    <div class="banner">
+      <div class="text-content" role="banner">
+        <h6>Welcome to</h6>
+        <h2>T SURENDRA & ASSOCIATES</h2>
+        <h3>Chartered Accountants</h3>
+        <p>
+          “T SURENDRA & ASSOCIATES" is a professional body where dedicated professionals including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates and MBAs collaborate to provide audit, consulting, financial advisory, and tax services.
+        </p>
+        <a href="#contact" class="btn-primary" role="button">Contact Us</a>
+      </div>
+      <div class="banner-image" aria-hidden="true">
+        <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/banner-right-image.png" alt="Professional team meeting" onerror="this.style.display='none'"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" aria-label="About Us">
+  <div class="container">
+    <div class="content">
+      <div class="image" aria-hidden="true">
+        <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/about-left-image.png" alt="Person graphic" onerror="this.style.display='none'"/>
+      </div>
+      <div class="text">
+        <h2>Our <span>Approach</span> <span>And Principles</span></h2>
+        <p>
+          At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.
+        </p>
+        <ul>
+          <li>Listening to the client before advising</li>
+          <li>Providing timely and actionable solutions</li>
+          <li>Maintaining confidentiality and professional ethics</li>
+          <li>Continuously upgrading our skills and technologies</li>
+        </ul>
+        <div class="cards">
+          <article class="card" role="region" aria-labelledby="vision-title">
+            <h4 id="vision-title">💡 Our Vision</h4>
+            <p>To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions, and unwavering commitment.</p>
+          </article>
+          <article class="card" role="region" aria-labelledby="mission-title">
+            <h4 id="mission-title">🚀 Our Mission</h4>
+            <p>Empower clients through robust financial systems, compliance, and strategic insights that foster growth and sustainability.</p>
+          </article>
+          <article class="card" role="region" aria-labelledby="values-title">
+            <h4 id="values-title">🎯 Core Values</h4>
+            <ul>
+              <li>Integrity – Honesty, transparency, and strong moral principles</li>
+              <li>Excellence – Delivering high standards consistently</li>
+              <li>Commitment – Dedicated service and long-term relationships</li>
+              <li>Confidentiality – Respecting client privacy and data</li>
+              <li>Learning – Adapting to changing laws and technologies</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" aria-label="Our Services">
+  <div class="container">
+    <div class="services-container">
+      <div class="image-block" aria-hidden="true">
+        <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/services-left-image.png" alt="Financial services" onerror="this.style.display='none'"/>
+      </div>
+      <div class="text-block">
+        <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
+        <ul>
+          <li>Start-up Advisory and Consulting Services</li>
+          <li>Virtual CFO Services</li>
+          <li>Direct and International Tax Services</li>
+          <li>Indirect Tax Services</li>
+          <li>Audit and Assurance Services</li>
+          <li>Labour Law Compliance Services</li>
+          <li>Secretarial, FEMA &amp; RBI Compliance Services</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio" aria-label="Meet Our Founder">
+  <div class="container">
+    <h2>Meet Our <span>Founder</span></h2>
+    <div class="founder-card" tabindex="0" aria-describedby="founder-desc">
+      <img src="https://raw.githubusercontent.com/raghava239/tsurendrca/main/assets/images/portfolio-image.png" alt="Surendra Tirumareddi" onerror="this.style.display='none'"/>
+      <div class="founder-info">
+        <h4>Surendra Tirumareddi | ACA | B.Com.</h4>
+        <p id="founder-desc">Surendra is an Associate Chartered Accountant with specialized expertise in Transfer Pricing, Direct Taxes, and FEMA...</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" aria-label="Contact Us">
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="info">
+        <h2>Let's Connect and Discuss Your Financial Needs</h2>
+        <p>Our team is dedicated to helping you achieve your financial goals...</p>
+        <div class="phone-info">
+          <h4>Contact Us: <span><i aria-hidden="true">📞</i> <a href="tel:7995356942">79953 56942</a></span></h4>
+          <h4>Email: <span><i aria-hidden="true">📧</i> <a href="mailto:Surendra@tsurendraca.in">Surendra@tsurendraca.in</a></span></h4>
+          <h4>Website: <span><i aria-hidden="true">🌐</i> <a href="https://tsurendraca.in" target="_blank" rel="noopener">tsurendraca.in</a></span></h4>
+          <h4>Location: <span><i aria-hidden="true">📍</i> Hyderabad, Visakhapatnam</span></h4>
+        </div>
+      </div>
+      <div class="form-container">
+        <form id="contact-form" method="post" autocomplete="off" novalidate>
+          <div class="row">
+            <div class="col-half">
+              <label class="sr-only" for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Name" required />
+            </div>
+            <div class="col-half">
+              <label class="sr-only" for="surname">Surname</label>
+              <input type="text" id="surname" name="surname" placeholder="Surname" required />
+            </div>
+            <div class="col-full">
+              <label class="sr-only" for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Your Email" required />
+            </div>
+            <div class="col-full">
+              <label class="sr-only" for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Message" required></textarea>
+            </div>
+            <div class="col-full">
+              <button type="submit" class="btn-primary btn-submit" aria-label="Send Message">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>T SURENDRA & ASSOCIATES. All Rights Reserved.</p>
+</footer>
+
+<script>
+  // Menu toggle for smaller screens
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  // Close menu when clicking a link (mobile)
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+    });
+  });
+
+  // Simple form validation (optional)
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', e => {
+    if (!form.checkValidity()) {
+      e.preventDefault();
+      alert('Please fill in all required fields with valid info.');
+    }
+  });
+</script>
+</body>
+</html>
