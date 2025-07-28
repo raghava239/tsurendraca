@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- ===================================================== -->
-  <!--                Meta, Fonts, and Vendor CSS            -->
+  <!--                Meta, Fonts, and Styles                -->
   <!-- ===================================================== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,18 +15,102 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-  <!-- Vendor CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/fontawesome.css" />
-  <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css" />
-  <link rel="stylesheet" href="assets/css/animated.css" />
-  <link rel="stylesheet" href="assets/css/owl.css" />
-
-  <!-- ===================================================== -->
-  <!--                    Custom Styles                      -->
-  <!-- ===================================================== -->
+  <!-- Combined CSS Start -->
   <style>
-    /* ================= Root variables ================= */
+    /* Bootstrap Grid & Essential Utilities (simplified) */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body, h1, h2, h3, h4, h5, h6, p, ul, h4 {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Bootstrap Container */
+    .container {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 1140px;
+    }
+
+    /* Bootstrap Row */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    /* Bootstrap Columns (simplified for lg and md and xs) */
+    .col-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    @media (min-width: 768px) {
+      .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+    @media (min-width: 992px) {
+      .col-lg-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+      .col-lg-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .col-lg-5 {
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+      }
+      .col-lg-7 {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+      }
+      .col-lg-6.offset-lg-3 {
+        margin-left: 25%;
+      }
+    }
+
+    /* Buttons and Interactive Elements */
+    .main-red-button a,
+    .main-button {
+      background-color: #9ACD32;
+      color: #082567;
+      border: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding: 10px 20px;
+      border-radius: 4px;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .main-red-button a:hover,
+    .main-button:hover {
+      background-color: #082567;
+      color: #fff;
+    }
+
+    /* ================= Root Varibles ================= */
     :root {
       --blue: #082567;
       --green: #9ACD32;
@@ -37,6 +121,7 @@
       font-family: 'Poppins', sans-serif;
       background-color: var(--white);
       color: var(--blue);
+      line-height: 1.5;
     }
 
     /* ---------------- Header and Nav ------------------ */
@@ -68,45 +153,44 @@
       user-select: none;
     }
 
-    /* Navigation links */
+    /* Navigation */
+    .main-nav .nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .main-nav .nav li {
+      list-style: none;
+    }
     .main-nav .nav li a {
       color: var(--white) !important;
       font-weight: 500;
+      padding: 8px 12px;
       transition: color 0.3s ease;
+      display: block;
     }
     .main-nav .nav li a:hover,
     .main-nav .nav li a.active {
       color: var(--green) !important;
     }
 
-    /* Buttons */
-    .main-red-button a,
-    .main-button {
-      background-color: var(--green);
-      color: var(--blue);
-      border: none;
+    /* For the red button links */
+    .main-red-button a {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 25px;
       font-weight: 600;
       transition: background-color 0.3s ease, color 0.3s ease;
-      padding: 10px 20px;
-      border-radius: 4px;
-      display: inline-block;
-      text-decoration: none;
     }
-    .main-red-button a:hover,
-    .main-button:hover {
+    .main-red-button a:hover {
       background-color: var(--blue);
       color: var(--white);
       text-decoration: none;
     }
 
-    .section-heading h2 em,
-    .section-heading h2 span {
-      color: var(--green);
-    }
-
     /* ---------------- Hamburger Menu ------------------ */
     .menu-trigger {
-      display: none; /* hidden on desktop by default */
+      display: none; /* hidden on desktop */
       cursor: pointer;
       width: 36px;
       height: 36px;
@@ -141,8 +225,70 @@
       top: 11px;
     }
 
-    /* ---------------- Responsive Styles ---------------- */
+    /* ---------------- Sections Styling ---------------- */
+    /* Banner */
+    .main-banner h2, .main-banner h3 {
+      font-weight: 700;
+    }
 
+    /* About Section */
+    #about {
+      background: linear-gradient(to right, var(--blue), var(--green));
+      color: var(--white);
+    }
+    #about h2 span {
+      color: var(--green);
+    }
+
+    /* Services */
+    #services .list-group-item {
+      background-color: var(--white);
+      color: var(--blue);
+      border: 1px solid var(--green);
+      padding: .75rem 1.25rem;
+      margin-bottom: 0.75rem;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+    }
+
+    /* Portfolio */
+    .our-portfolio .section-heading h2 span {
+      color: var(--green);
+    }
+
+    /* Contact */
+    .contact-us .section-heading h2 {
+      color: var(--blue);
+    }
+    .phone-info h4 span a,
+    .phone-info h4 span {
+      color: var(--green);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--blue);
+      color: var(--white);
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    /* Form Inputs */
+    input, textarea {
+      border: 1px solid var(--green);
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      color: var(--blue);
+    }
+    textarea {
+      resize: vertical;
+    }
+
+    /* ================= Responsive ================== */
     @media (max-width: 991.98px) {
       /* Show hamburger on mobile */
       .menu-trigger {
@@ -160,69 +306,11 @@
       .main-nav.active .nav {
         display: flex;
       }
-      /* Adjust logo image size slightly on mobile */
+      /* Adjust logo height on mobile */
       .logo img {
         max-height: 32px;
       }
-    }
-
-    /* ---------------- Banner Section Styles ---------------- */
-    .main-banner h2, .main-banner h3 {
-      font-weight: 700;
-    }
-
-    /* ---------------- About Section ------------------ */
-    #about {
-      background: linear-gradient(to right, var(--blue), var(--green));
-      color: var(--white);
-    }
-    #about h2 span {
-      color: var(--green);
-    }
-
-    /* ---------------- Services Section ---------------- */
-    #services .list-group-item {
-      background-color: var(--white);
-      color: var(--blue);
-      border: 1px solid var(--green);
-    }
-
-    /* ---------------- Portfolio / Team ---------------- */
-    .our-portfolio .section-heading h2 span {
-      color: var(--green);
-    }
-
-    /* ---------------- Contact Section ---------------- */
-    .contact-us .section-heading h2 {
-      color: var(--blue);
-    }
-    .phone-info h4 span a,
-    .phone-info h4 span {
-      color: var(--green);
-    }
-
-    /* ---------------- Footer ------------------------- */
-    footer {
-      background-color: var(--blue);
-      color: var(--white);
-      text-align: center;
-      padding: 20px 0;
-    }
-
-    /* ------------- Form Inputs ----------------------- */
-    input, textarea {
-      border: 1px solid var(--green);
-      width: 100%;
-      padding: 8px 12px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      color: var(--blue);
-    }
-
-    /* ---------- Responsive layout for sections ---------- */
-    @media (max-width: 991.98px) {
+      /* Stack main sections vertically */
       .main-banner .row,
       .about-us .row,
       .our-services .row,
@@ -231,6 +319,7 @@
         flex-direction: column !important;
         text-align: center;
       }
+      /* Images centered and sized */
       .main-banner .right-image img,
       .about-us img,
       .our-services img {
@@ -277,8 +366,8 @@
         font-size: 0.95rem;
       }
     }
-
   </style>
+  <!-- Combined CSS End -->
 </head>
 <body>
   <!-- ===================================================== -->
@@ -303,7 +392,7 @@
       <div class="row">
         <div class="col-12">
           <nav class="main-nav">
-            <!-- Logo with image and text -->
+            <!-- Logo with image -->
             <a href="index.html" class="logo" aria-label="T Surendra & Associates Home">
               <img src="https://caportal.saginfotech.com/wp-content/uploads/2023/11/new-ca-logo-by-icai-1024x538.jpg" alt="ICAI Chartered Accountant Logo" />
               <h4>T SURENDRA<span>CA</span></h4>
