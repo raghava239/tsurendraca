@@ -50,7 +50,10 @@
       width: 100%;
     }
     nav .logo { display: flex; align-items: center; }
-    nav .logo img { height: 55px; border-radius: 12px; }
+    nav .logo img {
+      height: 42px; /* decreased for more compact logo */
+      border-radius: 10px;
+    }
     nav ul {
       display: flex; list-style: none; gap: 1.5rem;
       margin-left: auto; padding: 0; align-items: center;
@@ -158,6 +161,7 @@
       cursor: pointer; transition: background-color 0.3s;
     }
     .carousel-indicators button.active { background: var(--green); }
+
     #services {
       padding: 60px 15px; max-width: 1100px;
       margin: 0 auto; color: var(--blue);
@@ -172,9 +176,23 @@
       align-items: center; justify-content: center;
     }
     #services .image-block {
-      flex: 1 1 350px; max-width: 350px; text-align: center;
+      flex: 1 1 480px;      /* increased for larger image */
+      max-width: 480px;
+      min-width: 280px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 320px;
     }
-    #services .image-block img { border-radius: 12px; }
+    #services .image-block img {
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(8,37,103,0.13);
+      width: 100%;
+      height: auto;
+      max-height: 400px; /* increase as needed */
+      object-fit: cover;
+    }
     #services .text-block { flex: 1 1 500px; max-width: 600px; }
     #services ul {
       list-style: none; padding: 0; margin: 0;
@@ -304,6 +322,7 @@
       #top .carousel-content p, #top .carousel-content ul { font-size: 1rem; }
       #contact .info h2, #services h2, #team-section h2 { font-size: 1.6rem; }
       .team-card { padding: 20px 7vw 16px 7vw; }
+      #services .image-block img { max-height: 220px; }
     }
   </style>
 </head>
@@ -331,7 +350,6 @@
       </nav>
     </div>
   </header>
-
   <!-- Carousel Section -->
   <section id="top" aria-label="Welcome Banner">
     <div class="carousel-outer">
@@ -403,17 +421,14 @@
             <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/main/assets/images/about-left-image.png" alt="Approach and Principles" loading="lazy" onerror="this.style.display='none'"/>
           </div>
         </article>
-
         <!-- Carousel Navigation Buttons -->
         <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
         <button type="button" class="carousel-btn next" aria-label="Next Slide">&#9654;</button>
-
         <!-- Dot Indicators -->
         <div class="carousel-indicators" role="tablist" aria-label="Carousel Navigation"></div>
       </div>
     </div>
   </section>
-
   <!-- Services Section -->
   <section id="services" aria-label="Our Services">
     <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
@@ -437,7 +452,6 @@
       </div>
     </div>
   </section>
-
   <!-- Meet Our Team Section -->
   <section id="team-section">
     <h2>Meet Our Team</h2>
@@ -459,7 +473,6 @@
       </div>
     </div>
   </section>
-
   <!-- Contact Section -->
   <section id="contact" aria-label="Contact Us">
     <div class="contact-wrapper">
@@ -500,12 +513,10 @@
       </div>
     </div>
   </section>
-
   <!-- Footer -->
   <footer>
     <p>T SURENDRA & ASSOCIATES. All Rights Reserved.</p>
   </footer>
-
   <!-- JavaScript for menu and carousel -->
   <script>
     // Hamburger Mobile Menu toggle
