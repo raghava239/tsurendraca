@@ -227,7 +227,7 @@
       }
     }
 
-    /* Main Content Styling */
+    /* Main content and other page styles */
 
     #main {
       padding: 100px 15px 60px 15px;
@@ -440,13 +440,14 @@
     // Hamburger menu toggle for mobile
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.getElementById('nav-menu');
+
     menuToggle?.addEventListener('click', () => {
       navMenu.classList.toggle('active');
     });
 
-    // Close mobile menu after clicking on an in-page anchor link
-    navMenu.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', () => {
+    // Close mobile menu after clicking on a nav link
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
         navMenu.classList.remove('active');
       });
     });
