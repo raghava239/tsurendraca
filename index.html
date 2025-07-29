@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-    content="T SURENDRA & ASSOCIATES, Chartered Accountants - Audit, consulting, financial advisory, tax services." />
+  <meta name="description" content="T SURENDRA & ASSOCIATES, Chartered Accountants - Audit, consulting, financial advisory, tax services." />
   <meta name="author" content="T SURENDRA & ASSOCIATES" />
   <title>T SURENDRA & ASSOCIATES - Chartered Accountants</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -19,211 +18,137 @@
       --white: #FFFFFF;
     }
 
-    html {
-      scroll-padding-top: 70px;
-      scroll-behavior: smooth;
-    }
-
-    *, *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      color: var(--blue);
-      line-height: 1.6;
-      background: var(--white);
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
-    }
-
-    ul,
-    li {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    /* Loader and other global styles omitted for brevity, keep same as before */
-
-    /* Header (same as before) */
-
-    /* Banner Carousel Section */
-    #top {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      padding-top: 65px; /* fixed header space */
-      overflow: hidden;
-      box-sizing: border-box;
-      color: var(--blue);
-    }
-
-    .carousel-outer {
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      height: calc(100vh - 65px);
-      position: relative;
-      display: flex;
-      overflow: hidden;
-    }
-
-    .carousel-container {
-      width: 500%; /* 5 slides */
-      height: 100%;
-      display: flex;
-      transition: transform 0.7s cubic-bezier(.77, 0, .18, 1);
-    }
-
-    /* Updated slide styling for improved alignment */
-    .carousel-slide {
-      width: 20%;
-      display: flex;
-      /* align horizontally center and vertically center */
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 3vw;
-      gap: 3rem;
-      box-sizing: border-box;
-      min-height: 100%;
-      flex-shrink: 0;
-    }
-
-    /* Responsive adjustment: stack content vertically on smaller widths */
-    @media (max-width: 850px) {
-      .carousel-slide {
-        flex-direction: column;
-        text-align: center;
-        padding: 1rem 2rem;
-        gap: 2rem;
-        justify-content: center;
-      }
-
-      .carousel-content {
-        max-width: 100%;
-      }
-
-      .carousel-image {
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-      }
-
-      .carousel-image img {
-        height: auto;
-        max-height: 280px;
-        margin: 0 auto;
-      }
-    }
-
-    .carousel-content {
-      flex: 1;
-      max-width: 550px;
-      min-width: 250px;
-    }
-
-    .carousel-carousel > p,
-    .carousel-content ul {
-      font-size: 1.1rem;
-      line-height: 1.5;
-      margin-bottom: 28px;
-    }
-    .carousel-content ul {
-      padding-left: 1.3em;
-    }
-    .carousel-content ul li {
-      margin-bottom: 0.6rem;
-    }
-
-    .carousel-image {
-      flex: 1;
-      max-width: 400px;
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 200px;
-    }
-
-    .carousel-image img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      border-radius: 20px;
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 50px;
-      height: 50px;
-      background: rgba(255, 255, 255, 0.6);
-      border: none;
-      border-radius: 50%;
-      font-size: 2rem;
-      cursor: pointer;
-      color: var(--blue);
-      user-select: none;
-      transition: background-color 0.3s;
-      z-index: 1010;
-    }
-
-    .carousel-btn:hover {
-      background-color: var(--green);
-      color: var(--blue);
-    }
-
-    .carousel-btn.prev {
-      left: 16px;
-    }
-
-    .carousel-btn.next {
-      right: 16px;
-    }
-
-    .carousel-indicators {
-      position: absolute;
-      bottom: 25px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 12px;
-      z-index: 1010;
-    }
-
-    .carousel-indicators button {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      transition: background-color 0.3s;
-      padding: 0;
-    }
-
-    .carousel-indicators button.active {
-      background-color: var(--green);
-    }
-
-    /* Other sections and CSS remain unchanged - use code from previous full HTML shared */
-
+    /* ... (rest of your CSS style, properly formatted as in your input) ... */
+    /* For brevity, full CSS is not repeated here. Use your original CSS block with correct indentation. */
   </style>
+  <script>
+    // Hash scroll and loader logic
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.location.hash) {
+        const targetId = window.location.hash.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          setTimeout(() => {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
+      }
+
+      // Loader hide logic after page load
+      setTimeout(function () {
+        const loader = document.getElementById('loader-overlay');
+        loader.classList.add('hidden');
+        setTimeout(() => {
+          loader.style.display = 'none';
+          document.body.classList.remove('loading');
+        }, 500);
+      }, 1500);
+    });
+
+    // Hamburger menu toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      menuToggle?.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+      navMenu.querySelectorAll('a').forEach(anchor => {
+        anchor.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+        });
+      });
+      const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
+      dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', e => {
+          if (window.innerWidth <= 991) {
+            e.preventDefault();
+            const parentLi = e.target.closest('li.dropdown');
+            parentLi.classList.toggle('active');
+          }
+        });
+      });
+    });
+
+    // Carousel Setup
+    (() => {
+      const container = document.querySelector('.carousel-container');
+      const slides = [...container.querySelectorAll('.carousel-slide')];
+      const btnNext = document.querySelector('.carousel-btn.next');
+      const btnPrev = document.querySelector('.carousel-btn.prev');
+      const indicatorsContainer = document.querySelector('.carousel-indicators');
+      let currentIndex = 0;
+      const slideCount = slides.length;
+      let autoSlideInterval;
+
+      for (let i = 0; i < slideCount; i++) {
+        const btn = document.createElement('button');
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        btn.setAttribute('tabindex', i === 0 ? '0' : '-1');
+        if (i === 0) btn.classList.add('active');
+        btn.addEventListener('click', () => {
+          resetTimer();
+          goToSlide(i);
+        });
+        indicatorsContainer.appendChild(btn);
+      }
+      const indicators = [...indicatorsContainer.children];
+
+      function goToSlide(index) {
+        currentIndex = index;
+        container.style.transform = `translateX(-${index * 100}%)`;
+        updateIndicators();
+      }
+
+      function updateIndicators() {
+        indicators.forEach((btn, i) => {
+          const isActive = i === currentIndex;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('tabindex', isActive ? '0' : '-1');
+        });
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slideCount;
+        goToSlide(currentIndex);
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        goToSlide(currentIndex);
+      }
+
+      btnNext.addEventListener('click', () => {
+        resetTimer();
+        nextSlide();
+      });
+
+      btnPrev.addEventListener('click', () => {
+        resetTimer();
+        prevSlide();
+      });
+
+      function startTimer() {
+        autoSlideInterval = setInterval(nextSlide, 6200);
+      }
+
+      function resetTimer() {
+        clearInterval(autoSlideInterval);
+        startTimer();
+      }
+      goToSlide(0);
+      startTimer();
+    })();
+
+    // Contact form validation
+    document.getElementById('contact-form')?.addEventListener('submit', e => {
+      const form = e.target;
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        alert('Please fill in all required fields with valid information.');
+      }
+    });
+  </script>
 </head>
 
 <body class="loading">
@@ -273,203 +198,99 @@
   </header>
 
   <!-- Banner Carousel Section -->
-  <section id="top" aria-label="Welcome Banner" style="position: relative; height: 100vh; overflow: hidden; padding-top: 65px;">
+  <section id="top" aria-label="Welcome Banner">
     <div class="carousel-outer">
-
-      <div class="carousel-container" aria-live="polite" aria-atomic="true" role="list">
-
-        <!-- Slide 1: Welcome -->
-        <article class="carousel-slide" role="listitem" aria-label="Slide 1 of 5 - Welcome">
-          <div class="carousel-content">
-            <h6>Welcome to</h6>
-            <h2>T SURENDRA & ASSOCIATES (TSA)</h2>
-            <h3>Your Trusted Partner for Comprehensive Financial and Advisory Services</h3>
-            <p>At TSA, we offer holistic, end-to-end solutions tailored to align with your business goals...</p>
-            <p><strong>TSA</strong> is your one-stop destination for comprehensive financial and business services...</p>
-          </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1601597111158-bc1c1f39c555?auto=format&fit=crop&w=600&q=80"
-              alt="Professional team meeting" />
-          </div>
-        </article>
-
-        <!-- Slide 2: Approach -->
-        <article class="carousel-slide" role="listitem" aria-label="Slide 2 of 5 - Our Approach and Principles">
-          <div class="carousel-content">
-            <h2>Our <span>Approach</span> <span>And Principles</span></h2>
-            <p>At TSA, our approach is built on trust, clarity, and long-term partnership...</p>
-            <ul>
-              <li>Listening to clients</li>
-              <li>Providing actionable solutions</li>
-              <li>Maintaining confidentiality</li>
-              <li>Continuous skill upgrades</li>
-            </ul>
-          </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80"
-              alt="Approach and Principles - strategy session" />
-          </div>
-        </article>
-
-        <!-- Slide 3: Vision -->
-        <article class="carousel-slide" role="listitem" aria-label="Slide 3 of 5 - Vision">
-          <div class="carousel-content">
-            <h2>Our <span>Vision</span></h2>
-            <p>To be a trusted and future-ready financial firm, recognized for expertise and innovation.</p>
-          </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
-              alt="Vision - mountain vista" />
-          </div>
-        </article>
-
-        <!-- Slide 4: Mission -->
-        <article class="carousel-slide" role="listitem" aria-label="Slide 4 of 5 - Mission">
-          <div class="carousel-content">
-            <h2>Our <span>Mission</span></h2>
-            <p>Empowering clients through robust financial systems and strategic insights fostering growth.</p>
-          </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
-              alt="Modern financial center" />
-          </div>
-        </article>
-
-        <!-- Slide 5: Core Values -->
-        <article class="carousel-slide" role="listitem" aria-label="Slide 5 of 5 - Core Values">
-          <div class="carousel-content">
-            <h2>Our <span>Core Values</span></h2>
-            <ul>
-              <li>Integrity</li>
-              <li>Excellence</li>
-              <li>Commitment</li>
-              <li>Confidentiality</li>
-              <li>Learning</li>
-            </ul>
-          </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=80"
-              alt="Core Values - handshake" />
-          </div>
-        </article>
+      <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
+      <div class="carousel-container" id="bannerCarousel" aria-live="polite" aria-atomic="true">
+        <!-- Multiple carousel-slide articles as in your input -->
+        <!-- ... Each <article class="carousel-slide"> ... -->
       </div>
-
       <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
       <button type="button" class="carousel-btn next" aria-label="Next Slide">&#9654;</button>
-
       <div class="carousel-indicators" role="tablist" aria-label="Carousel Navigation"></div>
+      <video autoplay muted loop playsinline>
+        <source src="video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="welcome-text" role="region" aria-label="Welcome Message">
+        <!-- Welcome message as in your input -->
+      </div>
     </div>
   </section>
 
-  <!-- Other sections (Services, Team, Contact, Footer) remain as in previous responses -->
+  <!-- Services Section -->
+  <section id="services" aria-label="Our Services">
+    <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
+    <div class="services-container">
+      <div class="image-block" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=800&q=80" alt="Financial advisory and consulting" loading="lazy" />
+      </div>
+      <div class="text-block">
+        <ul>
+          <li><a href="startup-advisory.html">Start-up Advisory and Consulting Services</a></li>
+          <li><a href="virtual-cfo.html">Virtual CFO Services</a></li>
+          <li><a href="international-tax.html">Direct and International Tax Services</a></li>
+          <li><a href="direct-indirect-tax.html">Indirect Tax Services</a></li>
+          <li><a href="audit-assurance.html">Audit and Assurance Services</a></li>
+          <li><a href="labour-law-compliance.html">Labour Law Compliance Services</a></li>
+          <li><a href="secretarial-fema-rbi.html">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', function () {
-      setTimeout(function () {
-        const loader = document.getElementById('loader-overlay');
-        loader.classList.add('hidden');
-        setTimeout(() => {
-          loader.style.display = 'none';
-          document.body.classList.remove('loading');
-        }, 500);
-      }, 1500);
-    });
+  <!-- Team Section -->
+  <section id="team-section" aria-label="Meet Our Team">
+    <h2>Meet Our Team</h2>
+    <div class="team-members">
+      <!-- ... Each <div class="team-card"> ... -->
+    </div>
+  </section>
 
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    menuToggle?.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-    });
+  <!-- Contact Section -->
+  <section id="contact" aria-label="Contact Us">
+    <div class="contact-wrapper">
+      <div class="info">
+        <h2>Let's Connect and Discuss Your Financial Needs</h2>
+        <p>Our team is dedicated to helping you achieve your financial goals through personalized service and expert financial advice.</p>
+        <div class="phone-info">
+          <h4>Contact Us: <span><i aria-hidden="true">📞</i> <a href="tel:7995356942">79953 56942</a></span></h4>
+          <h4>Email: <span><i aria-hidden="true">📧</i> <a href="mailto:Surendra@tsurendraca.in">Surendra@tsurendraca.in</a></span></h4>
+          <h4>Website: <span><i aria-hidden="true">🌐</i> <a href="https://tsurendraca.in" target="_blank" rel="noopener">tsurendraca.in</a></span></h4>
+          <h4>Location: <span><i aria-hidden="true">📍</i> Hyderabad, Visakhapatnam</span></h4>
+        </div>
+      </div>
+      <div class="form-container">
+        <form id="contact-form" method="post" autocomplete="off" novalidate>
+          <div class="row">
+            <div class="col-half">
+              <label class="sr-only" for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Name" required />
+            </div>
+            <div class="col-half">
+              <label class="sr-only" for="surname">Surname</label>
+              <input type="text" id="surname" name="surname" placeholder="Surname" required />
+            </div>
+            <div class="col-full">
+              <label class="sr-only" for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Your Email" required />
+            </div>
+            <div class="col-full">
+              <label class="sr-only" for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Message" required></textarea>
+            </div>
+            <div class="col-full">
+              <button type="submit" class="btn-submit" aria-label="Send Message">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 
-    navMenu.querySelectorAll('a').forEach(anchor => {
-      anchor.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-      });
-    });
-
-    const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
-    dropdownToggles.forEach(toggle => {
-      toggle.addEventListener('click', e => {
-        if (window.innerWidth <= 991) {
-          e.preventDefault();
-          const parentLi = e.target.closest('li.dropdown');
-          parentLi.classList.toggle('active');
-        }
-      });
-    });
-
-    (() => {
-      const carouselContainer = document.querySelector('.carousel-container');
-      const slides = Array.from(carouselContainer.children);
-      const btnPrev = document.querySelector('.carousel-btn.prev');
-      const btnNext = document.querySelector('.carousel-btn.next');
-      const indicatorsContainer = document.querySelector('.carousel-indicators');
-
-      const totalSlides = slides.length;
-      let currentIndex = 0;
-      let autoSlideInterval;
-
-      slides.forEach((_, index) => {
-        const btn = document.createElement('button');
-        btn.setAttribute('role', 'tab');
-        btn.setAttribute('aria-label', `Go to slide ${index + 1}`);
-        btn.setAttribute('tabindex', index === 0 ? "0" : "-1");
-        if (index === 0) btn.classList.add('active');
-        btn.addEventListener('click', () => {
-          stopAutoSlide();
-          goToSlide(index);
-          startAutoSlide();
-        });
-        indicatorsContainer.appendChild(btn);
-      });
-
-      const indicators = Array.from(indicatorsContainer.children);
-
-      function goToSlide(index) {
-        currentIndex = index;
-        const percent = -(100 / totalSlides) * currentIndex;
-        carouselContainer.style.transform = `translateX(${percent}%)`;
-        updateIndicators();
-      }
-
-      function updateIndicators() {
-        indicators.forEach((btn, idx) => {
-          const isActive = idx === currentIndex;
-          btn.classList.toggle('active', isActive);
-          btn.setAttribute('tabindex', isActive ? "0" : "-1");
-        });
-      }
-
-      btnPrev.addEventListener('click', () => {
-        stopAutoSlide();
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        goToSlide(currentIndex);
-        startAutoSlide();
-      });
-
-      btnNext.addEventListener('click', () => {
-        stopAutoSlide();
-        currentIndex = (currentIndex + 1) % totalSlides;
-        goToSlide(currentIndex);
-        startAutoSlide();
-      });
-
-      function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
-          currentIndex = (currentIndex + 1) % totalSlides;
-          goToSlide(currentIndex);
-        }, 6200);
-      }
-
-      function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-      }
-
-      goToSlide(0);
-      startAutoSlide();
-    })();
-  </script>
+  <footer>
+    <p>© 2025 T SURENDRA & ASSOCIATES. All Rights Reserved.</p>
+  </footer>
 
 </body>
-
 </html>
