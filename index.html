@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="T SURENDRA & ASSOCIATES, Chartered Accountants - Audit, consulting, financial advisory, tax services." />
+  <meta name="description"
+    content="T SURENDRA & ASSOCIATES, Chartered Accountants - Audit, consulting, financial advisory, tax services." />
   <meta name="author" content="T SURENDRA & ASSOCIATES" />
   <title>T SURENDRA & ASSOCIATES - Chartered Accountants</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -387,7 +388,18 @@
 
     .carousel-content {
       flex: 1;
-      max-width: 600px;
+      max-width: 650px;
+    }
+
+    /* New—enhanced background for readability */
+    .enhanced-text-background {
+      background: rgba(255 255 255 / 0.75);
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(8, 37, 103, 0.1);
+      backdrop-filter: saturate(180%) blur(5px);
+      color: var(--blue);
+      box-sizing: border-box;
     }
 
     .carousel-content h6 {
@@ -430,22 +442,9 @@
       margin-bottom: 0.6rem;
     }
 
+    /* Hide all slide images */
     .carousel-image {
-      flex: 1;
-      max-width: 400px;
-      background: var(--white);
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .carousel-image img {
-      border-radius: 20px;
-      max-height: 280px;
-      width: 100%;
-      object-fit: cover;
+      display: none !important;
     }
 
     /* Carousel buttons */
@@ -505,6 +504,7 @@
       background-color: var(--green);
     }
 
+    /* Call-To-Action */
     .btn-primary {
       background-color: var(--green);
       color: var(--white);
@@ -525,6 +525,8 @@
       background-color: #7FAF23;
       outline: none;
     }
+
+    /* Rest of your sections (Services, Team, Contact, Footer) styles remain unchanged and included here */
 
     /* Services Section */
     #services {
@@ -820,7 +822,7 @@
   </style>
 
   <script>
-    // Scroll to hash on page load (fixes one-click anchor navigation)
+    // Scroll to hash on page load
     window.addEventListener('DOMContentLoaded', () => {
       if (window.location.hash) {
         const targetId = window.location.hash.substring(1);
@@ -851,7 +853,8 @@
     <div class="container">
       <nav>
         <a href="#top" class="logo" aria-label="T Surendra & Associates Logo">
-          <img src="https://github.com/raghava239/tsurendraca/blob/main/logo.jpg?raw=true" alt="T Surendra & Associates Logo" />
+          <img src="https://github.com/raghava239/tsurendraca/blob/main/logo.jpg?raw=true"
+            alt="T Surendra & Associates Logo" />
         </a>
         <ul id="nav-menu">
           <li><a href="#top" class="active">Home</a></li>
@@ -894,7 +897,7 @@
       <div class="carousel-container" id="bannerCarousel" aria-live="polite" aria-atomic="true">
         <!-- Slide 1 -->
         <article class="carousel-slide" aria-label="Slide 1 of 5 - Welcome">
-          <div class="carousel-content">
+          <div class="carousel-content enhanced-text-background">
             <h6>Welcome to</h6>
             <h2>T SURENDRA & ASSOCIATES (TSA)</h2>
             <h3>Your Trusted Partner for Comprehensive Financial and Advisory Services</h3>
@@ -907,15 +910,11 @@
               We collaborate to provide audit, consulting, financial advisory, and tax services.
             </p>
           </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1601597111158-bc1c1f39c555?auto=format&fit=crop&w=600&q=80"
-              alt="Professional team meeting" />
-          </div>
         </article>
 
         <!-- Slide 2 -->
         <article class="carousel-slide" aria-label="Slide 2 of 5 - Our Approach and Principles">
-          <div class="carousel-content">
+          <div class="carousel-content enhanced-text-background">
             <h2>Our <span>Approach</span> <span>And Principles</span></h2>
             <p>At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.</p>
             <ul>
@@ -925,37 +924,27 @@
               <li>Continuously upgrading our skills and technologies</li>
             </ul>
           </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80"
-              alt="Approach and Principles - strategy session" />
-          </div>
         </article>
 
         <!-- Slide 3 -->
         <article class="carousel-slide" aria-label="Slide 3 of 5 - Vision">
-          <div class="carousel-content">
+          <div class="carousel-content enhanced-text-background">
             <h2>Our <span>Vision</span></h2>
             <p>To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions, and unwavering commitment.</p>
-          </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Vision - mountain vista" />
           </div>
         </article>
 
         <!-- Slide 4 -->
         <article class="carousel-slide" aria-label="Slide 4 of 5 - Mission">
-          <div class="carousel-content">
+          <div class="carousel-content enhanced-text-background">
             <h2>Our <span>Mission</span></h2>
             <p>Empower clients through robust financial systems, compliance, and strategic insights that foster growth and sustainability.</p>
-          </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Modern financial center" />
           </div>
         </article>
 
         <!-- Slide 5 -->
         <article class="carousel-slide" aria-label="Slide 5 of 5 - Core Values">
-          <div class="carousel-content">
+          <div class="carousel-content enhanced-text-background">
             <h2>Our <span>Core Values</span></h2>
             <ul>
               <li>Integrity – Honesty, transparency, and strong moral principles</li>
@@ -964,10 +953,6 @@
               <li>Confidentiality – Respecting client privacy and data</li>
               <li>Learning – Adapting to changing laws and technologies</li>
             </ul>
-          </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=80"
-              alt="Core Values - handshake" />
           </div>
         </article>
       </div>
@@ -1033,11 +1018,14 @@
     <div class="contact-wrapper">
       <div class="info">
         <h2>Let's Connect and Discuss Your Financial Needs</h2>
-        <p>Our team is dedicated to helping you achieve your financial goals through personalized service and expert financial advice.</p>
+        <p>Our team is dedicated to helping you achieve your financial goals through personalized service and expert
+          financial advice.</p>
         <div class="phone-info">
           <h4>Contact Us: <span><i aria-hidden="true">📞</i> <a href="tel:7995356942">79953 56942</a></span></h4>
-          <h4>Email: <span><i aria-hidden="true">📧</i> <a href="mailto:Surendra@tsurendraca.in">Surendra@tsurendraca.in</a></span></h4>
-          <h4>Website: <span><i aria-hidden="true">🌐</i> <a href="https://tsurendraca.in" target="_blank" rel="noopener">tsurendraca.in</a></span></h4>
+          <h4>Email: <span><i aria-hidden="true">📧</i> <a href="mailto:Surendra@tsurendraca.in">Surendra@tsurendraca.in</a></span>
+          </h4>
+          <h4>Website: <span><i aria-hidden="true">🌐</i> <a href="https://tsurendraca.in" target="_blank"
+                rel="noopener">tsurendraca.in</a></span></h4>
           <h4>Location: <span><i aria-hidden="true">📍</i> Hyderabad, Visakhapatnam</span></h4>
         </div>
       </div>
