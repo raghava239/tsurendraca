@@ -20,11 +20,13 @@
     }
 
     html {
-      scroll-padding-top: 70px;
+      scroll-padding-top: 70px; /* Offset fixed header */
       scroll-behavior: smooth;
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -34,11 +36,85 @@
       background: var(--white);
     }
 
-    img { max-width: 100%; height: auto; display: block; }
-    a { text-decoration: none; color: inherit; cursor: pointer; }
-    ul, li { padding: 0; margin: 0; list-style: none; }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
-    /* Loader styles omitted for brevity, as before */
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    ul, li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    /* Loader */
+    #loader-overlay {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--blue);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    #loader-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .dot-loader {
+      display: flex;
+      gap: 18px;
+    }
+
+    .dot-loader div {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--green);
+      opacity: 0.75;
+      animation: dotPulse 1.15s infinite cubic-bezier(.36, 0, .64, 1.07);
+    }
+
+    .dot-loader div:nth-child(2) {
+      animation-delay: 0.23s;
+      background: #21b3ff;
+    }
+
+    .dot-loader div:nth-child(3) {
+      animation-delay: 0.46s;
+      background: #5e86ff;
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { opacity: 0.72; transform: scale(1); }
+      25% { opacity: 1; transform: scale(1.23); }
+      50% { opacity: 0.7; transform: scale(0.94); }
+      75% { opacity: 0.9; transform: scale(1.1); }
+    }
+
+    body.loading>*:not(#loader-overlay) {
+      display: none !important;
+    }
+
+    body.loading {
+      overflow: hidden !important;
+    }
 
     /* Header */
     header {
@@ -53,6 +129,7 @@
       display: flex;
       align-items: center;
     }
+
     .container {
       width: 90%;
       max-width: 1200px;
@@ -61,12 +138,23 @@
       align-items: center;
       justify-content: space-between;
     }
+
     nav {
       display: flex;
       align-items: center;
       width: 100%;
     }
-    nav .logo img { height: 42px; border-radius: 10px; }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    nav .logo img {
+      height: 42px;
+      border-radius: 10px;
+    }
+
     nav ul {
       display: flex;
       gap: 1.5rem;
@@ -74,22 +162,26 @@
       padding: 0;
       align-items: center;
     }
+
     nav ul li {
       position: relative;
     }
+
     nav ul li a {
       font-weight: 600;
       color: var(--white);
       padding: 8px 12px;
       border-radius: 4px;
-      display: inline-block;
       transition: color 0.3s, background-color 0.3s;
+      display: inline-block;
     }
+
     nav ul li a.active,
     nav ul li a:hover {
-      color: var(--green);
       background: var(--white);
+      color: var(--green);
     }
+
     nav ul li.dropdown > a {
       cursor: pointer;
       user-select: none;
@@ -97,12 +189,14 @@
       align-items: center;
       gap: 4px;
     }
+
     nav ul li.dropdown > a::after {
       content: "▾";
       font-size: 0.6em;
       color: var(--green);
       margin-left: 4px;
     }
+
     nav ul li.dropdown ul.dropdown-menu {
       position: absolute;
       top: 100%;
@@ -115,24 +209,28 @@
       z-index: 3000;
       padding: 10px 0;
     }
+
     nav ul li.dropdown:hover ul.dropdown-menu,
     nav ul li.dropdown:focus-within ul.dropdown-menu {
       display: block;
     }
+
     nav ul li.dropdown ul.dropdown-menu li a {
       display: block;
       padding: 8px 20px;
       color: var(--white);
       font-weight: 500;
-      white-space: nowrap;
       transition: background-color 0.3s;
+      white-space: nowrap;
     }
+
     nav ul li.dropdown ul.dropdown-menu li a:hover,
     nav ul li.dropdown ul.dropdown-menu li a:focus {
       background-color: var(--green);
       color: var(--blue);
       outline: none;
     }
+
     @media (max-width: 991px) {
       nav ul {
         display: none;
@@ -146,13 +244,31 @@
         border-radius: 0 0 0 8px;
         z-index: 2100;
       }
+
       nav ul.active {
         display: flex;
       }
+
       .menu-toggle {
         display: flex;
         margin-left: 10px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        cursor: pointer;
+        width: 36px;
+        height: 36px;
       }
+
+      .menu-toggle span {
+        height: 4px;
+        width: 100%;
+        background: white;
+        border-radius: 3px;
+        transition: all 0.3s;
+        display: block;
+      }
+
       nav ul li.dropdown ul.dropdown-menu {
         position: static;
         box-shadow: none;
@@ -160,54 +276,487 @@
         padding: 0;
         display: none !important;
       }
+
       nav ul li.dropdown.active ul.dropdown-menu {
         display: block !important;
       }
+
       nav ul li.dropdown > a::after {
         content: "▸";
         transform: rotate(0deg);
         transition: transform 0.3s;
       }
+
       nav ul li.dropdown.active > a::after {
         transform: rotate(90deg);
       }
     }
+
     .menu-toggle {
       display: none;
       cursor: pointer;
-      width: 36px;
-      height: 36px;
       flex-direction: column;
       justify-content: center;
       gap: 6px;
+      width: 36px;
+      height: 36px;
     }
-    .menu-toggle span {
-      display: block;
-      height: 4px;
+
+    /* Banner */
+    #top {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      padding-top: 65px;
+      background: linear-gradient(110deg, #f7fafc 0%, #e7f0fa 60%, #c1d6f7 100%);
+      overflow: hidden;
+      box-sizing: border-box;
+      color: var(--blue);
+    }
+
+    .carousel-outer {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      height: calc(100vh - 65px);
+      position: relative;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .carousel-container {
       width: 100%;
-      border-radius: 3px;
-      background: white;
-      transition: all 0.3s;
+      height: 100%;
+      display: flex;
+      transition: transform 0.7s cubic-bezier(.77, 0, .18, 1);
     }
 
-    /* The rest of your styles for sections, buttons, carousel, forms, etc. remain as before (omitted for brevity) */
+    .carousel-slide {
+      flex: 0 0 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 96px;
+      gap: 40px;
+      min-height: 100%;
+      box-sizing: border-box;
+    }
 
+    .carousel-content {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .carousel-content h6 {
+      font-weight: 300;
+      font-size: 1.1rem;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .carousel-content h2 {
+      font-weight: 700;
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .carousel-content h2 span {
+      color: var(--green);
+    }
+
+    .carousel-content h3 {
+      font-weight: 600;
+      font-size: 2rem;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .carousel-content p,
+    .carousel-content ul {
+      font-size: 1.2rem;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    .carousel-content ul {
+      padding-left: 1.2em;
+    }
+
+    .carousel-content ul li {
+      margin-bottom: 0.6rem;
+    }
+
+    .carousel-image {
+      flex: 1;
+      max-width: 400px;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-image img {
+      border-radius: 20px;
+      max-height: 280px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Carousel buttons */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.6);
+      border: none;
+      border-radius: 50%;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--blue);
+      user-select: none;
+      transition: background-color 0.3s;
+      z-index: 1010;
+    }
+
+    .carousel-btn:hover {
+      background-color: var(--green);
+      color: var(--blue);
+    }
+
+    .carousel-btn.prev {
+      left: 16px;
+    }
+
+    .carousel-btn.next {
+      right: 16px;
+    }
+
+    .carousel-indicators {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 1010;
+    }
+
+    .carousel-indicators button {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .carousel-indicators button.active {
+      background-color: var(--green);
+    }
+
+    /* Call-To-Action */
+    .btn-primary {
+      background-color: var(--green);
+      color: var(--white);
+      padding: 14px 28px;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(154, 205, 50, 0.5);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: #7FAF23;
+      outline: none;
+    }
+
+    /* Services Section */
+    #services {
+      background: var(--light-gray);
+      padding: 60px 15px;
+      max-width: 1100px;
+      margin: 0 auto;
+      color: var(--blue);
+      border-radius: 0 0 44px 44px;
+      box-shadow: 0 4px 14px 0 rgba(8, 37, 103, 0.03);
+    }
+
+    #services h2 {
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: var(--blue);
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    #services h2 em,
+    #services h2 span {
+      color: var(--green);
+    }
+
+    #services .services-container {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #services .image-block {
+      flex: 1 1 480px;
+      max-width: 480px;
+      min-width: 280px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 320px;
+    }
+
+    #services .image-block img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(8, 37, 103, 0.13);
+    }
+
+    #services .text-block {
+      flex: 1 1 500px;
+      max-width: 600px;
+    }
+
+    #services ul {
+      list-style: none;
+      border: 1px solid var(--green);
+      border-radius: 8px;
+      box-shadow: inset 0 0 0 1px var(--green);
+      padding: 0;
+      margin: 0;
+    }
+
+    #services ul li {
+      background: var(--white);
+      border-bottom: 1px solid var(--green);
+      color: var(--blue);
+      font-weight: 600;
+      padding: 15px 20px;
+      transition: color 0.3s;
+    }
+
+    #services ul li:last-child {
+      border-bottom: none;
+    }
+
+    #services ul li a {
+      color: var(--green);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    #services ul li a:hover,
+    #services ul li a:focus {
+      color: #2153a2;
+      outline: none;
+    }
+
+    /* Team Section */
+    #team-section {
+      background: var(--pale-green);
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 50px 15px;
+      text-align: center;
+      border-radius: 44px;
+      box-shadow: 0 4px 20px rgba(113, 158, 42, 0.06);
+    }
+
+    #team-section h2 {
+      color: var(--blue);
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      letter-spacing: 0.01em;
+    }
+
+    .team-members {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .team-card {
+      background: var(--white);
+      padding: 26px 18px 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(8, 37, 103, 0.09);
+      max-width: 270px;
+      flex: 1 1 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-9px) scale(1.03);
+      box-shadow: 0 6px 36px rgba(8, 37, 103, 0.13);
+    }
+
+    .team-card img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 25px;
+      border: 3px solid var(--green);
+      background: #eee;
+    }
+
+    .team-card h3 {
+      color: var(--blue);
+      font-size: 1.12rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    .team-card p {
+      color: #444;
+      font-size: 0.98rem;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+      margin: 0;
+    }
+
+    /* Contact Section */
+    #contact {
+      background: var(--light-blue);
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      padding: 60px 15px;
+      color: var(--blue);
+      border-radius: 0 0 44px 44px;
+      box-shadow: 0 4px 14px rgba(8, 37, 103, 0.04);
+    }
+
+    #contact .contact-wrapper {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    #contact .info {
+      flex: 1 1 400px;
+      max-width: 450px;
+    }
+
+    #contact .info h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    #contact .info p {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+
+    #contact .phone-info {
+      margin-top: 20px;
+    }
+
+    #contact .phone-info h4 {
+      font-weight: 600;
+      margin: 1rem 0 6px;
+    }
+
+    #contact .phone-info h4 span,
+    #contact .phone-info h4 span a {
+      color: var(--green);
+    }
+
+    #contact .form-container {
+      flex: 1 1 480px;
+      max-width: 480px;
+    }
+
+    #contact form {
+      width: 100%;
+    }
+
+    #contact form .row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    #contact form .col-half {
+      flex: 1 1 48%;
+      min-width: 140px;
+    }
+
+    #contact form .col-full {
+      flex: 1 1 100%;
+    }
+
+    #contact input,
+    #contact textarea {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      color: var(--blue);
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--green);
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    #contact textarea {
+      min-height: 100px;
+    }
+
+    #contact .btn-submit {
+      cursor: pointer;
+      margin-top: 10px;
+      width: 100%;
+      border: none;
+      background-color: var(--green);
+      color: var(--blue);
+      font-weight: 600;
+      padding: 14px 0;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    #contact .btn-submit:hover {
+      background-color: var(--blue);
+      color: var(--white);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--blue);
+      color: var(--white);
+      font-size: 0.9rem;
+      padding: 20px 10px;
+      text-align: center;
+    }
   </style>
-
-  <!-- Scroll-to-anchor on load for cross-page nav -->
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      if (window.location.hash) {
-        const targetId = window.location.hash.substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          setTimeout(() => {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-          }, 100);
-        }
-      }
-    });
-  </script>
 </head>
 
 <body class="loading">
@@ -221,7 +770,7 @@
     </div>
   </div>
 
-  <!-- Header/Navbar -->
+  <!-- Header -->
   <header>
     <div class="container">
       <nav>
@@ -248,9 +797,7 @@
           <li><a href="#contact" class="btn-primary">Message Us</a></li>
         </ul>
         <div class="menu-toggle" aria-label="Toggle menu" tabindex="0" role="button">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </div>
       </nav>
     </div>
@@ -258,36 +805,183 @@
 
   <!-- Banner Carousel Section -->
   <section id="top" aria-label="Welcome Banner">
-    <!-- [Your carousel and slides go here, as before] -->
-    <!-- ... -->
+    <div class="carousel-outer">
+      <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
+      <div class="carousel-container" id="bannerCarousel" aria-live="polite" aria-atomic="true">
+
+        <!-- Slide 1: Vision -->
+        <article class="carousel-slide" aria-label="Slide 1 of 5 - Vision">
+          <div class="carousel-content">
+            <h2>Our <span>Vision</span></h2>
+            <p>To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions, and unwavering commitment.</p>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Vision - mountain vista" />
+          </div>
+        </article>
+
+        <!-- Slide 2: Mission -->
+        <article class="carousel-slide" aria-label="Slide 2 of 5 - Mission">
+          <div class="carousel-content">
+            <h2>Our <span>Mission</span></h2>
+            <p>Empower clients through robust financial systems, compliance, and strategic insights that foster growth and sustainability.</p>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Modern financial center" />
+          </div>
+        </article>
+
+        <!-- Slide 3: Core Values -->
+        <article class="carousel-slide" aria-label="Slide 3 of 5 - Core Values">
+          <div class="carousel-content">
+            <h2>Our <span>Core Values</span></h2>
+            <ul>
+              <li>Integrity – Honesty, transparency, and strong moral principles</li>
+              <li>Excellence – Delivering high standards consistently</li>
+              <li>Commitment – Dedicated service and long-term relationships</li>
+              <li>Confidentiality – Respecting client privacy and data</li>
+              <li>Learning – Adapting to changing laws and technologies</li>
+            </ul>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=80" alt="Core Values - handshake" />
+          </div>
+        </article>
+
+        <!-- Slide 4: Welcome -->
+        <article class="carousel-slide" aria-label="Slide 4 of 5 - Welcome">
+          <div class="carousel-content">
+            <h6>Welcome to</h6>
+            <h2>T SURENDRA & ASSOCIATES (TSA)</h2>
+            <h3>Your Trusted Partner for Comprehensive Financial and Advisory Services</h3>
+            <p>At TSA, we offer holistic, end-to-end solutions tailored to align with your business goals and financial objectives. Whether you are a startup, a growing enterprise, or an established organization, we provide strategic support across every stage of your journey — from compliance and taxation to business advisory, virtual CFO services, and operational planning.</p>
+            <p><strong>TSA</strong> is your one-stop destination for comprehensive financial and business services, delivered by a professional team including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates, and MBAs. We collaborate to provide audit, consulting, financial advisory, and tax services.</p>
+            <a href="#contact" class="btn-primary" role="button" target="_self">Contact Us</a>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1601597111158-bc1c1f39c555?auto=format&fit=crop&w=600&q=80" alt="Professional team meeting" />
+          </div>
+        </article>
+
+        <!-- Slide 5: Approach and Principles -->
+        <article class="carousel-slide" aria-label="Slide 5 of 5 - Our Approach and Principles">
+          <div class="carousel-content">
+            <h2>Our <span>Approach</span> <span>And Principles</span></h2>
+            <p>At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.</p>
+            <ul>
+              <li>Listening to the client before advising</li>
+              <li>Providing timely and actionable solutions</li>
+              <li>Maintaining confidentiality and professional ethics</li>
+              <li>Continuously upgrading our skills and technologies</li>
+            </ul>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="Approach and Principles - strategy session" />
+          </div>
+        </article>
+
+      </div>
+      <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
+      <button type="button" class="carousel-btn next" aria-label="Next Slide">&#9654;</button>
+      <div class="carousel-indicators" role="tablist" aria-label="Carousel Navigation"></div>
+    </div>
   </section>
 
   <!-- Services Section -->
   <section id="services" aria-label="Our Services">
-    <!-- [Your services section as before] -->
+    <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
+    <div class="services-container">
+      <div class="image-block" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=800&q=80" alt="Financial advisory and consulting" loading="lazy" />
+      </div>
+      <div class="text-block">
+        <ul>
+          <li><a href="startup-advisory.html">Start-up Advisory and Consulting Services</a></li>
+          <li><a href="virtual-cfo.html">Virtual CFO Services</a></li>
+          <li><a href="international-tax.html">Direct and International Tax Services</a></li>
+          <li><a href="direct-indirect-tax.html">Indirect Tax Services</a></li>
+          <li><a href="audit-assurance.html">Audit and Assurance Services</a></li>
+          <li><a href="labour-law-compliance.html">Labour Law Compliance Services</a></li>
+          <li><a href="secretarial-fema-rbi.html">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- Team Section -->
-  <section id="team-section">
-    <!-- [Meet Our Team content as before] -->
+  <section id="team-section" aria-label="Meet Our Team">
+    <h2>Meet Our Team</h2>
+    <div class="team-members">
+      <div class="team-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU" alt="Surendra Tirumareddi - Chartered Accountant" />
+        <h3>Surendra Tirumareddi</h3>
+        <p>ACA | B.Com.</p>
+      </div>
+      <div class="team-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU" alt="Ravi Teja M - Chartered Accountant" />
+        <h3>Ravi Teja M</h3>
+        <p>ACA | B.Com.</p>
+      </div>
+      <div class="team-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU" alt="Third person - Chartered Accountant" />
+        <h3>Third person</h3>
+        <p>ACA | B.Com.</p>
+      </div>
+    </div>
   </section>
 
   <!-- Contact Section -->
   <section id="contact" aria-label="Contact Us">
-    <!-- [Contact info and contact form as before] -->
+    <div class="contact-wrapper">
+      <div class="info">
+        <h2>Let's Connect and Discuss Your Financial Needs</h2>
+        <p>Our team is dedicated to helping you achieve your financial goals through personalized service and expert financial advice.</p>
+        <div class="phone-info">
+          <h4>Contact Us: <span><i aria-hidden="true">📞</i> <a href="tel:7995356942">79953 56942</a></span></h4>
+          <h4>Email: <span><i aria-hidden="true">📧</i> <a href="mailto:Surendra@tsurendraca.in">Surendra@tsurendraca.in</a></span></h4>
+          <h4>Website: <span><i aria-hidden="true">🌐</i> <a href="https://tsurendraca.in" target="_blank" rel="noopener">tsurendraca.in</a></span></h4>
+          <h4>Location: <span><i aria-hidden="true">📍</i> Hyderabad, Visakhapatnam</span></h4>
+        </div>
+      </div>
+      <div class="form-container">
+        <form id="contact-form" method="post" autocomplete="off" novalidate>
+          <div class="row">
+            <div class="col-half">
+              <label class="sr-only" for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Name" required />
+            </div>
+            <div class="col-half">
+              <label class="sr-only" for="surname">Surname</label>
+              <input type="text" id="surname" name="surname" placeholder="Surname" required />
+            </div>
+            <div class="col-full">
+              <label class="sr-only" for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Your Email" required />
+            </div>
+            <div class="col-full">
+              <label class="sr-only" for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Message" required></textarea>
+            </div>
+            <div class="col-full">
+              <button type="submit" class="btn-submit" aria-label="Send Message">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>T SURENDRA & ASSOCIATES. All Rights Reserved.</p>
+    <p>© 2025 T SURENDRA & ASSOCIATES. All Rights Reserved.</p>
   </footer>
 
   <script>
-    // Loader hide logic
+    // Loader hide logic after page load
     window.addEventListener('DOMContentLoaded', function () {
       setTimeout(function () {
         const loader = document.getElementById('loader-overlay');
         loader.classList.add('hidden');
-        setTimeout(function () {
+        setTimeout(() => {
           loader.style.display = 'none';
           document.body.classList.remove('loading');
         }, 500);
@@ -320,7 +1014,100 @@
       });
     });
 
-    // [The rest of your custom JS (carousel, etc.) remains unchanged]
+    // Carousel Setup
+    (() => {
+      const container = document.querySelector('.carousel-container');
+      const slides = Array.from(container.querySelectorAll('.carousel-slide'));
+      const btnNext = document.querySelector('.carousel-btn.next');
+      const btnPrev = document.querySelector('.carousel-btn.prev');
+      const indicatorsContainer = document.querySelector('.carousel-indicators');
+      let currentIndex = 0;
+      let slideCount = slides.length;
+      let autoSlideInterval = null;
+
+      // Build indicators
+      for (let i = 0; i < slideCount; i++) {
+        const btn = document.createElement('button');
+        btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('tabindex', i === 0 ? '0' : '-1');
+        if (i === 0) btn.classList.add('active');
+        btn.addEventListener('click', () => {
+          resetTimer();
+          goToSlide(i);
+        });
+        indicatorsContainer.appendChild(btn);
+      }
+      const indicators = Array.from(indicatorsContainer.children);
+
+      function goToSlide(index) {
+        currentIndex = index;
+        container.style.transform = `translateX(-${index * 100}%)`;
+        updateIndicators();
+      }
+
+      function updateIndicators() {
+        indicators.forEach((btn, i) => {
+          btn.classList.toggle('active', i === currentIndex);
+          btn.setAttribute('tabindex', i === currentIndex ? '0' : '-1');
+        });
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slideCount;
+        goToSlide(currentIndex);
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        goToSlide(currentIndex);
+      }
+
+      btnNext.addEventListener('click', () => {
+        resetTimer();
+        nextSlide();
+      });
+
+      btnPrev.addEventListener('click', () => {
+        resetTimer();
+        prevSlide();
+      });
+
+      function startTimer() {
+        autoSlideInterval = setInterval(nextSlide, 6200);
+      }
+
+      function resetTimer() {
+        clearInterval(autoSlideInterval);
+        startTimer();
+      }
+
+      goToSlide(0);
+      startTimer();
+    })();
+
+    // Contact form validation
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', e => {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        alert('Please fill in all required fields with valid information.');
+      }
+    });
+
+    // Scroll to hash target on page load (fix one-click navigation)
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.location.hash) {
+        const targetId = window.location.hash.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          setTimeout(() => {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
+      }
+    });
   </script>
 </body>
+
 </html>
