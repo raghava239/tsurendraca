@@ -7,7 +7,6 @@
   <meta name="description" content="Startup Advisory - Strategic business planning, financial advisory & capital raising, and compliance services for startups.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* === CORE STYLES (Copied from other pages for consistency) === */
     :root {
       --blue: #082567;
       --green: #9ACD32;
@@ -17,42 +16,35 @@
       --white: #FFFFFF;
     }
     * { box-sizing: border-box; }
-    body { 
-      margin: 0; 
-      font-family: 'Poppins', sans-serif; 
-      color: var(--blue); 
-      line-height: 1.6; 
-      background: var(--light-gray); 
+    body {
+      margin: 0; font-family: 'Poppins', sans-serif;
+      color: var(--blue); line-height: 1.6; background: var(--light-gray);
     }
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; color: inherit; cursor: pointer; }
     ul, li { padding: 0; margin: 0; list-style: none; }
-    .container {
-      width: 90%; max-width: 1200px; margin: 0 auto;
-    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-    /* === HEADER & NAVIGATION (Same as other pages) === */
+    /* Header & Navigation */
     header {
-      background: var(--blue);
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 65px;
-      z-index: 2000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      display: flex; align-items: center;
+      background: var(--blue); position: fixed; top: 0; left: 0; width: 100%; height: 65px;
+      z-index: 2000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); display: flex; align-items: center;
     }
-    header .container {
-      display: flex; align-items: center; justify-content: space-between;
-    }
+    header .container { display: flex; align-items: center; justify-content: space-between; }
     nav { display: flex; align-items: center; width: 100%; }
     nav .logo img { height: 42px; border-radius: 10px; }
-    nav ul {
-      display: flex; gap: 1.5rem; margin-left: auto; padding: 0; align-items: center;
-    }
+    nav ul { display: flex; gap: 1.5rem; margin-left: auto; padding: 0; align-items: center; }
     nav ul li a {
       font-weight: 600; color: var(--white); padding: 8px 12px;
       border-radius: 4px; transition: color 0.3s, background-color 0.3s; display: inline-block;
     }
     nav ul li a:hover, nav ul li a.active-service { color: var(--green); background: var(--white); }
+    .btn-primary {
+      background-color: var(--green); color: var(--white);
+      border: none; padding: 11px 18px; font-weight: 600; border-radius: 8px; font-size: 1rem;
+      cursor: pointer; display: inline-block; transition: background-color 0.3s ease; text-align:center;
+    }
+    .btn-primary:hover, .btn-primary:focus { background-color: #7FAF23; outline: none; color: var(--white); }
     nav ul li.dropdown { position: relative; }
     nav ul li.dropdown > a::after {
       content: "▾"; font-size: 0.6em; color: var(--green); margin-left: 4px;
@@ -63,7 +55,7 @@
       min-width: 260px; z-index: 3000; padding: 10px 0;
     }
     nav ul li.dropdown:hover ul.dropdown-menu,
-    nav ul li.dropdown:focus-within ul.dropdown-menu { display: block; }
+    nav ul li.dropdown:focus-within ul-dropdown-menu { display: block; }
     nav ul li.dropdown ul.dropdown-menu li a {
       display: block; padding: 8px 20px; color: var(--white); font-weight: 500;
       transition: background-color 0.3s; white-space: nowrap;
@@ -71,97 +63,43 @@
     nav ul li.dropdown ul.dropdown-menu li a:hover {
       background-color: var(--green); color: var(--blue);
     }
-    .menu-toggle { display: none; }
+    .menu-toggle { display: none;}
     @media (max-width: 991px) {
       .menu-toggle { display: flex; flex-direction: column; justify-content: center; gap: 6px; cursor: pointer; width: 36px; height: 36px; margin-left: 10px; }
       .menu-toggle span { display: block; height: 4px; width: 100%; border-radius: 3px; background: white; transition: all 0.3s; }
       nav ul { display: none; position: fixed; top: 65px; right: 0; background: var(--blue); width: 200px; flex-direction: column; padding: 10px 15px; border-radius: 0 0 0 8px; z-index: 2100; }
-      nav ul.active { display: flex; }
-      nav ul li.dropdown ul.dropdown-menu { position: static; box-shadow: none; border-radius: 0; padding: 0; display: none !important; }
-      nav ul li.dropdown.active ul.dropdown-menu { display: block !important; }
-      nav ul li.dropdown > a::after { content: "▸"; transform: rotate(0deg); transition: transform 0.3s; }
-      nav ul li.dropdown.active > a::after { transform: rotate(90deg); }
+      nav ul.active { display: flex;}
+      nav ul li.dropdown ul.dropdown-menu { position: static; box-shadow: none; border-radius: 0; padding: 0; display: none !important;}
+      nav ul li.dropdown.active ul.dropdown-menu { display: block !important;}
+      nav ul li.dropdown > a::after { content: "▸"; transform: rotate(0deg); transition: transform 0.3s;}
+      nav ul li.dropdown.active > a::after { transform: rotate(90deg);}
     }
 
-    /* === SERVICE DETAIL PAGE STYLES (Same as other service pages) === */
-    #main {
-      padding: 100px 15px 60px 15px;
-    }
-    .service-header {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    .service-header h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin: 0 0 10px 0;
-      color: var(--blue);
-    }
-    .service-header h1 span {
-      color: var(--green);
-    }
-    .service-header .tagline {
-      font-size: 1.2rem;
-      font-weight: 500;
-      max-width: 700px;
-      margin: 0 auto;
-      color: #555;
-    }
-    .service-cards-container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
+    /* Page Main Content */
+    #main { padding: 100px 15px 60px 15px; }
+    .service-header { text-align: center; margin-bottom: 50px; }
+    .service-header h1 { font-size: 2.8rem; font-weight: 700; margin: 0 0 10px 0; color: var(--blue); }
+    .service-header h1 span { color: var(--green); }
+    .service-header .tagline { font-size: 1.2rem; font-weight: 500; max-width: 700px; margin: 0 auto; color: #555; }
+    .service-cards-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
     .service-card {
-      background: var(--white);
-      border-radius: 16px;
+      background: var(--white); border-radius: 16px;
       box-shadow: 0 5px 25px rgba(8, 37, 103, 0.08);
-      padding: 30px;
-      flex: 1 1 320px;
-      max-width: 380px;
+      padding: 30px; flex: 1 1 320px; max-width: 380px;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 35px rgba(8, 37, 103, 0.12);
-    }
-    .service-card .icon {
-      background-color: var(--pale-green);
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .service-card .icon svg {
-      width: 32px;
-      height: 32px;
-      fill: var(--green);
-    }
-    .service-card h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin: 0 0 15px 0;
-      color: var(--blue);
-    }
-    .service-card ul {
-      list-style-type: '✓ ';
-      padding-left: 1.5em;
-    }
-    .service-card ul li {
-      margin-bottom: 10px;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
+    .service-card:hover { transform: translateY(-8px); box-shadow: 0 8px 35px rgba(8, 37, 103, 0.12);}
+    .service-card .icon { background-color: var(--pale-green); border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;}
+    .service-card .icon svg { width: 32px; height: 32px; fill: var(--green);}
+    .service-card h3 { font-size: 1.4rem; font-weight: 600; margin: 0 0 15px 0; color: var(--blue);}
+    .service-card ul { list-style-type: '✓ '; padding-left: 1.5em;}
+    .service-card ul li { margin-bottom: 10px; font-size: 1rem; line-height: 1.5;}
     @media (max-width: 575px) {
-      .service-header h1 { font-size: 2rem; }
-      .service-header .tagline { font-size: 1rem; }
+      .service-header h1 { font-size: 2rem;}
+      .service-header .tagline { font-size: 1rem;}
     }
-    
-    /* === FOOTER (Same as other pages) === */
+
+    /* Footer */
     footer {
       background: var(--blue);
       color: var(--white);
@@ -169,6 +107,8 @@
       padding: 20px 10px;
       font-size: 0.9rem;
     }
+    footer a { color: var(--green); font-weight: 600; }
+    footer a:hover { color: var(--white);}
   </style>
 </head>
 <body>
@@ -186,7 +126,6 @@
           <li class="dropdown">
             <a href="index.html#services" class="dropdown-toggle active-service" aria-haspopup="true" aria-expanded="false">Services</a>
             <ul class="dropdown-menu" role="menu" aria-label="Services Submenu">
-             <!-- <li><a href="#" onclick="return false;">Start-up Advisory and Consulting Services</a></li> -->
               <li><a href="startup-advisory.html" data-service="startup-advisory">Start-up Advisory and Consulting Services</a></li>
               <li><a href="virtual-cfo.html">Virtual CFO Services</a></li>
               <li><a href="international-tax.html">International Tax Services</a></li>
@@ -214,7 +153,6 @@
         <h1>Startup <span>Advisory</span> Services</h1>
         <p class="tagline">Partnering with visionaries to launch, grow, and lead thriving businesses.</p>
       </div>
-
       <div class="service-cards-container">
         <!-- Card 1: Strategic Business Planning -->
         <div class="service-card">
@@ -228,7 +166,6 @@
             <li>Strategic frameworks aligned with your vision &amp; goals.</li>
           </ul>
         </div>
-
         <!-- Card 2: Financial Advisory & Capital Raising -->
         <div class="service-card">
           <div class="icon">
@@ -241,7 +178,6 @@
             <li>Enabling meaningful investor engagement.</li>
           </ul>
         </div>
-
         <!-- Card 3: Compliances & Business Structuring -->
         <div class="service-card">
           <div class="icon">
@@ -257,12 +193,9 @@
       </div>
     </div>
   </main>
-
-  <!-- Footer -->
   <footer>
     <p>© 2025 T SURENDRA & ASSOCIATES. All Rights Reserved. Visit: <a href="https://www.tsurendraca.in/" target="_blank" rel="noopener">www.tsurendraca.in</a></p>
   </footer>
-
   <script>
     // Hamburger menu toggle for mobile
     const menuToggle = document.querySelector('.menu-toggle');
@@ -270,7 +203,10 @@
     menuToggle?.addEventListener('click', () => {
       navMenu.classList.toggle('active');
     });
-
+    // Close nav on link click mobile
+    navMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navMenu.classList.remove('active'));
+    });
     // Mobile dropdown submenu toggle
     const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
     dropdownToggles.forEach(toggle => {
@@ -283,6 +219,5 @@
       });
     });
   </script>
-
 </body>
 </html>
