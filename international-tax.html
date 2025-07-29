@@ -3,241 +3,284 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Tax Services | T SURENDRA & ASSOCIATES</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <title>International Tax Services - T SURENDRA & ASSOCIATES</title>
+  <meta name="description" content="Expert TP advisory, compliance, and representation across borders for international tax matters.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* === CORE STYLES (Copied from other pages for consistency) === */
     :root {
       --blue: #082567;
       --green: #9ACD32;
-      --white: #fff;
-      --gray-bg: #f5f8fc;
-      --section-radius: 24px;
+      --pale-green: #f0faea;
+      --light-gray: #f5f6fa;
+      --light-blue: #e7f0fa;
+      --white: #FFFFFF;
     }
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      color: var(--blue);
-      background: var(--gray-bg);
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      font-family: 'Poppins', sans-serif; 
+      color: var(--blue); 
+      line-height: 1.6; 
+      background: var(--light-gray); 
     }
-    .header {
-      background: linear-gradient(to right, var(--blue), var(--green));
-      color: var(--white);
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; cursor: pointer; }
+    ul, li { padding: 0; margin: 0; list-style: none; }
+    .container {
+      width: 90%; max-width: 1200px; margin: 0 auto;
+    }
+
+    /* === HEADER & NAVIGATION (Same as other pages) === */
+    header {
+      background: var(--blue);
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 65px;
+      z-index: 2000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      display: flex; align-items: center;
+    }
+    header .container {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav { display: flex; align-items: center; width: 100%; }
+    nav .logo img { height: 42px; border-radius: 10px; }
+    nav ul {
+      display: flex; gap: 1.5rem; margin-left: auto; padding: 0; align-items: center;
+    }
+    nav ul li a {
+      font-weight: 600; color: var(--white); padding: 8px 12px;
+      border-radius: 4px; transition: color 0.3s, background-color 0.3s; display: inline-block;
+    }
+    nav ul li a:hover, nav ul li a.active-service { color: var(--green); background: var(--white); }
+    nav ul li.dropdown { position: relative; }
+    nav ul li.dropdown > a::after {
+      content: "▾"; font-size: 0.6em; color: var(--green); margin-left: 4px;
+    }
+    nav ul li.dropdown ul.dropdown-menu {
+      position: absolute; top: 100%; left: 0; background: var(--blue); border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15); display: none;
+      min-width: 260px; z-index: 3000; padding: 10px 0;
+    }
+    nav ul li.dropdown:hover ul.dropdown-menu,
+    nav ul li.dropdown:focus-within ul.dropdown-menu { display: block; }
+    nav ul li.dropdown ul.dropdown-menu li a {
+      display: block; padding: 8px 20px; color: var(--white); font-weight: 500;
+      transition: background-color 0.3s; white-space: nowrap;
+    }
+    nav ul li.dropdown ul.dropdown-menu li a:hover {
+      background-color: var(--green); color: var(--blue);
+    }
+    .menu-toggle { display: none; }
+    @media (max-width: 991px) {
+      .menu-toggle { display: flex; flex-direction: column; justify-content: center; gap: 6px; cursor: pointer; width: 36px; height: 36px; margin-left: 10px; }
+      .menu-toggle span { display: block; height: 4px; width: 100%; border-radius: 3px; background: white; transition: all 0.3s; }
+      nav ul { display: none; position: fixed; top: 65px; right: 0; background: var(--blue); width: 200px; flex-direction: column; padding: 10px 15px; border-radius: 0 0 0 8px; z-index: 2100; }
+      nav ul.active { display: flex; }
+      nav ul li.dropdown ul.dropdown-menu { position: static; box-shadow: none; border-radius: 0; padding: 0; display: none !important; }
+      nav ul li.dropdown.active ul.dropdown-menu { display: block !important; }
+      nav ul li.dropdown > a::after { content: "▸"; transform: rotate(0deg); transition: transform 0.3s; }
+      nav ul li.dropdown.active > a::after { transform: rotate(90deg); }
+    }
+
+    /* === SERVICE DETAIL PAGE STYLES (Same as other service pages) === */
+    #main {
+      padding: 100px 15px 60px 15px;
+    }
+    .service-header {
       text-align: center;
-      padding: 56px 24px 0 24px;
-      min-height: 260px;
+      margin-bottom: 50px;
     }
-    .header h1 {
-      font-size: 2.5rem;
+    .service-header h1 {
+      font-size: 2.8rem;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin: 0 0 10px 0;
+      color: var(--blue);
     }
-    .header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
+    .service-header h1 span {
+      color: var(--green);
     }
-
-    .steps-container {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 0 20px;
+    .service-header .tagline {
+      font-size: 1.2rem;
+      font-weight: 500;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #555;
+    }
+    .service-cards-container {
       display: flex;
-      flex-direction: column;
-      gap: 40px;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
     }
-
-    .step-box {
+    .service-card {
       background: var(--white);
-      border-radius: var(--section-radius);
-      padding: 32px;
-      box-shadow: 0 2px 20px rgba(8,37,103,0.06);
-      transition: box-shadow 0.2s;
+      border-radius: 16px;
+      box-shadow: 0 5px 25px rgba(8, 37, 103, 0.08);
+      padding: 30px;
+      flex: 1 1 320px;
+      max-width: 380px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .step-box:hover {
-      box-shadow: 0 4px 32px rgba(8,37,103,0.11);
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 35px rgba(8, 37, 103, 0.12);
     }
-    .step-title {
-      background-color: var(--green);
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 8px;
-      color: var(--white);
+    .service-card .icon {
+      background-color: var(--pale-green);
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .service-card .icon svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--green);
+    }
+    .service-card h3 {
+      font-size: 1.4rem;
       font-weight: 600;
-      margin-bottom: 16px;
+      margin: 0 0 15px 0;
+      color: var(--blue);
     }
-    .step-box ul {
-      margin: 0;
-      padding-left: 1.2em;
-      font-size: 1.05rem;
+    .service-card ul {
+      list-style-type: '✓ ';
+      padding-left: 1.5em;
+    }
+    .service-card ul li {
+      margin-bottom: 10px;
+      font-size: 1rem;
       line-height: 1.5;
     }
-
+    @media (max-width: 575px) {
+      .service-header h1 { font-size: 2rem; }
+      .service-header .tagline { font-size: 1rem; }
+    }
+    
+    /* === FOOTER (Same as other pages) === */
     footer {
-      text-align: center;
-      padding: 24px 10px 20px 10px;
       background: var(--blue);
       color: var(--white);
-      font-size: 0.96rem;
-      border-radius: 16px 16px 0 0;
-      margin: 60px auto 0 auto;
-      max-width: 1060px;
-    }
-
-    @media (max-width: 768px) {
-      .header h1 {
-        font-size: 1.7rem;
-      }
-      .step-box ul {
-        font-size: 1rem;
-      }
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>International Tax Services | T SURENDRA & ASSOCIATES</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --blue: #082567;
-      --green: #9ACD32;
-      --white: #fff;
-      --gray-bg: #f5f8fc;
-      --section-radius: 24px;
-    }
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      color: var(--blue);
-      background: var(--gray-bg);
-    }
-    .header {
-      background: linear-gradient(to right, var(--blue), var(--green));
-      color: var(--white);
-      text-align: center;
-      padding: 56px 24px 0 24px;
-      min-height: 260px;
-    }
-    .header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-
-    .steps-container {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-
-    .step-box {
-      background: var(--white);
-      border-radius: var(--section-radius);
-      padding: 32px;
-      box-shadow: 0 2px 20px rgba(8,37,103,0.06);
-      transition: box-shadow 0.2s;
-    }
-    .step-box:hover {
-      box-shadow: 0 4px 32px rgba(8,37,103,0.11);
-    }
-    .step-title {
-      background-color: var(--green);
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 8px;
-      color: var(--white);
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-    .step-box ul {
-      margin: 0;
-      padding-left: 1.2em;
-      font-size: 1.05rem;
-      line-height: 1.5;
-    }
-
-    footer {
-      text-align: center;
-      padding: 24px 10px 20px 10px;
-      background: var(--blue);
-      color: var(--white);
-      font-size: 0.96rem;
-      border-radius: 16px 16px 0 0;
-      margin: 60px auto 0 auto;
-      max-width: 1060px;
-    }
-
-    @media (max-width: 768px) {
-      .header h1 {
-        font-size: 1.7rem;
-      }
-      .step-box ul {
-        font-size: 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Header -->
-  <div class="header">
-    <h1>International Tax Services</h1>
-    <p>Expert TP advisory, compliance, and representation across borders.</p>
-  </div>
-
-  <!-- Service Steps -->
-  <div class="steps-container">
-
-    <!-- Step 1 -->
-    <div class="step-box">
-      <div class="step-title">TP Advisory and Planning</div>
-      <ul>
-        <li>Setting up TP policies, price drafting/review of inter-company agreements</li>
-        <li>TP Health check & Due diligence</li>
-        <li>Assistance in alternate dispute resolutions like APA, MAP & CUP</li>
-      </ul>
+  <!-- Header/Navbar -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo" aria-label="T Surendra & Associates Logo">
+          <img src="https://github.com/raghava239/tsurendraca/blob/main/logo.jpg?raw=true" alt="T Surendra & Associates Logo" />
+        </a>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#top">About</a></li>
+          <li class="dropdown">
+            <a href="index.html#services" class="dropdown-toggle active-service" aria-haspopup="true" aria-expanded="false">Services</a>
+            <ul class="dropdown-menu" role="menu" aria-label="Services Submenu">
+              <li><a href="#" id="startup-advisory-link">Start-up Advisory and Consulting Services</a></li>
+              <li><a href="virtual-cfo.html">Virtual CFO Services</a></li>
+              <li><a href="international-tax.html">Direct and International Tax Services</a></li>
+              <li><a href="direct-indirect-tax.html">Indirect Tax Services</a></li>
+              <li><a href="audit-assurance.html">Audit and Assurance Services</a></li>
+              <li><a href="labour-law-compliance.html">Labour Law Compliance Services</a></li>
+              <li><a href="secretarial-fema-rbi.html">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#team-section">Team</a></li>
+          <li><a href="index.html#contact">Contact Us</a></li>
+          <li><a href="index.html#contact" class="btn-primary">Message Us</a></li>
+        </ul>
+        <div class="menu-toggle" aria-label="Toggle menu" tabindex="0" role="button">
+          <span></span><span></span><span></span>
+        </div>
+      </nav>
     </div>
+  </header>
 
-    <!-- Step 2 -->
-    <div class="step-box">
-      <div class="step-title">TP Compliances and Filings</div>
-      <ul>
-        <li>Assistance in preparation of TP documentation</li>
-        <li>Issuance of accountant’s report in Form 3CEB</li>
-        <li>Filing of Master file and CbCr</li>
-      </ul>
+  <!-- Main Content for International Tax Page -->
+  <main id="main">
+    <div class="container">
+      <div class="service-header">
+        <h1>International <span>Tax</span> Services</h1>
+        <p class="tagline">Expert TP advisory, compliance, and representation across borders.</p>
+      </div>
+
+      <div class="service-cards-container">
+        <!-- Card 1: TP Advisory and Planning -->
+        <div class="service-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+          </div>
+          <h3>TP Advisory and Planning</h3>
+          <ul>
+            <li>Setting up TP policies, price drafting/review of inter-company agreements.</li>
+            <li>TP Health check & Due diligence.</li>
+            <li>Assistance in alternate dispute resolutions like APA, MAP & CUP.</li>
+          </ul>
+        </div>
+
+        <!-- Card 2: TP Compliances and Filings -->
+        <div class="service-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          </div>
+          <h3>TP Compliances and Filings</h3>
+          <ul>
+            <li>Assistance in preparation of TP documentation.</li>
+            <li>Issuance of accountant’s report in Form 3CEB.</li>
+            <li>Filing of Master file and CbCr.</li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Assistance in Litigation -->
+        <div class="service-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          </div>
+          <h3>Assistance in Litigation</h3>
+          <ul>
+            <li>Assisting the clients in TP assessments at various levels.</li>
+            <li>Representing the client before Income Tax authorities [TPOs / DRP / CIT(A) / ITAT].</li>
+          </ul>
+        </div>
+      </div>
     </div>
-
-    <!-- Step 3 -->
-    <div class="step-box">
-      <div class="step-title">Assistance in Litigation</div>
-      <ul>
-        <li>Assisting the clients in TP assessments at various levels</li>
-        <li>Representing the client before Income Tax authorities [TPOs / DRP / CIT(A) / ITAT]</li>
-      </ul>
-    </div>
-
-  </div>
+  </main>
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 T SURENDRA & ASSOCIATES. Visit: <a href="https://www.tsurendraca.in" style="color:#9ACD32;text-decoration:none;">www.tsurendraca.in</a>
+    <p>© 2025 T SURENDRA & ASSOCIATES. Visit: <a href="https://www.tsurendraca.in/" target="_blank" rel="noopener">www.tsurendraca.in</a></p>
   </footer>
+
+  <script>
+    // Hamburger menu toggle for mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    menuToggle?.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Mobile dropdown submenu toggle
+    const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', e => {
+        if (window.innerWidth <= 991) {
+          e.preventDefault();
+          const parentLi = e.target.closest('li.dropdown');
+          parentLi.classList.toggle('active');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
-
