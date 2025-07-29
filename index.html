@@ -31,12 +31,19 @@
     /* === Loader styles for animated blue dots === */
     #loader-overlay {
       position: fixed; left: 0; top: 0; width: 100vw; height: 100vh;
-      background: #082567;
+      background: var(--blue);
       z-index: 99999;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: opacity 0.45s;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    #loader-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
     .dot-loader {
       display: flex;
@@ -538,6 +545,40 @@
         max-height: 220px;
       }
     }
+
+    /* === Styles for Startup Advisory content overlay === */
+    #startup-advisory-content {
+      display: none;
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 24px;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.11);
+      color: var(--blue);
+      position: relative;
+      z-index: 5000;
+    }
+    #start-advisory-close {
+      position: absolute;
+      top: 14px;
+      right: 22px;
+      background: var(--green);
+      color: var(--blue);
+      border: none;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1.15rem;
+      transition: background 0.16s ease;
+    }
+    #start-advisory-close:hover,
+    #start-advisory-close:focus {
+      background: var(--blue);
+      color: var(--white);
+      outline: none;
+    }
   </style>
 </head>
 <body class="loading">
@@ -560,10 +601,10 @@
         <li class="dropdown">
           <a href="#services" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services</a>
           <ul class="dropdown-menu" role="menu" aria-label="Services Submenu">
-            <li><a href="startup-advisory.html" data-service="startup-advisory">Start-up Advisory and Consulting Services</a></li>
+            <li><a href="#" id="startup-advisory-link" data-service="startup-advisory">Start-up Advisory and Consulting Services</a></li>
             <li><a href="virtual-cfo.html" data-service="virtual-cfo">Virtual CFO Services</a></li>
-            <li><a href="direct-international-tax.html" data-service="direct-international-tax">Direct and International Tax Services</a></li>
-            <li><a href="indirect-tax.html" data-service="indirect-tax">Indirect Tax Services</a></li>
+            <li><a href="international-tax.html" data-service="direct-international-tax">Direct and International Tax Services</a></li>
+            <li><a href="direct-indirect-tax.html" data-service="indirect-tax">Indirect Tax Services</a></li>
             <li><a href="audit-assurance.html" data-service="audit-assurance">Audit and Assurance Services</a></li>
             <li><a href="labour-law-compliance.html" data-service="labour-law-compliance">Labour Law Compliance Services</a></li>
             <li><a href="secretarial-fema-rbi.html" data-service="secretarial-fema-rbi">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
@@ -667,10 +708,10 @@
     </div>
     <div class="text-block">
       <ul>
-        <li><a href="startup-advisory.html">Start-up Advisory and Consulting Services</a></li>
+        <li><a href="#" id="startup-advisory-link-alt">Start-up Advisory and Consulting Services</a></li>
         <li><a href="virtual-cfo.html">Virtual CFO Services</a></li>
-        <li><a href="direct-international-tax.html">Direct and International Tax Services</a></li>
-        <li><a href="indirect-tax.html">Indirect Tax Services</a></li>
+        <li><a href="international-tax.html">Direct and International Tax Services</a></li>
+        <li><a href="direct-indirect-tax.html">Indirect Tax Services</a></li>
         <li><a href="audit-assurance.html">Audit and Assurance Services</a></li>
         <li><a href="labour-law-compliance.html">Labour Law Compliance Services</a></li>
         <li><a href="secretarial-fema-rbi.html">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
@@ -742,6 +783,9 @@
   </div>
 </section>
 
+<!-- Startup Advisory Content Container -->
+<section id="startup-advisory-content" aria-live="polite" aria-atomic="true"></section>
+
 <footer>
   <p>T SURENDRA & ASSOCIATES. All Rights Reserved.</p>
 </footer>
@@ -751,7 +795,7 @@
   window.addEventListener('DOMContentLoaded', function(){
     setTimeout(function() {
       const loader = document.getElementById('loader-overlay');
-      loader.style.opacity = '0';
+      loader.classList.add('hidden');
       setTimeout(function() {
         loader.style.display = 'none';
         document.body.classList.remove('loading');
@@ -842,6 +886,38 @@
       alert('Please fill in all required fields with valid information.');
     }
   });
+
+  // Load Startup Advisory content dynamically
+  function loadStartupAdvisory(e) {
+    e.preventDefault();
+    const container = document.getElementById('startup-advisory-content');
+    if (container.style.display === 'block') {
+      container.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+    container.style.display = 'block';
+    container.innerHTML = '<p>Loading content...</p>';
+    fetch('startup-advisory.html')
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to load content.');
+        return res.text();
+      })
+      .then(html => {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+        let mainContent = tempDiv.querySelector('#main, .main, main')?.innerHTML ?? tempDiv.body?.innerHTML ?? html;
+        container.innerHTML = `<button id="start-advisory-close" aria-label="Close advisory section">Close ×</button>${mainContent}`;
+        container.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('start-advisory-close').onclick = () => {
+          container.style.display = 'none';
+        };
+      })
+      .catch(err => {
+        container.innerHTML = `<p style="color:red;">Error loading content: ${err.message}</p>`;
+      });
+  }
+  document.getElementById('startup-advisory-link')?.addEventListener('click', loadStartupAdvisory);
+  document.getElementById('startup-advisory-link-alt')?.addEventListener('click', loadStartupAdvisory);
 </script>
 </body>
 </html>
