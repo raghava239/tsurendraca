@@ -3,146 +3,279 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Labour Law Compliance Services | T SURENDRA & ASSOCIATES</title>
+  <title>Labour Law Compliance Services - T SURENDRA & ASSOCIATES</title>
+  <meta name="description" content="Labour Law Compliance including statutory registrations, compliance monitoring, and payroll management.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* === CORE STYLES (Copied from other pages for consistency) === */
     :root {
       --blue: #082567;
       --green: #9ACD32;
-      --white: #ffffff;
-      --gray-bg: #f5f8fc;
-      --box-radius: 16px;
+      --pale-green: #f0faea;
+      --light-gray: #f5f6fa;
+      --light-blue: #e7f0fa;
+      --white: #FFFFFF;
+    }
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      font-family: 'Poppins', sans-serif; 
+      color: var(--blue); 
+      line-height: 1.6; 
+      background: var(--light-gray); 
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; cursor: pointer; }
+    ul, li { padding: 0; margin: 0; list-style: none; }
+    .container {
+      width: 90%; max-width: 1200px; margin: 0 auto;
     }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background-color: var(--gray-bg);
-      color: var(--blue);
+    /* === HEADER & NAVIGATION (Same as other pages) === */
+    header {
+      background: var(--blue);
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 65px;
+      z-index: 2000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      display: flex; align-items: center;
+    }
+    header .container {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav { display: flex; align-items: center; width: 100%; }
+    nav .logo img { height: 42px; border-radius: 10px; }
+    nav ul {
+      display: flex; gap: 1.5rem; margin-left: auto; padding: 0; align-items: center;
+    }
+    nav ul li a {
+      font-weight: 600; color: var(--white); padding: 8px 12px;
+      border-radius: 4px; transition: color 0.3s, background-color 0.3s; display: inline-block;
+    }
+    nav ul li a:hover, nav ul li a.active-service { color: var(--green); background: var(--white); }
+    nav ul li.dropdown { position: relative; }
+    nav ul li.dropdown > a::after {
+      content: "▾"; font-size: 0.6em; color: var(--green); margin-left: 4px;
+    }
+    nav ul li.dropdown ul.dropdown-menu {
+      position: absolute; top: 100%; left: 0; background: var(--blue); border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15); display: none;
+      min-width: 260px; z-index: 3000; padding: 10px 0;
+    }
+    nav ul li.dropdown:hover ul.dropdown-menu,
+    nav ul li.dropdown:focus-within ul.dropdown-menu { display: block; }
+    nav ul li.dropdown ul.dropdown-menu li a {
+      display: block; padding: 8px 20px; color: var(--white); font-weight: 500;
+      transition: background-color 0.3s; white-space: nowrap;
+    }
+    nav ul li.dropdown ul.dropdown-menu li a:hover {
+      background-color: var(--green); color: var(--blue);
+    }
+    .menu-toggle { display: none; }
+    @media (max-width: 991px) {
+      .menu-toggle { display: flex; flex-direction: column; justify-content: center; gap: 6px; cursor: pointer; width: 36px; height: 36px; margin-left: 10px; }
+      .menu-toggle span { display: block; height: 4px; width: 100%; border-radius: 3px; background: white; transition: all 0.3s; }
+      nav ul { display: none; position: fixed; top: 65px; right: 0; background: var(--blue); width: 200px; flex-direction: column; padding: 10px 15px; border-radius: 0 0 0 8px; z-index: 2100; }
+      nav ul.active { display: flex; }
+      nav ul li.dropdown ul.dropdown-menu { position: static; box-shadow: none; border-radius: 0; padding: 0; display: none !important; }
+      nav ul li.dropdown.active ul.dropdown-menu { display: block !important; }
+      nav ul li.dropdown > a::after { content: "▸"; transform: rotate(0deg); transition: transform 0.3s; }
+      nav ul li.dropdown.active > a::after { transform: rotate(90deg); }
     }
 
-    .header {
+    /* === SERVICE DETAIL PAGE STYLES (Same as other service pages) === */
+    #main {
+      padding: 100px 15px 60px 15px;
+    }
+    .service-header {
       text-align: center;
-      padding: 60px 20px 20px;
-      background-color: var(--white);
+      margin-bottom: 50px;
     }
-
-    .header h1 {
-      font-size: 2.2rem;
+    .service-header h1 {
+      font-size: 2.8rem;
       font-weight: 700;
+      margin: 0 0 10px 0;
       color: var(--blue);
     }
-
-    .services-container {
+    .service-header h1 span {
+      color: var(--green);
+    }
+    .service-header .tagline {
+      font-size: 1.2rem;
+      font-weight: 500;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #555;
+    }
+    .service-cards-container {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
+      flex-wrap: wrap;
     }
-
-    .card {
-      background-color: var(--white);
-      border-radius: var(--box-radius);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-      width: 300px;
-      min-height: 280px;
+    .service-card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 5px 25px rgba(8, 37, 103, 0.08);
+      padding: 30px;
+      flex: 1 1 320px;
+      max-width: 380px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 35px rgba(8, 37, 103, 0.12);
+    }
+    .service-card .icon {
+      background-color: var(--pale-green);
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
     }
-
-    .card-header {
-      background-color: var(--green);
-      color: var(--white);
+    .service-card .icon svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--green);
+    }
+    .service-card h3 {
+      font-size: 1.4rem;
       font-weight: 600;
-      font-size: 1.1rem;
-      padding: 16px;
-      border-radius: var(--box-radius) var(--box-radius) 0 0;
-      text-align: center;
+      margin: 0 0 15px 0;
+      color: var(--blue);
     }
-
-    .card-body {
-      padding: 20px;
-      font-size: 0.95rem;
-      flex-grow: 1;
+    .service-card ul {
+      list-style-type: '✓ ';
+      padding-left: 1.5em;
     }
-
-    .card-body ul {
-      padding-left: 20px;
-    }
-
-    .card-body li {
+    .service-card ul li {
       margin-bottom: 10px;
+      font-size: 1rem;
+      line-height: 1.5;
     }
-
-    .footer {
-      text-align: center;
-      padding: 20px;
+    @media (max-width: 575px) {
+      .service-header h1 { font-size: 2rem; }
+      .service-header .tagline { font-size: 1rem; }
+    }
+    
+    /* === FOOTER (Same as other pages) === */
+    footer {
       background: var(--blue);
       color: var(--white);
-      font-size: 0.95rem;
-      border-radius: 20px 20px 0 0;
-      margin-top: 60px;
-    }
-
-    .footer a {
-      color: var(--green);
-      text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
-      .card {
-        width: 100%;
-      }
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
-  <div class="header">
-    <h1>Labour Law Compliance Services</h1>
-  </div>
-
-  <div class="services-container">
-
-    <!-- Statutory Registrations -->
-    <div class="card">
-      <div class="card-header">Statutory Registrations and Renewals</div>
-      <div class="card-body">
-        <ul>
-          <li>Assisting businesses in obtaining and renewing registrations under various labour laws, such as EPF, ESI, PT and Shops and Establishments Act.</li>
+  <!-- Header/Navbar -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo" aria-label="T Surendra & Associates Logo">
+          <img src="https://github.com/raghava239/tsurendraca/blob/main/logo.jpg?raw=true" alt="T Surendra & Associates Logo" />
+        </a>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#top">About</a></li>
+          <li class="dropdown">
+            <a href="index.html#services" class="dropdown-toggle active-service" aria-haspopup="true" aria-expanded="false">Services</a>
+            <ul class="dropdown-menu" role="menu" aria-label="Services Submenu">
+              <li><a href="#" id="startup-advisory-link">Start-up Advisory and Consulting Services</a></li>
+              <li><a href="virtual-cfo.html">Virtual CFO Services</a></li>
+              <li><a href="international-tax.html">Direct and International Tax Services</a></li>
+              <li><a href="direct-indirect-tax.html">Indirect Tax Services</a></li>
+              <li><a href="audit-assurance.html">Audit and Assurance Services</a></li>
+              <li><a href="labour-law-compliance.html">Labour Law Compliance Services</a></li>
+              <li><a href="secretarial-fema-rbi.html">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#team-section">Team</a></li>
+          <li><a href="index.html#contact">Contact Us</a></li>
+          <li><a href="index.html#contact" class="btn-primary">Message Us</a></li>
         </ul>
+        <div class="menu-toggle" aria-label="Toggle menu" tabindex="0" role="button">
+          <span></span><span></span><span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content for Labour Law Compliance Page -->
+  <main id="main">
+    <div class="container">
+      <div class="service-header">
+        <h1>Labour Law <span>Compliance</span> Services</h1>
+        <p class="tagline">Navigating labour regulations to protect your business and empower your workforce.</p>
+      </div>
+
+      <div class="service-cards-container">
+        <!-- Card 1: Statutory Registrations -->
+        <div class="service-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>
+          </div>
+          <h3>Statutory Registrations and Renewals</h3>
+          <ul>
+            <li>Assisting businesses in obtaining and renewing registrations under various labour laws, such as EPF, ESI, PT and Shops and Establishments Act.</li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Compliance Monitoring -->
+        <div class="service-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          </div>
+          <h3>Compliance Monitoring and Audits</h3>
+          <ul>
+            <li>Conducting regular compliance checks and audits to ensure adherence to labour laws and avoid penalties.</li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Payroll and Deductions -->
+        <div class="service-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </div>
+          <h3>Payroll &amp; Statutory Deductions Management</h3>
+          <ul>
+            <li>Managing payroll processes, ensuring accurate calculation and timely deposit of statutory deductions like PF, ESI, PT and gratuity contributions.</li>
+          </ul>
+        </div>
       </div>
     </div>
+  </main>
 
-    <!-- Compliance Monitoring -->
-    <div class="card">
-      <div class="card-header">Compliance Monitoring and Audits</div>
-      <div class="card-body">
-        <ul>
-          <li>Conducting regular compliance checks and audits to ensure adherence to labour laws and avoid penalties.</li>
-        </ul>
-      </div>
-    </div>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 T SURENDRA & ASSOCIATES. Visit: <a href="https://www.tsurendraca.in/" target="_blank" rel="noopener">www.tsurendraca.in</a></p>
+  </footer>
 
-    <!-- Payroll and Deductions -->
-    <div class="card">
-      <div class="card-header">Payroll & Statutory Deductions Management</div>
-      <div class="card-body">
-        <ul>
-          <li>Managing payroll processes, ensuring accurate calculation and timely deposit of statutory deductions like PF, ESI, PT and gratuity contributions.</li>
-        </ul>
-      </div>
-    </div>
+  <script>
+    // Hamburger menu toggle for mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    menuToggle?.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
 
-  </div>
-
-  <div class="footer">
-    &copy; 2025 T SURENDRA & ASSOCIATES | Visit: 
-    <a href="https://www.tsurendraca.in">www.tsurendraca.in</a>
-  </div>
+    // Mobile dropdown submenu toggle
+    const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', e => {
+        if (window.innerWidth <= 991) {
+          e.preventDefault();
+          const parentLi = e.target.closest('li.dropdown');
+          parentLi.classList.toggle('active');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
