@@ -20,7 +20,7 @@
     }
 
     html {
-      scroll-padding-top: 70px; /* Offset fixed header */
+      scroll-padding-top: 70px; /* offset fixed header height */
       scroll-behavior: smooth;
     }
 
@@ -48,7 +48,8 @@
       cursor: pointer;
     }
 
-    ul, li {
+    ul,
+    li {
       padding: 0;
       margin: 0;
       list-style: none;
@@ -102,10 +103,26 @@
     }
 
     @keyframes dotPulse {
-      0%, 100% { opacity: 0.72; transform: scale(1); }
-      25% { opacity: 1; transform: scale(1.23); }
-      50% { opacity: 0.7; transform: scale(0.94); }
-      75% { opacity: 0.9; transform: scale(1.1); }
+      0%,
+      100% {
+        opacity: 0.72;
+        transform: scale(1);
+      }
+
+      25% {
+        opacity: 1;
+        transform: scale(1.23);
+      }
+
+      50% {
+        opacity: 0.7;
+        transform: scale(0.94);
+      }
+
+      75% {
+        opacity: 0.9;
+        transform: scale(1.1);
+      }
     }
 
     body.loading>*:not(#loader-overlay) {
@@ -125,7 +142,7 @@
       width: 100%;
       height: 65px;
       z-index: 2000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       display: flex;
       align-items: center;
     }
@@ -172,14 +189,14 @@
       color: var(--white);
       padding: 8px 12px;
       border-radius: 4px;
-      transition: color 0.3s, background-color 0.3s;
       display: inline-block;
+      transition: color 0.3s, background-color 0.3s;
     }
 
     nav ul li a.active,
     nav ul li a:hover {
-      background: var(--white);
       color: var(--green);
+      background: var(--white);
     }
 
     nav ul li.dropdown > a {
@@ -203,7 +220,7 @@
       left: 0;
       background: var(--blue);
       border-radius: 0 0 8px 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       display: none;
       min-width: 260px;
       z-index: 3000;
@@ -302,12 +319,21 @@
       height: 36px;
     }
 
+    .menu-toggle span {
+      display: block;
+      height: 4px;
+      width: 100%;
+      border-radius: 3px;
+      background: white;
+      transition: all 0.3s;
+    }
+
     /* Banner */
     #top {
       position: relative;
       width: 100vw;
       height: 100vh;
-      padding-top: 65px;
+      padding-top: 65px; /* header space */
       background: linear-gradient(110deg, #f7fafc 0%, #e7f0fa 60%, #c1d6f7 100%);
       overflow: hidden;
       box-sizing: border-box;
@@ -373,8 +399,8 @@
     .carousel-content p,
     .carousel-content ul {
       font-size: 1.2rem;
-      line-height: 1.4;
-      margin-bottom: 20px;
+      line-height: 1.5;
+      margin-bottom: 28px;
     }
 
     .carousel-content ul {
@@ -757,6 +783,20 @@
       text-align: center;
     }
   </style>
+  <script>
+    // Scroll to hash target on page load (fixes one-click hash load issue)
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.location.hash) {
+        const targetId = window.location.hash.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          setTimeout(() => {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
+      }
+    });
+  </script>
 </head>
 
 <body class="loading">
@@ -770,7 +810,7 @@
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- Header/Navbar -->
   <header>
     <div class="container">
       <nav>
@@ -797,103 +837,116 @@
           <li><a href="#contact" class="btn-primary">Message Us</a></li>
         </ul>
         <div class="menu-toggle" aria-label="Toggle menu" tabindex="0" role="button">
-          <span></span><span></span><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </nav>
     </div>
   </header>
 
- <!-- Banner Carousel Section -->
-<section id="top" aria-label="Welcome Banner">
-  <div class="carousel-outer">
-    <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
-    <div class="carousel-container" id="bannerCarousel" aria-live="polite" aria-atomic="true">
+  <!-- Banner Carousel Section -->
+  <section id="top" aria-label="Welcome Banner">
+    <div class="carousel-outer">
+      <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
+      <div class="carousel-container" id="bannerCarousel" aria-live="polite" aria-atomic="true">
 
-      <!-- Slide 1: Welcome -->
-      <article class="carousel-slide" aria-label="Slide 1 of 5 - Welcome">
-        <div class="carousel-content">
-          <h6>Welcome to</h6>
-          <h2>T SURENDRA & ASSOCIATES (TSA)</h2>
-          <h3>Your Trusted Partner for Comprehensive Financial and Advisory Services</h3>
-          <p>At TSA, we offer holistic, end-to-end solutions tailored to align with your business goals and financial objectives. Whether you are a startup, a growing enterprise, or an established organization, we provide strategic support across every stage of your journey — from compliance and taxation to business advisory, virtual CFO services, and operational planning.</p>
-          <p><strong>TSA</strong> is your one-stop destination for comprehensive financial and business services, delivered by a professional team including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates, and MBAs. We collaborate to provide audit, consulting, financial advisory, and tax services.</p>
-          <a href="#contact" class="btn-primary" role="button" target="_self">Contact Us</a>
-        </div>
-        <div class="carousel-image" aria-hidden="true">
-          <img src="https://images.unsplash.com/photo-1601597111158-bc1c1f39c555?auto=format&fit=crop&w=600&q=80" alt="Professional team meeting" />
-        </div>
-      </article>
+        <!-- Slide 1: Welcome -->
+        <article class="carousel-slide" aria-label="Slide 1 of 5 - Welcome">
+          <div class="carousel-content">
+            <h6>Welcome to</h6>
+            <h2>T SURENDRA & ASSOCIATES (TSA)</h2>
+            <h3>Your Trusted Partner for Comprehensive Financial and Advisory Services</h3>
+            <p>
+              At TSA, we offer holistic, end-to-end solutions tailored to align with your business goals and financial objectives.<br><br>
+              Whether you are a startup, a growing enterprise, or an established organization, we provide strategic support across every stage of your journey — from compliance and taxation to business advisory, virtual CFO services, and operational planning.
+            </p>
+            <p>
+              <strong>TSA</strong> is your one-stop destination for comprehensive financial and business services, delivered by a professional team including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates, and MBAs.<br><br>
+              We collaborate to provide audit, consulting, financial advisory, and tax services.
+            </p>
+            <!-- Contact Us button removed as requested -->
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1601597111158-bc1c1f39c555?auto=format&fit=crop&w=600&q=80"
+              alt="Professional team meeting" />
+          </div>
+        </article>
 
-      <!-- Slide 2: Approach and Principles -->
-      <article class="carousel-slide" aria-label="Slide 2 of 5 - Our Approach and Principles">
-        <div class="carousel-content">
-          <h2>Our <span>Approach</span> <span>And Principles</span></h2>
-          <p>At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.</p>
-          <ul>
-            <li>Listening to the client before advising</li>
-            <li>Providing timely and actionable solutions</li>
-            <li>Maintaining confidentiality and professional ethics</li>
-            <li>Continuously upgrading our skills and technologies</li>
-          </ul>
-        </div>
-        <div class="carousel-image" aria-hidden="true">
-          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="Approach and Principles - strategy session" />
-        </div>
-      </article>
+        <!-- Slide 2: Approach and Principles -->
+        <article class="carousel-slide" aria-label="Slide 2 of 5 - Our Approach and Principles">
+          <div class="carousel-content">
+            <h2>Our <span>Approach</span> <span>And Principles</span></h2>
+            <p>At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.</p>
+            <ul>
+              <li>Listening to the client before advising</li>
+              <li>Providing timely and actionable solutions</li>
+              <li>Maintaining confidentiality and professional ethics</li>
+              <li>Continuously upgrading our skills and technologies</li>
+            </ul>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80"
+              alt="Approach and Principles - strategy session" />
+          </div>
+        </article>
 
-      <!-- Slide 3: Vision -->
-      <article class="carousel-slide" aria-label="Slide 3 of 5 - Vision">
-        <div class="carousel-content">
-          <h2>Our <span>Vision</span></h2>
-          <p>To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions, and unwavering commitment.</p>
-        </div>
-        <div class="carousel-image" aria-hidden="true">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Vision - mountain vista" />
-        </div>
-      </article>
+        <!-- Slide 3: Vision -->
+        <article class="carousel-slide" aria-label="Slide 3 of 5 - Vision">
+          <div class="carousel-content">
+            <h2>Our <span>Vision</span></h2>
+            <p>To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions, and unwavering commitment.</p>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Vision - mountain vista" />
+          </div>
+        </article>
 
-      <!-- Slide 4: Mission -->
-      <article class="carousel-slide" aria-label="Slide 4 of 5 - Mission">
-        <div class="carousel-content">
-          <h2>Our <span>Mission</span></h2>
-          <p>Empower clients through robust financial systems, compliance, and strategic insights that foster growth and sustainability.</p>
-        </div>
-        <div class="carousel-image" aria-hidden="true">
-          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Modern financial center" />
-        </div>
-      </article>
+        <!-- Slide 4: Mission -->
+        <article class="carousel-slide" aria-label="Slide 4 of 5 - Mission">
+          <div class="carousel-content">
+            <h2>Our <span>Mission</span></h2>
+            <p>Empower clients through robust financial systems, compliance, and strategic insights that foster growth and sustainability.</p>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Modern financial center" />
+          </div>
+        </article>
 
-      <!-- Slide 5: Core Values -->
-      <article class="carousel-slide" aria-label="Slide 5 of 5 - Core Values">
-        <div class="carousel-content">
-          <h2>Our <span>Core Values</span></h2>
-          <ul>
-            <li>Integrity – Honesty, transparency, and strong moral principles</li>
-            <li>Excellence – Delivering high standards consistently</li>
-            <li>Commitment – Dedicated service and long-term relationships</li>
-            <li>Confidentiality – Respecting client privacy and data</li>
-            <li>Learning – Adapting to changing laws and technologies</li>
-          </ul>
-        </div>
-        <div class="carousel-image" aria-hidden="true">
-          <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=80" alt="Core Values - handshake" />
-        </div>
-      </article>
+        <!-- Slide 5: Core Values -->
+        <article class="carousel-slide" aria-label="Slide 5 of 5 - Core Values">
+          <div class="carousel-content">
+            <h2>Our <span>Core Values</span></h2>
+            <ul>
+              <li>Integrity – Honesty, transparency, and strong moral principles</li>
+              <li>Excellence – Delivering high standards consistently</li>
+              <li>Commitment – Dedicated service and long-term relationships</li>
+              <li>Confidentiality – Respecting client privacy and data</li>
+              <li>Learning – Adapting to changing laws and technologies</li>
+            </ul>
+          </div>
+          <div class="carousel-image" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=80"
+              alt="Core Values - handshake" />
+          </div>
+        </article>
 
+      </div>
+
+      <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
+      <button type="button" class="carousel-btn next" aria-label="Next Slide">&#9654;</button>
+
+      <div class="carousel-indicators" role="tablist" aria-label="Carousel Navigation"></div>
     </div>
-    <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
-    <button type="button" class="carousel-btn next" aria-label="Next Slide">&#9654;</button>
-    <div class="carousel-indicators" role="tablist" aria-label="Carousel Navigation"></div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Services Section -->
   <section id="services" aria-label="Our Services">
     <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
     <div class="services-container">
       <div class="image-block" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=800&q=80" alt="Financial advisory and consulting" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=800&q=80"
+          alt="Financial advisory and consulting" loading="lazy" />
       </div>
       <div class="text-block">
         <ul>
@@ -914,17 +967,20 @@
     <h2>Meet Our Team</h2>
     <div class="team-members">
       <div class="team-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU" alt="Surendra Tirumareddi - Chartered Accountant" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU"
+          alt="Surendra Tirumareddi - Chartered Accountant" />
         <h3>Surendra Tirumareddi</h3>
         <p>ACA | B.Com.</p>
       </div>
       <div class="team-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU" alt="Ravi Teja M - Chartered Accountant" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU"
+          alt="Ravi Teja M - Chartered Accountant" />
         <h3>Ravi Teja M</h3>
         <p>ACA | B.Com.</p>
       </div>
       <div class="team-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU" alt="Third person - Chartered Accountant" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU"
+          alt="Third person - Chartered Accountant" />
         <h3>Third person</h3>
         <p>ACA | B.Com.</p>
       </div>
@@ -996,7 +1052,7 @@
       navMenu.classList.toggle('active');
     });
 
-    // Close mobile menu after clicking anchor links
+    // Close mobile menu after clicking any link
     navMenu.querySelectorAll('a').forEach(anchor => {
       anchor.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -1018,19 +1074,19 @@
     // Carousel Setup
     (() => {
       const container = document.querySelector('.carousel-container');
-      const slides = Array.from(container.querySelectorAll('.carousel-slide'));
+      const slides = [...container.querySelectorAll('.carousel-slide')];
       const btnNext = document.querySelector('.carousel-btn.next');
       const btnPrev = document.querySelector('.carousel-btn.prev');
       const indicatorsContainer = document.querySelector('.carousel-indicators');
       let currentIndex = 0;
-      let slideCount = slides.length;
-      let autoSlideInterval = null;
+      const slideCount = slides.length;
+      let autoSlideInterval;
 
       // Build indicators
       for (let i = 0; i < slideCount; i++) {
         const btn = document.createElement('button');
-        btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
         btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
         btn.setAttribute('tabindex', i === 0 ? '0' : '-1');
         if (i === 0) btn.classList.add('active');
         btn.addEventListener('click', () => {
@@ -1039,7 +1095,7 @@
         });
         indicatorsContainer.appendChild(btn);
       }
-      const indicators = Array.from(indicatorsContainer.children);
+      const indicators = [...indicatorsContainer.children];
 
       function goToSlide(index) {
         currentIndex = index;
@@ -1049,8 +1105,9 @@
 
       function updateIndicators() {
         indicators.forEach((btn, i) => {
-          btn.classList.toggle('active', i === currentIndex);
-          btn.setAttribute('tabindex', i === currentIndex ? '0' : '-1');
+          const isActive = i === currentIndex;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('tabindex', isActive ? '0' : '-1');
         });
       }
 
@@ -1082,30 +1139,17 @@
         clearInterval(autoSlideInterval);
         startTimer();
       }
-
+      
       goToSlide(0);
       startTimer();
     })();
 
     // Contact form validation
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', e => {
+    document.getElementById('contact-form')?.addEventListener('submit', e => {
+      const form = e.target;
       if (!form.checkValidity()) {
         e.preventDefault();
         alert('Please fill in all required fields with valid information.');
-      }
-    });
-
-    // Scroll to hash target on page load (fix one-click navigation)
-    window.addEventListener('DOMContentLoaded', () => {
-      if (window.location.hash) {
-        const targetId = window.location.hash.substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          setTimeout(() => {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-          }, 100);
-        }
       }
     });
   </script>
