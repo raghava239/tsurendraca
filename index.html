@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-    content="T SURENDRA & ASSOCIATES, Chartered Accountants - Audit, consulting, financial advisory, tax services." />
+  <meta name="description" content="T SURENDRA & ASSOCIATES, Chartered Accountants - Audit, consulting, financial advisory, tax services." />
   <meta name="author" content="T SURENDRA & ASSOCIATES" />
   <title>T SURENDRA & ASSOCIATES - Chartered Accountants</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -19,7 +18,15 @@
       --white: #FFFFFF;
     }
 
-    * {
+    /* Added for offsetting fixed header on scroll */
+    html {
+      scroll-padding-top: 70px; /* slightly more than header height */
+      scroll-behavior: smooth; /* smooth scroll for anchor links */
+    }
+
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
@@ -29,7 +36,6 @@
       color: var(--blue);
       line-height: 1.6;
       background: var(--white);
-      scroll-behavior: smooth; /* Smooth scroll for in-page anchors */
     }
 
     img {
@@ -176,34 +182,26 @@
       align-items: center;
     }
 
+    nav ul li {
+      position: relative;
+    }
+
     nav ul li a {
       font-weight: 600;
       color: var(--white);
       padding: 8px 12px;
       border-radius: 4px;
-      transition: color 0.3s, background-color 0.3s;
       display: inline-block;
+      transition: color 0.3s, background-color 0.3s;
     }
 
-    nav ul li a.active,
-    nav ul li a:hover {
+    nav ul li a:hover,
+    nav ul li a.active {
       color: var(--green);
       background: var(--white);
     }
 
-    nav ul li.dropdown {
-      position: relative;
-    }
-
-    nav ul li.dropdown>a {
-      cursor: pointer;
-      user-select: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    nav ul li.dropdown>a::after {
+    nav ul li.dropdown a::after {
       content: "▾";
       font-size: 0.6em;
       color: var(--green);
@@ -233,8 +231,8 @@
       padding: 8px 20px;
       color: var(--white);
       font-weight: 500;
-      transition: background-color 0.3s;
       white-space: nowrap;
+      transition: background-color 0.3s;
     }
 
     nav ul li.dropdown ul.dropdown-menu li a:hover,
@@ -264,7 +262,22 @@
 
       .menu-toggle {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        cursor: pointer;
+        width: 36px;
+        height: 36px;
         margin-left: 10px;
+      }
+
+      .menu-toggle span {
+        display: block;
+        height: 4px;
+        width: 100%;
+        border-radius: 3px;
+        background: white;
+        transition: all 0.3s;
       }
 
       nav ul li.dropdown ul.dropdown-menu {
@@ -279,13 +292,13 @@
         display: block !important;
       }
 
-      nav ul li.dropdown > a::after {
+      nav ul li.dropdown a::after {
         content: "▸";
         transform: rotate(0deg);
         transition: transform 0.3s;
       }
 
-      nav ul li.dropdown.active > a::after {
+      nav ul li.dropdown.active a::after {
         transform: rotate(90deg);
       }
     }
@@ -309,12 +322,12 @@
       transition: all 0.3s;
     }
 
-    /* Banner: blueish white gradient */
+    /* Banner */
     #top {
       position: relative;
       width: 100vw;
       height: 100vh;
-      padding-top: 65px;
+      padding-top: 65px; /* header space */
       background: linear-gradient(110deg, #f7fafc 0%, #e7f0fa 60%, #c1d6f7 100%);
       overflow: hidden;
       box-sizing: border-box;
@@ -341,32 +354,29 @@
       flex: 0 0 100%;
       display: flex;
       align-items: center;
-      padding-left: 96px;
-      padding-right: 96px;
+      padding: 0 96px;
       gap: 40px;
       min-height: 100%;
-      color: var(--blue);
       box-sizing: border-box;
     }
 
     .carousel-content {
-      flex: 1 1 500px;
+      flex: 1;
       max-width: 600px;
-      color: var(--blue);
     }
 
     .carousel-content h6 {
       font-weight: 300;
       font-size: 1.1rem;
       color: var(--green);
-      margin: 0 0 8px 0;
+      margin-bottom: 8px;
     }
 
     .carousel-content h2 {
       font-weight: 700;
       font-size: 3.5rem;
-      margin: 0 0 8px 0;
       line-height: 1.1;
+      margin-bottom: 8px;
     }
 
     .carousel-content h2 span {
@@ -376,23 +386,19 @@
     .carousel-content h3 {
       font-weight: 600;
       font-size: 2rem;
-      margin: 0 0 20px 0;
       color: var(--green);
-      line-height: 1.3;
+      margin-bottom: 20px;
     }
 
-    .carousel-content p {
+    .carousel-content p,
+    .carousel-content ul {
       font-size: 1.2rem;
-      margin-bottom: 20px;
       line-height: 1.4;
+      margin-bottom: 20px;
     }
 
     .carousel-content ul {
-      margin: 0 0 12px 1.2em;
-      font-size: 1.15rem;
-      list-style-type: disc;
       padding-left: 1.2em;
-      line-height: 1.4;
     }
 
     .carousel-content ul li {
@@ -400,42 +406,43 @@
     }
 
     .carousel-image {
-      flex: 1 1 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      flex: 1;
       max-width: 400px;
       background: var(--white);
       border-radius: 20px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .carousel-image img {
-      max-width: 100%;
-      max-height: 280px;
       border-radius: 20px;
+      max-height: 280px;
+      width: 100%;
       object-fit: cover;
     }
 
+    /* Carousel buttons */
     .carousel-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      border: none;
-      background: rgba(255, 255, 255, 0.6);
-      color: var(--blue);
       width: 50px;
       height: 50px;
+      background: rgba(255, 255, 255, 0.6);
+      border: none;
       border-radius: 50%;
-      cursor: pointer;
       font-size: 2rem;
+      cursor: pointer;
+      color: var(--blue);
+      user-select: none;
       transition: background-color 0.3s;
       z-index: 1010;
-      user-select: none;
     }
 
     .carousel-btn:hover {
-      background: var(--green);
+      background-color: var(--green);
       color: var(--blue);
     }
 
@@ -468,23 +475,22 @@
     }
 
     .carousel-indicators button.active {
-      background: var(--green);
+      background-color: var(--green);
     }
 
-    /* Banner Call-To-Action ("Contact Us") */
     .btn-primary {
       background-color: var(--green);
       color: var(--white);
-      border: none;
       padding: 14px 28px;
       font-weight: 600;
       border-radius: 8px;
+      border: none;
       font-size: 1.1rem;
       cursor: pointer;
       display: inline-block;
       transition: background-color 0.3s ease;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(154, 205, 50, 0.5);
+      box-shadow: 0 0 12px var(--green);
     }
 
     .btn-primary:hover,
@@ -493,7 +499,8 @@
       outline: none;
     }
 
-    /* Services */
+    /* Sections styling */
+
     #services {
       background: var(--light-gray);
       padding: 60px 15px;
@@ -501,15 +508,15 @@
       margin: 0 auto;
       color: var(--blue);
       border-radius: 0 0 44px 44px;
-      box-shadow: 0 4px 14px 0 rgba(8, 37, 103, 0.03);
+      box-shadow: 0 4px 14px rgba(8, 37, 103, 0.03);
     }
 
     #services h2 {
       font-weight: 700;
       font-size: 2.2rem;
+      color: var(--blue);
       margin-bottom: 25px;
       text-align: center;
-      color: var(--blue);
     }
 
     #services h2 em,
@@ -519,10 +526,10 @@
 
     #services .services-container {
       display: flex;
-      flex-wrap: wrap;
       gap: 40px;
-      align-items: center;
+      flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
     }
 
     #services .image-block {
@@ -531,18 +538,17 @@
       min-width: 280px;
       text-align: center;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       min-height: 320px;
     }
 
     #services .image-block img {
-      border-radius: 16px;
-      box-shadow: 0 4px 18px rgba(8, 37, 103, 0.13);
       width: 100%;
-      height: auto;
       max-height: 400px;
       object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(8, 37, 103, 0.13);
     }
 
     #services .text-block {
@@ -552,20 +558,19 @@
 
     #services ul {
       list-style: none;
-      padding: 0;
-      margin: 0;
       border: 1px solid var(--green);
       border-radius: 8px;
-      overflow: hidden;
       box-shadow: inset 0 0 0 1px var(--green);
+      padding: 0;
+      margin: 0;
     }
 
     #services ul li {
-      border-bottom: 1px solid var(--green);
-      padding: 15px 20px;
       background: var(--white);
+      border-bottom: 1px solid var(--green);
       color: var(--blue);
       font-weight: 600;
+      padding: 15px 20px;
       transition: color 0.3s;
     }
 
@@ -585,20 +590,19 @@
       outline: none;
     }
 
-    /* Team */
     #team-section {
       background: var(--pale-green);
       max-width: 1100px;
-      margin: 0 auto 60px auto;
+      margin: 0 auto 60px;
       padding: 50px 15px;
       text-align: center;
       border-radius: 44px;
-      box-shadow: 0 4px 20px 0 rgba(113, 158, 42, 0.06);
+      box-shadow: 0 4px 20px rgba(113, 158, 42, 0.06);
     }
 
     #team-section h2 {
-      font-size: 2.1rem;
       color: var(--blue);
+      font-size: 2.1rem;
       font-weight: 700;
       margin-bottom: 40px;
       letter-spacing: 0.01em;
@@ -606,16 +610,16 @@
 
     .team-members {
       display: flex;
-      flex-wrap: wrap;
       gap: 32px;
+      flex-wrap: wrap;
       justify-content: center;
     }
 
     .team-card {
       background: var(--white);
+      padding: 26px 18px 20px;
       border-radius: 16px;
       box-shadow: 0 4px 18px rgba(8, 37, 103, 0.09);
-      padding: 26px 18px 20px 18px;
       max-width: 270px;
       flex: 1 1 240px;
       display: flex;
@@ -640,38 +644,37 @@
     }
 
     .team-card h3 {
-      font-size: 1.12rem;
-      margin: 0 0 6px;
       color: var(--blue);
+      font-size: 1.12rem;
       font-weight: 600;
+      margin-bottom: 6px;
       letter-spacing: 0.01em;
     }
 
     .team-card p {
-      margin: 0;
-      font-size: 0.98rem;
       color: #444;
-      letter-spacing: 0.005em;
+      font-size: 0.98rem;
       font-weight: 500;
+      letter-spacing: 0.005em;
+      margin: 0;
     }
 
-    /* Contact */
     #contact {
       background: var(--light-blue);
-      padding: 60px 15px;
       max-width: 1100px;
-      margin: 0 auto 40px auto;
+      margin: 0 auto 40px;
+      padding: 60px 15px;
       color: var(--blue);
-      border-radius: 44px 44px 0 0;
-      box-shadow: 0 -4px 14px 0 rgba(8, 37, 103, 0.04);
+      border-radius: 0 0 44px 44px;
+      box-shadow: 0 4px 14px rgba(8, 37, 103, 0.04);
     }
 
     #contact .contact-wrapper {
       display: flex;
-      flex-wrap: wrap;
       gap: 40px;
-      align-items: flex-start;
+      flex-wrap: wrap;
       justify-content: center;
+      align-items: flex-start;
     }
 
     #contact .info {
@@ -680,23 +683,27 @@
     }
 
     #contact .info h2 {
-      font-weight: 700;
       font-size: 2.2rem;
+      font-weight: 700;
       margin-bottom: 16px;
     }
 
     #contact .info p {
       font-size: 1.1rem;
-      margin-bottom: 24px;
+      margin-bottom: 0;
+    }
+
+    #contact .phone-info {
+      margin-top: 20px;
     }
 
     #contact .phone-info h4 {
-      margin: 1rem 0 0.6rem 0;
       font-weight: 600;
+      margin: 1rem 0 6px;
     }
 
-    #contact .phone-info h4 span a,
-    #contact .phone-info h4 span {
+    #contact .phone-info h4 span,
+    #contact .phone-info h4 span a {
       color: var(--green);
     }
 
@@ -726,14 +733,14 @@
 
     #contact input,
     #contact textarea {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      color: var(--blue);
       width: 100%;
       padding: 10px 14px;
       border: 1px solid var(--green);
       border-radius: 5px;
-      font-size: 1rem;
       resize: vertical;
-      color: var(--blue);
-      font-family: 'Poppins', sans-serif;
     }
 
     #contact textarea {
@@ -741,17 +748,17 @@
     }
 
     #contact .btn-submit {
-      margin-top: 10px;
-      border: none;
       cursor: pointer;
+      margin-top: 10px;
       width: 100%;
+      border: none;
       background-color: var(--green);
       color: var(--blue);
       font-weight: 600;
       padding: 14px 0;
       border-radius: 8px;
       font-size: 1.1rem;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s;
     }
 
     #contact .btn-submit:hover {
@@ -761,13 +768,29 @@
 
     /* Footer */
     footer {
-      background: var(--blue);
+      background-color: var(--blue);
       color: var(--white);
-      text-align: center;
-      padding: 20px 10px;
       font-size: 0.9rem;
+      padding: 20px 10px;
+      text-align: center;
     }
   </style>
+
+  <script>
+    /* This script will scroll to hash target (if present) on page load, fixing one-click behavior */
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.location.hash) {
+        const targetId = window.location.hash.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          setTimeout(() => {
+            // Scroll with smooth behavior
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
+      }
+    });
+  </script>
 </head>
 
 <body class="loading">
@@ -781,33 +804,33 @@
     </div>
   </div>
 
-  <!-- Header/Navbar -->
+  <!-- Header -->
   <header>
     <div class="container">
       <nav>
-        <a href="#top" class="logo" aria-label="T Surendra & Associates Logo">
-          <img src="https://github.com/raghava239/tsurendraca/blob/main/logo.jpg?raw=true"
-            alt="T Surendra & Associates Logo" />
+        <a href="index.html" class="logo" aria-label="T Surendra & Associates Logo">
+          <img src="https://github.com/raghava239/tsurendraca/blob/main/logo.jpg?raw=true" alt="T Surendra & Associates Logo" />
         </a>
         <ul id="nav-menu">
-          <li><a href="#top" class="active">Home</a></li>
-          <li><a href="#top">About</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#top">About</a></li>
           <li class="dropdown">
-            <a href="#services" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services</a>
+            <a href="index.html#services" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services</a>
             <ul class="dropdown-menu" role="menu" aria-label="Services Submenu">
-              <li><a href="startup-advisory.html" data-service="startup-advisory">Start-up Advisory and Consulting Services</a></li>
+              <li><a href="startup-advisory.html" data-service="startup-advisory">Start-up Advisory Services</a></li>
               <li><a href="virtual-cfo.html" data-service="virtual-cfo">Virtual CFO Services</a></li>
               <li><a href="international-tax.html" data-service="direct-international-tax">International Tax Services</a></li>
               <li><a href="direct-indirect-tax.html" data-service="indirect-tax">Direct and Indirect Tax Services</a></li>
               <li><a href="audit-assurance.html" data-service="audit-assurance">Audit and Assurance Services</a></li>
               <li><a href="labour-law-compliance.html" data-service="labour-law-compliance">Labour Law Compliance Services</a></li>
-              <li><a href="secretarial-fema-rbi.html" data-service="secretarial-fema-rbi">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
+              <li><a href="secretarial-fema.html" data-service="secretarial-fema-rbi">Secretarial, FEMA & RBI Compliance</a></li>
             </ul>
           </li>
-          <li><a href="#team-section">Team</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-          <li><a href="#contact" class="btn-primary">Message Us</a></li>
+          <li><a href="index.html#team-section">Team</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html#contact" class="btn-primary">Message Us</a></li>
         </ul>
+
         <div class="menu-toggle" aria-label="Toggle menu" tabindex="0" role="button">
           <span></span>
           <span></span>
@@ -817,352 +840,140 @@
     </div>
   </header>
 
-  <!-- Banner Carousel Section -->
-  <section id="top" aria-label="Welcome Banner">
-    <div class="carousel-outer">
-      <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
-      <div class="carousel-container" id="bannerCarousel" aria-live="polite" aria-atomic="true">
-
-        <!-- Vision Slide -->
-        <article class="carousel-slide" aria-label="Slide 1 of 5 - Vision">
-          <div class="carousel-content">
-            <h2>Our <span>Vision</span></h2>
-            <p>To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions,
-              and unwavering commitment.</p>
-          </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
-              alt="Vision - mountain vista for future vision" />
-          </div>
-        </article>
-
-        <!-- Mission Slide -->
-        <article class="carousel-slide" aria-label="Slide 2 of 5 - Mission">
-          <div class="carousel-content">
-            <h2>Our <span>Mission</span></h2>
-            <p>Empower clients through robust financial systems, compliance, and strategic insights that foster growth and
-              sustainability.</p>
-          </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
-              alt="Modern financial center" />
-          </div>
-        </article>
-
-        <!-- Core Values Slide -->
-        <article class="carousel-slide" aria-label="Slide 3 of 5 - Core Values">
-          <div class="carousel-content">
-            <h2>Our <span>Core Values</span></h2>
-            <ul>
-              <li>Integrity – Honesty, transparency, and strong moral principles</li>
-              <li>Excellence – Delivering high standards consistently</li>
-              <li>Commitment – Dedicated service and long-term relationships</li>
-              <li>Confidentiality – Respecting client privacy and data</li>
-              <li>Learning – Adapting to changing laws and technologies</li>
-            </ul>
-          </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=80"
-              alt="Core Values - handshake and collaboration" />
-          </div>
-        </article>
-
-        <!-- Welcome / Company Introduction Slide -->
-        <article class="carousel-slide" aria-label="Slide 4 of 5 - Welcome">
-          <div class="carousel-content">
-            <h6>Welcome to</h6>
-            <h2>T SURENDRA & ASSOCIATES (TSA)</h2>
-            <h3>Your Trusted Partner for Comprehensive Financial and Advisory Services</h3>
-            <p>
-              At TSA, we offer holistic, end-to-end solutions tailored to align with your business goals and financial
-              objectives. Whether you are a startup, a growing enterprise, or an established organization, we provide strategic
-              support across every stage of your journey — from compliance and taxation to business advisory, virtual CFO
-              services, and operational planning.
-            </p>
-            <p>
-              <strong>TSA</strong> is your one-stop destination for comprehensive financial and business services, delivered
-              by a professional team including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates, and
-              MBAs. We collaborate to provide audit, consulting, financial advisory, and tax services.
-            </p>
-            <a href="#contact" class="btn-primary" role="button" target="_self">Contact Us</a>
-          </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1601597111158-bc1c1f39c555?auto=format&fit=crop&w=600&q=80"
-              alt="Professional team meeting" />
-          </div>
-        </article>
-
-        <!-- Approach and Principles Slide -->
-        <article class="carousel-slide" aria-label="Slide 5 of 5 - Our Approach and Principles">
-          <div class="carousel-content">
-            <h2>Our <span>Approach</span> <span>And Principles</span></h2>
-            <p>At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology
-              tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.</p>
-            <ul>
-              <li>Listening to the client before advising</li>
-              <li>Providing timely and actionable solutions</li>
-              <li>Maintaining confidentiality and professional ethics</li>
-              <li>Continuously upgrading our skills and technologies</li>
-            </ul>
-          </div>
-          <div class="carousel-image" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80"
-              alt="Approach and Principles - strategy session" />
-          </div>
-        </article>
-
+  <!-- Main content -->
+  <main id="main">
+    <div class="container">
+      <div class="service-header">
+        <h1>Startup <span>Advisory</span> Services</h1>
+        <p class="tagline">Partnering with visionaries to launch, grow, and lead thriving businesses.</p>
       </div>
-      <button type="button" class="carousel-btn next" aria-label="Next Slide">&#9654;</button>
-      <div class="carousel-indicators" role="tablist" aria-label="Carousel Navigation"></div>
-    </div>
-  </section>
 
-  <!-- Services Section -->
-  <section id="services" aria-label="Our Services">
-    <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
-    <div class="services-container">
-      <div class="image-block" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=800&q=80"
-          alt="Financial advisory and consulting" loading="lazy" />
-      </div>
-      <div class="text-block">
-        <ul>
-          <li><a href="startup-advisory.html">Start-up Advisory and Consulting Services</a></li>
-          <li><a href="virtual-cfo.html">Virtual CFO Services</a></li>
-          <li><a href="international-tax.html">Direct and International Tax Services</a></li>
-          <li><a href="direct-indirect-tax.html">Indirect Tax Services</a></li>
-          <li><a href="audit-assurance.html">Audit and Assurance Services</a></li>
-          <li><a href="labour-law-compliance.html">Labour Law Compliance Services</a></li>
-          <li><a href="secretarial-fema-rbi.html">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
-        </ul>
+      <div class="service-cards-container">
+        <!-- Your service cards -->
+        <div class="service-card">
+          <div class="icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Business Planning Icon">
+              <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1h-6v1zm3-19c-2.86 0-5 3.14-5 7 0 2.77 1.57 5.18 4 6.26v3.74h2v-3.74c2.43-1.08 4-3.49 4-6.26 0-3.86-2.14-7-5-7z" />
+            </svg>
+          </div>
+          <h3>Strategic Business Planning</h3>
+          <ul>
+            <li>Designing in-depth business plans.</li>
+            <li>Innovative market entry strategies.</li>
+            <li>Strategic frameworks aligned with your vision &amp; goals.</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Financial Advisory Icon">
+              <path d="M4 9h4v11H4zm6-5h4v16h-4zm6 8h4v8h-4z" />
+            </svg>
+          </div>
+          <h3>Financial Advisory &amp; Capital Raising</h3>
+          <ul>
+            <li>Strategic financial guidance: modelling, budgeting, and valuation.</li>
+            <li>Developing persuasive investor materials.</li>
+            <li>Enabling meaningful investor engagement.</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Compliance Icon">
+              <path d="M12 1l-9 4v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 11h7c-3.83 0-7 3.17-7 7v-7zM5 6v6h2v-6H5z" />
+            </svg>
+          </div>
+          <h3>Compliances &amp; Business Structuring</h3>
+          <ul>
+            <li>Strategic counsel on business incorporation and optimal legal frameworks.</li>
+            <li>Ensuring full compliance with tax legislation.</li>
+            <li>Corporate governance and industry-specific regulations.</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </section>
+  </main>
 
   <!-- Team Section -->
   <section id="team-section">
-    <h2>Meet Our Team</h2>
-    <div class="team-members">
-      <div class="team-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU"
-          alt="Surendra Tirumareddi - Chartered Accountant" />
-        <h3>Surendra Tirumareddi</h3>
-        <p>ACA | B.Com.</p>
-      </div>
-      <div class="team-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU"
-          alt="Ravi Teja M - Chartered Accountant" />
-        <h3>Ravi Teja M</h3>
-        <p>ACA | B.Com.</p>
-      </div>
-      <div class="team-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU"
-          alt="Third person - Chartered Accountant" />
-        <h3>Third person</h3>
-        <p>ACA | B.Com.</p>
+    <div class="container">
+      <h2>Meet the Team</h2>
+      <div class="team-members">
+        <div class="team-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq-mzg8bD-64zQn2JDZd-VX5c6kDR2nTg1zQ&amp;usqp=CAU" alt="Member 1" />
+          <h3>Member 1</h3>
+          <p>Designation</p>
+        </div>
+        <div class="team-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkTiQrXHse7xxASyYsWwK6-ME7hQUh_ufN6Q&amp;usqp=CAU" alt="Member 2" />
+          <h3>Member 2</h3>
+          <p>Designation</p>
+        </div>
+        <div class="team-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIYBUYxOZ3MPFlq_q6TNXtSFlCiEMBarOCMg&amp;usqp=CAU" alt="Member 3" />
+          <h3>Member 3</h3>
+          <p>Designation</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" aria-label="Contact Us">
-    <div class="contact-wrapper">
-      <div class="info">
-        <h2>Let's Connect and Discuss Your Financial Needs</h2>
-        <p>Our team is dedicated to helping you achieve your financial goals...</p>
-        <div class="phone-info">
-          <h4>Contact Us: <span><i aria-hidden="true">📞</i> <a href="tel:7995356942">79953 56942</a></span></h4>
-          <h4>Email: <span><i aria-hidden="true">📧</i> <a href="mailto:Surendra@tsurendraca.in">Surendra@tsurendraca.in</a></span></h4>
-          <h4>Website: <span><i aria-hidden="true">🌐</i> <a href="https://tsurendraca.in" target="_blank" rel="noopener">tsurendraca.in</a></span></h4>
-          <h4>Location: <span><i aria-hidden="true">📍</i> Hyderabad, Visakhapatnam</span></h4>
-        </div>
-      </div>
-      <div class="form-container">
-        <form id="contact-form" method="post" autocomplete="off" novalidate>
-          <div class="row">
-            <div class="col-half">
-              <label class="sr-only" for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Name" required />
-            </div>
-            <div class="col-half">
-              <label class="sr-only" for="surname">Surname</label>
-              <input type="text" id="surname" name="surname" placeholder="Surname" required />
-            </div>
-            <div class="col-full">
-              <label class="sr-only" for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Your Email" required />
-            </div>
-            <div class="col-full">
-              <label class="sr-only" for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Message" required></textarea>
-            </div>
-            <div class="col-full">
-              <button type="submit" class="btn-submit" aria-label="Send Message">Send Message</button>
-            </div>
-          </div>
-        </form>
-      </div>
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Please reach out to discuss your needs.</p>
+      <!-- contact details and form, etc. -->
+      <!-- replicate your current contact section here -->
     </div>
   </section>
 
-  <!-- Startup Advisory Content Container -->
-  <section id="startup-advisory-content" aria-live="polite" aria-atomic="true"></section>
-
+  <!-- Footer -->
   <footer>
-    <p>T SURENDRA & ASSOCIATES. All Rights Reserved.</p>
+    <p>T SURENDRA & ASSOCIATES. All rights reserved.</p>
   </footer>
 
+  <!-- Scripts -->
   <script>
-    // Loader hide logic
-    window.addEventListener('DOMContentLoaded', function () {
-      setTimeout(function () {
-        const loader = document.getElementById('loader-overlay');
-        loader.classList.add('hidden');
-        setTimeout(function () {
-          loader.style.display = 'none';
-          document.body.classList.remove('loading');
-        }, 500);
-      }, 1500); // 1.5 seconds
-    });
-
-    // Hamburger menu toggle
+    // Toggle mobile menu
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     menuToggle?.addEventListener('click', () => {
       navMenu.classList.toggle('active');
     });
 
-    // Close mobile menu after clicking anchor links (including team/contact/message)
-    navMenu.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Close menu on nav link click (all anchors)
+    navMenu.querySelectorAll('a').forEach(anchor => {
       anchor.addEventListener('click', () => {
         navMenu.classList.remove('active');
       });
     });
 
-    // Mobile dropdown submenu toggle
-    const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
-    dropdownToggles.forEach(toggle => {
-      toggle.addEventListener('click', e => {
+    // Dropdown toggle on mobile
+    const dropdowns = document.querySelectorAll('nav ul li.dropdown > a');
+    dropdowns.forEach(dropdown => {
+      dropdown.addEventListener('click', e => {
         if (window.innerWidth <= 991) {
           e.preventDefault();
-          const parentLi = e.target.closest('li.dropdown');
-          parentLi.classList.toggle('active');
+          const parent = dropdown.parentElement;
+          parent.classList.toggle('active');
         }
       });
     });
 
-    // Carousel Setup
-    (() => {
-      const container = document.querySelector('.carousel-container');
-      const slides = Array.from(container.querySelectorAll('.carousel-slide'));
-      const btnNext = document.querySelector('.carousel-btn.next');
-      const btnPrev = document.querySelector('.carousel-btn.prev');
-      const indicatorsContainer = document.querySelector('.carousel-indicators');
-      let currentIndex = 0;
-      let slideCount = slides.length;
-      let autoSlideInterval = null;
-
-      // Build indicators
-      for (let i = 0; i < slideCount; i++) {
-        const btn = document.createElement('button');
-        btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
-        btn.setAttribute('role', 'tab');
-        btn.setAttribute('tabindex', i === 0 ? '0' : '-1');
-        if (i === 0) btn.classList.add('active');
-        btn.addEventListener('click', () => {
-          resetTimer();
-          goToSlide(i);
-        });
-        indicatorsContainer.appendChild(btn);
-      }
-      const indicators = Array.from(indicatorsContainer.children);
-
-      function goToSlide(index) {
-        currentIndex = index;
-        container.style.transform = `translateX(-${index * 100}%)`;
-        updateIndicators();
-      }
-
-      function updateIndicators() {
-        indicators.forEach((btn, i) => {
-          btn.classList.toggle('active', i === currentIndex);
-          btn.setAttribute('tabindex', i === currentIndex ? '0' : '-1');
-        });
-      }
-
-      function nextSlide() {
-        currentIndex = (currentIndex + 1) % slideCount;
-        goToSlide(currentIndex);
-      }
-
-      function prevSlide() {
-        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-        goToSlide(currentIndex);
-      }
-
-      btnNext.addEventListener('click', () => {
-        resetTimer();
-        nextSlide();
-      });
-
-      btnPrev.addEventListener('click', () => {
-        resetTimer();
-        prevSlide();
-      });
-
-      function startTimer() {
-        autoSlideInterval = setInterval(nextSlide, 6200);
-      }
-
-      function resetTimer() {
-        clearInterval(autoSlideInterval);
-        startTimer();
-      }
-
-      goToSlide(0);
-      startTimer();
-    })();
-
-    // Contact form validation
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', e => {
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        alert('Please fill in all required fields with valid information.');
+    // On load, scroll to hash (if any) to fix one-click issue
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const el = document.getElementById(id);
+        if (el) {
+          setTimeout(() => {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
       }
     });
-
-    // Load Startup Advisory content dynamically
-    function loadStartupAdvisory(e) {
-      e.preventDefault();
-      const container = document.getElementById('startup-advisory-content');
-      if (container.style.display === 'block') {
-        container.scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
-      container.style.display = 'block';
-      container.innerHTML = '<p>Loading content...</p>';
-      fetch('startup-advisory.html')
-        .then(res => {
-          if (!res.ok) throw new Error('Failed to load content.');
-          return res.text();
-        })
-        .then(html => {
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = html;
-          let mainContent = tempDiv.querySelector('#main, .main, main')?.innerHTML ?? tempDiv.body?.innerHTML ?? html;
-          container.innerHTML = `<button id="start-advisory-close" aria-label="Close advisory section">Close ×</button>${mainContent}`;
-          container.scrollIntoView({ behavior: 'smooth' });
-          document.getElementById('start-advisory-close').onclick = () => {
-            container.style.display = 'none';
-          };
-        })
-        .catch(err => {
-          container.innerHTML = `<p style="color:red;">Error loading content: ${err.message}</p>`;
-        });
-    }
-    document.getElementById('startup-advisory-link')?.addEventListener('click', loadStartupAdvisory);
-    document.getElementById('startup-advisory-link-alt')?.addEventListener('click', loadStartupAdvisory);
   </script>
 </body>
 
