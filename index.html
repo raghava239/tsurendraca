@@ -57,7 +57,6 @@
       list-style: none;
     }
 
-    /* Loader */
     #loader-overlay {
       position: fixed;
       left: 0;
@@ -106,36 +105,16 @@
 
     @keyframes dotPulse {
       0%,
-      100% {
-        opacity: 0.72;
-        transform: scale(1);
-      }
-
-      25% {
-        opacity: 1;
-        transform: scale(1.23);
-      }
-
-      50% {
-        opacity: 0.7;
-        transform: scale(0.94);
-      }
-
-      75% {
-        opacity: 0.9;
-        transform: scale(1.1);
-      }
+      100% { opacity: 0.72; transform: scale(1);}
+      25% { opacity: 1; transform: scale(1.23);}
+      50% { opacity: 0.7; transform: scale(0.94);}
+      75% { opacity: 0.9; transform: scale(1.1);}
     }
 
-    body.loading>*:not(#loader-overlay) {
-      display: none !important;
-    }
+    body.loading>*:not(#loader-overlay) { display: none !important;}
+    body.loading { overflow: hidden !important;}
 
-    body.loading {
-      overflow: hidden !important;
-    }
-    /* --- HEADER & NAV etc remain unchanged --- */
-
+    /* Header */
     header {
       background: var(--blue);
       position: fixed;
@@ -182,10 +161,7 @@
       align-items: center;
     }
 
-    nav ul li {
-      position: relative;
-    }
-
+    nav ul li { position: relative; }
     nav ul li a {
       font-weight: 600;
       color: var(--white);
@@ -229,10 +205,8 @@
     nav ul li.dropdown:focus-within ul.dropdown-menu {
       display: block;
     }
-
     nav ul li.dropdown ul.dropdown-menu li a {
-      display: block;
-      padding: 8px 20px;
+      display: block; padding: 8px 20px;
       color: var(--white);
       font-weight: 500;
       transition: background-color 0.3s;
@@ -240,8 +214,7 @@
     }
     nav ul li.dropdown ul.dropdown-menu li a:hover, nav ul li.dropdown ul.dropdown-menu li a:focus {
       background-color: var(--green);
-      color: var(--blue);
-      outline: none;
+      color: var(--blue); outline: none;
     }
     @media (max-width: 991px) {
       nav ul {
@@ -256,11 +229,9 @@
         border-radius: 0 0 0 8px;
         z-index: 2100;
       }
-
       nav ul.active {
         display: flex;
       }
-
       .menu-toggle {
         display: flex;
         margin-left: 10px;
@@ -271,7 +242,6 @@
         width: 36px;
         height: 36px;
       }
-
       .menu-toggle span {
         height: 4px;
         width: 100%;
@@ -308,7 +278,6 @@
       width: 36px;
       height: 36px;
     }
-
     .menu-toggle span {
       display: block;
       height: 4px;
@@ -317,7 +286,8 @@
       background: white;
       transition: all 0.3s;
     }
-    /* --- banner etc unchanged --- */
+
+    /* Banner Section */
     #top {
       position: relative;
       width: 100vw;
@@ -328,15 +298,116 @@
       color: var(--blue);
       background: linear-gradient(110deg, #f7fafc 0%, #e7f0fa 60%, #c1d6f7 100%);
     }
-    .carousel-outer { /* ...unchanged... */ }
-    .background-video { /* ...unchanged... */ }
-    .carousel-container { /* ...unchanged... */ }
-    .carousel-slide { /* ...unchanged... */ }
-    .carousel-content { /* ...unchanged... */ }
-    .carousel-btn { /* ...unchanged... */ }
-    .carousel-indicators { /* ...unchanged... */ }
 
-    /* -------- SERVICES SECTION -------- */
+    .carousel-outer {
+      position: relative;
+      width: 100vw;
+      height: calc(100vh - 65px);
+      margin-left: calc(-50vw + 50%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      background: transparent;
+    }
+
+    .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
+      filter: brightness(0.75);
+    }
+
+    .carousel-container {
+      position: relative;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(.77, 0, .18, 1);
+      z-index: 1;
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 96px;
+      gap: 40px;
+      min-height: 100%;
+      box-sizing: border-box;
+    }
+
+    .carousel-content {
+      flex: 1;
+      max-width: 650px;
+    }
+
+    .enhanced-text-background {
+      background: rgba(255,255,255,0.75);
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(8, 37, 103, 0.1);
+      backdrop-filter: saturate(180%) blur(5px);
+      color: var(--blue);
+      box-sizing: border-box;
+    }
+
+    .carousel-image {
+      display: none !important;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(255,255,255,0.7);
+      border: none;
+      border-radius: 50%;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--blue);
+      user-select: none;
+      transition: background-color 0.3s;
+      z-index: 10;
+    }
+    .carousel-btn:hover,.carousel-btn:focus {
+      background-color: var(--green);
+      color: var(--blue);
+      outline: none;
+    }
+    .carousel-btn.prev { left: 16px;}
+    .carousel-btn.next { right: 16px;}
+    .carousel-indicators {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 10;
+    }
+    .carousel-indicators button {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .carousel-indicators button.active {
+      background-color: var(--green);
+    }
+
+    /*--- SERVICES SECTION (UPDATED) ---*/
     #services {
       height: calc(100vh - 65px);
       width: 100vw;
@@ -384,7 +455,6 @@
       50% { transform: translateY(-12px); filter: drop-shadow(0 10px 10px rgba(0,0,0,0.15)); }
     }
 
-    /* ---- NEW UPDATED SERVICES HEADING & CARD LIST START ---- */
     #services h2 {
       text-align: center;
       font-size: 2.7rem;
@@ -397,8 +467,8 @@
       background-clip: text;
       text-fill-color: transparent;
       position: relative;
+      width: 100%;
     }
-
     #services h2 em, #services h2 span {
       font-style: normal;
       font-weight: 700;
@@ -407,7 +477,6 @@
       -webkit-text-fill-color: #2153a2;
       text-fill-color: #2153a2;
     }
-
     #services .services-list {
       display: flex;
       flex-direction: column;
@@ -445,19 +514,16 @@
       color: #21b3ff;
       text-decoration: underline;
     }
-    /* ---- NEW UPDATED SERVICES HEADING & CARD LIST END ---- */
-
-    /* Remove old #services ul li, #services ul, etc... not needed anymore */
 
     /* Responsive adjustments */
     @media (max-width: 991px) {
-      #services {
+      #top, #services {
         height: auto;
-        padding: 40px 15px;
+        padding: 40px 10px;
       }
-      #services .services-container {
+      #top .carousel-outer, #services .services-container {
         flex-direction: column;
-        padding: 0 20px;
+        padding: 0 10px !important;
         height: auto;
       }
       #services .image-block,
@@ -465,10 +531,10 @@
         flex: unset;
         max-height: none;
         width: 100%;
-        animation: none; /* Disable animation on mobile for performance */
+        animation: none;
       }
       #services .image-block img {
-        max-height: 280px;
+        max-height: 220px;
       }
       #services h2 {
         font-size: 2rem;
@@ -479,10 +545,11 @@
       }
       #services .service-card {
         padding: 15px 20px;
-        font-size: 1.01rem;
+        font-size: 1rem;
       }
     }
-    /* -------- TEAM, CONTACT, FOOTER etc --- Unchanged -------- */
+
+    /* Rest of your sections: team-section, contact, footer unchanged... */
     #team-section { background: var(--pale-green); max-width: 1100px; margin: 0 auto 60px; padding: 50px 15px; text-align: center; border-radius: 44px; box-shadow: 0 4px 20px rgba(113, 158, 42, 0.06);}
     #team-section h2 { color: var(--blue); font-size: 2.1rem; font-weight: 700; margin-bottom: 40px; letter-spacing: 0.01em;}
     .team-members {display: flex; gap: 32px; flex-wrap: wrap; justify-content: center;}
@@ -504,7 +571,16 @@
     #contact form .row {display: flex; gap: 16px; flex-wrap: wrap;}
     #contact form .col-half {flex: 1 1 48%; min-width: 140px;}
     #contact form .col-full {flex: 1 1 100%;}
-    #contact input, #contact textarea {font-family: 'Poppins', sans-serif; font-size: 1rem; color: var(--blue); width: 100%; padding: 10px 14px; border: 1px solid var(--green); border-radius: 5px; resize: vertical;}
+    #contact input, #contact textarea {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      color: var(--blue);
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--green);
+      border-radius: 5px;
+      resize: vertical;
+    }
     #contact textarea {min-height: 100px;}
     #contact .btn-submit {cursor: pointer; margin-top: 10px; width: 100%; border: none; background-color: var(--green); color: var(--blue); font-weight: 600; padding: 14px 0; border-radius: 8px; font-size: 1.1rem; transition: background-color 0.3s ease;}
     #contact .btn-submit:hover {background-color: var(--blue); color: var(--white);}
@@ -586,19 +662,84 @@
 
       <!-- Carousel Container -->
       <div class="carousel-container" id="bannerCarousel" aria-live="polite" aria-atomic="true">
-        <!-- Slides left unchanged -->
-        <!-- ... -->
+
+        <!-- Slide 1: Welcome heading slide -->
+        <article class="carousel-slide" aria-label="Slide 1 of 6 - Welcome Message">
+          <div class="carousel-content enhanced-text-background">
+            <h6>Welcome to</h6>
+            <h2>T SURENDRA & ASSOCIATES (TSA)</h2>
+            <h3>Your Trusted Partner for Comprehensive Financial and Advisory Services</h3>
+          </div>
+        </article>
+        <!-- Slide 2: only paragraphs -->
+        <article class="carousel-slide" aria-label="Slide 2 of 6">
+          <div class="carousel-content enhanced-text-background">
+            <h3>About</h3>
+            <p>
+              At TSA, we offer holistic, end-to-end solutions tailored to align with your business goals and financial
+              objectives.<br /><br />
+              Whether you are a startup, a growing enterprise, or an established organization, we provide strategic
+              support across every stage of your journey — from compliance and taxation to business advisory, virtual CFO
+              services, and operational planning.
+            </p>
+            <p>
+              <strong>TSA</strong> is your one-stop destination for comprehensive financial and business services,
+              delivered by a professional team including Chartered Accountants, Company Secretaries, Cost Accountants,
+              Advocates, and MBAs.<br /><br />
+              We collaborate to provide audit, consulting, financial advisory, and tax services.
+            </p>
+          </div>
+        </article>
+        <!-- Slide 3 -->
+        <article class="carousel-slide" aria-label="Slide 3 of 6 - Our Approach and Principles">
+          <div class="carousel-content enhanced-text-background">
+            <h2>Our <span>Approach</span> <span>And Principles</span></h2>
+            <p>At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.</p>
+            <ul>
+              <li>Listening to the client before advising</li>
+              <li>Providing timely and actionable solutions</li>
+              <li>Maintaining confidentiality and professional ethics</li>
+              <li>Continuously upgrading our skills and technologies</li>
+            </ul>
+          </div>
+        </article>
+        <!-- Slide 4 -->
+        <article class="carousel-slide" aria-label="Slide 4 of 6 - Vision">
+          <div class="carousel-content enhanced-text-background">
+            <h2>Our <span>Vision</span></h2>
+            <p>To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions,
+              and unwavering commitment.</p>
+          </div>
+        </article>
+        <!-- Slide 5 -->
+        <article class="carousel-slide" aria-label="Slide 5 of 6 - Mission">
+          <div class="carousel-content enhanced-text-background">
+            <h2>Our <span>Mission</span></h2>
+            <p>Empower clients through robust financial systems, compliance, and strategic insights that foster growth and
+              sustainability.</p>
+          </div>
+        </article>
+        <!-- Slide 6 -->
+        <article class="carousel-slide" aria-label="Slide 6 of 6 - Core Values">
+          <div class="carousel-content enhanced-text-background">
+            <h2>Our <span>Core Values</span></h2>
+            <ul>
+              <li>Integrity – Honesty, transparency, and strong moral principles</li>
+              <li>Excellence – Delivering high standards consistently</li>
+              <li>Commitment – Dedicated service and long-term relationships</li>
+              <li>Confidentiality – Respecting client privacy and data</li>
+              <li>Learning – Adapting to changing laws and technologies</li>
+            </ul>
+          </div>
+        </article>
       </div>
-      <!-- Navigation Buttons -->
       <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
       <button type="button" class="carousel-btn next" aria-label="Next Slide">&#9654;</button>
-
-      <!-- Carousel Indicators -->
       <div class="carousel-indicators" role="tablist" aria-label="Carousel Navigation"></div>
     </div>
   </section>
 
-  <!-- Services Section (UPDATED!) -->
+  <!-- Services Section -->
   <section id="services" aria-label="Our Services">
     <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
     <div class="services-container">
@@ -695,7 +836,6 @@
   </footer>
 
   <script>
-    // Loader hide logic after page load
     window.addEventListener('DOMContentLoaded', function () {
       setTimeout(function () {
         const loader = document.getElementById('loader-overlay');
@@ -714,7 +854,6 @@
       navMenu.classList.toggle('active');
     });
 
-    // Close mobile menu after clicking any link
     navMenu.querySelectorAll('a').forEach(anchor => {
       anchor.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -733,7 +872,7 @@
       });
     });
 
-    // Carousel Setup
+    // Banner/Carousel Script
     (() => {
       const container = document.querySelector('.carousel-container');
       const slides = [...container.querySelectorAll('.carousel-slide')];
@@ -787,7 +926,6 @@
         resetTimer();
         nextSlide();
       });
-
       btnPrev.addEventListener('click', () => {
         resetTimer();
         prevSlide();
@@ -796,17 +934,14 @@
       function startTimer() {
         autoSlideInterval = setInterval(nextSlide, 6200);
       }
-
       function resetTimer() {
         clearInterval(autoSlideInterval);
         startTimer();
       }
-
       goToSlide(0);
       startTimer();
     })();
 
-    // Contact form validation
     document.getElementById('contact-form')?.addEventListener('submit', e => {
       const form = e.target;
       if (!form.checkValidity()) {
