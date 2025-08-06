@@ -7,7 +7,6 @@
   <meta name="description" content="Labour Law Compliance including statutory registrations, compliance monitoring, and payroll management.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* === CORE STYLES (Copied from other pages for consistency) === */
     :root {
       --blue: #082567;
       --green: #9ACD32;
@@ -17,21 +16,17 @@
       --white: #FFFFFF;
     }
     * { box-sizing: border-box; }
-    body { 
-      margin: 0; 
-      font-family: 'Poppins', sans-serif; 
-      color: var(--blue); 
-      line-height: 1.6; 
-      background: var(--light-gray); 
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: var(--blue); line-height: 1.6; background: var(--light-gray);
     }
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; color: inherit; cursor: pointer; }
     ul, li { padding: 0; margin: 0; list-style: none; }
-    .container {
-      width: 90%; max-width: 1200px; margin: 0 auto;
-    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-    /* === HEADER & NAVIGATION (Same as other pages) === */
+    /* === HEADER & NAVIGATION === */
     header {
       background: var(--blue);
       position: fixed;
@@ -83,35 +78,14 @@
       nav ul li.dropdown.active > a::after { transform: rotate(90deg); }
     }
 
-    /* === SERVICE DETAIL PAGE STYLES (Same as other service pages) === */
-    #main {
-      padding: 100px 15px 60px 15px;
-    }
-    .service-header {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    .service-header h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin: 0 0 10px 0;
-      color: var(--blue);
-    }
-    .service-header h1 span {
-      color: var(--green);
-    }
-    .service-header .tagline {
-      font-size: 1.2rem;
-      font-weight: 500;
-      max-width: 700px;
-      margin: 0 auto;
-      color: #555;
-    }
+    /* === SERVICE DETAIL PAGE === */
+    #main { padding: 100px 15px 60px 15px; }
+    .service-header { text-align: center; margin-bottom: 50px; }
+    .service-header h1 { font-size: 2.8rem; font-weight: 700; margin: 0 0 10px 0; color: var(--blue);}
+    .service-header h1 span { color: var(--green); }
+    .service-header .tagline { font-size: 1.2rem; font-weight: 500; max-width: 700px; margin: 0 auto; color: #555;}
     .service-cards-container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
     }
     .service-card {
       background: var(--white);
@@ -131,43 +105,85 @@
       border-radius: 50%;
       width: 60px;
       height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
     }
-    .service-card .icon svg {
-      width: 32px;
-      height: 32px;
-      fill: var(--green);
-    }
-    .service-card h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin: 0 0 15px 0;
-      color: var(--blue);
-    }
-    .service-card ul {
-      list-style-type: '✓ ';
-      padding-left: 1.5em;
-    }
-    .service-card ul li {
-      margin-bottom: 10px;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
+    .service-card .icon svg { width: 32px; height: 32px; fill: var(--green); }
+    .service-card h3 { font-size: 1.4rem; font-weight: 600; margin: 0 0 15px 0; color: var(--blue);}
+    .service-card ul { list-style-type: '✓ '; padding-left: 1.5em; }
+    .service-card ul li { margin-bottom: 10px; font-size: 1rem; line-height: 1.5; }
     @media (max-width: 575px) {
       .service-header h1 { font-size: 2rem; }
       .service-header .tagline { font-size: 1rem; }
     }
-    
-    /* === FOOTER (Same as other pages) === */
-    footer {
+
+    /* === CUSTOM MODERN FOOTER === */
+    .custom-footer {
       background: var(--blue);
       color: var(--white);
+      padding: 48px 0 0 0;
+      font-size: 1rem;
+      box-shadow: 0 -2px 8px rgba(8, 37, 103, 0.09);
+      margin-top: 60px;
+    }
+    .footer-row {
+      display: flex; flex-wrap: wrap; max-width: 1150px;
+      margin: 0 auto; padding: 0 32px; gap: 40px;
+    }
+    .footer-col {
+      flex: 1 1 160px;
+      min-width: 170px;
+      margin-bottom: 30px;
+      display: flex; flex-direction: column; gap: 7px;
+    }
+    .footer-col.company {
+      flex: 2 1 260px;
+      max-width: 320px;
+    }
+    .footer-logo {
+      width: 140px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+    }
+    .footer-tagline {
+      font-size: 1.04rem;
+      color: var(--light-blue);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .footer-col h4 {
+      color: var(--green);
+      margin-bottom: 1em;
+      font-size: 1.18rem;
+      letter-spacing: 0.02em;
+    }
+    .footer-col ul, .footer-col ul li { list-style: none; margin: 0; padding: 0; }
+    .footer-col ul li { margin-bottom: 0.55em; font-size: 1em;}
+    .footer-col ul li a { color: var(--white); text-decoration: none; transition: color 0.17s; border-bottom: 1px dotted transparent; padding-bottom: 1px; }
+    .footer-col ul li a:hover { color: var(--green); border-bottom: 1px solid var(--green);}
+    .footer-col.contact ul li {font-size: 0.98em; margin-bottom: 0.4em;}
+    .footer-social { margin-top: 14px; display: flex; gap: 14px;}
+    .footer-social a {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--green); color: var(--blue);
+      border-radius: 50%; transition: background 0.22s, color 0.22s, box-shadow 0.18s, transform 0.17s; width: 36px; height: 36px; font-size: 1.16rem; box-shadow: 0 2px 8px rgba(33,205,50,0.10);
+    }
+    .footer-social a:hover { background: var(--light-blue); color: var(--blue); transform: scale(1.10) rotate(-7deg);}
+    .footer-bottom {
+      border-top: 1.5px solid var(--light-blue);
+      margin-top: 14px;
+      padding: 18px 16px 24px 16px;
       text-align: center;
-      padding: 20px 10px;
-      font-size: 0.9rem;
+      font-size: 0.96em;
+      color: var(--white);
+      background: var(--blue);
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .footer-link { color: var(--light-blue); text-decoration: underline; margin: 0 0.45em; font-weight: 400; transition: color 0.18s;}
+    .footer-link:hover { color: var(--green);}
+    @media (max-width: 900px) {
+      .footer-row { flex-direction: column; gap: 16px;}
+      .footer-col.company { max-width: 100%;}
+      .footer-col { min-width: 0; margin-bottom: 7px;}
     }
   </style>
 </head>
@@ -186,7 +202,6 @@
           <li class="dropdown">
             <a href="index.html#services" class="dropdown-toggle active-service" aria-haspopup="true" aria-expanded="false">Services</a>
             <ul class="dropdown-menu" role="menu" aria-label="Services Submenu">
-             <!-- <li><a href="#" id="startup-advisory-link">Start-up Advisory and Consulting Services</a></li> -->
               <li><a href="startup-advisory.html" data-service="startup-advisory">Start-up Advisory and Consulting Services</a></li>
               <li><a href="virtual-cfo.html">Virtual CFO Services</a></li>
               <li><a href="international-tax.html">International Tax Services</a></li>
@@ -207,16 +222,14 @@
     </div>
   </header>
 
-  <!-- Main Content for Labour Law Compliance Page -->
+  <!-- Main Content -->
   <main id="main">
     <div class="container">
       <div class="service-header">
         <h1>Labour Law <span>Compliance</span> Services</h1>
         <p class="tagline">Navigating labour regulations to protect your business and empower your workforce.</p>
       </div>
-
       <div class="service-cards-container">
-        <!-- Card 1: Statutory Registrations -->
         <div class="service-card">
           <div class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>
@@ -226,8 +239,6 @@
             <li>Assisting businesses in obtaining and renewing registrations under various labour laws, such as EPF, ESI, PT and Shops and Establishments Act.</li>
           </ul>
         </div>
-
-        <!-- Card 2: Compliance Monitoring -->
         <div class="service-card">
           <div class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
@@ -237,8 +248,6 @@
             <li>Conducting regular compliance checks and audits to ensure adherence to labour laws and avoid penalties.</li>
           </ul>
         </div>
-
-        <!-- Card 3: Payroll and Deductions -->
         <div class="service-card">
           <div class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
@@ -252,9 +261,57 @@
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 T SURENDRA & ASSOCIATES. Visit: <a href="https://www.tsurendraca.in/" target="_blank" rel="noopener">www.tsurendraca.in</a></p>
+  <!-- Footer (professional multi-column as above) -->
+  <footer class="custom-footer">
+    <div class="footer-row">
+      <div class="footer-col company">
+        <img src="https://github.com/raghava239/tsurendraca/blob/main/logo.jpg?raw=true" alt="T Surendra & Associates Logo" class="footer-logo" />
+        <p class="footer-tagline">Empowering businesses with expertise and integrity in audit, tax, and advisory.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#top">About</a></li>
+          <li><a href="index.html#team-section">Team</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="startup-advisory.html">Start-up Advisory</a></li>
+          <li><a href="virtual-cfo.html">Virtual CFO</a></li>
+          <li><a href="international-tax.html">International Tax</a></li>
+          <li><a href="direct-indirect-tax.html">Direct & Indirect Tax</a></li>
+          <li><a href="audit-assurance.html">Audit & Assurance</a></li>
+          <li><a href="labour-law-compliance.html">Labour Law Compliance</a></li>
+          <li><a href="secretarial-fema-rbi.html">Secretarial/FEMA/RBI</a></li>
+        </ul>
+      </div>
+      <div class="footer-col contact">
+        <h4>Contact</h4>
+        <ul>
+          <li>📞 <a href="tel:7995356942">79953 56942</a></li>
+          <li>📧 <a href="mailto:Surendra@tsurendraca.in">Surendra@tsurendraca.in</a></li>
+          <li>🌐 <a href="https://tsurendraca.in" target="_blank" rel="noopener">tsurendraca.in</a></li>
+          <li>📍 Hyderabad, Visakhapatnam</li>
+        </ul>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn" title="LinkedIn"><svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.029-3.065-1.868-3.065-1.868 0-2.154 1.459-2.154 2.969v5.7h-3v-10h2.882v1.367h.041c.402-.76 1.382-1.564 2.848-1.564 3.046 0 3.609 2.006 3.609 4.612v5.585z"/></svg></a>
+          <a href="#" aria-label="Twitter" title="Twitter"><svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.839 9.839 0 0 1-2.828.775 4.933 4.933 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.196a4.922 4.922 0 0 0-8.39 4.482c-4.087-.205-7.713-2.165-10.144-5.144-0.423.724-0.666 1.562-0.666 2.457 0 1.694.863 3.188 2.176 4.066a4.904 4.904 0 0 1-2.23-.616v.062c0 2.367 1.684 4.342 3.918 4.785a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.418a9.867 9.867 0 0 1-6.102 2.105c-.396 0-.787-.023-1.175-.069a13.945 13.945 0 0 0 7.548 2.212c9.057 0 14.01-7.514 14.01-14.01 0-.213 0-.426-.015-.637a10.004 10.004 0 0 0 2.457-2.548z"/></svg></a>
+          <a href="#" aria-label="Facebook" title="Facebook"><svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-0.769 0-1.325 0.556-1.325 1.325v21.351c0 0.768 0.556 1.324 1.325 1.324h11.495v-9.294h-3.124v-3.622h3.124v-2.672c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463 0.099 2.797 0.144v3.24l-1.921 0.001c-1.504 0-1.797 0.715-1.797 1.763v2.312h3.587l-0.467 3.622h-3.12v9.294h6.116c0.769 0 1.325-0.556 1.325-1.324v-21.352c0-0.769-0.556-1.325-1.325-1.325z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <a href="#" class="footer-link">Privacy Policy</a> |
+        <a href="#" class="footer-link">Terms of Service</a>
+      </div>
+      <span>© 2025 T SURENDRA & ASSOCIATES. All Rights Reserved.</span>
+    </div>
   </footer>
 
   <script>
@@ -264,7 +321,6 @@
     menuToggle?.addEventListener('click', () => {
       navMenu.classList.toggle('active');
     });
-
     // Mobile dropdown submenu toggle
     const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
     dropdownToggles.forEach(toggle => {
@@ -277,6 +333,5 @@
       });
     });
   </script>
-
 </body>
 </html>
