@@ -547,6 +547,31 @@
         padding: 15px 20px;
         font-size: 1rem;
       }
+
+      <!-- Newly added -->
+
+      <script>
+    // Hamburger menu toggle for mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    menuToggle?.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Mobile dropdown submenu toggle
+    const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', e => {
+        if (window.innerWidth <= 991) {
+          e.preventDefault();
+          const parentLi = e.target.closest('li.dropdown');
+          parentLi.classList.toggle('active');
+        }
+      });
+    });
+  </script>
+
+        <!-- Newly added -->
     }
 
     /* Rest of your sections: team-section, contact, footer unchanged... */
