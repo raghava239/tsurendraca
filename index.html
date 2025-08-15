@@ -985,45 +985,6 @@
         margin-bottom: 7px;
       }
     }
-    /* Ensure submenu positions to the right */
-
-/@media (min-width: 992px) {
-  .dropdown-submenu {
-    position: relative;
-  }
-
-  /* Right-side submenu hidden by default */
-  .dropdown-submenu > .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    margin-top: 0;
-    margin-left: 0;
-    min-width: 220px;
-  }
-
-  /* Show only on hover */
-  .dropdown-submenu:hover > .dropdown-menu {
-    display: block;
-  }
-
-  /* Add right arrow */
-  .dropdown-submenu > a::after {
-    content: "▶";
-    float: right;
-    margin-left: 6px;
-    font-size: 0.7rem;
-  }
-}
-
-
-
-
-
-
-
-
   </style>
 </head>
 
@@ -1039,7 +1000,6 @@
   </div>
 
   <!-- Header/Navbar -->
-  <!-- Header/Navbar -->
   <header>
     <div class="container">
       <nav>
@@ -1051,23 +1011,12 @@
           <li><a href="#top" class="active">Home</a></li>
           <li><a href="#top">About</a></li>
           <li class="dropdown">
-            <a href="#new-service" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services</a>
+            <a href="#services" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services</a>
             <ul class="dropdown-menu" role="menu" aria-label="Services Submenu">
               <li><a href="startup-advisory.html" data-service="startup-advisory">Start-up Advisory and Consulting Services</a></li>
               <li><a href="virtual-cfo.html" data-service="virtual-cfo">Virtual CFO Services</a></li>
-              
-            
-
-
- <!-- Submenu for Tax Services -->
-   <li class="dropdown-submenu">
-      <a class="dropdown-item" href="#">Tax Services</a>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="international-tax.html">International Tax</a></li>
-        <li><a class="dropdown-item" href="direct-indirect-tax.html">Direct & Indirect Tax</a></li>
-      </ul>
-    </li>
-
+              <li><a href="international-tax.html" data-service="direct-international-tax">International Tax Services</a></li>
+              <li><a href="direct-indirect-tax.html" data-service="indirect-tax">Direct and Indirect Tax Services</a></li>
               <li><a href="audit-assurance.html" data-service="audit-assurance">Audit and Assurance Services</a></li>
               <li><a href="labour-law-compliance.html" data-service="labour-law-compliance">Labour Law Compliance Services</a></li>
               <li><a href="secretarial-fema-rbi.html" data-service="secretarial-fema-rbi">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
@@ -1085,34 +1034,6 @@
       </nav>
     </div>
   </header>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  // Select all submenus
-  document.querySelectorAll(".dropdown-submenu").forEach(function (submenu) {
-    let subMenuEl = submenu.querySelector(".dropdown-menu");
-
-    // Set position to open right
-    subMenuEl.style.top = "0";
-    subMenuEl.style.left = "100%";
-    subMenuEl.style.display = "none";
-    subMenuEl.style.position = "absolute";
-    subMenuEl.style.minWidth = "220px";
-
-    // Show on mouse enter
-    submenu.addEventListener("mouseenter", function () {
-      subMenuEl.style.display = "block";
-    });
-
-    // Hide on mouse leave
-    submenu.addEventListener("mouseleave", function () {
-      subMenuEl.style.display = "none";
-    });
-  });
-});
-</script>
-
-
-
 
   <!-- Banner Carousel Section -->
   <section id="top" aria-label="Welcome Banner">
@@ -1196,114 +1117,51 @@ document.addEventListener("DOMContentLoaded", function () {
   </section>
 
   <!-- Services Section -->
-<section id="new-service" style="padding: 80px 20px 60px; background-color: #f9fafb; position: relative; z-index: 10;">
-  <div style="max-width: 1200px; margin: auto;">
-    <!-- Heading -->
-    <h2 style="text-align: center; font-size: 2rem; font-weight: 700; color: #1e3a8a; margin-bottom: 10px;">
-      Our Comprehensive Services &amp; Solutions
-    </h2>
-    <p style="text-align: center; color: #4b5563; margin-bottom: 40px;">
-      Helping your business thrive with expert financial, compliance, and advisory services.
-    </p>
-
-    <!-- Layout -->
-    <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
-      
-      <!-- Left Image -->
-      <div style="flex: 1 1 300px; text-align: center;">
-        <img src="https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=800&q=80" 
-             alt="Financial advisory and consulting"
-             style="width: 100%; max-width: 350px; border-radius: 10px;">
+  <section id="services" aria-label="Our Services">
+    <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
+    <div class="services-container">
+      <div class="image-block" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=800&q=80"
+          alt="Financial advisory and consulting" loading="lazy" />
       </div>
-
-      <!-- Right Cards -->
-      <div style="flex: 2 1 500px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
-        <div class="service-card"><a href="startup-advisory.html">Start-up Advisory and Consulting Services</a></div>
-        <div class="service-card"><a href="virtual-cfo.html">Virtual CFO Services</a></div>
-        <div class="service-card"><a href="international-tax.html">Direct and International Tax Services</a></div>
-        <div class="service-card"><a href="direct-indirect-tax.html">Indirect Tax Services</a></div>
-        <div class="service-card"><a href="audit-assurance.html">Audit and Assurance Services</a></div>
-        <div class="service-card"><a href="labour-law-compliance.html">Labour Law Compliance Services</a></div>
-        <div class="service-card"><a href="secretarial-fema-rbi.html">Secretarial, FEMA &amp; RBI Compliance Services</a></div>
+      <div class="text-block">
+        <div class="services-list">
+          <div class="service-card"><a href="startup-advisory.html">Start-up Advisory and Consulting Services</a></div>
+          <div class="service-card"><a href="virtual-cfo.html">Virtual CFO Services</a></div>
+          <div class="service-card"><a href="international-tax.html">Direct and International Tax Services</a></div>
+          <div class="service-card"><a href="direct-indirect-tax.html">Indirect Tax Services</a></div>
+          <div class="service-card"><a href="audit-assurance.html">Audit and Assurance Services</a></div>
+          <div class="service-card"><a href="labour-law-compliance.html">Labour Law Compliance Services</a></div>
+          <div class="service-card"><a href="secretarial-fema-rbi.html">Secretarial, FEMA &amp; RBI Compliance Services</a></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Card Styles -->
-<style>
-  #new-service .service-card {
-    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: bold;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  #new-service .service-card a {
-    text-decoration: none;
-    color: #1e3a8a;
-    display: block;
-  }
-  #new-service .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-  }
-  
-  /* Added this rule to center the last card */
-  #new-service .service-card:last-child {
-    grid-column-start: 2; /* Start at the second column (center column) */
-  }
-</style>
-
+  </section>
 
   <!-- Team Section -->
-<!-- Team Section -->
-<section id="team-section" aria-label="Meet Our Team" style="padding: 60px 20px; background-color: #f3f6fb; color: #1e293b; max-width: 1100px; margin: auto;">
-  <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 40px;">Meet Our Team</h2>
-  <div class="team-members" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
-
-    <a href="surendra-intro.html" class="team-card" style="background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 15px; width: 280px; text-align: center; padding: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; color: inherit;">
-      <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/refs/heads/main/Surendra-Tirumareddi.jpeg" alt="Surendra Tirumareddi - Chartered Accountant" style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; margin-bottom: 20px;">
-      <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: #1e3a8a;">Surendra Tirumareddi</h3>
-      <p style="font-size: 1rem; color: #475569; font-weight: 600;">ACA | B.Com.</p>
-    </a>
-
-    <a href="ravi-teja.html" class="team-card" style="background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 15px; width: 280px; text-align: center; padding: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; color: inherit;">
-      <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/refs/heads/main/Ravi-Teja-M.jpeg" alt="Ravi Teja M - Chartered Accountant" style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; margin-bottom: 20px;">
-      <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: #1e3a8a;">Ravi Teja M</h3>
-      <p style="font-size: 1rem; color: #475569; font-weight: 600;">ACA | B.Com.</p>
-    </a>
-
-    <a href="third-person.html" class="team-card" style="background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 15px; width: 280px; text-align: center; padding: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; color: inherit;">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU" alt="Third person - Chartered Accountant" style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; margin-bottom: 20px;">
-      <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: #1e3a8a;">Third person</h3>
-      <p style="font-size: 1rem; color: #475569; font-weight: 600;">ACA | B.Com.</p>
-    </a>
-
-  </div>
-</section>
-
-<style>
-  #team-section .team-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 900px) {
-    #team-section .team-card {
-      width: 45%;
-    }
-  }
-  
-  @media (max-width: 600px) {
-    #team-section .team-card {
-      width: 100%;
-    }
-  }
-</style>
-
+  <section id="team-section" aria-label="Meet Our Team">
+    <h2>Meet Our Team</h2>
+    <div class="team-members">
+      <div class="team-card">
+        <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/refs/heads/main/Surendra-Tirumareddi.jpeg"
+          alt="Surendra Tirumareddi - Chartered Accountant" />
+        <h3>Surendra Tirumareddi</h3>
+        <p>ACA | B.Com.</p>
+      </div>
+      <div class="team-card">
+        <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/refs/heads/main/Ravi-Teja-M.jpeg"
+          alt="Ravi Teja M - Chartered Accountant" />
+        <h3>Ravi Teja M</h3>
+        <p>ACA | B.Com.</p>
+      </div>
+      <div class="team-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU"
+          alt="Third person - Chartered Accountant" />
+        <h3>Third person</h3>
+        <p>ACA | B.Com.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Contact Section -->
   <section id="contact" aria-label="Contact Us">
