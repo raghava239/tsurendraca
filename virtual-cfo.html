@@ -287,6 +287,35 @@
         margin-bottom: 7px;
       }
     }
+
+
+      /* Right-side submenu hidden by default */
+  .dropdown-submenu > .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-top: 0;
+    margin-left: 0;
+    min-width: 220px;
+  }
+
+  /* Show only on hover */
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+  }
+
+  /* Add right arrow */
+  .dropdown-submenu > a::after {
+    content: "▶";
+    float: right;
+    margin-left: 6px;
+    font-size: 0.7rem;
+  }
+}
+
+
+    
   </style>
 </head>
 <body>
@@ -306,8 +335,14 @@
             <ul class="dropdown-menu" role="menu" aria-label="Services Submenu">
               <li><a href="startup-advisory.html" data-service="startup-advisory">Start-up Advisory and Consulting Services</a></li>
               <li><a href="virtual-cfo.html">Virtual CFO Services</a></li>
-              <li><a href="international-tax.html">International Tax Services</a></li>
-              <li><a href="direct-indirect-tax.html">Direct and Indirect Tax Services</a></li>
+              
+           <li class="dropdown-submenu">
+      <a class="dropdown-item" href="#">Tax Services</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="international-tax.html">International Tax</a></li>
+        <li><a class="dropdown-item" href="direct-indirect-tax.html">Direct & Indirect Tax</a></li>
+      </ul>
+    </li>
               <li><a href="audit-assurance.html">Audit and Assurance Services</a></li>
               <li><a href="labour-law-compliance.html">Labour Law Compliance Services</a></li>
               <li><a href="secretarial-fema-rbi.html">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
@@ -323,7 +358,31 @@
       </nav>
     </div>
   </header>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Select all submenus
+  document.querySelectorAll(".dropdown-submenu").forEach(function (submenu) {
+    let subMenuEl = submenu.querySelector(".dropdown-menu");
 
+    // Set position to open right
+    subMenuEl.style.top = "0";
+    subMenuEl.style.left = "100%";
+    subMenuEl.style.display = "none";
+    subMenuEl.style.position = "absolute";
+    subMenuEl.style.minWidth = "220px";
+
+    // Show on mouse enter
+    submenu.addEventListener("mouseenter", function () {
+      subMenuEl.style.display = "block";
+    });
+
+    // Hide on mouse leave
+    submenu.addEventListener("mouseleave", function () {
+      subMenuEl.style.display = "none";
+    });
+  });
+});
+</script>
   <!-- Main Content for Virtual CFO Page -->
   <main id="main">
     <div class="container">
@@ -476,3 +535,4 @@
   </script>
 </body>
 </html>
+
