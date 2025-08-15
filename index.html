@@ -1140,21 +1140,7 @@ nav ul li.dropdown ul.dropdown-menu li.has-submenu:focus-within > ul.dropdown-me
     </div>
   </header>
 
-<script>
-// Nested submenu (Tax Services) toggle for mobile + prevent jump on click
-document.querySelectorAll('nav ul li.dropdown ul.dropdown-menu li.has-submenu > a').forEach(a => {
-  a.addEventListener('click', (e) => {
-    e.preventDefault(); // don't navigate "#"
-    if (window.innerWidth <= 991) {
-      const li = a.parentElement;
-      li.classList.toggle('active');
-      // update aria-expanded for accessibility
-      const expanded = li.classList.contains('active');
-      a.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-    }
-  });
-});
-</script>
+
 
   <!-- Banner Carousel Section -->
   <section id="top" aria-label="Welcome Banner">
