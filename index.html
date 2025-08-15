@@ -1258,29 +1258,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <!-- Team Section -->
-  <section id="team-section" aria-label="Meet Our Team">
-    <h2>Meet Our Team</h2>
-    <div class="team-members">
-      <div class="team-card">
-        <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/refs/heads/main/Surendra-Tirumareddi.jpeg"
-          alt="Surendra Tirumareddi - Chartered Accountant" />
-        <h3>Surendra Tirumareddi</h3>
-        <p>ACA | B.Com.</p>
-      </div>
-      <div class="team-card">
-        <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/refs/heads/main/Ravi-Teja-M.jpeg"
-          alt="Ravi Teja M - Chartered Accountant" />
-        <h3>Ravi Teja M</h3>
-        <p>ACA | B.Com.</p>
-      </div>
-      <div class="team-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU"
-          alt="Third person - Chartered Accountant" />
-        <h3>Third person</h3>
-        <p>ACA | B.Com.</p>
-      </div>
-    </div>
-  </section>
+<!-- Team Section -->
+<section id="team-section" aria-label="Meet Our Team" style="padding: 60px 20px; background-color: #f3f6fb; color: #1e293b; max-width: 1100px; margin: auto;">
+  <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 40px;">Meet Our Team</h2>
+  <div class="team-members" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+
+    <a href="surendra-intro.html" class="team-card" style="background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 15px; width: 280px; text-align: center; padding: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; color: inherit;">
+      <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/refs/heads/main/Surendra-Tirumareddi.jpeg" alt="Surendra Tirumareddi - Chartered Accountant" style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; margin-bottom: 20px;">
+      <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: #1e3a8a;">Surendra Tirumareddi</h3>
+      <p style="font-size: 1rem; color: #475569; font-weight: 600;">ACA | B.Com.</p>
+    </a>
+
+    <a href="ravi-teja.html" class="team-card" style="background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 15px; width: 280px; text-align: center; padding: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; color: inherit;">
+      <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/refs/heads/main/Ravi-Teja-M.jpeg" alt="Ravi Teja M - Chartered Accountant" style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; margin-bottom: 20px;">
+      <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: #1e3a8a;">Ravi Teja M</h3>
+      <p style="font-size: 1rem; color: #475569; font-weight: 600;">ACA | B.Com.</p>
+    </a>
+
+    <a href="third-person.html" class="team-card" style="background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 15px; width: 280px; text-align: center; padding: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; color: inherit;">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU" alt="Third person - Chartered Accountant" style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; margin-bottom: 20px;">
+      <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: #1e3a8a;">Third person</h3>
+      <p style="font-size: 1rem; color: #475569; font-weight: 600;">ACA | B.Com.</p>
+    </a>
+
+  </div>
+</section>
+
+<style>
+  #team-section .team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    #team-section .team-card {
+      width: 45%;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    #team-section .team-card {
+      width: 100%;
+    }
+  }
+</style>
+
 
   <!-- Contact Section -->
   <section id="contact" aria-label="Contact Us">
