@@ -403,7 +403,7 @@
     /* SERVICES SECTION */
 
     #services {
-      height: calc(100vh - 65px);
+      height: auto;
       width: 100vw;
       max-width: 100vw;
       padding: 60px 15px;
@@ -498,7 +498,7 @@
     #services .service-card {
       background: linear-gradient(95deg, #e7f0fa 69%, #c1d6f7 100%);
       border-radius: 16px;
-      padding: 22px 32px;
+      padding: 16px 27px;
       font-size: 1.16rem;
       color: #134077;
       font-weight: 600;
@@ -1196,56 +1196,183 @@ document.addEventListener("DOMContentLoaded", function () {
   </section>
 
   <!-- Services Section -->
-  <section id="services" aria-label="Our Services">
-    <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
-    <div class="services-container">
-      <div class="image-block" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=800&q=80"
-          alt="Financial advisory and consulting" loading="lazy" />
-      </div>
-      <div class="text-block">
-        <div class="services-list">
-          <div class="service-card"><a href="startup-advisory.html">Start-up Advisory and Consulting Services</a></div>
-          <div class="service-card"><a href="virtual-cfo.html">Virtual CFO Services</a></div>
-          <div class="service-card"><a href="international-tax.html">Direct and International Tax Services</a></div>
-          <div class="service-card"><a href="direct-indirect-tax.html">Indirect Tax Services</a></div>
-          <div class="service-card"><a href="audit-assurance.html">Audit and Assurance Services</a></div>
-          <div class="service-card"><a href="labour-law-compliance.html">Labour Law Compliance Services</a></div>
-          <div class="service-card"><a href="secretarial-fema-rbi.html">Secretarial, FEMA &amp; RBI Compliance Services</a></div>
+<section id="services" aria-label="Our Services">
+  <h2>Our Comprehensive <em>Services</em> &amp; <span>Solutions</span></h2>
+  <div class="services-container">
+    <div class="image-block" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=800&q=80"
+        alt="Financial advisory and consulting" loading="lazy" />
+    </div>
+
+    <div class="text-block">
+      <div class="services-list">
+
+        <div class="service-card"><a href="startup-advisory.html">Start-up Advisory and Consulting Services</a></div>
+        <div class="service-card"><a href="virtual-cfo.html">Virtual CFO Services</a></div>
+
+        <!-- Tax Services Card -->
+        <div class="service-card tax-card">
+          <span>Tax Services</span>
         </div>
+
+        <div class="service-card"><a href="audit-assurance.html">Audit and Assurance Services</a></div>
+        <div class="service-card"><a href="labour-law-compliance.html">Labour Law Compliance Services</a></div>
+        <div class="service-card"><a href="secretarial-fema-rbi.html">Secretarial, FEMA &amp; RBI Compliance Services</a></div>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Popup Modal -->
+<div class="tax-popup" id="taxPopup">
+  <div class="popup-content">
+    <button class="close-btn" id="closePopup">&times;</button>
+    <h3>Tax Services</h3>
+    <a href="international-tax.html">International Tax</a>
+    <a href="direct-indirect-tax.html">Direct &amp; Indirect Tax</a>
+  </div>
+</div>
+
+
+<style>
+/* Base Service Card */
+.service-card {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #1e3a8a;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.service-card a, .service-card span {
+  text-decoration: none;
+  color: #1e3a8a;
+  display: block;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Popup Overlay */
+.tax-popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup Content Card */
+.popup-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 300px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.15);
+}
+.popup-content h3 {
+  margin-bottom: 15px;
+  color: #1e3a8a;
+}
+.popup-content a {
+  display: block;
+  padding: 10px;
+  margin-top: 8px;
+  background: #eff6ff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #1e3a8a;
+  border: 1px solid #bfdbfe;
+}
+.popup-content a:hover {
+  background: #dbeafe;
+}
+
+/* Close Button */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #666;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const taxCard = document.querySelector(".tax-card");
+  const taxPopup = document.getElementById("taxPopup");
+  const closePopup = document.getElementById("closePopup");
+
+  // Show popup when clicking Tax Services card
+  taxCard.addEventListener("click", function () {
+    taxPopup.style.display = "flex";
+  });
+
+  // Close popup on close button
+  closePopup.addEventListener("click", function () {
+    taxPopup.style.display = "none";
+  });
+
+  // Close popup when clicking outside content
+  taxPopup.addEventListener("click", function (e) {
+    if (e.target === taxPopup) {
+      taxPopup.style.display = "none";
+    }
+  });
+});
+
+
+
+</script>
 
 
 
 
   <!-- Team Section -->
-<!-- Team Section -->
-<section id="team-section" aria-label="Meet Our Team" style="padding: 60px 20px; background-color: #f3f6fb; color: #1e293b; max-width: 1100px; margin: auto;">
-  <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 40px;">Meet Our Team</h2>
-  <div class="team-members" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+<section id="team-section" aria-label="Meet Our Team">
+  <h2>Meet Our Team</h2>
+  <div class="team-members">
 
-    <a href="surendra-intro.html" class="team-card" style="background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 15px; width: 280px; text-align: center; padding: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; color: inherit;">
-      <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/refs/heads/main/Surendra-Tirumareddi.jpeg" alt="Surendra Tirumareddi - Chartered Accountant" style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; margin-bottom: 20px;">
-      <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: #1e3a8a;">Surendra Tirumareddi</h3>
-      <p style="font-size: 1rem; color: #475569; font-weight: 600;">ACA | B.Com.</p>
+    <a href="surendra-intro.html" class="team-card">
+      <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/refs/heads/main/Surendra-Tirumareddi.jpeg"
+        alt="Surendra Tirumareddi - Chartered Accountant" />
+      <h3>Surendra Tirumareddi</h3>
+      <p>ACA | B.Com.</p>
     </a>
 
-    <a href="ravi-teja.html" class="team-card" style="background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 15px; width: 280px; text-align: center; padding: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; color: inherit;">
-      <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/refs/heads/main/Ravi-Teja-M.jpeg" alt="Ravi Teja M - Chartered Accountant" style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; margin-bottom: 20px;">
-      <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: #1e3a8a;">Ravi Teja M</h3>
-      <p style="font-size: 1rem; color: #475569; font-weight: 600;">ACA | B.Com.</p>
+    <a href="ravi-teja.html" class="team-card">
+      <img src="https://raw.githubusercontent.com/raghava239/tsurendraca/refs/heads/main/Ravi-Teja-M.jpeg"
+        alt="Ravi Teja M - Chartered Accountant" />
+      <h3>Ravi Teja M</h3>
+      <p>ACA | B.Com.</p>
     </a>
 
-    <a href="third-person.html" class="team-card" style="background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 15px; width: 280px; text-align: center; padding: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; color: inherit;">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU" alt="Third person - Chartered Accountant" style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; margin-bottom: 20px;">
-      <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: #1e3a8a;">Third person</h3>
-      <p style="font-size: 1rem; color: #475569; font-weight: 600;">ACA | B.Com.</p>
+    <a href="third-person.html" class="team-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOaabmxWNqHDju1QeLn_WU0lp3xJH7rPdNnJNTSQxgFflgkrLz6CleSm2E2T8uuCdnBA&usqp=CAU"
+        alt="Third person - Chartered Accountant" />
+      <h3>Third person</h3>
+      <p>ACA | B.Com.</p>
     </a>
 
   </div>
 </section>
+
 
 <style>
   #team-section .team-card:hover {
