@@ -1012,30 +1012,62 @@
 
 
 
-/* Submenu positioning */
-.dropdown-submenu {
-  position: relative;
+/* --- multi-level dropdown (desktop) --- */
+nav ul li.dropdown ul.dropdown-menu { overflow: visible; } /* allow flyout to extend */
+
+nav ul li.dropdown ul.dropdown-menu li.has-submenu { position: relative; }
+
+nav ul li.dropdown ul.dropdown-menu li.has-submenu > a::after {
+  content: "▸";
+  margin-left: auto;
+  font-size: 0.8em;
 }
 
-.dropdown-submenu > .dropdown-menu {
+nav ul li.dropdown ul.dropdown-menu li.has-submenu > ul.dropdown-menu {
+  position: absolute;
   top: 0;
   left: 100%;
-  margin-top: -1px;
+  min-width: 260px;
+  background: var(--blue);
+  border-radius: 0 8px 8px 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  padding: 10px 0;
   display: none;
-  position: absolute;
+  z-index: 4000;
 }
 
-/* Show submenu on hover */
-.dropdown-submenu:hover > .dropdown-menu {
+/* show the flyout on hover/focus (desktop) */
+nav ul li.dropdown ul.dropdown-menu li.has-submenu:hover > ul.dropdown-menu,
+nav ul li.dropdown ul.dropdown-menu li.has-submenu:focus-within > ul.dropdown-menu {
   display: block;
 }
 
-/* Add right arrow indicator */
-.dropdown-submenu > a::after {
-  content: "▸";
-  float: right;
-  margin-left: 5px;
+/* --- mobile behaviour --- */
+@media (max-width: 991px) {
+  /* make nested submenu stack under its parent item */
+  nav ul li.dropdown ul.dropdown-menu li.has-submenu > ul.dropdown-menu {
+    position: static;
+    left: auto;
+    top: auto;
+    box-shadow: none;
+    border-radius: 0;
+    padding-left: 12px;   /* small indent for hierarchy */
+    display: none !important;
+  }
+
+  nav ul li.dropdown ul.dropdown-menu li.has-submenu.active > ul.dropdown-menu {
+    display: block !important;
+  }
+
+  /* rotate the arrow when opened */
+  nav ul li.dropdown ul.dropdown-menu li.has-submenu > a::after {
+    transition: transform .25s ease;
+  }
+  nav ul li.dropdown ul.dropdown-menu li.has-submenu.active > a::after {
+    transform: rotate(90deg);
+  }
 }
+
 
 
   </style>
@@ -1073,19 +1105,28 @@
 
 
  <!-- Submenu for Tax Services -->
- <li class="dropdown-submenu">
-    <a class="dropdown-item" href="international-tax.html">Tax Services new</a>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="international-tax.html">International Tax Services</a></li>
-      <li><a class="dropdown-item" href="direct-indirect-tax.html">Direct and Indirect Tax Services</a></li>
-    </ul>
-  </li>
+<li class="dropdown">
+  <a href="#services" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services</a>
 
-              <li><a href="audit-assurance.html" data-service="audit-assurance">Audit and Assurance Services</a></li>
-              <li><a href="labour-law-compliance.html" data-service="labour-law-compliance">Labour Law Compliance Services</a></li>
-              <li><a href="secretarial-fema-rbi.html" data-service="secretarial-fema-rbi">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
-            </ul>
-          </li>
+  <ul class="dropdown-menu" role="menu" aria-label="Services Submenu">
+    <li><a href="startup-advisory.html" data-service="startup-advisory">Start-up Advisory and Consulting Services</a></li>
+    <li><a href="virtual-cfo.html" data-service="virtual-cfo">Virtual CFO Services</a></li>
+
+    <!-- Submenu (flyout to the right) -->
+    <li class="has-submenu">
+      <a href="#" aria-haspopup="true" aria-expanded="false">Tax Services</a>
+      <ul class="dropdown-menu" role="menu" aria-label="Tax Services Submenu">
+        <li><a href="international-tax.html" data-service="direct-international-tax">International Tax Services</a></li>
+        <li><a href="direct-indirect-tax.html" data-service="indirect-tax">Direct and Indirect Tax Services</a></li>
+      </ul>
+    </li>
+
+    <li><a href="audit-assurance.html" data-service="audit-assurance">Audit and Assurance Services</a></li>
+    <li><a href="labour-law-compliance.html" data-service="labour-law-compliance">Labour Law Compliance Services</a></li>
+    <li><a href="secretarial-fema-rbi.html" data-service="secretarial-fema-rbi">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
+  </ul>
+</li>
+
           <li><a href="#team-section">Team</a></li>
           <li><a href="#contact">Contact Us</a></li>
           <li><a href="#contact" class="btn-primary">Message Us</a></li>
@@ -1098,6 +1139,22 @@
       </nav>
     </div>
   </header>
+
+<script>
+// Nested submenu (Tax Services) toggle for mobile + prevent jump on click
+document.querySelectorAll('nav ul li.dropdown ul.dropdown-menu li.has-submenu > a').forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault(); // don't navigate "#"
+    if (window.innerWidth <= 991) {
+      const li = a.parentElement;
+      li.classList.toggle('active');
+      // update aria-expanded for accessibility
+      const expanded = li.classList.contains('active');
+      a.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    }
+  });
+});
+</script>
 
   <!-- Banner Carousel Section -->
   <section id="top" aria-label="Welcome Banner">
