@@ -1196,7 +1196,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </section>
 
   <!-- Services Section -->
- <section id="new-service" style="padding: 80px 20px 60px; background-color: #f9fafb; position: relative; z-index: 10;">
+<section id="new-service" style="padding: 80px 20px 60px; background-color: #f9fafb; position: relative; z-index: 10;">
   <div style="max-width: 1200px; margin: auto;">
     <!-- Heading -->
     <h2 style="text-align: center; font-size: 2rem; font-weight: 700; color: #1e3a8a; margin-bottom: 10px;">
@@ -1249,7 +1249,13 @@ document.addEventListener("DOMContentLoaded", function () {
     transform: translateY(-4px);
     box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
   }
+  
+  /* Added this rule to center the last card */
+  #new-service .service-card:last-child {
+    grid-column-start: 2; /* Start at the second column (center column) */
+  }
 </style>
+
 
   <!-- Team Section -->
   <section id="team-section" aria-label="Meet Our Team">
