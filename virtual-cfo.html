@@ -313,6 +313,174 @@
     font-size: 0.7rem;
   }
 }
+       /* Ensure submenu positions to the right */
+
+/@media (min-width: 992px) {
+  .dropdown-submenu {
+    position: relative;
+  }
+
+  /* Right-side submenu hidden by default */
+  .dropdown-submenu > .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-top: 0;
+    margin-left: 0;
+    min-width: 220px;
+  }
+
+  /* Show only on hover */
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+  }
+
+  /* Add right arrow */
+  .dropdown-submenu > a::after {
+    content: "▶";
+    float: right;
+    margin-left: 6px;
+    font-size: 0.7rem;
+  }
+}
+
+   /* Header */
+
+    header {
+      background: var(--blue);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 65px;
+      z-index: 2000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    nav .logo img {
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      margin-left: auto;
+      padding: 0;
+      align-items: center;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      font-weight: 600;
+      color: var(--white);
+      padding: 8px 12px;
+      border-radius: 4px;
+      display: inline-block;
+      transition: color 0.3s, background-color 0.3s;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: var(--green);
+      background: var(--white);
+    }
+
+    nav ul li.dropdown>a {
+      cursor: pointer;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    nav ul li.dropdown>a::after {
+      content: "▾";
+      font-size: 0.6em;
+      color: var(--green);
+      margin-left: 4px;
+    }
+
+    nav ul li.dropdown ul.dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--blue);
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      display: none;
+      min-width: 260px;
+      z-index: 3000;
+      padding: 10px 0;
+    }
+
+    nav ul li.dropdown:hover ul.dropdown-menu,
+    nav ul li.dropdown:focus-within ul.dropdown-menu {
+      display: block;
+    }
+
+    nav ul li.dropdown ul.dropdown-menu li a {
+      display: block;
+      padding: 8px 20px;
+      color: var(--white);
+      font-weight: 500;
+      transition: background-color 0.3s;
+      white-space: nowrap;
+    }
+
+    nav ul li.dropdown ul.dropdown-menu li a:hover,
+    nav ul li.dropdown ul.dropdown-menu li a:focus {
+      background-color: var(--green);
+      color: var(--blue);
+      outline: none;
+    }
+
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      width: 36px;
+      height: 36px;
+      margin-left: 10px;
+    }
+
+    .menu-toggle span {
+      height: 4px;
+      width: 100%;
+      background: white;
+      border-radius: 3px;
+      transition: all 0.3s;
+      display: block;
+    }
+
 
 
     
@@ -320,40 +488,48 @@
 </head>
 <body>
 
-  <!-- Header/Navbar -->
+ <!-- Header/Navbar -->
   <header>
     <div class="container">
       <nav>
-        <a href="index.html" class="logo" aria-label="T Surendra & Associates Logo">
-          <img src="https://github.com/raghava239/tsurendraca/blob/main/logo.jpg?raw=true" alt="T Surendra & Associates Logo" />
+        <a href="#top" class="logo" aria-label="T Surendra & Associates Logo">
+          <img src="https://github.com/raghava239/tsurendraca/blob/main/logo.jpg?raw=true"
+            alt="T Surendra & Associates Logo" />
         </a>
         <ul id="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#top">About</a></li>
+          <li><a href="#top" class="active">Home</a></li>
+          <li><a href="#top">About</a></li>
           <li class="dropdown">
-            <a href="index.html#services" class="dropdown-toggle active-service" aria-haspopup="true" aria-expanded="false">Services</a>
+            <a href="#new-service" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services</a>
             <ul class="dropdown-menu" role="menu" aria-label="Services Submenu">
               <li><a href="startup-advisory.html" data-service="startup-advisory">Start-up Advisory and Consulting Services</a></li>
-              <li><a href="virtual-cfo.html">Virtual CFO Services</a></li>
+              <li><a href="virtual-cfo.html" data-service="virtual-cfo">Virtual CFO Services</a></li>
               
-           <li class="dropdown-submenu">
+            
+
+
+ <!-- Submenu for Tax Services -->
+   <li class="dropdown-submenu">
       <a class="dropdown-item" href="#">Tax Services</a>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="international-tax.html">International Tax</a></li>
         <li><a class="dropdown-item" href="direct-indirect-tax.html">Direct & Indirect Tax</a></li>
       </ul>
     </li>
-              <li><a href="audit-assurance.html">Audit and Assurance Services</a></li>
-              <li><a href="labour-law-compliance.html">Labour Law Compliance Services</a></li>
-              <li><a href="secretarial-fema-rbi.html">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
+
+              <li><a href="audit-assurance.html" data-service="audit-assurance">Audit and Assurance Services</a></li>
+              <li><a href="labour-law-compliance.html" data-service="labour-law-compliance">Labour Law Compliance Services</a></li>
+              <li><a href="secretarial-fema-rbi.html" data-service="secretarial-fema-rbi">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
             </ul>
           </li>
-          <li><a href="index.html#team-section">Team</a></li>
-          <li><a href="index.html#contact">Contact Us</a></li>
-          <li><a href="index.html#contact" class="btn-primary">Message Us</a></li>
+          <li><a href="#team-section">Team</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#contact" class="btn-primary">Message Us</a></li>
         </ul>
         <div class="menu-toggle" aria-label="Toggle menu" tabindex="0" role="button">
-          <span></span><span></span><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </nav>
     </div>
@@ -535,4 +711,5 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 </body>
 </html>
+
 
