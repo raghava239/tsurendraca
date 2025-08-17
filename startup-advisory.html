@@ -120,8 +120,10 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       display: none;
       min-width: 260px;
-      z-index: 3000;
       padding: 10px 0;
+      z-index: 3000;
+      /* Added right padding to avoid overlap with submenu */
+      padding-right: 280px;
     }
     nav ul li.dropdown:hover ul.dropdown-menu,
     nav ul li.dropdown:focus-within ul.dropdown-menu {
@@ -146,7 +148,8 @@
     nav ul .dropdown-submenu {
       position: absolute;
       top: 0;
-      left: 260px; /* Show to right of main dropdown */
+      left: 100%; /* Position submenu exactly to the right of dropdown-menu */
+      margin-left: 10px; /* small gap between menus */
       background: var(--blue);
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.14);
@@ -154,6 +157,7 @@
       min-width: 220px;
       z-index: 3100;
       padding: 10px 0;
+      border-left: 2px solid var(--green);
     }
     nav ul li.dropdown.tax-dropdown:hover > .dropdown-submenu,
     nav ul li.dropdown.tax-dropdown:focus-within > .dropdown-submenu {
@@ -217,6 +221,7 @@
         border-radius: 0;
         padding: 0;
         display: none !important;
+        padding-right: 0; /* remove padding-right for mobile */
       }
       nav ul li.dropdown.active ul.dropdown-menu {
         display: block !important;
@@ -238,6 +243,7 @@
         border-radius: 0;
         display: none !important;
         padding: 0;
+        border-left: none;
       }
       nav ul li.dropdown.tax-dropdown.active > .dropdown-submenu {
         display: block !important;
@@ -640,3 +646,13 @@
     const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
     dropdownToggles.forEach(toggle => {
       toggle.addEventListener('click', e => {
+        if (window.innerWidth <= 991) {
+          e.preventDefault();
+          const parentLi = e.target.closest('li.dropdown');
+          parentLi.classList.toggle('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
