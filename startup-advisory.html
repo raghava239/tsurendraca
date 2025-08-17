@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,11 +16,9 @@
       --light-blue: #e7f0fa;
       --white: #FFFFFF;
     }
-
     * {
       box-sizing: border-box;
     }
-
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -30,34 +27,28 @@
       background: var(--light-gray);
       scroll-behavior: smooth;
     }
-
     img {
       max-width: 100%;
       height: auto;
       display: block;
     }
-
     a {
       text-decoration: none;
       color: inherit;
       cursor: pointer;
     }
-
     ul,
     li {
       padding: 0;
       margin: 0;
       list-style: none;
     }
-
     .container {
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
     }
-
     /* Header & Navigation */
-
     header {
       background: var(--blue);
       position: fixed;
@@ -70,24 +61,20 @@
       display: flex;
       align-items: center;
     }
-
     header .container {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-
     nav {
       display: flex;
       align-items: center;
       width: 100%;
     }
-
     nav .logo img {
       height: 42px;
       border-radius: 10px;
     }
-
     nav ul {
       display: flex;
       gap: 1.5rem;
@@ -95,7 +82,6 @@
       padding: 0;
       align-items: center;
     }
-
     nav ul li a {
       font-weight: 600;
       color: var(--white);
@@ -104,17 +90,14 @@
       transition: color 0.3s, background-color 0.3s;
       display: inline-block;
     }
-
     nav ul li a:hover,
     nav ul li a.active-service {
       color: var(--green);
       background: var(--white);
     }
-
     nav ul li.dropdown {
       position: relative;
     }
-
     nav ul li.dropdown>a {
       cursor: pointer;
       user-select: none;
@@ -122,14 +105,12 @@
       align-items: center;
       gap: 4px;
     }
-
     nav ul li.dropdown>a::after {
       content: "▾";
       font-size: 0.6em;
       color: var(--green);
       margin-left: 4px;
     }
-
     nav ul li.dropdown ul.dropdown-menu {
       position: absolute;
       top: 100%;
@@ -142,12 +123,10 @@
       z-index: 3000;
       padding: 10px 0;
     }
-
     nav ul li.dropdown:hover ul.dropdown-menu,
     nav ul li.dropdown:focus-within ul.dropdown-menu {
       display: block;
     }
-
     nav ul li.dropdown ul.dropdown-menu li a {
       display: block;
       padding: 8px 20px;
@@ -156,16 +135,48 @@
       transition: background-color 0.3s;
       white-space: nowrap;
     }
-
     nav ul li.dropdown ul.dropdown-menu li a:hover {
       background-color: var(--green);
       color: var(--blue);
     }
-
+    /* TAX dropdown submenu styles */
+    nav ul li.dropdown.tax-dropdown {
+      position: relative;
+    }
+    nav ul .dropdown-submenu {
+      position: absolute;
+      top: 0;
+      left: -260px;
+      background: var(--blue);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.14);
+      display: none;
+      min-width: 220px;
+      z-index: 3100;
+      padding: 10px 0;
+    }
+    nav ul li.dropdown.tax-dropdown:hover > .dropdown-submenu,
+    nav ul li.dropdown.tax-dropdown:focus-within > .dropdown-submenu {
+      display: block;
+    }
+    nav ul li.dropdown.tax-dropdown > a {
+      display: inline-flex;
+      align-items: center;
+    }
+    nav ul .dropdown-submenu li a {
+      padding: 8px 20px;
+      color: var(--white);
+      font-weight: 500;
+      transition: background-color 0.3s;
+      white-space: nowrap;
+    }
+    nav ul .dropdown-submenu li a:hover {
+      background-color: var(--green);
+      color: var(--blue);
+    }
     .menu-toggle {
       display: none;
     }
-
     @media (max-width: 991px) {
       .menu-toggle {
         display: flex;
@@ -177,7 +188,6 @@
         height: 36px;
         margin-left: 10px;
       }
-
       .menu-toggle span {
         display: block;
         height: 4px;
@@ -186,7 +196,6 @@
         background: white;
         transition: all 0.3s;
       }
-
       nav ul {
         display: none;
         position: fixed;
@@ -199,11 +208,9 @@
         border-radius: 0 0 0 8px;
         z-index: 2100;
       }
-
       nav ul.active {
         display: flex;
       }
-
       nav ul li.dropdown ul.dropdown-menu {
         position: static;
         box-shadow: none;
@@ -211,44 +218,48 @@
         padding: 0;
         display: none !important;
       }
-
       nav ul li.dropdown.active ul.dropdown-menu {
         display: block !important;
       }
-
       nav ul li.dropdown > a::after {
         content: "▸";
         transform: rotate(0deg);
         transition: transform 0.3s;
       }
-
       nav ul li.dropdown.active > a::after {
         transform: rotate(90deg);
       }
+      nav ul .dropdown-submenu {
+        position: static;
+        left: auto;
+        background: var(--blue);
+        min-width: 160px;
+        box-shadow: none;
+        border-radius: 0;
+        display: none !important;
+        padding: 0;
+      }
+      nav ul li.dropdown.tax-dropdown.active > .dropdown-submenu {
+        display: block !important;
+      }
     }
-
     /* Main content and other page styles */
-
     #main {
       padding: 100px 15px 60px 15px;
     }
-
     .service-header {
       text-align: center;
       margin-bottom: 50px;
     }
-
     .service-header h1 {
       font-size: 2.8rem;
       font-weight: 700;
       margin: 0 0 10px 0;
       color: var(--blue);
     }
-
     .service-header h1 span {
       color: var(--green);
     }
-
     .service-header .tagline {
       font-size: 1.2rem;
       font-weight: 500;
@@ -256,14 +267,12 @@
       margin: 0 auto;
       color: #555;
     }
-
     .service-cards-container {
       display: flex;
       justify-content: center;
       gap: 30px;
       flex-wrap: wrap;
     }
-
     .service-card {
       background: var(--white);
       border-radius: 16px;
@@ -273,12 +282,10 @@
       max-width: 380px;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .service-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 8px 35px rgba(8, 37, 103, 0.12);
     }
-
     .service-card .icon {
       background-color: var(--pale-green);
       border-radius: 50%;
@@ -289,45 +296,35 @@
       justify-content: center;
       margin-bottom: 20px;
     }
-
     .service-card .icon svg {
       width: 32px;
       height: 32px;
       fill: var(--green);
     }
-
     .service-card h3 {
       font-size: 1.4rem;
       font-weight: 600;
       margin: 0 0 15px 0;
       color: var(--blue);
     }
-
     .service-card ul {
       list-style-type: '✓ ';
       padding-left: 1.5em;
     }
-
     .service-card ul li {
       margin-bottom: 10px;
       font-size: 1rem;
       line-height: 1.5;
     }
-
     @media (max-width: 575px) {
       .service-header h1 {
         font-size: 2rem;
       }
-
       .service-header .tagline {
         font-size: 1rem;
       }
     }
-
     /* Footer styles */
-
-    /* --- Custom Modern Footer for T SURENDRA & ASSOCIATES --- */
-
     .custom-footer {
       background: var(--blue);
       color: var(--white);
@@ -336,7 +333,6 @@
       box-shadow: 0 -2px 8px rgba(8, 37, 103, 0.09);
       margin-top: 60px;
     }
-
     .footer-row {
       display: flex;
       flex-wrap: wrap;
@@ -345,7 +341,6 @@
       padding: 0 32px;
       gap: 40px;
     }
-
     .footer-col {
       flex: 1 1 160px;
       min-width: 170px;
@@ -354,44 +349,37 @@
       flex-direction: column;
       gap: 7px;
     }
-
     .footer-col.company {
       flex: 2 1 260px;
       max-width: 320px;
     }
-
     .footer-logo {
       width: 140px;
       border-radius: 12px;
       margin-bottom: 14px;
     }
-
     .footer-tagline {
       font-size: 1.04rem;
       color: var(--light-blue);
       font-weight: 500;
       margin-bottom: 10px;
     }
-
     .footer-col h4 {
       color: var(--green);
       margin-bottom: 1em;
       font-size: 1.18rem;
       letter-spacing: 0.02em;
     }
-
     .footer-col ul,
     .footer-col ul li {
       list-style: none;
       margin: 0;
       padding: 0;
     }
-
     .footer-col ul li {
       margin-bottom: 0.55em;
       font-size: 1em;
     }
-
     .footer-col ul li a {
       color: var(--white);
       text-decoration: none;
@@ -399,23 +387,19 @@
       border-bottom: 1px dotted transparent;
       padding-bottom: 1px;
     }
-
     .footer-col ul li a:hover {
       color: var(--green);
       border-bottom: 1px solid var(--green);
     }
-
     .footer-col.contact ul li {
       font-size: 0.98em;
       margin-bottom: 0.4em;
     }
-
     .footer-social {
       margin-top: 14px;
       display: flex;
       gap: 14px;
     }
-
     .footer-social a {
       display: inline-flex;
       align-items: center;
@@ -429,13 +413,11 @@
       font-size: 1.16rem;
       box-shadow: 0 2px 8px rgba(33, 205, 50, 0.10);
     }
-
     .footer-social a:hover {
       background: var(--light-blue);
       color: var(--blue);
       transform: scale(1.10) rotate(-7deg);
     }
-
     .footer-bottom {
       border-top: 1.5px solid var(--light-blue);
       margin-top: 14px;
@@ -448,7 +430,6 @@
       flex-direction: column;
       gap: 6px;
     }
-
     .footer-link {
       color: var(--light-blue);
       text-decoration: underline;
@@ -456,21 +437,17 @@
       font-weight: 400;
       transition: color 0.18s;
     }
-
     .footer-link:hover {
       color: var(--green);
     }
-
     @media (max-width: 900px) {
       .footer-row {
         flex-direction: column;
         gap: 16px;
       }
-
       .footer-col.company {
         max-width: 100%;
       }
-
       .footer-col {
         min-width: 0;
         margin-bottom: 7px;
@@ -478,9 +455,7 @@
     }
   </style>
 </head>
-
 <body>
-
   <!-- Header/Navbar -->
   <header>
     <div class="container">
@@ -496,8 +471,15 @@
             <ul class="dropdown-menu" role="menu" aria-label="Services Submenu">
               <li><a href="startup-advisory.html" data-service="startup-advisory">Start-up Advisory and Consulting Services</a></li>
               <li><a href="virtual-cfo.html" data-service="virtual-cfo">Virtual CFO Services</a></li>
-              <li><a href="international-tax.html" data-service="direct-international-tax">International Tax Services</a></li>
-              <li><a href="direct-indirect-tax.html" data-service="indirect-tax">Direct and Indirect Tax Services</a></li>
+              <!-- TAX Services with subservices -->
+              <li class="dropdown tax-dropdown">
+                <a href="#" class="tax-toggle" aria-haspopup="true" aria-expanded="false">TAX Services</a>
+                <ul class="dropdown-submenu" role="menu" aria-label="Tax Services Submenu">
+                  <li><a href="international-tax.html" data-service="direct-international-tax">Direct International Tax Services</a></li>
+                  <li><a href="direct-indirect-tax.html" data-service="indirect-tax">Direct and Indirect Tax Services</a></li>
+                </ul>
+              </li>
+              <!-- End TAX Services -->
               <li><a href="audit-assurance.html" data-service="audit-assurance">Audit and Assurance Services</a></li>
               <li><a href="labour-law-compliance.html" data-service="labour-law-compliance">Labour Law Compliance Services</a></li>
               <li><a href="secretarial-fema-rbi.html" data-service="secretarial-fema-rbi">Secretarial, FEMA &amp; RBI Compliance Services</a></li>
@@ -515,7 +497,6 @@
       </nav>
     </div>
   </header>
-
   <!-- Main Content for Startup Advisory Page -->
   <main id="main">
     <div class="container">
@@ -523,7 +504,6 @@
         <h1>Startup <span>Advisory</span> Services</h1>
         <p class="tagline">Partnering with visionaries to launch, grow, and lead thriving businesses.</p>
       </div>
-
       <div class="service-cards-container">
         <!-- Card 1: Strategic Business Planning -->
         <div class="service-card">
@@ -539,7 +519,6 @@
             <li>Strategic frameworks aligned with your vision &amp; goals.</li>
           </ul>
         </div>
-
         <!-- Card 2: Financial Advisory & Capital Raising -->
         <div class="service-card">
           <div class="icon" aria-hidden="true">
@@ -554,7 +533,6 @@
             <li>Enabling meaningful investor engagement.</li>
           </ul>
         </div>
-
         <!-- Card 3: Compliances & Business Structuring -->
         <div class="service-card">
           <div class="icon" aria-hidden="true">
@@ -572,7 +550,6 @@
       </div>
     </div>
   </main>
-
   <!-- Footer -->
   <footer class="custom-footer">
     <div class="footer-row">
@@ -646,23 +623,19 @@
       <span>© 2025 T SURENDRA & ASSOCIATES. All Rights Reserved.</span>
     </div>
   </footer>
-
   <script>
     // Hamburger menu toggle for mobile
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.getElementById('nav-menu');
-
     menuToggle?.addEventListener('click', () => {
       navMenu.classList.toggle('active');
     });
-
     // Close mobile menu after clicking on a nav link
     navMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
       });
     });
-
     // Mobile dropdown submenu toggle
     const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
     dropdownToggles.forEach(toggle => {
@@ -675,7 +648,5 @@
       });
     });
   </script>
-
 </body>
-
 </html>
