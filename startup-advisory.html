@@ -145,20 +145,35 @@
     nav ul li.dropdown.tax-dropdown {
       position: relative;
     }
-    nav ul .dropdown-submenu {
-      position: absolute;
-      top: 0;
-      left: 100%; /* Position submenu exactly to the right of dropdown-menu */
-      margin-left: 10px; /* small gap between menus */
-      background: var(--blue);
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.14);
-      display: none;
-      min-width: 220px;
-      z-index: 3100;
-      padding: 10px 0;
-      border-left: 2px solid var(--green);
-    }
+nav ul .dropdown-submenu {
+  position: absolute;
+  top: 0;
+  left: 100%; /* Position submenu exactly to the right of dropdown-menu */
+  margin-left: 10px; /* small gap between menus */
+  background: #fff; /* White background for submenu */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: none;
+  min-width: 220px;
+  z-index: 3100;
+  padding: 10px 0;
+  border-left: 2px solid var(--green);
+  color: var(--blue); /* Text color for readability */
+}
+
+nav ul .dropdown-submenu li a {
+  padding: 8px 20px;
+  color: var(--blue); /* Text color */
+  font-weight: 500;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+nav ul .dropdown-submenu li a:hover {
+  background-color: var(--green);
+  color: var(--blue);
+}
+If you want, I can provide the complete updated full file with this change included. Just ask!
     nav ul li.dropdown.tax-dropdown:hover > .dropdown-submenu,
     nav ul li.dropdown.tax-dropdown:focus-within > .dropdown-submenu {
       display: block;
@@ -167,17 +182,18 @@
       display: inline-flex;
       align-items: center;
     }
-    nav ul .dropdown-submenu li a {
-      padding: 8px 20px;
-      color: var(--white);
-      font-weight: 500;
-      transition: background-color 0.3s;
-      white-space: nowrap;
-    }
-    nav ul .dropdown-submenu li a:hover {
-      background-color: var(--green);
-      color: var(--blue);
-    }
+nav ul .dropdown-submenu li a {
+  padding: 8px 20px;
+  color: var(--blue); /* Text color */
+  font-weight: 500;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+nav ul .dropdown-submenu li a:hover {
+  background-color: var(--green);
+  color: var(--blue);
+}
     .menu-toggle {
       display: none;
     }
