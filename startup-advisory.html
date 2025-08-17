@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,9 +17,11 @@
       --light-blue: #e7f0fa;
       --white: #FFFFFF;
     }
+
     * {
       box-sizing: border-box;
     }
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -27,28 +30,34 @@
       background: var(--light-gray);
       scroll-behavior: smooth;
     }
+
     img {
       max-width: 100%;
       height: auto;
       display: block;
     }
+
     a {
       text-decoration: none;
       color: inherit;
       cursor: pointer;
     }
+
     ul,
     li {
       padding: 0;
       margin: 0;
       list-style: none;
     }
+
     .container {
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
     }
+
     /* Header & Navigation */
+
     header {
       background: var(--blue);
       position: fixed;
@@ -61,20 +70,24 @@
       display: flex;
       align-items: center;
     }
+
     header .container {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
+
     nav {
       display: flex;
       align-items: center;
       width: 100%;
     }
+
     nav .logo img {
       height: 42px;
       border-radius: 10px;
     }
+
     nav ul {
       display: flex;
       gap: 1.5rem;
@@ -82,6 +95,7 @@
       padding: 0;
       align-items: center;
     }
+
     nav ul li a {
       font-weight: 600;
       color: var(--white);
@@ -90,14 +104,17 @@
       transition: color 0.3s, background-color 0.3s;
       display: inline-block;
     }
+
     nav ul li a:hover,
     nav ul li a.active-service {
       color: var(--green);
       background: var(--white);
     }
+
     nav ul li.dropdown {
       position: relative;
     }
+
     nav ul li.dropdown>a {
       cursor: pointer;
       user-select: none;
@@ -105,12 +122,14 @@
       align-items: center;
       gap: 4px;
     }
+
     nav ul li.dropdown>a::after {
       content: "▾";
       font-size: 0.6em;
       color: var(--green);
       margin-left: 4px;
     }
+
     nav ul li.dropdown ul.dropdown-menu {
       position: absolute;
       top: 100%;
@@ -120,15 +139,15 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       display: none;
       min-width: 260px;
-      padding: 10px 0;
       z-index: 3000;
-      /* Added right padding to avoid overlap with submenu */
-      padding-right: 280px;
+      padding: 10px 0;
     }
+
     nav ul li.dropdown:hover ul.dropdown-menu,
     nav ul li.dropdown:focus-within ul.dropdown-menu {
       display: block;
     }
+
     nav ul li.dropdown ul.dropdown-menu li a {
       display: block;
       padding: 8px 20px;
@@ -137,50 +156,16 @@
       transition: background-color 0.3s;
       white-space: nowrap;
     }
+
     nav ul li.dropdown ul.dropdown-menu li a:hover {
       background-color: var(--green);
       color: var(--blue);
     }
-    /* TAX dropdown submenu styles */
-    nav ul li.dropdown.tax-dropdown {
-      position: relative;
-    }
-    nav ul .dropdown-submenu {
-      position: absolute;
-      top: 0;
-      left: 100%; /* Position submenu exactly to the right of dropdown-menu */
-      margin-left: 10px; /* small gap between menus */
-      background: var(--blue);
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.14);
-      display: none;
-      min-width: 220px;
-      z-index: 3100;
-      padding: 10px 0;
-      border-left: 2px solid var(--green);
-    }
-    nav ul li.dropdown.tax-dropdown:hover > .dropdown-submenu,
-    nav ul li.dropdown.tax-dropdown:focus-within > .dropdown-submenu {
-      display: block;
-    }
-    nav ul li.dropdown.tax-dropdown > a {
-      display: inline-flex;
-      align-items: center;
-    }
-    nav ul .dropdown-submenu li a {
-      padding: 8px 20px;
-      color: var(--white);
-      font-weight: 500;
-      transition: background-color 0.3s;
-      white-space: nowrap;
-    }
-    nav ul .dropdown-submenu li a:hover {
-      background-color: var(--green);
-      color: var(--blue);
-    }
+
     .menu-toggle {
       display: none;
     }
+
     @media (max-width: 991px) {
       .menu-toggle {
         display: flex;
@@ -192,6 +177,7 @@
         height: 36px;
         margin-left: 10px;
       }
+
       .menu-toggle span {
         display: block;
         height: 4px;
@@ -200,6 +186,7 @@
         background: white;
         transition: all 0.3s;
       }
+
       nav ul {
         display: none;
         position: fixed;
@@ -212,60 +199,56 @@
         border-radius: 0 0 0 8px;
         z-index: 2100;
       }
+
       nav ul.active {
         display: flex;
       }
+
       nav ul li.dropdown ul.dropdown-menu {
         position: static;
         box-shadow: none;
         border-radius: 0;
         padding: 0;
         display: none !important;
-        padding-right: 0; /* remove padding-right for mobile */
       }
+
       nav ul li.dropdown.active ul.dropdown-menu {
         display: block !important;
       }
+
       nav ul li.dropdown > a::after {
         content: "▸";
         transform: rotate(0deg);
         transition: transform 0.3s;
       }
+
       nav ul li.dropdown.active > a::after {
         transform: rotate(90deg);
       }
-      nav ul .dropdown-submenu {
-        position: static;
-        left: auto;
-        background: var(--blue);
-        min-width: 160px;
-        box-shadow: none;
-        border-radius: 0;
-        display: none !important;
-        padding: 0;
-        border-left: none;
-      }
-      nav ul li.dropdown.tax-dropdown.active > .dropdown-submenu {
-        display: block !important;
-      }
     }
+
     /* Main content and other page styles */
+
     #main {
       padding: 100px 15px 60px 15px;
     }
+
     .service-header {
       text-align: center;
       margin-bottom: 50px;
     }
+
     .service-header h1 {
       font-size: 2.8rem;
       font-weight: 700;
       margin: 0 0 10px 0;
       color: var(--blue);
     }
+
     .service-header h1 span {
       color: var(--green);
     }
+
     .service-header .tagline {
       font-size: 1.2rem;
       font-weight: 500;
@@ -273,12 +256,14 @@
       margin: 0 auto;
       color: #555;
     }
+
     .service-cards-container {
       display: flex;
       justify-content: center;
       gap: 30px;
       flex-wrap: wrap;
     }
+
     .service-card {
       background: var(--white);
       border-radius: 16px;
@@ -288,10 +273,12 @@
       max-width: 380px;
       transition: transform 0.3s, box-shadow 0.3s;
     }
+
     .service-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 8px 35px rgba(8, 37, 103, 0.12);
     }
+
     .service-card .icon {
       background-color: var(--pale-green);
       border-radius: 50%;
@@ -302,330 +289,51 @@
       justify-content: center;
       margin-bottom: 20px;
     }
+
     .service-card .icon svg {
       width: 32px;
       height: 32px;
       fill: var(--green);
     }
+
     .service-card h3 {
       font-size: 1.4rem;
       font-weight: 600;
       margin: 0 0 15px 0;
       color: var(--blue);
     }
+
     .service-card ul {
       list-style-type: '✓ ';
       padding-left: 1.5em;
     }
+
     .service-card ul li {
       margin-bottom: 10px;
       font-size: 1rem;
       line-height: 1.5;
     }
+
     @media (max-width: 575px) {
       .service-header h1 {
         font-size: 2rem;
       }
+
       .service-header .tagline {
         font-size: 1rem;
       }
     }
+
     /* Footer styles */
-    .custom-footer {
+
+    footer {
       background: var(--blue);
       color: var(--white);
-      padding: 48px 0 0 0;
-      font-size: 1rem;
-      box-shadow: 0 -2px 8px rgba(8, 37, 103, 0.09);
-      margin-top: 60px;
-    }
-    .footer-row {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 0 32px;
-      gap: 40px;
-    }
-    .footer-col {
-      flex: 1 1 160px;
-      min-width: 170px;
-      margin-bottom: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-    .footer-col.company {
-      flex: 2 1 260px;
-      max-width: 320px;
-    }
-    .footer-logo {
-      width: 140px;
-      border-radius: 12px;
-      margin-bottom: 14px;
-    }
-    .footer-tagline {
-      font-size: 1.04rem;
-      color: var(--light-blue);
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-    .footer-col h4 {
-      color: var(--green);
-      margin-bottom: 1em;
-      font-size: 1.18rem;
-      letter-spacing: 0.02em;
-    }
-    .footer-col ul,
-    .footer-col ul li {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .footer-col ul li {
-      margin-bottom: 0.55em;
-      font-size: 1em;
-    }
-    .footer-col ul li a {
-      color: var(--white);
-      text-decoration: none;
-      transition: color 0.17s;
-      border-bottom: 1px dotted transparent;
-      padding-bottom: 1px;
-    }
-    .footer-col ul li a:hover {
-      color: var(--green);
-      border-bottom: 1px solid var(--green);
-    }
-    .footer-col.contact ul li {
-      font-size: 0.98em;
-      margin-bottom: 0.4em;
-    }
-    .footer-social {
-      margin-top: 14px;
-      display: flex;
-      gap: 14px;
-    }
-    .footer-social a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--green);
-      color: var(--blue);
-      border-radius: 50%;
-      transition: background 0.22s, color 0.22s, box-shadow 0.18s, transform 0.17s;
-      width: 36px;
-      height: 36px;
-      font-size: 1.16rem;
-      box-shadow: 0 2px 8px rgba(33, 205, 50, 0.10);
-    }
-    .footer-social a:hover {
-      background: var(--light-blue);
-      color: var(--blue);
-      transform: scale(1.10) rotate(-7deg);
-    }
-    .footer-bottom {
-      border-top: 1.5px solid var(--light-blue);
-      margin-top: 14px;
-      padding: 18px 16px 24px 16px;
       text-align: center;
-      font-size: 0.96em;
-      color: var(--white);
-      background: var(--blue);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .footer-link {
-      color: var(--light-blue);
-      text-decoration: underline;
-      margin: 0 0.45em;
-      font-weight: 400;
-      transition: color 0.18s;
-    }
-    .footer-link:hover {
-      color: var(--green);
-    }
-    @media (max-width: 900px) {
-      .footer-row {
-        flex-direction: column;
-        gap: 16px;
-      }
-      .footer-col.company {
-        max-width: 100%;
-      }
-      .footer-col {
-        min-width: 0;
-        margin-bottom: 7px;
-      }
-    }
-       /* Ensure submenu positions to the right */
-
-/@media (min-width: 992px) {
-  .dropdown-submenu {
-    position: relative;
-  }
-
-  /* Right-side submenu hidden by default */
-  .dropdown-submenu > .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    margin-top: 0;
-    margin-left: 0;
-    min-width: 220px;
-  }
-
-  /* Show only on hover */
-  .dropdown-submenu:hover > .dropdown-menu {
-    display: block;
-  }
-
-  /* Add right arrow */
-  .dropdown-submenu > a::after {
-    content: "▶";
-    float: right;
-    margin-left: 6px;
-    font-size: 0.7rem;
-  }
-}
-
-   /* Header */
-
-    header {
-      background: var(--blue);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 65px;
-      z-index: 2000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      display: flex;
-      align-items: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
     }
 
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      width: 100%;
-    }
-
-    nav .logo {
-      display: flex;
-      align-items: center;
-    }
-
-    nav .logo img {
-      height: 42px;
-      border-radius: 10px;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 1.5rem;
-      margin-left: auto;
-      padding: 0;
-      align-items: center;
-    }
-
-    nav ul li {
-      position: relative;
-    }
-
-    nav ul li a {
-      font-weight: 600;
-      color: var(--white);
-      padding: 8px 12px;
-      border-radius: 4px;
-      display: inline-block;
-      transition: color 0.3s, background-color 0.3s;
-    }
-
-    nav ul li a.active,
-    nav ul li a:hover {
-      color: var(--green);
-      background: var(--white);
-    }
-
-    nav ul li.dropdown>a {
-      cursor: pointer;
-      user-select: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    nav ul li.dropdown>a::after {
-      content: "▾";
-      font-size: 0.6em;
-      color: var(--green);
-      margin-left: 4px;
-    }
-
-    nav ul li.dropdown ul.dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: var(--blue);
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      display: none;
-      min-width: 260px;
-      z-index: 3000;
-      padding: 10px 0;
-    }
-
-    nav ul li.dropdown:hover ul.dropdown-menu,
-    nav ul li.dropdown:focus-within ul.dropdown-menu {
-      display: block;
-    }
-
-    nav ul li.dropdown ul.dropdown-menu li a {
-      display: block;
-      padding: 8px 20px;
-      color: var(--white);
-      font-weight: 500;
-      transition: background-color 0.3s;
-      white-space: nowrap;
-    }
-
-    nav ul li.dropdown ul.dropdown-menu li a:hover,
-    nav ul li.dropdown ul.dropdown-menu li a:focus {
-      background-color: var(--green);
-      color: var(--blue);
-      outline: none;
-    }
-
-    .menu-toggle {
-      display: none;
-      cursor: pointer;
-      flex-direction: column;
-      justify-content: center;
-      gap: 6px;
-      width: 36px;
-      height: 36px;
-      margin-left: 10px;
-    }
-
-    .menu-toggle span {
-      height: 4px;
-      width: 100%;
-      background: white;
-      border-radius: 3px;
-      transition: all 0.3s;
-      display: block;
-    }
 
        /* Ensure submenu positions to the right */
 
@@ -797,11 +505,12 @@
 
 
 
-    
+
   </style>
 </head>
+
 <body>
-  <!-- Header/Navbar -->
+
  <!-- Header/Navbar -->
   <header>
     <div class="container">
@@ -875,6 +584,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
+
   <!-- Main Content for Startup Advisory Page -->
   <main id="main">
     <div class="container">
@@ -882,6 +592,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <h1>Startup <span>Advisory</span> Services</h1>
         <p class="tagline">Partnering with visionaries to launch, grow, and lead thriving businesses.</p>
       </div>
+
       <div class="service-cards-container">
         <!-- Card 1: Strategic Business Planning -->
         <div class="service-card">
@@ -897,6 +608,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <li>Strategic frameworks aligned with your vision &amp; goals.</li>
           </ul>
         </div>
+
         <!-- Card 2: Financial Advisory & Capital Raising -->
         <div class="service-card">
           <div class="icon" aria-hidden="true">
@@ -911,6 +623,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <li>Enabling meaningful investor engagement.</li>
           </ul>
         </div>
+
         <!-- Card 3: Compliances & Business Structuring -->
         <div class="service-card">
           <div class="icon" aria-hidden="true">
@@ -928,92 +641,29 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
     </div>
   </main>
+
   <!-- Footer -->
-  <footer class="custom-footer">
-    <div class="footer-row">
-      <!-- Company and Logo -->
-      <div class="footer-col company">
-        <img src="https://github.com/raghava239/tsurendraca/blob/main/logo.jpg?raw=true" alt="T Surendra & Associates Logo" class="footer-logo" />
-        <p class="footer-tagline">Empowering businesses with expertise and integrity in audit, tax, and advisory.</p>
-      </div>
-      <!-- Quick Links -->
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#top">About</a></li>
-          <li><a href="index.html#team-section">Team</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#contact">Contact Us</a></li>
-        </ul>
-      </div>
-      <!-- Services Menu (or More Links) -->
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="startup-advisory.html">Start-up Advisory</a></li>
-          <li><a href="virtual-cfo.html">Virtual CFO</a></li>
-          <li><a href="international-tax.html">International Tax</a></li>
-          <li><a href="direct-indirect-tax.html">Direct & Indirect Tax</a></li>
-          <li><a href="audit-assurance.html">Audit & Assurance</a></li>
-          <li><a href="labour-law-compliance.html">Labour Law Compliance</a></li>
-          <li><a href="secretarial-fema-rbi.html">Secretarial/FEMA/RBI</a></li>
-        </ul>
-      </div>
-      <!-- Contact & Social -->
-      <div class="footer-col contact">
-        <h4>Contact</h4>
-        <ul>
-          <li>📞 <a href="tel:7995356942">79953 56942</a></li>
-          <li>📧 <a href="mailto:Surendra@tsurendraca.in">Surendra@tsurendraca.in</a></li>
-          <li>🌐 <a href="https://tsurendraca.in" target="_blank" rel="noopener">tsurendraca.in</a></li>
-          <li>📍 Hyderabad, Visakhapatnam</li>
-        </ul>
-        <div class="footer-social">
-          <a href="#" aria-label="LinkedIn" title="LinkedIn">
-            <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.029-3.065-1.868-3.065-1.868 0-2.154 1.459-2.154 2.969v5.7h-3v-10h2.882v1.367h.041c.402-.76 1.382-1.564 2.848-1.564 3.046 0 3.609 2.006 3.609 4.612v5.585z" />
-            </svg>
-          </a>
-          <a href="#" aria-label="Twitter" title="Twitter">
-            <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false">
-              <path
-                d="M24 4.557a9.839 9.839 0 0 1-2.828.775 4.933 4.933 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.196a4.922 4.922 0 0 0-8.39 4.482c-4.087-.205-7.713-2.165-10.144-5.144-0.423.724-0.666 1.562-0.666 2.457 0 1.694.863 3.188 2.176 4.066a4.904 4.904 0 0 1-2.23-.616v.062c0 2.367 1.684 4.342 3.918 4.785a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.418a9.867 9.867 0 0 1-6.102 2.105c-.396 0-.787-.023-1.175-.069a13.945 13.945 0 0 0 7.548 2.212c9.057 0 14.01-7.514 14.01-14.01 0-.213 0-.426-.015-.637a10.004 10.004 0 0 0 2.457-2.548z" />
-            </svg>
-          </a>
-          <a href="#" aria-label="Facebook" title="Facebook">
-            <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false">
-              <path
-                d="M22.675 0h-21.35c-0.769 0-1.325 0.556-1.325 1.325v21.351c0 0.768 0.556 1.324 1.325 1.324h11.495v-9.294h-3.124v-3.622h3.124v-2.672c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463 0.099 2.797 0.144v3.24l-1.921 0.001c-1.504 0-1.797 0.715-1.797 1.763v2.312h3.587l-0.467 3.622h-3.12v9.294h6.116c0.769 0 1.325-0.556 1.325-1.324v-21.352c0-0.769-0.556-1.325-1.325-1.325z" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>
-        <a href="#" class="footer-link">Privacy Policy</a> |
-        <a href="#" class="footer-link">Terms of Service</a>
-      </div>
-      <span>© 2025 T SURENDRA & ASSOCIATES. All Rights Reserved.</span>
-    </div>
+  <footer>
+    <p>© 2025 T SURENDRA & ASSOCIATES. All Rights Reserved. Visit:
+      <a href="https://www.tsurendraca.in/" target="_blank" rel="noopener">www.tsurendraca.in</a></p>
   </footer>
+
   <script>
     // Hamburger menu toggle for mobile
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.getElementById('nav-menu');
+
     menuToggle?.addEventListener('click', () => {
       navMenu.classList.toggle('active');
     });
+
     // Close mobile menu after clicking on a nav link
     navMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
       });
     });
+
     // Mobile dropdown submenu toggle
     const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
     dropdownToggles.forEach(toggle => {
@@ -1026,7 +676,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   </script>
+
 </body>
 
 </html>
-
