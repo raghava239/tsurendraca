@@ -511,6 +511,21 @@
     font-size: 0.7rem;
   }
 }
+/* Logo / Brand Title */
+.logo .brand-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff; /* white text */
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+/* Subtle hover effect */
+.logo .brand-title:hover {
+  color: #ffd700; /* golden accent on hover */
+}
 
    nav ul li {
       position: relative;
@@ -524,9 +539,10 @@
   <header>
     <div class="container">
       <nav>
-        <a href="index.html" class="logo" aria-label="T Surendra & Associates Logo">
-          <img src="https://github.com/raghava239/tsurendraca/blob/main/logo.jpg?raw=true" alt="T Surendra & Associates Logo" />
-        </a>
+        <a href="#top" class="logo" aria-label="T Surendhra & Co">
+        <span class="brand-title">T SURENDRA & CO</span>
+      </a>
+
         <ul id="nav-menu">
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#top">About</a></li>
@@ -748,3 +764,4 @@ document.addEventListener("DOMContentLoaded", function () {
 </body>
 
 </html>
+
