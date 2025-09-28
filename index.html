@@ -1132,85 +1132,263 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <!-- Banner Carousel Section -->
-  <section id="top" aria-label="Welcome Banner">
-    <div class="carousel-outer">
-      <!-- Video Background -->
-      <video autoplay muted loop playsinline class="background-video" aria-hidden="true" tabindex="-1">
-        <source src="video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <!-- Carousel Container -->
-      <div class="carousel-container" id="bannerCarousel" aria-live="polite" aria-atomic="true">
-        <!-- Slide 1 -->
-        <article class="carousel-slide" aria-label="Slide 1 of 6 - Welcome Message">
-          <div class="carousel-content enhanced-text-background">
-            <h6>Welcome to</h6>
-            <h2>T SURENDRA & ASSOCIATES (TSA)</h2>
-            <h3>Your Trusted Partner for Comprehensive Financial and Advisory Services</h3>
-          </div>
-        </article>
-        <!-- Slide 2 -->
-        <article class="carousel-slide" aria-label="Slide 2 of 6">
-          <div class="carousel-content enhanced-text-background">
-            <h3>About</h3>
-            <p>
-              At TSA, we offer holistic, end-to-end solutions tailored to align with your business goals and financial objectives.<br /><br />
-              Whether you are a startup, a growing enterprise, or an established organization, we provide strategic support across every stage of your journey — from compliance and taxation to business advisory, virtual CFO services, and operational planning.
-            </p>
-            <p>
-              <strong>TSA</strong> is your one-stop destination for comprehensive financial and business services, delivered by a professional team including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates, and MBAs.<br /><br />
-              We collaborate to provide audit, consulting, financial advisory, and tax services.
-            </p>
-          </div>
-        </article>
-        <!-- Slide 3 -->
-        <article class="carousel-slide" aria-label="Slide 3 of 6 - Our Approach and Principles">
-          <div class="carousel-content enhanced-text-background">
-            <h2>Our <span>Approach</span> <span>And Principles</span></h2>
-            <p>
-              At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.
-            </p>
-            <ul>
-              <li>Listening to the client before advising</li>
-              <li>Providing timely and actionable solutions</li>
-              <li>Maintaining confidentiality and professional ethics</li>
-              <li>Continuously upgrading our skills and technologies</li>
-            </ul>
-          </div>
-        </article>
-        <!-- Slide 4 -->
-        <article class="carousel-slide" aria-label="Slide 4 of 6 - Vision">
-          <div class="carousel-content enhanced-text-background">
-            <h2>Our <span>Vision</span></h2>
-            <p>To be a trusted and future-ready financial firm, recognized for our deep expertise, innovative solutions, and unwavering commitment.</p>
-          </div>
-        </article>
-        <!-- Slide 5 -->
-        <article class="carousel-slide" aria-label="Slide 5 of 6 - Mission">
-          <div class="carousel-content enhanced-text-background">
-            <h2>Our <span>Mission</span></h2>
-            <p>Empower clients through robust financial systems, compliance, and strategic insights that foster growth and sustainability.</p>
-          </div>
-        </article>
-        <!-- Slide 6 -->
-        <article class="carousel-slide" aria-label="Slide 6 of 6 - Core Values">
-          <div class="carousel-content enhanced-text-background">
-            <h2>Our <span>Core Values</span></h2>
-            <ul>
-              <li>Integrity – Honesty, transparency, and strong moral principles</li>
-              <li>Excellence – Delivering high standards consistently</li>
-              <li>Commitment – Dedicated service and long-term relationships</li>
-              <li>Confidentiality – Respecting client privacy and data</li>
-              <li>Learning – Adapting to changing laws and technologies</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-      <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
-      <button type="button" class="carousel-btn next" aria-label="Next Slide">&#9654;</button>
-      <div class="carousel-indicators" role="tablist" aria-label="Carousel Navigation"></div>
+<!-- Banner Carousel Section 1 (Slides 1–3) -->
+<section id="top" aria-label="Welcome Banner">
+  <div class="carousel-outer">
+    <!-- Video Background -->
+    <video autoplay muted loop playsinline class="background-video" aria-hidden="true" tabindex="-1">
+      <source src="video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <!-- Carousel Container -->
+    <div class="carousel-container" id="bannerCarousel1" aria-live="polite" aria-atomic="true">
+      <!-- Slide 1 -->
+      <article class="carousel-slide" aria-label="Slide 1 of 3 - Welcome Message">
+        <div class="carousel-content enhanced-text-background">
+          <h6>Welcome to</h6>
+          <h2>T SURENDRA & ASSOCIATES (TSA)</h2>
+          <h3>Your Trusted Partner for Comprehensive Financial and Advisory Services</h3>
+        </div>
+      </article>
+      <!-- Slide 2 -->
+      <article class="carousel-slide" aria-label="Slide 2 of 3">
+        <div class="carousel-content enhanced-text-background">
+          <h3>About</h3>
+          <p>
+            At TSA, we offer holistic, end-to-end solutions tailored to align with your business goals and financial objectives.<br /><br />
+            Whether you are a startup, a growing enterprise, or an established organization, we provide strategic support across every stage of your journey — from compliance and taxation to business advisory, virtual CFO services, and operational planning.
+          </p>
+          <p>
+            <strong>TSA</strong> is your one-stop destination for comprehensive financial and business services, delivered by a professional team including Chartered Accountants, Company Secretaries, Cost Accountants, Advocates, and MBAs.<br /><br />
+            We collaborate to provide audit, consulting, financial advisory, and tax services.
+          </p>
+        </div>
+      </article>
+      <!-- Slide 3 -->
+      <article class="carousel-slide" aria-label="Slide 3 of 3 - Our Approach and Principles">
+        <div class="carousel-content enhanced-text-background">
+          <h2>Our <span>Approach</span> <span>And Principles</span></h2>
+          <p>
+            At <strong>T SURENDRA & ASSOCIATES</strong>, we combine analytical precision with a practical, hands-on methodology tailored to each client’s unique needs. Our approach is built on trust, clarity, and long-term partnership.
+          </p>
+          <ul>
+            <li>Listening to the client before advising</li>
+            <li>Providing timely and actionable solutions</li>
+            <li>Maintaining confidentiality and professional ethics</li>
+            <li>Continuously upgrading our skills and technologies</li>
+          </ul>
+        </div>
+      </article>
     </div>
-  </section>
+    <button type="button" class="carousel-btn prev" aria-label="Previous Slide">&#9664;</button>
+    <button type="button" class="carousel-btn next" aria-label="Next Slide">&#9654;</button>
+    <div class="carousel-indicators" role="tablist" aria-label="Carousel Navigation"></div>
+  </div>
+</section>
+
+<!-- ===== TSA: Vision / Mission / Core Values (Isolated Section) ===== -->
+<style>
+  /* Place this CSS AFTER your main stylesheet to avoid conflicts */
+  :root {
+    --tsa-navy: #0a1a52;
+    --tsa-accent: #1d72b8;
+    --tsa-bg: #f6f9ff;
+    --tsa-card-shadow: 0 8px 24px rgba(10,26,82,0.08);
+    --tsa-card-shadow-hover: 0 18px 40px rgba(10,26,82,0.12);
+  }
+
+  /* wrapper / isolation */
+  .tsa-cards-wrapper {
+    background: var(--tsa-bg) !important;
+    padding: 64px 20px !important;
+    box-sizing: border-box !important;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .tsa-cards-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .tsa-section-title {
+    font-size: 2.1rem;
+    color: var(--tsa-navy);
+    margin: 0 0 28px 0;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .tsa-section-subtitle {
+    color: #344054;
+    margin: 0 0 36px 0;
+    text-align: center;
+    font-size: 1rem;
+    opacity: 0.95;
+  }
+
+  /* Grid */
+  .tsa-cards-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    align-items: stretch;
+    width: 100%;
+  }
+
+  /* Card */
+  .tsa-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 26px;
+    box-shadow: var(--tsa-card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform .28s ease, box-shadow .28s ease;
+    text-decoration: none;
+    color: inherit;
+    min-height: 220px;
+    box-sizing: border-box;
+  }
+
+  .tsa-card:hover,
+  .tsa-card:focus-within {
+    transform: translateY(-8px);
+    box-shadow: var(--tsa-card-shadow-hover);
+  }
+
+  .tsa-card-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .tsa-card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--tsa-accent), rgba(29,114,184,0.85));
+    flex: 0 0 56px;
+    box-shadow: 0 6px 18px rgba(29,114,184,0.10);
+  }
+
+  .tsa-card-icon svg { width: 28px; height: 28px; fill: #fff; display:block; }
+
+  .tsa-card-title {
+    font-size: 1.25rem;
+    color: var(--tsa-navy);
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .tsa-card-title .tsa-accent {
+    color: var(--tsa-accent);
+  }
+
+  .tsa-card-body {
+    color: #2b2b2b;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1 1 auto;
+  }
+
+  .tsa-card-list {
+    margin: 0;
+    padding-left: 18px;
+    list-style: disc;
+    color: #374151;
+  }
+
+  /* small utilities to fight inherited styles */
+  .tsa-card p, .tsa-card ul, .tsa-card li { margin: 0; }
+  .tsa-card a { color: inherit; text-decoration: none; }
+
+  /* Responsive tweaks */
+  @media (max-width: 900px) {
+    .tsa-section-title { font-size: 1.9rem; }
+    .tsa-card { padding: 20px; min-height: 200px; }
+  }
+
+  @media (max-width: 520px) {
+    .tsa-cards-wrapper { padding: 40px 16px; }
+    .tsa-card-icon { width: 48px; height: 48px; border-radius: 10px; }
+    .tsa-card-title { font-size: 1.05rem; }
+  }
+</style>
+
+<section id="tsa-vision-mission-values" class="tsa-cards-wrapper" aria-labelledby="tsa-section-heading">
+  <div class="tsa-cards-inner">
+    <h2 id="tsa-section-heading" class="tsa-section-title">Our Vision, Mission &amp; Core Values</h2>
+    <p class="tsa-section-subtitle">Built for clarity and trust — three pillars that guide every client engagement.</p>
+
+    <div class="tsa-cards-grid" role="list">
+
+      <!-- Vision Card -->
+      <article class="tsa-card" role="listitem" aria-labelledby="tsa-card-vision-title">
+        <div class="tsa-card-head">
+          <div class="tsa-card-icon" aria-hidden="true">
+            <!-- Eye / Vision SVG -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 5C7 5 3.2 8.1 1.6 12c1.6 3.9 5.4 7 10.4 7s8.8-3.1 10.4-7C20.8 8.1 17 5 12 5zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+            </svg>
+          </div>
+          <h3 id="tsa-card-vision-title" class="tsa-card-title">Our <span class="tsa-accent">Vision</span></h3>
+        </div>
+
+        <p class="tsa-card-body">
+          To be a trusted and future-ready financial firm, recognized for deep expertise,
+          innovative solutions and unwavering commitment to our clients' success.
+        </p>
+      </article>
+
+      <!-- Mission Card -->
+      <article class="tsa-card" role="listitem" aria-labelledby="tsa-card-mission-title">
+        <div class="tsa-card-head">
+          <div class="tsa-card-icon" aria-hidden="true">
+            <!-- Target / Mission SVG -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.93A6.93 6.93 0 0 1 6.07 13H9a3 3 0 1 0 3 3v2.93zM12 6a6 6 0 0 1 5.14 8.9L16 12h-2v-2l-1.14 1.44A6 6 0 0 1 12 6z"/>
+            </svg>
+          </div>
+          <h3 id="tsa-card-mission-title" class="tsa-card-title">Our <span class="tsa-accent">Mission</span></h3>
+        </div>
+
+        <p class="tsa-card-body">
+          Empower clients with robust financial systems, accurate compliance and strategic insights
+          that foster growth, resilience and long-term value.
+        </p>
+      </article>
+
+      <!-- Core Values Card -->
+      <article class="tsa-card" role="listitem" aria-labelledby="tsa-card-values-title">
+        <div class="tsa-card-head">
+          <div class="tsa-card-icon" aria-hidden="true">
+            <!-- Shield / Values SVG -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 2l7 3v6c0 5-3.8 9.8-7 11-3.2-1.2-7-6-7-11V5l7-3z"/>
+            </svg>
+          </div>
+          <h3 id="tsa-card-values-title" class="tsa-card-title">Our <span class="tsa-accent">Core Values</span></h3>
+        </div>
+
+        <ul class="tsa-card-list">
+          <li>Integrity — honesty, transparency and ethics</li>
+          <li>Excellence — consistent high-quality delivery</li>
+          <li>Commitment — long-term partnerships with clients</li>
+          <li>Confidentiality — protecting client privacy and data</li>
+          <li>Learning — adapting to new regulations & tech</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+<!-- ===== End TSA Section ===== -->
 
   <!-- Services Section -->
 <section id="services" aria-label="Our Services">
