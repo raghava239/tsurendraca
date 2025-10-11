@@ -1187,140 +1187,6 @@ document.addEventListener("DOMContentLoaded", function () {
 </section>
 
 <!-- ===== TSA: Vision / Mission / Core Values (Isolated Section) ===== -->
-<style>
-  /* Place this CSS AFTER your main stylesheet to avoid conflicts */
-  :root {
-    --tsa-navy: #0a1a52;
-    --tsa-accent: #1d72b8;
-    --tsa-bg: #f6f9ff;
-    --tsa-card-shadow: 0 8px 24px rgba(10,26,82,0.08);
-    --tsa-card-shadow-hover: 0 18px 40px rgba(10,26,82,0.12);
-  }
-
-  /* wrapper / isolation */
-  .tsa-cards-wrapper {
-    background: #f5f6fa !important;
-    padding: 64px 20px !important;
-    box-sizing: border-box !important;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .tsa-cards-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .tsa-section-title {
-    font-size: 2.1rem;
-    color: var(--tsa-navy);
-    margin: 0 0 28px 0;
-    font-weight: 700;
-    text-align: center;
-  }
-
-  .tsa-section-subtitle {
-    color: #344054;
-    margin: 0 0 36px 0;
-    text-align: center;
-    font-size: 1rem;
-    opacity: 0.95;
-  }
-
-  /* Grid */
-  .tsa-cards-grid {
-    display: grid;
-    gap: 24px;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    align-items: stretch;
-    width: 100%;
-  }
-
-  /* Card */
-  .tsa-card {
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 26px;
-    box-shadow: var(--tsa-card-shadow);
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    transition: transform .28s ease, box-shadow .28s ease;
-    text-decoration: none;
-    color: inherit;
-    min-height: 220px;
-    box-sizing: border-box;
-  }
-
-  .tsa-card:hover,
-  .tsa-card:focus-within {
-    transform: translateY(-8px);
-    box-shadow: var(--tsa-card-shadow-hover);
-  }
-
-  .tsa-card-head {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .tsa-card-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 12px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--tsa-accent), rgba(29,114,184,0.85));
-    flex: 0 0 56px;
-    box-shadow: 0 6px 18px rgba(29,114,184,0.10);
-  }
-
-  .tsa-card-icon svg { width: 28px; height: 28px; fill: #fff; display:block; }
-
-  .tsa-card-title {
-    font-size: 1.25rem;
-    color: var(--tsa-navy);
-    margin: 0;
-    font-weight: 700;
-  }
-
-  .tsa-card-title .tsa-accent {
-    color: var(--tsa-accent);
-  }
-
-  .tsa-card-body {
-    color: #2b2b2b;
-    font-size: 0.98rem;
-    line-height: 1.6;
-    margin: 0;
-    flex: 1 1 auto;
-  }
-
-  .tsa-card-list {
-    margin: 0;
-    padding-left: 18px;
-    list-style: disc;
-    color: #374151;
-  }
-
-  /* small utilities to fight inherited styles */
-  .tsa-card p, .tsa-card ul, .tsa-card li { margin: 0; }
-  .tsa-card a { color: inherit; text-decoration: none; }
-
-  /* Responsive tweaks */
-  @media (max-width: 900px) {
-    .tsa-section-title { font-size: 1.9rem; }
-    .tsa-card { padding: 20px; min-height: 200px; }
-  }
-
-  @media (max-width: 520px) {
-    .tsa-cards-wrapper { padding: 40px 16px; }
-    .tsa-card-icon { width: 48px; height: 48px; border-radius: 10px; }
-    .tsa-card-title { font-size: 1.05rem; }
-  }
-</style>
-
 <section id="tsa-vision-mission-values" class="tsa-cards-wrapper" aria-labelledby="tsa-section-heading">
   <div class="tsa-cards-inner">
     <h2 id="tsa-section-heading" class="tsa-section-title">Our Vision, Mission &amp; Core Values</h2>
@@ -1388,6 +1254,144 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   </div>
 </section>
+
+<style>
+/* ===== Improved TSA Vision / Mission / Values Styles ===== */
+
+/* ===== TSA Vision / Mission / Values - Dark Elegant Theme ===== */
+:root {
+  --tsa-bg-dark: #a5a5f2;
+  --tsa-card-bg: rgba(255, 255, 255, 0.03);
+  --tsa-border: rgba(255, 153, 0, 0.7);
+  --tsa-text-light: #c22121;
+  --tsa-accent: #ff6a00; /* warm orange tone */
+  --tsa-card-hover: rgba(255, 255, 255, 0.08);
+  --tsa-font: 'Poppins', 'Inter', sans-serif;
+}
+
+/* Section Wrapper */
+.tsa-cards-wrapper {
+  background: var(--tsa-bg-dark);
+  color: var(--tsa-text-light);
+  padding: 90px 20px;
+  border-radius: 30px;
+  text-align: center;
+  font-family: var(--tsa-font);
+  background-image: linear-gradient(180deg, #f0faea 0%, #f0faea 100%);
+}
+
+/* Title & Subtitle */
+.tsa-section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--tsa-accent);
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.tsa-section-subtitle {
+  color: #082567;
+  font-size: 1.05rem;
+  margin-bottom: 60px;
+}
+
+/* Grid Layout */
+.tsa-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  justify-content: center;
+}
+
+/* Card Styling */
+.tsa-card {
+  background: var(--tsa-card-bg);
+  border: 1px solid var(--tsa-border);
+  border-radius: 14px;
+  padding: 36px 28px;
+  transition: all 0.35s ease;
+  text-align: left;
+  min-height: 240px;
+  position: relative;
+}
+
+.tsa-card:hover {
+  background: var(--tsa-card-hover);
+  transform: translateY(-6px);
+  border-color: var(--tsa-accent);
+  box-shadow: 0 0 20px rgba(255, 106, 0, 0.25);
+}
+
+/* Card Header */
+.tsa-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.tsa-card-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--tsa-accent);
+  box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.tsa-card-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: #fff;
+}
+
+/* Card Titles & Text */
+.tsa-card-title {
+  color: #e59a64;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.tsa-card-body,
+.tsa-card-list {
+  color: #082567;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.tsa-card-list {
+  margin: 0;
+  padding-left: 18px;
+  list-style: disc;
+}
+
+/* Hover Effects */
+.tsa-card:hover .tsa-card-title {
+  color: var(--tsa-accent);
+}
+.tsa-card:hover .tsa-card-icon {
+  transform: scale(1.1);
+  background: #ff8b2f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tsa-section-title {
+    font-size: 1.8rem;
+  }
+  .tsa-card {
+    padding: 28px 20px;
+  }
+}
+
+
+  
+</style>
+
 <!-- ===== End TSA Section ===== -->
 
   <!-- Services Section -->
