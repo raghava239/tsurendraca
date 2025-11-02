@@ -1186,26 +1186,23 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </section>
 
-<!-- ===== TSA: Vision / Mission / Core Values (Isolated Section) ===== -->
+<!-- ===== TSA: Vision / Mission / Core Values (Team-style Cards) ===== -->
 <section id="tsa-vision-mission-values" class="tsa-cards-wrapper" aria-labelledby="tsa-section-heading">
   <div class="tsa-cards-inner">
     <h2 id="tsa-section-heading" class="tsa-section-title">Our Vision, Mission &amp; Core Values</h2>
     <p class="tsa-section-subtitle">Built for clarity and trust — three pillars that guide every client engagement.</p>
 
     <div class="tsa-cards-grid" role="list">
-
       <!-- Vision Card -->
-      <article class="tsa-card" role="listitem" aria-labelledby="tsa-card-vision-title">
-        <div class="tsa-card-head">
-          <div class="tsa-card-icon" aria-hidden="true">
-            <!-- Eye / Vision SVG -->
+      <article class="tsa-card team-card" role="listitem" aria-labelledby="tsa-card-vision-title">
+        <div class="tsa-card-top">
+          <div class="tsa-card-badge" aria-hidden="true">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M12 5C7 5 3.2 8.1 1.6 12c1.6 3.9 5.4 7 10.4 7s8.8-3.1 10.4-7C20.8 8.1 17 5 12 5zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
             </svg>
           </div>
-          <h3 id="tsa-card-vision-title" class="tsa-card-title">Our <span class="tsa-accent">Vision</span></h3>
         </div>
-
+        <h3 id="tsa-card-vision-title" class="tsa-card-title">Our <span class="tsa-accent">Vision</span></h3>
         <p class="tsa-card-body">
           To be a trusted and future-ready financial firm, recognized for deep expertise,
           innovative solutions and unwavering commitment to our clients' success.
@@ -1213,17 +1210,15 @@ document.addEventListener("DOMContentLoaded", function () {
       </article>
 
       <!-- Mission Card -->
-      <article class="tsa-card" role="listitem" aria-labelledby="tsa-card-mission-title">
-        <div class="tsa-card-head">
-          <div class="tsa-card-icon" aria-hidden="true">
-            <!-- Target / Mission SVG -->
+      <article class="tsa-card team-card" role="listitem" aria-labelledby="tsa-card-mission-title">
+        <div class="tsa-card-top">
+          <div class="tsa-card-badge" aria-hidden="true">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.93A6.93 6.93 0 0 1 6.07 13H9a3 3 0 1 0 3 3v2.93zM12 6a6 6 0 0 1 5.14 8.9L16 12h-2v-2l-1.14 1.44A6 6 0 0 1 12 6z"/>
             </svg>
           </div>
-          <h3 id="tsa-card-mission-title" class="tsa-card-title">Our <span class="tsa-accent">Mission</span></h3>
         </div>
-
+        <h3 id="tsa-card-mission-title" class="tsa-card-title">Our <span class="tsa-accent">Mission</span></h3>
         <p class="tsa-card-body">
           Empower clients with robust financial systems, accurate compliance and strategic insights
           that foster growth, resilience and long-term value.
@@ -1231,167 +1226,256 @@ document.addEventListener("DOMContentLoaded", function () {
       </article>
 
       <!-- Core Values Card -->
-      <article class="tsa-card" role="listitem" aria-labelledby="tsa-card-values-title">
-        <div class="tsa-card-head">
-          <div class="tsa-card-icon" aria-hidden="true">
-            <!-- Shield / Values SVG -->
+      <article class="tsa-card team-card" role="listitem" aria-labelledby="tsa-card-values-title">
+        <div class="tsa-card-top">
+          <div class="tsa-card-badge" aria-hidden="true">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M12 2l7 3v6c0 5-3.8 9.8-7 11-3.2-1.2-7-6-7-11V5l7-3z"/>
             </svg>
           </div>
-          <h3 id="tsa-card-values-title" class="tsa-card-title">Our <span class="tsa-accent">Core Values</span></h3>
         </div>
-
+        <h3 id="tsa-card-values-title" class="tsa-card-title">Our <span class="tsa-accent">Core Values</span></h3>
         <ul class="tsa-card-list">
           <li>Integrity — honesty, transparency and ethics</li>
           <li>Excellence — consistent high-quality delivery</li>
           <li>Commitment — long-term partnerships with clients</li>
           <li>Confidentiality — protecting client privacy and data</li>
-          <li>Learning — adapting to new regulations & tech</li>
+          <li>Learning — adapting to new regulations &amp; tech</li>
         </ul>
       </article>
-
     </div>
   </div>
 </section>
 
 <style>
-/* ===== Improved TSA Vision / Mission / Values Styles ===== */
+  /* ===== Team-like styling for Vision / Mission / Values ===== */
+  :root {
+    --bg: #f0faea;
+    --card-bg: #ffffff;
+    --accent: #2153a2;
+    --accent-2: #80df5c;
+    --muted: #082567;
+    --border: rgba(33,71,197,0.08);
+    --font: 'Poppins', 'Inter', sans-serif;
+  }
 
-/* ===== TSA Vision / Mission / Values - Dark Elegant Theme ===== */
-:root {
-  --tsa-bg-dark: #a5a5f2;
-  --tsa-card-bg: rgba(255, 255, 255, 0.03);
-  --tsa-border: rgba(255, 153, 0, 0.7);
-  --tsa-text-light: #c22121;
-  --tsa-accent: #2153a2; /* warm orange tone */
-  --tsa-card-hover: rgba(255, 255, 255, 0.08);
-  --tsa-font: 'Poppins', 'Inter', sans-serif;
-}
+  .tsa-cards-wrapper {
+    background: var(--bg);
+    padding: 80px 20px;
+    border-radius: 28px;
+    text-align: center;
+    font-family: var(--font);
+  }
 
-/* Section Wrapper */
-.tsa-cards-wrapper {
-  background: var(--tsa-bg-dark);
-  color: var(--tsa-text-light);
-  padding: 90px 20px;
-  border-radius: 30px;
-  text-align: center;
-  font-family: var(--tsa-font);
-  background-image: linear-gradient(180deg, #f0faea 0%, #f0faea 100%);
-}
-
-/* Title & Subtitle */
-.tsa-section-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--tsa-accent);
-  margin-bottom: 10px;
-  letter-spacing: 0.5px;
-  color:#2153a2
-}
-
-.tsa-section-subtitle {
-  color: #082567;
-  font-size: 1.05rem;
-  margin-bottom: 60px;
-}
-
-/* Grid Layout */
-.tsa-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 28px;
-  justify-content: center;
-}
-
-/* Card Styling */
-.tsa-card {
-  background: var(--tsa-card-bg);
-  border:1px solid rgb(33 71 197 / 70%);
-  border-radius: 14px;
-  padding: 36px 28px;
-  transition: all 0.35s ease;
-  text-align: left;
-  min-height: 240px;
-  position: relative;
-}
-
-.tsa-card:hover {
-  background: var(--tsa-card-hover);
-  transform: translateY(-6px);
-  border-color: #80df5c;
-  box-shadow: 0 0 20px rgba(255, 106, 0, 0.25);
-}
-
-/* Card Header */
-.tsa-card-head {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
-}
-
-.tsa-card-icon {
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  background: #2153a2;
-  box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
-  flex-shrink: 0;
-}
-
-.tsa-card-icon svg {
-  width: 26px;
-  height: 26px;
-  fill: #fff;
-}
-
-/* Card Titles & Text */
-.tsa-card-title {
-  color: #2153a2;
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.tsa-card-body,
-.tsa-card-list {
-  color: #082567;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.tsa-card-list {
-  margin: 0;
-  padding-left: 18px;
-  list-style: disc;
-}
-
-/* Hover Effects */
-.tsa-card:hover .tsa-card-title {
-  color: var(--tsa-accent);
-}
-.tsa-card:hover .tsa-card-icon {
-  transform: scale(1.1);
-  background: #ff8b2f;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
   .tsa-section-title {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0 0 8px;
   }
+
+  .tsa-section-subtitle {
+    margin: 0 0 48px;
+    color: var(--muted);
+    font-size: 1.02rem;
+  }
+
+  .tsa-cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
   .tsa-card {
-    padding: 28px 20px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 34px 22px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(33,71,197,0.05);
+    border: 1px solid var(--border);
+    transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    width: 30%;
+    min-width: 260px;
   }
-}
 
+  .tsa-card-top {
+    display: flex;
+    justify-content: center;
+  }
 
+  .tsa-card-badge {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid var(--accent-2);
+    background: linear-gradient(180deg, rgba(33,83,162,0.06), rgba(33,83,162,0.02));
+    box-shadow: 0 6px 18px rgba(33,71,197,0.06);
+    transition: transform .28s ease, border-color .28s ease;
+  }
+
+  .tsa-card-badge svg {
+    width: 44px;
+    height: 44px;
+    fill: var(--accent);
+  }
+
+  .tsa-card:hover .tsa-card-badge {
+    transform: scale(1.06);
+    border-color: rgba(128,223,92,1);
+  }
+
+  .tsa-card-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .tsa-accent {
+    color: var(--accent-2);
+  }
+
+  .tsa-card-body,
+  .tsa-card-list {
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .tsa-card-list {
+    list-style: disc;
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  /* === Added hover + responsive rules from your CSS === */
+  #tsa-vision-mission-values .team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 900px) {
+    #tsa-vision-mission-values .team-card {
+      width: 45%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    #tsa-vision-mission-values .team-card {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .tsa-section-title {
+      font-size: 1.8rem;
+    }
+  }
   
+  
+  :root {
+    --bg: #f0faea;
+    --card-bg: #ffffff;
+    --accent: #2153a2;
+    --accent-2: #80df5c;
+    --muted: #082567;
+    --border: rgba(33,71,197,0.08);
+    --font: 'Poppins', 'Inter', sans-serif;
+  }
+
+  .tsa-cards-wrapper {
+    background: var(--bg);
+    padding: 80px 20px;
+    border-radius: 28px;
+    text-align: center;
+    font-family: var(--font);
+  }
+
+  .tsa-section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0 0 8px;
+  }
+
+  .tsa-section-subtitle {
+    margin: 0 0 48px;
+    color: var(--muted);
+    font-size: 1.02rem;
+  }
+
+  /* === FIXED ROW LAYOUT === */
+  .tsa-cards-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 24px;
+    flex-wrap: nowrap; /* prevents wrapping */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .tsa-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 34px 22px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(33,71,197,0.05);
+    border: 1px solid var(--border);
+    transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease;
+    flex: 0 0 32%; /* exactly 3 cards per row */
+    min-width: 300px;
+  }
+
+  .tsa-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-color: var(--accent-2);
+  }
+
+  .tsa-card-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .tsa-card-body {
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  /* Responsive: 2 cards then 1 */
+  @media (max-width: 900px) {
+    .tsa-cards-grid {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .tsa-card {
+      flex: 0 0 45%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .tsa-card {
+      flex: 0 0 100%;
+    }
+  }
+
+
 </style>
+
 
 <!-- ===== End TSA Section ===== -->
 
