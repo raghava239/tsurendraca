@@ -1247,18 +1247,16 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </section>
 <style>
-  /* ===== Unified + Fixed TSA Vision / Mission / Values Styling ===== */
   :root {
     --bg: #f0faea;
     --card-bg: #ffffff;
     --accent: #2153a2;
     --accent-2: #80df5c;
-    --muted: #082567;
+    --muted: #082567; /* desired text color */
     --border: rgba(33,71,197,0.08);
     --font: 'Poppins', 'Inter', sans-serif;
   }
 
-  /* Section Wrapper */
   .tsa-cards-wrapper {
     background: var(--bg);
     padding: 80px 20px;
@@ -1280,13 +1278,13 @@ document.addEventListener("DOMContentLoaded", function () {
     font-size: 1.02rem;
   }
 
-  /* === FIXED 3-CARD LAYOUT === */
+  /* Grid / layout */
   .tsa-cards-grid {
     display: flex;
     justify-content: center;
     align-items: stretch;
     gap: 24px;
-    flex-wrap: nowrap; /* 3 per row */
+    flex-wrap: nowrap;
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -1301,16 +1299,20 @@ document.addEventListener("DOMContentLoaded", function () {
     transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease;
     flex: 0 0 32%;
     min-width: 300px;
-    color: var(--muted); /* ensure all text inherits this color */
+    /* set default color for card text */
+    color: var(--muted);
   }
 
-  .tsa-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    border-color: var(--accent-2);
+  /* Force all textual elements inside a card to use #082567 */
+  .tsa-card,
+  .tsa-card h1, .tsa-card h2, .tsa-card h3, .tsa-card h4, .tsa-card h5, .tsa-card h6,
+  .tsa-card p, .tsa-card li, .tsa-card span, .tsa-card a, .tsa-card strong, .tsa-card em,
+  .tsa-card .tsa-card-title, .tsa-card .tsa-card-body, .tsa-card .tsa-card-list,
+  .tsa-card .tsa-card-list li {
+    color: var(--muted) !important;
   }
 
-  /* Icon / Badge */
+  /* Keep accent styling for the circular badge only */
   .tsa-card-badge {
     width: 96px;
     height: 96px;
@@ -1328,7 +1330,7 @@ document.addEventListener("DOMContentLoaded", function () {
   .tsa-card-badge svg {
     width: 44px;
     height: 44px;
-    fill: var(--accent);
+    fill: var(--accent); /* keeps icon blue */
   }
 
   .tsa-card:hover .tsa-card-badge {
@@ -1336,24 +1338,19 @@ document.addEventListener("DOMContentLoaded", function () {
     border-color: rgba(128,223,92,1);
   }
 
-  /* Titles & Text */
   .tsa-card-title {
     font-size: 1.18rem;
     font-weight: 700;
-    color: var(--muted);
     margin-bottom: 10px;
-  }
-
-  .tsa-accent {
-    color: var(--accent-2);
+    /* color enforced above */
   }
 
   .tsa-card-body,
   .tsa-card-list {
-    color: var(--muted);
     font-size: 0.98rem;
     line-height: 1.6;
     margin: 0;
+    /* color enforced above */
   }
 
   .tsa-card-list {
@@ -1362,13 +1359,13 @@ document.addEventListener("DOMContentLoaded", function () {
     padding-left: 20px;
   }
 
-  /* Hover Effect */
   .tsa-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-color: var(--accent-2);
   }
 
-  /* Responsive Adjustments */
+  /* Responsive */
   @media (max-width: 900px) {
     .tsa-cards-grid {
       flex-wrap: wrap;
@@ -1384,13 +1381,8 @@ document.addEventListener("DOMContentLoaded", function () {
       flex: 0 0 100%;
     }
   }
-
-  @media (max-width: 768px) {
-    .tsa-section-title {
-      font-size: 1.8rem;
-    }
-  }
 </style>
+
 
  
 
