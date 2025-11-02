@@ -1475,6 +1475,106 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 </style>
+  <style>
+  :root {
+    --bg: #f0faea;
+    --card-bg: #ffffff;
+    --accent: #2153a2;
+    --accent-2: #80df5c;
+    --muted: #082567;
+    --border: rgba(33,71,197,0.08);
+    --font: 'Poppins', 'Inter', sans-serif;
+  }
+
+  .tsa-cards-wrapper {
+    background: var(--bg);
+    padding: 80px 20px;
+    border-radius: 28px;
+    text-align: center;
+    font-family: var(--font);
+  }
+
+  .tsa-section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0 0 8px;
+  }
+
+  .tsa-section-subtitle {
+    margin: 0 0 48px;
+    color: var(--muted);
+    font-size: 1.02rem;
+  }
+
+  /* === FIXED ROW LAYOUT === */
+  .tsa-cards-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 24px;
+    flex-wrap: nowrap; /* prevents wrapping */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .tsa-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 34px 22px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(33,71,197,0.05);
+    border: 1px solid var(--border);
+    transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease;
+    flex: 0 0 32%; /* exactly 3 cards per row */
+    min-width: 300px;
+    color: var(--muted); /* Apply text color */
+  }
+
+  .tsa-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-color: var(--accent-2);
+  }
+
+  .tsa-card-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .tsa-card-body,
+  .tsa-card-list {
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .tsa-card-list {
+    margin: 0;
+    padding-left: 18px;
+    list-style: disc;
+  }
+
+  /* Responsive: 2 cards then 1 */
+  @media (max-width: 900px) {
+    .tsa-cards-grid {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .tsa-card {
+      flex: 0 0 45%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .tsa-card {
+      flex: 0 0 100%;
+    }
+  }
+</style>
+
 
 
 <!-- ===== End TSA Section ===== -->
