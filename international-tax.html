@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Indirect Tax Services - T SURENDRA & ASSOCIATES</title>
-  <meta name="description" content="Expert advisory, compliance, and representation for indirect tax matters including GST and other statutory filings.">
+  <title>International Tax Services - T SURENDRA & ASSOCIATES</title>
+  <meta name="description" content="Expert TP advisory, compliance, and representation across borders for international tax matters.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* === CORE STYLES (Copied from other pages for consistency) === */
     :root {
       --blue: #082567;
       --green: #9ACD32;
@@ -27,9 +28,11 @@
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; color: inherit; cursor: pointer; }
     ul, li { padding: 0; margin: 0; list-style: none; }
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+    .container {
+      width: 90%; max-width: 1200px; margin: 0 auto;
+    }
 
-    /* HEADER */
+    /* === HEADER & NAVIGATION (Same as other pages) === */
     header {
       background: var(--blue);
       position: fixed;
@@ -38,53 +41,86 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
       display: flex; align-items: center;
     }
-    header .container { display: flex; align-items: center; justify-content: space-between; }
+    header .container {
+      display: flex; align-items: center; justify-content: space-between;
+    }
     nav { display: flex; align-items: center; width: 100%; }
     nav .logo img { height: 42px; border-radius: 10px; }
-    nav ul { display: flex; gap: 1.5rem; margin-left: auto; padding: 0; align-items: center; }
+    nav ul {
+      display: flex; gap: 1.5rem; margin-left: auto; padding: 0; align-items: center;
+    }
     nav ul li a {
       font-weight: 600; color: var(--white); padding: 8px 12px;
-      border-radius: 4px; transition: color 0.3s, background-color 0.3s;
+      border-radius: 4px; transition: color 0.3s, background-color 0.3s; display: inline-block;
     }
     nav ul li a:hover, nav ul li a.active-service { color: var(--green); background: var(--white); }
     nav ul li.dropdown { position: relative; }
-    nav ul li.dropdown > a::after { content: "▾"; font-size: 0.6em; color: var(--green); margin-left: 4px; }
-
-    /* DROPDOWN */
+    nav ul li.dropdown > a::after {
+      content: "▾"; font-size: 0.6em; color: var(--green); margin-left: 4px;
+    }
     nav ul li.dropdown ul.dropdown-menu {
       position: absolute; top: 100%; left: 0; background: var(--blue); border-radius: 0 0 8px 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15); display: none; min-width: 260px; z-index: 3000; padding: 10px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15); display: none;
+      min-width: 260px; z-index: 3000; padding: 10px 0;
     }
     nav ul li.dropdown:hover ul.dropdown-menu,
     nav ul li.dropdown:focus-within ul.dropdown-menu { display: block; }
     nav ul li.dropdown ul.dropdown-menu li a {
       display: block; padding: 8px 20px; color: var(--white); font-weight: 500;
+      transition: background-color 0.3s; white-space: nowrap;
     }
-    nav ul li.dropdown ul.dropdown-menu li a:hover { background-color: var(--green); color: var(--blue); }
-
+    nav ul li.dropdown ul.dropdown-menu li a:hover {
+      background-color: var(--green); color: var(--blue);
+    }
     .menu-toggle { display: none; }
-
     @media (max-width: 991px) {
       .menu-toggle { display: flex; flex-direction: column; justify-content: center; gap: 6px; cursor: pointer; width: 36px; height: 36px; margin-left: 10px; }
       .menu-toggle span { display: block; height: 4px; width: 100%; border-radius: 3px; background: white; transition: all 0.3s; }
       nav ul { display: none; position: fixed; top: 65px; right: 0; background: var(--blue); width: 200px; flex-direction: column; padding: 10px 15px; border-radius: 0 0 0 8px; z-index: 2100; }
       nav ul.active { display: flex; }
+      nav ul li.dropdown ul.dropdown-menu { position: static; box-shadow: none; border-radius: 0; padding: 0; display: none !important; }
+      nav ul li.dropdown.active ul.dropdown-menu { display: block !important; }
+      nav ul li.dropdown > a::after { content: "▸"; transform: rotate(0deg); transition: transform 0.3s; }
+      nav ul li.dropdown.active > a::after { transform: rotate(90deg); }
     }
 
-    /* MAIN CONTENT */
-    #main { padding: 100px 15px 60px 15px; }
-    .service-header { text-align: center; margin-bottom: 50px; }
-    .service-header h1 { font-size: 2.8rem; font-weight: 700; color: var(--blue); margin-bottom: 10px; }
-    .service-header h1 span { color: var(--green); }
-    .service-header .tagline { font-size: 1.2rem; font-weight: 500; color: #555; }
-
+    /* === SERVICE DETAIL PAGE STYLES (Same as other service pages) === */
+    #main {
+      padding: 100px 15px 60px 15px;
+    }
+    .service-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .service-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin: 0 0 10px 0;
+      color: var(--blue);
+    }
+    .service-header h1 span {
+      color: var(--green);
+    }
+    .service-header .tagline {
+      font-size: 1.2rem;
+      font-weight: 500;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #555;
+    }
     .service-cards-container {
-      display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
     }
     .service-card {
-      background: var(--white); border-radius: 16px;
+      background: var(--white);
+      border-radius: 16px;
       box-shadow: 0 5px 25px rgba(8, 37, 103, 0.08);
-      padding: 30px; flex: 1 1 320px; max-width: 380px;
+      padding: 30px;
+      flex: 1 1 320px;
+      max-width: 380px;
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .service-card:hover {
@@ -93,31 +129,240 @@
     }
     .service-card .icon {
       background-color: var(--pale-green);
-      border-radius: 50%; width: 60px; height: 60px;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
     }
-    .service-card .icon svg { width: 32px; height: 32px; fill: var(--green); }
-    .service-card h3 { font-size: 1.4rem; font-weight: 600; color: var(--blue); margin-bottom: 15px; }
-    .service-card ul { list-style-type: '✓ '; padding-left: 1.5em; }
-    .service-card ul li { margin-bottom: 10px; font-size: 1rem; line-height: 1.5; }
-
+    .service-card .icon svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--green);
+    }
+    .service-card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 0 0 15px 0;
+      color: var(--blue);
+    }
+    .service-card ul {
+      list-style-type: '✓ ';
+      padding-left: 1.5em;
+    }
+    .service-card ul li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
     @media (max-width: 575px) {
       .service-header h1 { font-size: 2rem; }
       .service-header .tagline { font-size: 1rem; }
     }
 
-    /* FOOTER */
-    .custom-footer { background: var(--blue); color: var(--white); padding: 48px 0 0; margin-top: 60px; }
-    .footer-row { display: flex; flex-wrap: wrap; max-width: 1150px; margin: 0 auto; padding: 0 32px; gap: 40px; }
-    .footer-col { flex: 1 1 160px; min-width: 170px; margin-bottom: 30px; }
-    .footer-col h4 { color: var(--green); margin-bottom: 1em; }
-    .footer-col ul li a:hover { color: var(--green); }
+    /* === FOOTER - Enhanced multi-column footer matching brand colors === */
+    .custom-footer {
+      background: var(--blue);
+      color: var(--white);
+      padding: 48px 0 0 0;
+      font-size: 1rem;
+      box-shadow: 0 -2px 8px rgba(8, 37, 103, 0.09);
+      margin-top: 60px;
+    }
 
-    .logo .brand-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 1px;
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 0 32px;
+      gap: 40px;
+    }
+
+    .footer-col {
+      flex: 1 1 160px;
+      min-width: 170px;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .footer-col.company {
+      flex: 2 1 260px;
+      max-width: 320px;
+    }
+
+    .footer-logo {
+      width: 140px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+    }
+
+    .footer-tagline {
+      font-size: 1.04rem;
+      color: var(--light-blue);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .footer-col h4 {
+      color: var(--green);
+      margin-bottom: 1em;
+      font-size: 1.18rem;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-col ul,
+    .footer-col ul li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.55em;
+      font-size: 1em;
+    }
+
+    .footer-col ul li a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.17s;
+      border-bottom: 1px dotted transparent;
+      padding-bottom: 1px;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--green);
+      border-bottom: 1px solid var(--green);
+    }
+
+    .footer-col.contact ul li {
+      font-size: 0.98em;
+      margin-bottom: 0.4em;
+    }
+
+    .footer-social {
+      margin-top: 14px;
+      display: flex;
+      gap: 14px;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--green);
+      color: var(--blue);
+      border-radius: 50%;
+      transition: background 0.22s, color 0.22s, box-shadow 0.18s, transform 0.17s;
+      width: 36px;
+      height: 36px;
+      font-size: 1.16rem;
+      box-shadow: 0 2px 8px rgba(33, 205, 50, 0.10);
+    }
+
+    .footer-social a:hover {
+      background: var(--light-blue);
+      color: var(--blue);
+      transform: scale(1.10) rotate(-7deg);
+    }
+
+    .footer-bottom {
+      border-top: 1.5px solid var(--light-blue);
+      margin-top: 14px;
+      padding: 18px 16px 24px 16px;
+      text-align: center;
+      font-size: 0.96em;
+      color: var(--white);
+      background: var(--blue);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-link {
+      color: var(--light-blue);
+      text-decoration: underline;
+      margin: 0 0.45em;
+      font-weight: 400;
+      transition: color 0.18s;
+    }
+
+    .footer-link:hover {
+      color: var(--green);
+    }
+
+    @media (max-width: 900px) {
+      .footer-row {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .footer-col.company {
+        max-width: 100%;
+      }
+
+      .footer-col {
+        min-width: 0;
+        margin-bottom: 7px;
+      }
+    }
+    
+    
+    
+       /* Ensure submenu positions to the right */
+
+/@media (min-width: 992px) {
+  .dropdown-submenu {
+    position: relative;
+  }
+
+  /* Right-side submenu hidden by default */
+  .dropdown-submenu > .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-top: 0;
+    margin-left: 0;
+    min-width: 220px;
+  }
+
+  /* Show only on hover */
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+  }
+
+  /* Add right arrow */
+  .dropdown-submenu > a::after {
+    content: "▶";
+    float: right;
+    margin-left: 6px;
+    font-size: 0.7rem;
+  }
+}
+/* Logo / Brand Title */
+.logo .brand-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff; /* white text */
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+/* Subtle hover effect */
+.logo .brand-title:hover {
+  color: #ffd700; /* golden accent on hover */
+}
+
+   nav ul li {
+      position: relative;
     }
   </style>
 </head>
@@ -127,25 +372,28 @@
   <header>
     <div class="container">
       <nav>
-        <a href="#top" class="logo" aria-label="T Surendra & Co">
-          <span class="brand-title">T SURENDRA & CO</span>
-        </a>
+       <a href="#top" class="logo" aria-label="T Surendhra & Co">
+        <span class="brand-title">T SURENDRA & CO</span>
+      </a>
+
         <ul id="nav-menu">
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#top">About</a></li>
           <li class="dropdown">
-            <a href="index.html#services" class="dropdown-toggle active-service">Services</a>
-            <ul class="dropdown-menu">
-              <li><a href="startup-advisory.html">Innovation and Start up Consulting</a></li>
+            <a href="index.html#services" class="dropdown-toggle active-service" aria-haspopup="true" aria-expanded="false">Services</a>
+            <ul class="dropdown-menu" role="menu" aria-label="Services Submenu">
+              <li><a href="startup-advisory.html" data-service="startup-advisory">Innovation and Start up Consulting</a></li>
               <li><a href="virtual-cfo.html">Virtual CFO Services</a></li>
-              <li class="dropdown-submenu">
-                <a href="#">Taxation Services</a>
-                <ul class="dropdown-menu">
-                  <li><a href="direct-indirect-tax.html">Direct Tax Service</a></li>
-                  <li><a href="international-tax.html">Indirect Tax Service</a></li>
-                  <li><a href="Transfer-Pricing-Services.html">Transfer Pricing Services</a></li>
-                </ul>
-              </li>
+ <!-- Submenu for Tax Services -->
+   <li class="dropdown-submenu">
+      <a class="dropdown-item" href="#">Taxation Services</a>
+      <ul class="dropdown-menu">
+       <li><a class="dropdown-item" href="direct-indirect-tax.html">Direct Tax Service</a></li>
+        <li><a class="dropdown-item" href="international-tax.html">Indirect Tax Service</a></li>
+        
+         <li><a class="dropdown-item" href="Transfer-Pricing-Services.html">Transfer Pricing Services</a></li>
+      </ul>
+    </li>
               <li><a href="audit-assurance.html">Audit and Assurance Services</a></li>
               <li><a href="labour-law-compliance.html">Labour Law Compliance Services</a></li>
               <li><a href="Compliance-Services.html">SEZ, STPI, EOU Setup & Compliance Services</a></li>
@@ -156,11 +404,38 @@
           <li><a href="index.html#contact">Contact Us</a></li>
           <li><a href="index.html#contact" class="btn-primary">Message Us</a></li>
         </ul>
-        <div class="menu-toggle"><span></span><span></span><span></span></div>
+        <div class="menu-toggle" aria-label="Toggle menu" tabindex="0" role="button">
+          <span></span><span></span><span></span>
+        </div>
       </nav>
     </div>
   </header>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Select all submenus
+  document.querySelectorAll(".dropdown-submenu").forEach(function (submenu) {
+    let subMenuEl = submenu.querySelector(".dropdown-menu");
 
+    // Set position to open right
+    subMenuEl.style.top = "0";
+    subMenuEl.style.left = "100%";
+    subMenuEl.style.display = "none";
+    subMenuEl.style.position = "absolute";
+    subMenuEl.style.minWidth = "220px";
+
+    // Show on mouse enter
+    submenu.addEventListener("mouseenter", function () {
+      subMenuEl.style.display = "block";
+    });
+
+    // Hide on mouse leave
+    submenu.addEventListener("mouseleave", function () {
+      subMenuEl.style.display = "none";
+    });
+  });
+});
+</script>
+  <!-- Main Content for International Tax Page -->
   <!-- Main Content -->
   <main id="main">
     <div class="container">
@@ -212,13 +487,16 @@
     </div>
   </main>
 
-  <!-- Footer -->
+ <!-- Footer -->
   <footer class="custom-footer">
     <div class="footer-row">
+      <!-- Company and Logo -->
       <div class="footer-col company">
+ <a href="#top" class="logo" aria-label="T Surendhra & Co">
         <span class="brand-title">T SURENDRA & CO</span>
-        <p>Empowering businesses with expertise and integrity in audit, tax, and advisory.</p>
+        <p class="footer-tagline">Empowering businesses with expertise and integrity in audit, tax, and advisory.</p>
       </div>
+      <!-- Quick Links -->
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul>
@@ -229,22 +507,81 @@
           <li><a href="index.html#contact">Contact Us</a></li>
         </ul>
       </div>
+      <!-- Services Menu (or More Links) -->
+      
+      <!-- Contact & Social -->
       <div class="footer-col contact">
         <h4>Contact</h4>
         <ul>
           <li>📞 <a href="tel:7995356942">79953 56942</a></li>
           <li>📧 <a href="mailto:Surendra@tsurendraca.in">Surendra@tsurendraca.in</a></li>
-          <li>🌐 <a href="https://tsurendraca.in" target="_blank">tsurendraca.in</a></li>
+          <li>🌐 <a href="https://tsurendraca.in" target="_blank" rel="noopener">tsurendraca.in</a></li>
           <li>📍 Hyderabad, Visakhapatnam</li>
         </ul>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn" title="LinkedIn">
+            <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.029-3.065-1.868-3.065-1.868 0-2.154 1.459-2.154 2.969v5.7h-3v-10h2.882v1.367h.041c.402-.76 1.382-1.564 2.848-1.564 3.046 0 3.609 2.006 3.609 4.612v5.585z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter" title="Twitter">
+            <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false">
+              <path
+                d="M24 4.557a9.839 9.839 0 0 1-2.828.775 4.933 4.933 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.196a4.922 4.922 0 0 0-8.39 4.482c-4.087-.205-7.713-2.165-10.144-5.144-0.423.724-0.666 1.562-0.666 2.457 0 1.694.863 3.188 2.176 4.066a4.904 4.904 0 0 1-2.23-.616v.062c0 2.367 1.684 4.342 3.918 4.785a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.418a9.867 9.867 0 0 1-6.102 2.105c-.396 0-.787-.023-1.175-.069a13.945 13.945 0 0 0 7.548 2.212c9.057 0 14.01-7.514 14.01-14.01 0-.213 0-.426-.015-.637a10.004 10.004 0 0 0 2.457-2.548z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook" title="Facebook">
+            <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false">
+              <path
+                d="M22.675 0h-21.35c-0.769 0-1.325 0.556-1.325 1.325v21.351c0 0.768 0.556 1.324 1.325 1.324h11.495v-9.294h-3.124v-3.622h3.124v-2.672c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463 0.099 2.797 0.144v3.24l-1.921 0.001c-1.504 0-1.797 0.715-1.797 1.763v2.312h3.587l-0.467 3.622h-3.12v9.294h6.116c0.769 0 1.325-0.556 1.325-1.324v-21.352c0-0.769-0.556-1.325-1.325-1.325z" />
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <a href="#" class="footer-link">Privacy Policy</a> |
-      <a href="#" class="footer-link">Terms of Service</a>
-      <p>© 2025 T SURENDRA & CO. All Rights Reserved.</p>
+      <div>
+        <a href="#" class="footer-link">Privacy Policy</a> |
+        <a href="#" class="footer-link">Terms of Service</a>
+      </div>
+      <span>© 2025 T SURENDRA & CO. All Rights Reserved.</span>
     </div>
   </footer>
 
+
+  <script>
+    // Hamburger menu toggle for mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    menuToggle?.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu after clicking on a nav link
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Mobile dropdown submenu toggle
+    const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', e => {
+        if (window.innerWidth <= 991) {
+          e.preventDefault();
+          const parentLi = e.target.closest('li.dropdown');
+          parentLi.classList.toggle('active');
+        }
+      });
+    });
+  </script>
+  
 </body>
 </html>
+
+
+
